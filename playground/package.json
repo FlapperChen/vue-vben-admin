@@ -50,9 +50,11 @@
     "@vueuse/core": "catalog:",
     "ant-design-vue": "catalog:",
     "dayjs": "catalog:",
+    "echarts": "catalog:",
     "json-bigint": "catalog:",
     "pinia": "catalog:",
     "vue": "catalog:",
+    "vue-echarts": "^8.0.1",
     "vue-router": "catalog:"
   },
   "devDependencies": {
