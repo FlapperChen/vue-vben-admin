@@ -1,33 +1,33 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
+import VChart from 'vue-echarts';
 
 import { Page } from '@vben/common-ui';
 
 import {
-  Card,
-  Row,
-  Col,
-  Select,
-  Table,
-  Spin,
-  Radio,
-  DatePicker,
-  Space,
   Button,
+  Card,
+  Col,
+  DatePicker,
   message,
+  Radio,
+  Row,
+  Select,
+  Space,
+  Spin,
+  Table,
 } from 'ant-design-vue';
-import VChart from 'vue-echarts';
-import { use } from 'echarts/core';
-import { CanvasRenderer } from 'echarts/renderers';
-import { LineChart, BarChart } from 'echarts/charts';
+import dayjs from 'dayjs';
+import { BarChart, LineChart } from 'echarts/charts';
 import {
+  DataZoomComponent,
+  GridComponent,
+  LegendComponent,
   TitleComponent,
   TooltipComponent,
-  LegendComponent,
-  GridComponent,
-  DataZoomComponent,
 } from 'echarts/components';
-import dayjs from 'dayjs';
+import { use } from 'echarts/core';
+import { CanvasRenderer } from 'echarts/renderers';
 
 // Register ECharts components
 use([
@@ -61,12 +61,35 @@ const dateRange = ref<[dayjs.Dayjs, dayjs.Dayjs]>([
   dayjs(),
 ]);
 
+// 数据版本信息
+const dataVersion = ref<any>(null);
+
+// 加载最新数据版本信息
+const loadLatestInfo = async () => {
+  try {
+    const res = await fetch('/src/assets/data-display/latest.json');
+    const info = await res.json();
+    dataVersion.value = info;
+
+    // 设置日期范围为最新数据的90天
+    if (info.dateRange) {
+      dateRange.value = [
+        dayjs(info.dateRange.earliest),
+        dayjs(info.dateRange.latest),
+      ];
+      console.warn('GPU日期范围已设置:', info.dateRange);
+    }
+  } catch {
+    console.warn('无法读取最新数据信息，使用默认范围');
+  }
+};
+
 const gpuOptions = ref<any[]>([]);
 
 // Available dates for disabled dates
 const availableDates = computed(() => {
   const dates = [...new Set(allGpuData.value.map((d) => d.date))];
-  return dates.sort();
+  return dates.toSorted();
 });
 
 // Format date helper
@@ -80,8 +103,13 @@ const formatDate = (date: Date) => {
 // Load data using fetch
 const loadData = async () => {
   loading.value = true;
+  // 从 latest.json 获取数据日期码
+  const dataDate = dataVersion.value?.dataDate || '260411';
+
   try {
-    const response = await fetch('/src/assets/data-display/gpu_daily_stats-260411.json');
+    const response = await fetch(
+      `/src/assets/data-display/gpu_daily_stats-${dataDate}.json`,
+    );
     const data = await response.json();
 
     if (!data || data.length === 0) {
@@ -92,20 +120,25 @@ const loadData = async () => {
 
     // Sort by date
     allGpuData.value.sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
     );
 
     // Get unique GPU IDs
-    const gpuIds = [...new Set(data.map((d: any) => d.gpu_id))].sort((a: number, b: number) => a - b);
-    gpuOptions.value = gpuIds.map((id: number) => ({ label: `GPU ${id}`, value: id }));
+    const gpuIds = [...new Set(data.map((d: any) => d.gpu_id))].toSorted(
+      (a: number, b: number) => a - b,
+    );
+    gpuOptions.value = gpuIds.map((id: number) => ({
+      label: `GPU ${id}`,
+      value: id,
+    }));
 
     if (gpuOptions.value.length > 0) {
       selectedGpu.value = gpuOptions.value[0].value;
     }
 
     filterDataByDateRange();
-  } catch (e) {
-    console.error('Error loading GPU data:', e);
+  } catch (error) {
+    console.error('Error loading GPU data:', error);
   } finally {
     loading.value = false;
   }
@@ -119,14 +152,18 @@ const filterDataByDateRange = () => {
   gpuData.value = allGpuData.value
     .filter((d) => d.date >= startStr && d.date <= endStr)
     .filter((d) => d.gpu_id === selectedGpu.value)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    .toSorted(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+    );
 };
 
 // Get chart data
 const getGpuDataById = (gpuId: number) => {
   return gpuData.value
     .filter((d) => d.gpu_id === gpuId)
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    .toSorted(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+    );
 };
 
 // Usage rate chart option
@@ -268,14 +305,18 @@ const powerChartOption = computed(() => {
 // Get current chart option based on active tab
 const currentChartOption = computed(() => {
   switch (activeTab.value) {
-    case 'usage':
-      return usageChartOption.value;
-    case 'temperature':
-      return tempChartOption.value;
-    case 'power':
+    case 'power': {
       return powerChartOption.value;
-    default:
+    }
+    case 'temperature': {
+      return tempChartOption.value;
+    }
+    case 'usage': {
       return usageChartOption.value;
+    }
+    default: {
+      return usageChartOption.value;
+    }
   }
 });
 
@@ -317,13 +358,34 @@ const disabledDate = (current: dayjs.Dayjs) => {
 const columns = [
   { title: '日期', dataIndex: 'date', key: 'date', width: 120 },
   { title: 'GPU ID', dataIndex: 'gpu_id', key: 'gpu_id', width: 80 },
-  { title: '平均使用率(%)', dataIndex: 'avg_usage_rate', key: 'avg_usage_rate' },
-  { title: '最大使用率(%)', dataIndex: 'max_usage_rate', key: 'max_usage_rate' },
-  { title: '平均温度(°C)', dataIndex: 'avg_temperature', key: 'avg_temperature' },
-  { title: '最高温度(°C)', dataIndex: 'max_temperature', key: 'max_temperature' },
+  {
+    title: '平均使用率(%)',
+    dataIndex: 'avg_usage_rate',
+    key: 'avg_usage_rate',
+  },
+  {
+    title: '最大使用率(%)',
+    dataIndex: 'max_usage_rate',
+    key: 'max_usage_rate',
+  },
+  {
+    title: '平均温度(°C)',
+    dataIndex: 'avg_temperature',
+    key: 'avg_temperature',
+  },
+  {
+    title: '最高温度(°C)',
+    dataIndex: 'max_temperature',
+    key: 'max_temperature',
+  },
   { title: '平均功耗(W)', dataIndex: 'avg_power_draw', key: 'avg_power_draw' },
   { title: '最大功耗(W)', dataIndex: 'max_power_draw', key: 'max_power_draw' },
-  { title: '采样数', dataIndex: 'sample_count', key: 'sample_count', width: 80 },
+  {
+    title: '采样数',
+    dataIndex: 'sample_count',
+    key: 'sample_count',
+    width: 80,
+  },
 ];
 
 // Watch for tab change
@@ -331,13 +393,19 @@ watch(activeTab, () => {
   // Chart will auto-update due to computed property
 });
 
-onMounted(() => {
+onMounted(async () => {
+  // 先加载最新数据版本信息
+  await loadLatestInfo();
+  // 然后加载数据
   loadData();
 });
 </script>
 
 <template>
-  <Page description="监控GPU使用率、温度、功耗的每日变化趋势" title="GPU每日统计">
+  <Page
+    description="监控GPU使用率、温度、功耗的每日变化趋势"
+    title="GPU每日统计"
+  >
     <Spin :spinning="loading" tip="加载数据中...">
       <!-- Controls -->
       <Card class="mb-4">
@@ -381,11 +449,7 @@ onMounted(() => {
 
       <!-- Main Chart -->
       <Card class="mb-4">
-        <VChart
-          :option="currentChartOption"
-          style="height: 400px"
-          autoresize
-        />
+        <VChart :option="currentChartOption" style="height: 400px" autoresize />
       </Card>
 
       <!-- Quick Stats -->
@@ -399,7 +463,7 @@ onMounted(() => {
                   (
                     getGpuDataById(selectedGpu).reduce(
                       (sum, d) => sum + d.avg_usage_rate,
-                      0
+                      0,
                     ) / (getGpuDataById(selectedGpu).length || 1)
                   ).toFixed(1)
                 }}%
@@ -416,7 +480,7 @@ onMounted(() => {
                   (
                     getGpuDataById(selectedGpu).reduce(
                       (sum, d) => sum + d.avg_temperature,
-                      0
+                      0,
                     ) / (getGpuDataById(selectedGpu).length || 1)
                   ).toFixed(1)
                 }}°C
@@ -433,7 +497,7 @@ onMounted(() => {
                   (
                     getGpuDataById(selectedGpu).reduce(
                       (sum, d) => sum + d.avg_power_draw,
-                      0
+                      0,
                     ) / (getGpuDataById(selectedGpu).length || 1)
                   ).toFixed(1)
                 }}W

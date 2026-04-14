@@ -530,6 +530,10 @@ overrides:
 importers:
 
   .:
+    dependencies:
+      lefthook-linux-x64:
+        specifier: ^2.1.4
+        version: 2.1.4
     devDependencies:
       '@changesets/changelog-github':
         specifier: 'catalog:'
@@ -2057,6 +2061,9 @@ importers:
       dayjs:
         specifier: 'catalog:'
         version: 1.11.20
+      echarts:
+        specifier: 'catalog:'
+        version: 6.0.0
       json-bigint:
         specifier: 'catalog:'
         version: 1.0.0
@@ -2066,6 +2073,9 @@ importers:
       vue:
         specifier: ^3.5.32
         version: 3.5.32(typescript@6.0.2)
+      vue-echarts:
+        specifier: ^8.0.1
+        version: 8.0.1(echarts@6.0.0)(vue@3.5.32(typescript@6.0.2))
       vue-router:
         specifier: 'catalog:'
         version: 5.0.4(@vue/compiler-sfc@3.5.32)(pinia@3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2)))(vue@3.5.32(typescript@6.0.2))
@@ -8482,6 +8492,11 @@ packages:
     cpu: [arm64]
     os: [linux]
 
+  lefthook-linux-x64@2.1.4:
+    resolution: {integrity: sha512-96bTBE/JdYgqWYAJDh+/e/0MaxJ25XTOAk7iy/fKoZ1ugf6S0W9bEFbnCFNooXOcxNVTan5xWKfcjJmPIKtsJA==}
+    cpu: [x64]
+    os: [linux]
+
   lefthook-openbsd-arm64@2.1.5:
     resolution: {integrity: sha512-5aSwK7vV3A6t0w9PnxCMiVjQlcvopBP50BtmnnLnNJyAYHnFbZ0Baq5M0WkE9IsUkWSux0fe6fd0jDkuG711MA==}
     cpu: [arm64]
@@ -11092,6 +11107,12 @@ packages:
     peerDependenciesMeta:
       '@vue/composition-api':
         optional: true
+
+  vue-echarts@8.0.1:
+    resolution: {integrity: sha512-23rJTFLu1OUEGRWjJGmdGt8fP+8+ja1gVgzMYPIPaHWpXegcO1viIAaeu2H4QHESlVeHzUAHIxKXGrwjsyXAaA==}
+    peerDependencies:
+      echarts: ^6.0.0
+      vue: ^3.5.32
 
   vue-eslint-parser@10.4.0:
     resolution: {integrity: sha512-Vxi9pJdbN3ZnVGLODVtZ7y4Y2kzAAE2Cm0CZ3ZDRvydVYxZ6VrnBhLikBsRS+dpwj4Jv4UCv21PTEwF5rQ9WXg==}
@@ -18100,6 +18121,8 @@ snapshots:
   lefthook-linux-arm64@2.1.5:
     optional: true
 
+  lefthook-linux-x64@2.1.4: {}
+
   lefthook-openbsd-arm64@2.1.5:
     optional: true
 
@@ -20954,6 +20977,11 @@ snapshots:
 
   vue-demi@0.14.10(vue@3.5.32(typescript@6.0.2)):
     dependencies:
+      vue: 3.5.32(typescript@6.0.2)
+
+  vue-echarts@8.0.1(echarts@6.0.0)(vue@3.5.32(typescript@6.0.2)):
+    dependencies:
+      echarts: 6.0.0
       vue: 3.5.32(typescript@6.0.2)
 
   vue-eslint-parser@10.4.0(eslint@10.2.0(jiti@2.6.1)):

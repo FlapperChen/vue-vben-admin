@@ -1,42 +1,52 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, watch } from 'vue';
+import { computed, onMounted, ref } from 'vue';
+import VChart from 'vue-echarts';
 
 import { Page } from '@vben/common-ui';
 
+import { VbenCountToAnimator, VbenIcon } from '@vben-core/shadcn-ui';
+
 import {
-  Card,
-  Row,
-  Col,
-  Table,
-  Spin,
-  Input,
-  DatePicker,
-  Space,
   Button,
-  Select,
+  Card,
+  Col,
+  DatePicker,
+  Input,
   message,
-  Statistic,
+  Row,
+  Select,
+  Space,
+  Spin,
+  Table,
 } from 'ant-design-vue';
-import VChart from 'vue-echarts';
-import { use } from 'echarts/core';
-import { CanvasRenderer } from 'echarts/renderers';
+import dayjs from 'dayjs';
 import { BarChart, LineChart } from 'echarts/charts';
 import {
+  DataZoomComponent,
+  GridComponent,
+  LegendComponent,
   TitleComponent,
   TooltipComponent,
-  LegendComponent,
-  GridComponent,
-  DataZoomComponent,
 } from 'echarts/components';
-import dayjs from 'dayjs';
+import { use } from 'echarts/core';
+import { CanvasRenderer } from 'echarts/renderers';
 
 // Filter out invalid users (no Chinese name, deleted, system users)
-const excludedUsernames = ['deleted', 'code_review', 'bmc', 'root', 'share', 'test', 'admin', 'guest'];
+const excludedUsernames = [
+  'deleted',
+  'code_review',
+  'bmc',
+  'root',
+  'share',
+  'test',
+  'admin',
+  'guest',
+];
 const isValidUser = (username: string) => {
   if (!username) return false;
   const lower = username.toLowerCase();
-  if (excludedUsernames.some(u => lower.includes(u))) return false;
-  return /[\u4e00-\u9fa5]/.test(username) || !lower.includes('deleted');
+  if (excludedUsernames.some((u) => lower.includes(u))) return false;
+  return /[\u4E00-\u9FA5]/.test(username) || !lower.includes('deleted');
 };
 
 // Register ECharts components
@@ -64,16 +74,42 @@ const dateRange = ref<[dayjs.Dayjs, dayjs.Dayjs]>([
 ]);
 const selectedModel = ref<string>('all');
 
+// 数据版本信息
+const dataVersion = ref<any>(null);
+
+// 加载最新数据版本信息
+const loadLatestInfo = async () => {
+  try {
+    const res = await fetch('/src/assets/data-display/latest.json');
+    const info = await res.json();
+    dataVersion.value = info;
+
+    // 设置日期范围为最新数据的90天
+    if (info.dateRange) {
+      dateRange.value = [
+        dayjs(info.dateRange.earliest),
+        dayjs(info.dateRange.latest),
+      ];
+      console.warn('日期范围已设置:', info.dateRange);
+    }
+  } catch {
+    console.warn('无法读取最新数据信息，使用默认范围');
+  }
+};
+
 // Available dates
 const availableDates = computed(() => {
   const dates = [...new Set(allUsageData.value.map((d) => d.date))];
-  return dates.sort();
+  return dates.toSorted();
 });
 
 // Available models
 const availableModels = computed(() => {
   const models = [...new Set(allUsageData.value.map((d) => d.model_name))];
-  return [{ label: '全部模型', value: 'all' }, ...models.map((m) => ({ label: m, value: m }))];
+  return [
+    { label: '全部模型', value: 'all' },
+    ...models.map((m) => ({ label: m, value: m })),
+  ];
 });
 
 // Summary stats
@@ -87,9 +123,61 @@ const summaryStats = computed(() => {
         ? filtered.reduce((sum, d) => sum + (d.average_elapsed_time || 0), 0) /
           filtered.length
         : 0,
-    userCount: [...new Set(filtered.map((d) => d.userid))].length,
+    userCount: new Set(filtered.map((d) => d.userid)).size,
   };
 });
+
+// Overview items for stats cards - 优化版
+const overviewItems = computed(() => [
+  {
+    title: '总请求数',
+    value: summaryStats.value.totalRequests,
+    subtitle: '累计请求次数',
+    icon: 'mdi:api',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    textColor: '#667eea',
+  },
+  {
+    title: 'Token消耗',
+    value: summaryStats.value.totalTokens,
+    subtitle: 'Token使用总量',
+    icon: 'mdi:coin',
+    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+    textColor: '#11998e',
+    format: 'token',
+  },
+  {
+    title: '响应耗时',
+    value: summaryStats.value.avgResponseTime,
+    subtitle: '平均响应时间',
+    icon: 'mdi:clock-outline',
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    textColor: '#f5576c',
+    format: 'time',
+  },
+  {
+    title: '活跃用户',
+    value: summaryStats.value.userCount,
+    subtitle: '独立用户数',
+    icon: 'mdi:account-group',
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    textColor: '#4facfe',
+  },
+]);
+
+// Format token value
+const formatTokenValue = (value: number) => {
+  if (value >= 1_000_000_000) {
+    return `${(value / 1_000_000_000).toFixed(1)}B`;
+  }
+  if (value >= 1_000_000) {
+    return `${(value / 1_000_000).toFixed(2)}M`;
+  }
+  if (value >= 1000) {
+    return `${(value / 1000).toFixed(1)}K`;
+  }
+  return value.toLocaleString();
+};
 
 // Filtered data
 const filteredData = computed(() => {
@@ -114,7 +202,7 @@ const filteredData = computed(() => {
     data = data.filter(
       (d) =>
         d.username?.toLowerCase().includes(search) ||
-        d.model_name?.toLowerCase().includes(search)
+        d.model_name?.toLowerCase().includes(search),
     );
   }
 
@@ -124,8 +212,13 @@ const filteredData = computed(() => {
 // Load data using fetch
 const loadData = async () => {
   loading.value = true;
+  // 从 latest.json 获取数据日期码
+  const dataDate = dataVersion.value?.dataDate || '260411';
+
   try {
-    const response = await fetch('/src/assets/data-display/usagerate-260411.json');
+    const response = await fetch(
+      `/src/assets/data-display/usagerate-${dataDate}.json`,
+    );
     const data = await response.json();
 
     if (!data || data.length === 0) {
@@ -134,8 +227,8 @@ const loadData = async () => {
 
     allUsageData.value = data;
     usageData.value = data;
-  } catch (e) {
-    console.error('Error loading usage data:', e);
+  } catch (error) {
+    console.error('Error loading usage data:', error);
   } finally {
     loading.value = false;
   }
@@ -158,9 +251,11 @@ const getDailyData = () => {
     day.tokens += d.token_used;
     day.users.add(d.userid);
   });
-  return Array.from(dailyMap.values())
+  return [...dailyMap.values()]
     .map((d) => ({ ...d, userCount: d.users.size }))
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    .toSorted(
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+    );
 };
 
 // Get top users by requests
@@ -179,8 +274,8 @@ const getTopUsersByRequests = (limit = 10) => {
     user.requests += d.request_count;
     user.tokens += d.token_used;
   });
-  return Array.from(userMap.values())
-    .sort((a, b) => b.requests - a.requests)
+  return [...userMap.values()]
+    .toSorted((a, b) => b.requests - a.requests)
     .slice(0, limit);
 };
 
@@ -200,8 +295,8 @@ const getTopUsersByTokens = (limit = 10) => {
     user.requests += d.request_count;
     user.tokens += d.token_used;
   });
-  return Array.from(userMap.values())
-    .sort((a, b) => b.tokens - a.tokens)
+  return [...userMap.values()]
+    .toSorted((a, b) => b.tokens - a.tokens)
     .slice(0, limit);
 };
 
@@ -342,7 +437,12 @@ const detailColumns = [
   { title: '模型', dataIndex: 'model_name', key: 'model_name', width: 150 },
   { title: '请求数', dataIndex: 'request_count', key: 'request_count' },
   { title: 'Token使用量', dataIndex: 'token_used', key: 'token_used' },
-  { title: '平均耗时(ms)', dataIndex: 'average_elapsed_time', key: 'average_elapsed_time', width: 120 },
+  {
+    title: '平均耗时(ms)',
+    dataIndex: 'average_elapsed_time',
+    key: 'average_elapsed_time',
+    width: 120,
+  },
 ];
 
 // Disabled dates
@@ -351,50 +451,63 @@ const disabledDate = (current: dayjs.Dayjs) => {
   return !availableDates.value.includes(dateStr);
 };
 
-onMounted(() => {
+onMounted(async () => {
+  // 先加载最新数据版本信息
+  await loadLatestInfo();
+  // 然后加载数据
   loadData();
 });
 </script>
 
 <template>
-  <Page description="监控用户请求数、Token使用量的每日变化趋势" title="用户使用率统计">
+  <Page
+    description="监控用户请求数、Token使用量的每日变化趋势"
+    title="用户使用率统计"
+  >
     <Spin :spinning="loading" tip="加载数据中...">
-      <!-- Summary Stats -->
-      <Row :gutter="[16, 16]" class="mb-4">
-        <Col :span="6">
-          <Card>
-            <Statistic
-              :value="summaryStats.totalRequests"
-              title="总请求数"
-              :value-style="{ color: '#409eff' }"
-            />
-          </Card>
-        </Col>
-        <Col :span="6">
-          <Card>
-            <Statistic
-              :value="(summaryStats.totalTokens / 1000000).toFixed(2) + 'M'"
-              title="总Token使用量"
-              :value-style="{ color: '#67c23a' }"
-            />
-          </Card>
-        </Col>
-        <Col :span="6">
-          <Card>
-            <Statistic
-              :value="(summaryStats.avgResponseTime / 1000).toFixed(2) + 's'"
-              title="平均响应时间"
-              :value-style="{ color: '#e6a23c' }"
-            />
-          </Card>
-        </Col>
-        <Col :span="6">
-          <Card>
-            <Statistic
-              :value="summaryStats.userCount"
-              title="活跃用户数"
-              :value-style="{ color: '#f56c6c' }"
-            />
+      <!-- Summary Stats Cards - 优化版 -->
+      <Row :gutter="[16, 16]" class="mb-5">
+        <Col :span="6" v-for="item in overviewItems" :key="item.title">
+          <Card
+            hoverable
+            class="stat-card hover:shadow-xl transition-all duration-300"
+          >
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-gray-500 text-sm font-medium">
+                  {{ item.title }}
+                </div>
+                <template v-if="item.format">
+                  <div
+                    class="text-3xl font-extrabold tracking-tight"
+                    :style="{ color: item.textColor }"
+                  >
+                    {{
+                      item.format === 'token'
+                        ? formatTokenValue(item.value)
+                        : `${(item.value / 1000).toFixed(2)}s`
+                    }}
+                  </div>
+                </template>
+                <template v-else>
+                  <VbenCountToAnimator
+                    :end-val="item.value"
+                    :start-val="1"
+                    class="text-3xl font-extrabold tracking-tight"
+                    :style="{ color: item.textColor }"
+                  />
+                </template>
+                <div class="text-gray-400 text-xs mt-1">
+                  {{ item.subtitle }}
+                </div>
+              </div>
+              <div
+                class="w-14 h-14 rounded-2xl flex items-center justify-center"
+                :style="{ background: item.gradient }"
+              >
+                <VbenIcon :icon="item.icon" class="text-2xl text-white" />
+              </div>
+            </div>
           </Card>
         </Col>
       </Row>
@@ -530,5 +643,31 @@ onMounted(() => {
 <style scoped>
 .mb-4 {
   margin-bottom: 16px;
+}
+
+.mb-5 {
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
 }
 </style>

@@ -1,0 +1,9 @@
+{
+  "updateTime": "2026-04-14 16:25:57",
+  "dataDate": "260413",
+  "dateRange": {
+    "latest": "2026-04-13",
+    "earliest": "2026-01-13"
+  },
+  "files": [{"name":"gpu_daily_stats-260413.json","size":143048},{"name":"openapi_users-260413.json","size":30293},{"name":"usagerate-260413.json","size":458424},{"name":"vllm_daily_stats-260413.json","size":27246}]
+}

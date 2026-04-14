@@ -1,43 +1,53 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, watch } from 'vue';
+import { computed, onMounted, ref, watch } from 'vue';
+import VChart from 'vue-echarts';
 
 import { Page } from '@vben/common-ui';
 
+import { VbenIcon } from '@vben-core/shadcn-ui';
+
 import {
+  Button,
   Card,
-  Row,
   Col,
-  Table,
-  Spin,
+  DatePicker,
+  message,
+  Radio,
+  Row,
   Select,
   Space,
-  Button,
-  DatePicker,
-  Radio,
-  Statistic,
-  message,
+  Spin,
+  Table,
   Tag,
 } from 'ant-design-vue';
-import VChart from 'vue-echarts';
-import { use } from 'echarts/core';
-import { CanvasRenderer } from 'echarts/renderers';
-import { LineChart, BarChart } from 'echarts/charts';
+import dayjs from 'dayjs';
+import { BarChart, LineChart } from 'echarts/charts';
 import {
+  DataZoomComponent,
+  GridComponent,
+  LegendComponent,
   TitleComponent,
   TooltipComponent,
-  LegendComponent,
-  GridComponent,
-  DataZoomComponent,
 } from 'echarts/components';
-import dayjs from 'dayjs';
+import { use } from 'echarts/core';
+import { CanvasRenderer } from 'echarts/renderers';
 
 // Filter out invalid users (no Chinese name, deleted, system users)
-const excludedUsernames = ['deleted', 'code_review', 'bmc', 'root', 'share', 'test', 'admin', 'guest'];
-const isValidUser = (username: string) => {
+const excludedUsernames = [
+  'deleted',
+  'code_review',
+  'bmc',
+  'root',
+  'share',
+  'test',
+  'admin',
+  'guest',
+];
+const _isValidUser = (username: string) => {
   if (!username) return false;
   const lower = username.toLowerCase();
-  if (excludedUsernames.some(u => lower.includes(u))) return false;
-  return /[\u4e00-\u9fa5]/.test(username) || !lower.includes('deleted');
+  if (excludedUsernames.some((u) => lower.includes(u))) return false;
+  return /[\u4E00-\u9FA5]/.test(username) || !lower.includes('deleted');
 };
 
 // Register ECharts components
@@ -61,7 +71,7 @@ const tabOptions = [
 const activeTab = ref('tpu');
 
 // Data
-const vllmData = ref<any[]>([]);
+const _vllmData = ref<any[]>([]);
 const allVllmData = ref<any[]>([]);
 const loading = ref(false);
 const selectedModel = ref<string>('');
@@ -72,12 +82,35 @@ const dateRange = ref<[dayjs.Dayjs, dayjs.Dayjs]>([
   dayjs(),
 ]);
 
+// 数据版本信息
+const dataVersion = ref<any>(null);
+
+// 加载最新数据版本信息
+const loadLatestInfo = async () => {
+  try {
+    const res = await fetch('/src/assets/data-display/latest.json');
+    const info = await res.json();
+    dataVersion.value = info;
+
+    // 设置日期范围为最新数据的90天
+    if (info.dateRange) {
+      dateRange.value = [
+        dayjs(info.dateRange.earliest),
+        dayjs(info.dateRange.latest),
+      ];
+      console.warn('VLLM日期范围已设置:', info.dateRange);
+    }
+  } catch {
+    console.warn('无法读取最新数据信息，使用默认范围');
+  }
+};
+
 const modelOptions = ref<any[]>([]);
 
 // Available dates
 const availableDates = computed(() => {
   const dates = [...new Set(allVllmData.value.map((d) => d.date))];
-  return dates.sort();
+  return dates.toSorted();
 });
 
 // Available models
@@ -115,16 +148,58 @@ const summaryStats = computed(() => {
   };
 });
 
+// Overview items for stats cards - 优化版
+const overviewItems = computed(() => [
+  {
+    title: '平均Prompt TPU',
+    value: summaryStats.value.avgPromptTpu,
+    subtitle: 'Prompt处理能力',
+    icon: 'mdi:chip',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    textColor: '#667eea',
+    format: 'int',
+  },
+  {
+    title: '最大Prompt TPU',
+    value: summaryStats.value.maxPromptTpu,
+    subtitle: '峰值处理能力',
+    icon: 'mdi:speedometer',
+    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+    textColor: '#11998e',
+    format: 'int',
+  },
+  {
+    title: '缓存命中率',
+    value: summaryStats.value.avgCacheHit,
+    subtitle: '前缀缓存效率',
+    icon: 'mdi:database',
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    textColor: '#f5576c',
+    format: 'percent',
+  },
+  {
+    title: '平均运行请求',
+    value: summaryStats.value.avgRunningReqs,
+    subtitle: '并发处理能力',
+    icon: 'mdi:play-circle',
+    gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+    textColor: '#4facfe',
+    format: 'decimal',
+  },
+]);
+
 // Data filter list - exclude specific data points
 // Format: { date: 'YYYY-MM-DD', field: 'fieldName', value: targetValue }
-const dataFilterList = ref<Array<{ date: string; field: string; value: number }>>([
+const dataFilterList = ref<
+  Array<{ date: string; field: string; value: number }>
+>([
   { date: '2026-03-07', field: 'max_running_reqs', value: 90 },
   { date: '2026-03-26', field: 'max_running_reqs', value: 128 },
 ]);
 
 // Check if a data point should be filtered
 const shouldFilterData = (item: any) => {
-  return dataFilterList.value.some(filter => {
+  return dataFilterList.value.some((filter) => {
     if (item.date !== filter.date) return false;
     return item[filter.field] === filter.value;
   });
@@ -140,7 +215,11 @@ const filteredData = computed(() => {
   data = data.filter((d) => d.date >= startStr && d.date <= endStr);
 
   // Filter by model
-  if (selectedModel.value && selectedModel.value !== 'all' && selectedModel.value !== '') {
+  if (
+    selectedModel.value &&
+    selectedModel.value !== 'all' &&
+    selectedModel.value !== ''
+  ) {
     data = data.filter((d) => d.model_name === selectedModel.value);
   }
 
@@ -148,7 +227,7 @@ const filteredData = computed(() => {
 });
 
 // Filtered data for queue chart (with data filter applied)
-const filteredQueueData = computed(() => {
+const _filteredQueueData = computed(() => {
   let data = [...allVllmData.value];
 
   // Filter by date range
@@ -157,7 +236,11 @@ const filteredQueueData = computed(() => {
   data = data.filter((d) => d.date >= startStr && d.date <= endStr);
 
   // Filter by model
-  if (selectedModel.value && selectedModel.value !== 'all' && selectedModel.value !== '') {
+  if (
+    selectedModel.value &&
+    selectedModel.value !== 'all' &&
+    selectedModel.value !== ''
+  ) {
     data = data.filter((d) => d.model_name === selectedModel.value);
   }
 
@@ -170,8 +253,13 @@ const filteredQueueData = computed(() => {
 // Load data using fetch
 const loadData = async () => {
   loading.value = true;
+  // 从 latest.json 获取数据日期码
+  const dataDate = dataVersion.value?.dataDate || '260411';
+
   try {
-    const response = await fetch('/src/assets/data-display/vllm_daily_stats-260411.json');
+    const response = await fetch(
+      `/src/assets/data-display/vllm_daily_stats-${dataDate}.json`,
+    );
     const data = await response.json();
 
     if (!data || data.length === 0) {
@@ -182,7 +270,7 @@ const loadData = async () => {
 
     // Sort by date
     allVllmData.value.sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
     );
 
     // Get unique models
@@ -192,12 +280,17 @@ const loadData = async () => {
     // Set default model to MiniMax-M2.1 or M2.5
     if (modelOptions.value.length > 0 && !selectedModel.value) {
       const minimaxModel = modelOptions.value.find(
-        (m: any) => m.value.includes('M2.1') || m.value.includes('M2.5') || m.value.includes('minimax')
+        (m: any) =>
+          m.value.includes('M2.1') ||
+          m.value.includes('M2.5') ||
+          m.value.includes('minimax'),
       );
-      selectedModel.value = minimaxModel ? minimaxModel.value : modelOptions.value[0].value;
+      selectedModel.value = minimaxModel
+        ? minimaxModel.value
+        : modelOptions.value[0].value;
     }
-  } catch (e) {
-    console.error('Error loading VLLM data:', e);
+  } catch (error) {
+    console.error('Error loading VLLM data:', error);
   } finally {
     loading.value = false;
   }
@@ -287,8 +380,9 @@ const cacheChartOption = computed(() => {
 
 // Filter specific values in chart data - return null to skip point in line chart
 const getFilteredValue = (value: number, date: string, field: string) => {
-  const shouldFilter = dataFilterList.value.some(filter =>
-    date === filter.date && field === filter.field && value === filter.value
+  const shouldFilter = dataFilterList.value.some(
+    (filter) =>
+      date === filter.date && field === filter.field && value === filter.value,
   );
   // Return null to skip the point (ECharts will connect previous and next points)
   return shouldFilter ? null : value;
@@ -325,7 +419,9 @@ const queueChartOption = computed(() => {
       {
         name: '最大运行请求',
         type: 'line',
-        data: data.map((d) => getFilteredValue(d.max_running_reqs || 0, d.date, 'max_running_reqs')),
+        data: data.map((d) =>
+          getFilteredValue(d.max_running_reqs || 0, d.date, 'max_running_reqs'),
+        ),
         smooth: true,
         lineStyle: { type: 'dashed' },
         connectNulls: true,
@@ -346,14 +442,18 @@ const queueChartOption = computed(() => {
 // Get current chart option
 const currentChartOption = computed(() => {
   switch (activeTab.value) {
-    case 'tpu':
-      return tpuChartOption.value;
-    case 'cache':
+    case 'cache': {
       return cacheChartOption.value;
-    case 'queue':
+    }
+    case 'queue': {
       return queueChartOption.value;
-    default:
+    }
+    case 'tpu': {
       return tpuChartOption.value;
+    }
+    default: {
+      return tpuChartOption.value;
+    }
   }
 });
 
@@ -368,11 +468,32 @@ const tableColumns = [
   { title: '日期', dataIndex: 'date', key: 'date', width: 110 },
   { title: '模型', dataIndex: 'model_name', key: 'model_name', width: 180 },
   { title: '引擎', dataIndex: 'engine', key: 'engine', width: 70 },
-  { title: '平均Prompt TPU', dataIndex: 'avg_prompt_tpu', key: 'avg_prompt_tpu' },
-  { title: '最大Prompt TPU', dataIndex: 'max_prompt_tpu', key: 'max_prompt_tpu' },
-  { title: '平均Gen TPU', dataIndex: 'avg_generation_tpu', key: 'avg_generation_tpu' },
-  { title: '缓存命中率(%)', dataIndex: 'avg_prefix_cache_hit_rate', key: 'avg_prefix_cache_hit_rate' },
-  { title: '采样数', dataIndex: 'sample_count', key: 'sample_count', width: 80 },
+  {
+    title: '平均Prompt TPU',
+    dataIndex: 'avg_prompt_tpu',
+    key: 'avg_prompt_tpu',
+  },
+  {
+    title: '最大Prompt TPU',
+    dataIndex: 'max_prompt_tpu',
+    key: 'max_prompt_tpu',
+  },
+  {
+    title: '平均Gen TPU',
+    dataIndex: 'avg_generation_tpu',
+    key: 'avg_generation_tpu',
+  },
+  {
+    title: '缓存命中率(%)',
+    dataIndex: 'avg_prefix_cache_hit_rate',
+    key: 'avg_prefix_cache_hit_rate',
+  },
+  {
+    title: '采样数',
+    dataIndex: 'sample_count',
+    key: 'sample_count',
+    width: 80,
+  },
 ];
 
 const onRefresh = () => {
@@ -400,7 +521,10 @@ watch(activeTab, () => {
   // Chart will auto-update due to computed property
 });
 
-onMounted(() => {
+onMounted(async () => {
+  // 先加载最新数据版本信息
+  await loadLatestInfo();
+  // 然后加载数据
   loadData();
 });
 </script>
@@ -408,42 +532,41 @@ onMounted(() => {
 <template>
   <Page description="监控模型性能指标(TPU、缓存命中率)" title="VLLM每日统计">
     <Spin :spinning="loading" tip="加载数据中...">
-      <!-- Summary Stats -->
-      <Row :gutter="[16, 16]" class="mb-4">
-        <Col :span="6">
-          <Card>
-            <Statistic
-              :value="summaryStats.avgPromptTpu.toFixed(0)"
-              title="平均Prompt TPU"
-              :value-style="{ color: '#409eff' }"
-            />
-          </Card>
-        </Col>
-        <Col :span="6">
-          <Card>
-            <Statistic
-              :value="summaryStats.maxPromptTpu.toFixed(0)"
-              title="最大Prompt TPU"
-              :value-style="{ color: '#67c23a' }"
-            />
-          </Card>
-        </Col>
-        <Col :span="6">
-          <Card>
-            <Statistic
-              :value="summaryStats.avgCacheHit.toFixed(1) + '%'"
-              title="平均缓存命中率"
-              :value-style="{ color: '#e6a23c' }"
-            />
-          </Card>
-        </Col>
-        <Col :span="6">
-          <Card>
-            <Statistic
-              :value="summaryStats.avgRunningReqs.toFixed(2)"
-              title="平均运行请求"
-              :value-style="{ color: '#f56c6c' }"
-            />
+      <!-- Summary Stats Cards - 优化版 -->
+      <Row :gutter="[16, 16]" class="mb-5">
+        <Col :span="6" v-for="item in overviewItems" :key="item.title">
+          <Card
+            hoverable
+            class="stat-card hover:shadow-xl transition-all duration-300"
+          >
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-gray-500 text-sm font-medium">
+                  {{ item.title }}
+                </div>
+                <div
+                  class="text-3xl font-extrabold tracking-tight"
+                  :style="{ color: item.textColor }"
+                >
+                  {{
+                    item.format === 'percent'
+                      ? `${item.value.toFixed(1)}%`
+                      : item.format === 'decimal'
+                        ? item.value.toFixed(2)
+                        : item.value.toFixed(0)
+                  }}
+                </div>
+                <div class="text-gray-400 text-xs mt-1">
+                  {{ item.subtitle }}
+                </div>
+              </div>
+              <div
+                class="w-14 h-14 rounded-2xl flex items-center justify-center"
+                :style="{ background: item.gradient }"
+              >
+                <VbenIcon :icon="item.icon" class="text-2xl text-white" />
+              </div>
+            </div>
           </Card>
         </Col>
       </Row>
@@ -485,9 +608,17 @@ onMounted(() => {
           </div>
         </Space>
         <!-- Filter Info -->
-        <div v-if="dataFilterList.length > 0" class="mt-3 text-sm text-gray-500">
+        <div
+          v-if="dataFilterList.length > 0"
+          class="mt-3 text-sm text-gray-500"
+        >
           <span>已过滤数据：</span>
-          <Tag v-for="(filter, index) in dataFilterList" :key="index" color="red" class="ml-1">
+          <Tag
+            v-for="(filter, index) in dataFilterList"
+            :key="index"
+            color="red"
+            class="ml-1"
+          >
             {{ filter.date }} {{ filter.field }}={{ filter.value }}
           </Tag>
         </div>
@@ -495,11 +626,7 @@ onMounted(() => {
 
       <!-- Main Chart -->
       <Card class="mb-4">
-        <VChart
-          :option="currentChartOption"
-          style="height: 400px"
-          autoresize
-        />
+        <VChart :option="currentChartOption" style="height: 400px" autoresize />
       </Card>
 
       <!-- Additional Charts -->
@@ -512,12 +639,22 @@ onMounted(() => {
                 tooltip: { trigger: 'axis' },
                 xAxis: {
                   type: 'category',
-                  data: filteredData.map(d => d.date),
+                  data: filteredData.map((d) => d.date),
                 },
                 yAxis: { type: 'value', name: 'Cache' },
                 series: [
-                  { name: '平均', type: 'line', data: filteredData.map(d => d.avg_gpu_kv_cache || 0), smooth: true },
-                  { name: '最大', type: 'line', data: filteredData.map(d => d.max_gpu_kv_cache || 0), smooth: true }
+                  {
+                    name: '平均',
+                    type: 'line',
+                    data: filteredData.map((d) => d.avg_gpu_kv_cache || 0),
+                    smooth: true,
+                  },
+                  {
+                    name: '最大',
+                    type: 'line',
+                    data: filteredData.map((d) => d.max_gpu_kv_cache || 0),
+                    smooth: true,
+                  },
                 ],
                 grid: { bottom: 40 },
               }"
@@ -534,12 +671,20 @@ onMounted(() => {
                 tooltip: { trigger: 'axis' },
                 xAxis: {
                   type: 'category',
-                  data: filteredData.map(d => d.date),
+                  data: filteredData.map((d) => d.date),
                 },
                 yAxis: { type: 'value', name: '请求数' },
                 series: [
-                  { name: '运行中', type: 'bar', data: filteredData.map(d => d.avg_running_reqs) },
-                  { name: '等待中', type: 'bar', data: filteredData.map(d => d.avg_waitting_reqs || 0) }
+                  {
+                    name: '运行中',
+                    type: 'bar',
+                    data: filteredData.map((d) => d.avg_running_reqs),
+                  },
+                  {
+                    name: '等待中',
+                    type: 'bar',
+                    data: filteredData.map((d) => d.avg_waitting_reqs || 0),
+                  },
                 ],
                 grid: { bottom: 40 },
               }"
@@ -570,7 +715,33 @@ onMounted(() => {
   margin-bottom: 16px;
 }
 
+.mb-5 {
+  margin-bottom: 20px;
+}
+
 .ml-4 {
   margin-left: 16px;
+}
+
+.stat-card {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
 }
 </style>
