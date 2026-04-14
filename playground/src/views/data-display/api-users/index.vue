@@ -170,7 +170,7 @@ const loadLatestInfo = async () => {
 const loadData = async () => {
   loading.value = true;
   // 从 latest.json 获取数据日期码
-  const dataDate = dataVersion.value?.dataDate || '260411';
+  const dataDate = dataVersion.value?.dataDate || '20260411';
 
   try {
     const response = await fetch(

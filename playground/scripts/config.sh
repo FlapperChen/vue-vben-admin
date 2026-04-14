@@ -51,14 +51,19 @@ LATEST_FILE="$DATA_DIR/latest.json"
 # 执行时间: 每天 08:30
 CRON_TIME="30 8 * * *"
 
-# 获取昨日日期码 (格式: YYMMDD)
+# 获取昨日日期码 (格式: YYMMDD) - 用于 merged 文件
 get_yesterday_date_code() {
     date -d "yesterday" +%y%m%d
 }
 
-# 获取今日日期码 (格式: YYMMDD)
+# 获取今日日期码 (格式: YYMMDD) - 用于 merged 文件
 get_today_date_code() {
     date +%y%m%d
+}
+
+# 转换6位日期码为8位 (260413 -> 20260413)
+convert_to_8digit() {
+    echo "20$1"
 }
 
 # 辅助函数：记录日志

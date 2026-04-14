@@ -102,7 +102,7 @@ const loadAllData = async () => {
   console.warn('Loading all data to get available dates...');
 
   // 从 latest.json 获取数据日期码
-  const dataDate = dataVersion.value?.dataDate || '260411';
+  const dataDate = dataVersion.value?.dataDate || '20260411';
 
   try {
     const gpuRes = await fetch(

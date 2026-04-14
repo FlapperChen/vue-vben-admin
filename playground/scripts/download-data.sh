@@ -73,10 +73,12 @@ download_and_split() {
 }
 
 # 分割JSON文件（按顶层键）
+# 注意: 输入是6位日期码 (260413)，输出使用8位日期码 (20260413)
 split_json_file() {
     local input_file=$1
-    local date_code=$2
-    local temp_dir="/tmp/split_json_${date_code}"
+    local date_code_6digit=$2
+    local date_code_8digit=$(convert_to_8digit "$date_code_6digit")
+    local temp_dir="/tmp/split_json_${date_code_6digit}"
 
     log "开始分割JSON文件..."
 
@@ -92,11 +94,11 @@ split_json_file() {
     local success_count=0
     local fail_count=0
 
-    # 分割并保存文件
+    # 分割并保存文件 - 使用8位日期码命名
     for key in $keys; do
         # 检查是否在配置的数据文件列表中
         if [[ " ${DATA_FILES[@]} " =~ " ${key} " ]]; then
-            local output_file="${DATA_DIR}/${key}-${date_code}.json"
+            local output_file="${DATA_DIR}/${key}-${date_code_8digit}.json"
 
             # 直接提取对应键的value并保存（不包含键名）
             jq ".[\"${key}\"]" "$input_file" > "$output_file"
@@ -134,11 +136,16 @@ find_latest_data_date() {
         # 找到最新的文件
         latest_file=$(ls -t "$DATA_DIR"/${type}-*.json 2>/dev/null | head -1)
         if [ -n "$latest_file" ] && [ -f "$latest_file" ]; then
-            # 提取日期码 (如 260414)
+            # 提取日期码 (如 20260414)
             date_code=$(basename "$latest_file" | sed "s/${type}-\([0-9]*\)\.json/\1/")
 
-            # 6位格式: 260414 -> 2026-04-14
-            local full_date="20${date_code:0:2}-${date_code:2:2}-${date_code:4:2}"
+            # 8位格式: 20260414 -> 2026-04-14
+            if [ ${#date_code} -eq 8 ]; then
+                local full_date="${date_code:0:4}-${date_code:4:2}-${date_code:6:2}"
+            else
+                # 兼容6位格式: 260414 -> 2026-04-14
+                local full_date="20${date_code:0:2}-${date_code:2:2}-${date_code:4:2}"
+            fi
 
             if [[ -z "$latest_date" ]] || [[ "$full_date" > "$latest_date" ]]; then
                 latest_date="$full_date"
@@ -161,8 +168,8 @@ generate_latest_json() {
     # 计算90天前的日期
     local earliest_date=$(date -d "$latest_date - $DATE_RANGE_DAYS days" +%Y-%m-%d)
 
-    # 转换为6位日期码 (YYMMDD), 如 2026-04-13 -> 260413
-    local date_code=$(date -d "$latest_date" +%y%m%d)
+    # 转换为8位日期码 (YYYYMMDD), 如 2026-04-13 -> 20260413
+    local date_code=$(date -d "$latest_date" +%Y%m%d)
 
     # 获取文件列表信息
     local files_json="["
