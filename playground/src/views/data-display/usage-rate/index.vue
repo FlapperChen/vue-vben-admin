@@ -30,6 +30,15 @@ import {
 } from 'echarts/components';
 import dayjs from 'dayjs';
 
+// Filter out invalid users (no Chinese name, deleted, system users)
+const excludedUsernames = ['deleted', 'code_review', 'bmc', 'root', 'share', 'test', 'admin', 'guest'];
+const isValidUser = (username: string) => {
+  if (!username) return false;
+  const lower = username.toLowerCase();
+  if (excludedUsernames.some(u => lower.includes(u))) return false;
+  return /[\u4e00-\u9fa5]/.test(username) || !lower.includes('deleted');
+};
+
 // Register ECharts components
 use([
   CanvasRenderer,
@@ -50,7 +59,7 @@ const loading = ref(false);
 // Filters
 const searchText = ref('');
 const dateRange = ref<[dayjs.Dayjs, dayjs.Dayjs]>([
-  dayjs().subtract(30, 'day'),
+  dayjs().subtract(90, 'day'),
   dayjs(),
 ]);
 const selectedModel = ref<string>('all');
@@ -95,6 +104,9 @@ const filteredData = computed(() => {
   if (selectedModel.value && selectedModel.value !== 'all') {
     data = data.filter((d) => d.model_name === selectedModel.value);
   }
+
+  // Filter invalid users
+  data = data.filter((d) => isValidUser(d.username));
 
   // Filter by search
   if (searchText.value) {
@@ -221,7 +233,7 @@ const requestChartOption = computed(() => {
         areaStyle: { opacity: 0.2 },
       },
     ],
-    grid: { bottom: 80 },
+    grid: { bottom: 100 },
   };
 });
 
@@ -254,7 +266,7 @@ const tokenChartOption = computed(() => {
         areaStyle: { opacity: 0.3 },
       },
     ],
-    grid: { bottom: 80 },
+    grid: { bottom: 100 },
   };
 });
 
@@ -287,13 +299,28 @@ const userChartOption = computed(() => {
         areaStyle: { opacity: 0.3 },
       },
     ],
-    grid: { bottom: 80 },
+    grid: { bottom: 100 },
   };
 });
 
 const onRefresh = () => {
   loadData();
   message.success('数据已刷新');
+};
+
+// Table pagination state
+const tablePagination = ref({
+  current: 1,
+  pageSize: 10,
+  showSizeChanger: true,
+  pageSizeOptions: ['10', '20', '50', '100'],
+  showTotal: (total: number) => `共 ${total} 条`,
+});
+
+// Handle table change
+const handleTableChange = (pagination: any) => {
+  tablePagination.value.current = pagination.current;
+  tablePagination.value.pageSize = pagination.pageSize;
 };
 
 // Table columns
@@ -339,7 +366,7 @@ onMounted(() => {
             <Statistic
               :value="summaryStats.totalRequests"
               title="总请求数"
-              value-style="color: #409eff"
+              :value-style="{ color: '#409eff' }"
             />
           </Card>
         </Col>
@@ -348,7 +375,7 @@ onMounted(() => {
             <Statistic
               :value="(summaryStats.totalTokens / 1000000).toFixed(2) + 'M'"
               title="总Token使用量"
-              value-style="color: #67c23a"
+              :value-style="{ color: '#67c23a' }"
             />
           </Card>
         </Col>
@@ -357,7 +384,7 @@ onMounted(() => {
             <Statistic
               :value="(summaryStats.avgResponseTime / 1000).toFixed(2) + 's'"
               title="平均响应时间"
-              value-style="color: #e6a23c"
+              :value-style="{ color: '#e6a23c' }"
             />
           </Card>
         </Col>
@@ -366,7 +393,7 @@ onMounted(() => {
             <Statistic
               :value="summaryStats.userCount"
               title="活跃用户数"
-              value-style="color: #f56c6c"
+              :value-style="{ color: '#f56c6c' }"
             />
           </Card>
         </Col>
@@ -489,10 +516,11 @@ onMounted(() => {
       <Card title="详细数据">
         <Table
           :columns="detailColumns"
-          :data-source="filteredData.slice(0, 100)"
-          :pagination="{ pageSize: 10, showSizeChanger: true, showTotal: (total: number) => `共 ${total} 条` }"
+          :data-source="filteredData"
+          :pagination="tablePagination"
           row-key="id"
           size="small"
+          @change="handleTableChange"
         />
       </Card>
     </Spin>

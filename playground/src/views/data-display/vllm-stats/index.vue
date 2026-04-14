@@ -16,6 +16,7 @@ import {
   Radio,
   Statistic,
   message,
+  Tag,
 } from 'ant-design-vue';
 import VChart from 'vue-echarts';
 import { use } from 'echarts/core';
@@ -29,6 +30,15 @@ import {
   DataZoomComponent,
 } from 'echarts/components';
 import dayjs from 'dayjs';
+
+// Filter out invalid users (no Chinese name, deleted, system users)
+const excludedUsernames = ['deleted', 'code_review', 'bmc', 'root', 'share', 'test', 'admin', 'guest'];
+const isValidUser = (username: string) => {
+  if (!username) return false;
+  const lower = username.toLowerCase();
+  if (excludedUsernames.some(u => lower.includes(u))) return false;
+  return /[\u4e00-\u9fa5]/.test(username) || !lower.includes('deleted');
+};
 
 // Register ECharts components
 use([
@@ -54,11 +64,11 @@ const activeTab = ref('tpu');
 const vllmData = ref<any[]>([]);
 const allVllmData = ref<any[]>([]);
 const loading = ref(false);
-const selectedModel = ref<string>('all');
+const selectedModel = ref<string>('');
 
 // Date range
 const dateRange = ref<[dayjs.Dayjs, dayjs.Dayjs]>([
-  dayjs().subtract(30, 'day'),
+  dayjs().subtract(90, 'day'),
   dayjs(),
 ]);
 
@@ -105,7 +115,22 @@ const summaryStats = computed(() => {
   };
 });
 
-// Filtered data
+// Data filter list - exclude specific data points
+// Format: { date: 'YYYY-MM-DD', field: 'fieldName', value: targetValue }
+const dataFilterList = ref<Array<{ date: string; field: string; value: number }>>([
+  { date: '2026-03-07', field: 'max_running_reqs', value: 90 },
+  { date: '2026-03-26', field: 'max_running_reqs', value: 128 },
+]);
+
+// Check if a data point should be filtered
+const shouldFilterData = (item: any) => {
+  return dataFilterList.value.some(filter => {
+    if (item.date !== filter.date) return false;
+    return item[filter.field] === filter.value;
+  });
+};
+
+// Filtered data (for TPU and Cache charts - no filter applied)
 const filteredData = computed(() => {
   let data = [...allVllmData.value];
 
@@ -115,9 +140,29 @@ const filteredData = computed(() => {
   data = data.filter((d) => d.date >= startStr && d.date <= endStr);
 
   // Filter by model
-  if (selectedModel.value && selectedModel.value !== 'all') {
+  if (selectedModel.value && selectedModel.value !== 'all' && selectedModel.value !== '') {
     data = data.filter((d) => d.model_name === selectedModel.value);
   }
+
+  return data;
+});
+
+// Filtered data for queue chart (with data filter applied)
+const filteredQueueData = computed(() => {
+  let data = [...allVllmData.value];
+
+  // Filter by date range
+  const startStr = dateRange.value[0].format('YYYY-MM-DD');
+  const endStr = dateRange.value[1].format('YYYY-MM-DD');
+  data = data.filter((d) => d.date >= startStr && d.date <= endStr);
+
+  // Filter by model
+  if (selectedModel.value && selectedModel.value !== 'all' && selectedModel.value !== '') {
+    data = data.filter((d) => d.model_name === selectedModel.value);
+  }
+
+  // Apply filter list only for queue chart
+  data = data.filter((d) => !shouldFilterData(d));
 
   return data;
 });
@@ -144,8 +189,12 @@ const loadData = async () => {
     const models = [...new Set(data.map((d: any) => d.model_name))];
     modelOptions.value = models.map((m: string) => ({ label: m, value: m }));
 
+    // Set default model to MiniMax-M2.1 or M2.5
     if (modelOptions.value.length > 0 && !selectedModel.value) {
-      selectedModel.value = modelOptions.value[0].value;
+      const minimaxModel = modelOptions.value.find(
+        (m: any) => m.value.includes('M2.1') || m.value.includes('M2.5') || m.value.includes('minimax')
+      );
+      selectedModel.value = minimaxModel ? minimaxModel.value : modelOptions.value[0].value;
     }
   } catch (e) {
     console.error('Error loading VLLM data:', e);
@@ -196,8 +245,8 @@ const tpuChartOption = computed(() => {
         lineStyle: { width: 2 },
       },
     ],
-    legend: { bottom: 30 },
-    grid: { bottom: 80 },
+    legend: { bottom: 55 },
+    grid: { bottom: 100 },
   };
 });
 
@@ -220,7 +269,6 @@ const cacheChartOption = computed(() => {
       type: 'value',
       name: '命中率 (%)',
       min: 0,
-      max: 100,
     },
     series: [
       {
@@ -232,12 +280,21 @@ const cacheChartOption = computed(() => {
         lineStyle: { width: 3 },
       },
     ],
-    legend: { bottom: 30 },
-    grid: { bottom: 80 },
+    legend: { bottom: 55 },
+    grid: { bottom: 100 },
   };
 });
 
-// Chart options - Request Queue
+// Filter specific values in chart data - return null to skip point in line chart
+const getFilteredValue = (value: number, date: string, field: string) => {
+  const shouldFilter = dataFilterList.value.some(filter =>
+    date === filter.date && field === filter.field && value === filter.value
+  );
+  // Return null to skip the point (ECharts will connect previous and next points)
+  return shouldFilter ? null : value;
+};
+
+// Chart options - Request Queue (use filtered data with value filtering)
 const queueChartOption = computed(() => {
   const data = filteredData.value;
   return {
@@ -263,23 +320,26 @@ const queueChartOption = computed(() => {
         data: data.map((d) => d.avg_running_reqs),
         smooth: true,
         areaStyle: { opacity: 0.3 },
+        connectNulls: true,
       },
       {
         name: '最大运行请求',
         type: 'line',
-        data: data.map((d) => d.max_running_reqs || 0),
+        data: data.map((d) => getFilteredValue(d.max_running_reqs || 0, d.date, 'max_running_reqs')),
         smooth: true,
         lineStyle: { type: 'dashed' },
+        connectNulls: true,
       },
       {
         name: '平均等待请求',
         type: 'line',
         data: data.map((d) => d.avg_waitting_reqs || 0),
         smooth: true,
+        connectNulls: true,
       },
     ],
-    legend: { bottom: 30 },
-    grid: { bottom: 80 },
+    legend: { bottom: 55 },
+    grid: { bottom: 100 },
   };
 });
 
@@ -320,6 +380,21 @@ const onRefresh = () => {
   message.success('数据已刷新');
 };
 
+// Table pagination state
+const tablePagination = ref({
+  current: 1,
+  pageSize: 10,
+  showSizeChanger: true,
+  pageSizeOptions: ['10', '20', '50', '100'],
+  showTotal: (total: number) => `共 ${total} 条`,
+});
+
+// Handle table change
+const handleTableChange = (pagination: any) => {
+  tablePagination.value.current = pagination.current;
+  tablePagination.value.pageSize = pagination.pageSize;
+};
+
 // Watch for tab change
 watch(activeTab, () => {
   // Chart will auto-update due to computed property
@@ -340,7 +415,7 @@ onMounted(() => {
             <Statistic
               :value="summaryStats.avgPromptTpu.toFixed(0)"
               title="平均Prompt TPU"
-              value-style="color: #409eff"
+              :value-style="{ color: '#409eff' }"
             />
           </Card>
         </Col>
@@ -349,7 +424,7 @@ onMounted(() => {
             <Statistic
               :value="summaryStats.maxPromptTpu.toFixed(0)"
               title="最大Prompt TPU"
-              value-style="color: #67c23a"
+              :value-style="{ color: '#67c23a' }"
             />
           </Card>
         </Col>
@@ -358,7 +433,7 @@ onMounted(() => {
             <Statistic
               :value="summaryStats.avgCacheHit.toFixed(1) + '%'"
               title="平均缓存命中率"
-              value-style="color: #e6a23c"
+              :value-style="{ color: '#e6a23c' }"
             />
           </Card>
         </Col>
@@ -367,7 +442,7 @@ onMounted(() => {
             <Statistic
               :value="summaryStats.avgRunningReqs.toFixed(2)"
               title="平均运行请求"
-              value-style="color: #f56c6c"
+              :value-style="{ color: '#f56c6c' }"
             />
           </Card>
         </Col>
@@ -409,6 +484,13 @@ onMounted(() => {
             </Radio.Group>
           </div>
         </Space>
+        <!-- Filter Info -->
+        <div v-if="dataFilterList.length > 0" class="mt-3 text-sm text-gray-500">
+          <span>已过滤数据：</span>
+          <Tag v-for="(filter, index) in dataFilterList" :key="index" color="red" class="ml-1">
+            {{ filter.date }} {{ filter.field }}={{ filter.value }}
+          </Tag>
+        </div>
       </Card>
 
       <!-- Main Chart -->
@@ -420,8 +502,8 @@ onMounted(() => {
         />
       </Card>
 
-      <!-- Additional Charts (visible when all models selected) -->
-      <Row v-if="selectedModel === 'all'" :gutter="[16, 16]" class="mb-4">
+      <!-- Additional Charts -->
+      <Row v-if="filteredData.length > 0" :gutter="[16, 16]" class="mb-4">
         <Col :span="12">
           <Card title="KV Cache 使用">
             <VChart
@@ -473,9 +555,10 @@ onMounted(() => {
         <Table
           :columns="tableColumns"
           :data-source="filteredData"
-          :pagination="{ pageSize: 10, showSizeChanger: true }"
+          :pagination="tablePagination"
           row-key="id"
           size="small"
+          @change="handleTableChange"
         />
       </Card>
     </Spin>

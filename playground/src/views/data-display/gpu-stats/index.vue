@@ -57,7 +57,7 @@ const selectedGpu = ref<number>(0);
 
 // Date range - default last 7 days
 const dateRange = ref<[dayjs.Dayjs, dayjs.Dayjs]>([
-  dayjs().subtract(7, 'day'),
+  dayjs().subtract(90, 'day'),
   dayjs(),
 ]);
 
@@ -150,7 +150,6 @@ const usageChartOption = computed(() => {
       type: 'value',
       name: '使用率 (%)',
       min: 0,
-      max: 100,
     },
     series: [
       {
@@ -175,8 +174,8 @@ const usageChartOption = computed(() => {
         lineStyle: { width: 2, type: 'dotted' },
       },
     ],
-    legend: { bottom: 30 },
-    grid: { bottom: 80 },
+    legend: { bottom: 55 },
+    grid: { bottom: 100 },
   };
 });
 
@@ -218,8 +217,8 @@ const tempChartOption = computed(() => {
         lineStyle: { width: 2, type: 'dashed' },
       },
     ],
-    legend: { bottom: 30 },
-    grid: { bottom: 80 },
+    legend: { bottom: 55 },
+    grid: { bottom: 100 },
   };
 });
 
@@ -261,8 +260,8 @@ const powerChartOption = computed(() => {
         lineStyle: { width: 2, type: 'dashed' },
       },
     ],
-    legend: { bottom: 30 },
-    grid: { bottom: 80 },
+    legend: { bottom: 55 },
+    grid: { bottom: 100 },
   };
 });
 
@@ -291,6 +290,21 @@ const onDateRangeChange = () => {
 const onRefresh = () => {
   loadData();
   message.success('数据已刷新');
+};
+
+// Table pagination state
+const tablePagination = ref({
+  current: 1,
+  pageSize: 10,
+  showSizeChanger: true,
+  pageSizeOptions: ['10', '20', '50', '100'],
+  showTotal: (total: number) => `共 ${total} 条`,
+});
+
+// Handle table change
+const handleTableChange = (pagination: any) => {
+  tablePagination.value.current = pagination.current;
+  tablePagination.value.pageSize = pagination.pageSize;
 };
 
 // Disabled dates
@@ -444,9 +458,10 @@ onMounted(() => {
         <Table
           :columns="columns"
           :data-source="getGpuDataById(selectedGpu)"
-          :pagination="{ pageSize: 10, showSizeChanger: true }"
+          :pagination="tablePagination"
           row-key="id"
           size="small"
+          @change="handleTableChange"
         />
       </Card>
     </Spin>

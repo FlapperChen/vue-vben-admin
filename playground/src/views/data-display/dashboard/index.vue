@@ -19,11 +19,16 @@ const router = useRouter();
 
 // Date range - default last 7 days
 const dateRange = ref<[dayjs.Dayjs, dayjs.Dayjs]>([
-  dayjs().subtract(7, 'day'),
+  dayjs().subtract(90, 'day'),
   dayjs(),
 ]);
 
+// Store all available dates from all data
 const allAvailableDates = ref<string[]>([]);
+
+// All raw data
+const allGpuData = ref<any[]>([]);
+const allUsageData = ref<any[]>([]);
 
 const summaryData = ref({
   gpuCount: 0,
@@ -40,52 +45,88 @@ const formatDate = (date: Date) => {
   return `${y}-${m}-${d}`;
 };
 
-// Available dates for disabled dates
+// Filter out invalid users (no Chinese name, deleted, system users)
+const excludedUsernames = ['deleted', 'code_review', 'bmc', 'root', 'share', 'test', 'admin', 'guest'];
+const isValidUser = (username: string) => {
+  if (!username) return false;
+  const lower = username.toLowerCase();
+  // Exclude system users
+  if (excludedUsernames.some(u => lower.includes(u))) return false;
+  // Must have Chinese characters or be a valid user
+  return /[\u4e00-\u9fa5]/.test(username) || !lower.includes('deleted');
+};
+
+// Get all available dates from both datasets
 const availableDates = computed(() => {
-  return allAvailableDates.value.sort();
+  const gpuDates = allGpuData.value.map((d) => d.date);
+  const usageDates = allUsageData.value.map((d) => d.date);
+  return [...new Set([...gpuDates, ...usageDates])].sort();
 });
 
-// Disabled dates
+// Disabled dates - only allow dates that have data
 const disabledDate = (current: dayjs.Dayjs) => {
   const dateStr = current.format('YYYY-MM-DD');
   return !availableDates.value.includes(dateStr);
 };
 
-const loadData = async () => {
-  const startStr = formatDate(dateRange.value[0].toDate());
-  const endStr = formatDate(dateRange.value[1].toDate());
-
-  let gpuDates: string[] = [];
+// Load all data first to get available dates
+const loadAllData = async () => {
+  console.log('Loading all data to get available dates...');
 
   try {
     const gpuRes = await fetch('/src/assets/data-display/gpu_daily_stats-260411.json');
-    const gpuData = await gpuRes.json();
-    // Filter by date range
-    const filteredGpu = gpuData.filter((d: any) => d.date >= startStr && d.date <= endStr);
-    gpuDates = [...new Set(filteredGpu.map((d: any) => d.date))];
-    const uniqueGpus = [...new Set(filteredGpu.map((d: any) => d.gpu_id))];
-    summaryData.value.gpuCount = uniqueGpus.length;
+    allGpuData.value = await gpuRes.json();
+    console.log('GPU data loaded, count:', allGpuData.value.length);
   } catch (e) {
     console.error('GPU error:', e);
   }
 
   try {
     const usageRes = await fetch('/src/assets/data-display/usagerate-260411.json');
-    const usageData = await usageRes.json();
-    // Filter by date range
-    const filteredUsage = usageData.filter((d: any) => d.date >= startStr && d.date <= endStr);
-    const usageDates = [...new Set(filteredUsage.map((d: any) => d.date))];
-
-    allAvailableDates.value = [...new Set([...gpuDates, ...usageDates])].sort();
-
-    summaryData.value.userCount = [...new Set(filteredUsage.map((d: any) => d.userid))].length;
-    summaryData.value.totalRequests = filteredUsage.reduce(
-      (sum: number, d: any) => sum + d.request_count, 0);
-    summaryData.value.totalTokens = filteredUsage.reduce(
-      (sum: number, d: any) => sum + d.token_used, 0);
+    allUsageData.value = await usageRes.json();
+    console.log('Usage data loaded, count:', allUsageData.value.length);
   } catch (e) {
     console.error('Usage error:', e);
   }
+
+  // Set all available dates
+  allAvailableDates.value = availableDates.value;
+  console.log('Available dates:', allAvailableDates.value.length);
+
+  // Set default date range to all available range
+  if (allAvailableDates.value.length > 0) {
+    const firstDate = dayjs(allAvailableDates.value[0]);
+    const lastDate = dayjs(allAvailableDates.value[allAvailableDates.value.length - 1]);
+    dateRange.value = [firstDate, lastDate];
+  }
+
+  // Calculate stats
+  filterDataByDateRange();
+};
+
+const filterDataByDateRange = () => {
+  const startStr = formatDate(dateRange.value[0].toDate());
+  const endStr = formatDate(dateRange.value[1].toDate());
+
+  // Filter GPU data
+  const filteredGpu = allGpuData.value.filter(
+    (d) => d.date >= startStr && d.date <= endStr
+  );
+  const uniqueGpus = [...new Set(filteredGpu.map((d) => d.gpu_id))];
+  summaryData.value.gpuCount = uniqueGpus.length;
+
+  // Filter Usage data and exclude invalid users
+  const filteredUsage = allUsageData.value
+    .filter((d) => d.date >= startStr && d.date <= endStr)
+    .filter((d) => isValidUser(d.username));
+
+  summaryData.value.userCount = [...new Set(filteredUsage.map((d) => d.userid))].length;
+  summaryData.value.totalRequests = filteredUsage.reduce(
+    (sum: number, d: any) => sum + d.request_count, 0);
+  summaryData.value.totalTokens = filteredUsage.reduce(
+    (sum: number, d: any) => sum + d.token_used, 0);
+
+  console.log('Filtered data - GPU:', filteredGpu.length, 'Usage:', filteredUsage.length);
 };
 
 const overviewItems = computed(() => [
@@ -107,11 +148,11 @@ const navigateTo = (path: string) => {
 };
 
 const onDateRangeChange = () => {
-  loadData();
+  filterDataByDateRange();
 };
 
 onMounted(() => {
-  loadData();
+  loadAllData();
 });
 </script>
 

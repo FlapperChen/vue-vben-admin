@@ -18,6 +18,17 @@ import {
   message,
 } from 'ant-design-vue';
 
+// Filter out invalid users (no Chinese name, deleted, system users)
+const excludedUsernames = ['deleted', 'code_review', 'bmc', 'root', 'share', 'test', 'admin', 'guest'];
+const isValidUser = (username: string, displayname: string | null) => {
+  if (!username) return false;
+  const lower = username.toLowerCase();
+  if (excludedUsernames.some(u => lower.includes(u))) return false;
+  // Must have Chinese display name or valid username
+  if (displayname && /[\u4e00-\u9fa5]/.test(displayname)) return true;
+  return !lower.includes('deleted');
+};
+
 // Data
 const usersData = ref<any[]>([]);
 const loading = ref(false);
@@ -41,6 +52,9 @@ const filteredData = computed(() => {
         u.userid?.toString().includes(search)
     );
   }
+
+  // Filter invalid users
+  data = data.filter((u) => isValidUser(u.username, u.displayname));
 
   // Sort
   data.sort((a, b) => {
@@ -113,12 +127,20 @@ const handleTableChange = (pagination: any, filters: any, sorter: any) => {
     sortField.value = sorter.field;
     sortOrder.value = sorter.order;
   }
+  tablePagination.value.current = pagination.current;
+  tablePagination.value.pageSize = pagination.pageSize;
 };
 
 const onRefresh = () => {
   loadData();
   message.success('数据已刷新');
 };
+
+// Table pagination state
+const tablePagination = ref({
+  current: 1,
+  pageSize: 20,
+});
 
 // Format created_at
 const formatDate = (dateStr: string) => {
@@ -218,7 +240,7 @@ onMounted(() => {
               :value="summaryData.totalUsers"
               title="总用户数"
               prefix="👥"
-              value-style="color: #409eff"
+              :value-style="{ color: '#409eff' }"
             />
           </Card>
         </Col>
@@ -228,7 +250,7 @@ onMounted(() => {
               :value="(summaryData.totalRequests / 1000).toFixed(1) + 'K'"
               title="总请求数"
               prefix="📊"
-              value-style="color: #67c23a"
+              :value-style="{ color: '#67c23a' }"
             />
           </Card>
         </Col>
@@ -238,7 +260,7 @@ onMounted(() => {
               :value="(summaryData.totalTokens / 1000000).toFixed(2) + 'M'"
               title="Token使用总量"
               prefix="💎"
-              value-style="color: #e6a23c"
+              :value-style="{ color: '#e6a23c' }"
             />
           </Card>
         </Col>
@@ -248,7 +270,7 @@ onMounted(() => {
               :value="summaryData.topUser"
               title="最高Token用户"
               prefix="🏆"
-              value-style="color: #f56c6c; font-size: 18px"
+              :value-style="{ color: '#f56c6c', fontSize: '18px' }"
             />
           </Card>
         </Col>
@@ -295,8 +317,10 @@ onMounted(() => {
           :columns="tableColumns"
           :data-source="filteredData"
           :pagination="{
-            pageSize: 20,
+            current: tablePagination.current,
+            pageSize: tablePagination.pageSize,
             showSizeChanger: true,
+            pageSizeOptions: ['10', '20', '50', '100'],
             showQuickJumper: true,
             showTotal: (total: number) => `共 ${total} 条`,
           }"
