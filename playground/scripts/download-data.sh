@@ -88,7 +88,7 @@ split_json_file() {
     # 备份旧文件
     backup_files
 
-    # 获取所有顶层键
+    # 获取所有顶层键 - 自动识别所有数据文件
     local keys=$(jq -r 'keys[]' "$input_file")
 
     local success_count=0
@@ -96,23 +96,19 @@ split_json_file() {
 
     # 分割并保存文件 - 使用8位日期码命名
     for key in $keys; do
-        # 检查是否在配置的数据文件列表中
-        if [[ " ${DATA_FILES[@]} " =~ " ${key} " ]]; then
-            local output_file="${DATA_DIR}/${key}-${date_code_8digit}.json"
+        # 自动分割所有键，不限制文件类型
+        local output_file="${DATA_DIR}/${key}-${date_code_8digit}.json"
 
-            # 直接提取对应键的value并保存（不包含键名）
-            jq ".[\"${key}\"]" "$input_file" > "$output_file"
+        # 直接提取对应键的value并保存（不包含键名）
+        jq ".[\"${key}\"]" "$input_file" > "$output_file"
 
-            # 验证输出文件
-            if [ -s "$output_file" ] && jq empty "$output_file" 2>/dev/null; then
-                log "✓ 已创建: $output_file"
-                ((success_count++))
-            else
-                log "✗ 创建失败: $output_file"
-                ((fail_count++))
-            fi
+        # 验证输出文件
+        if [ -s "$output_file" ] && jq empty "$output_file" 2>/dev/null; then
+            log "✓ 已创建: $output_file"
+            ((success_count++))
         else
-            log "跳过非配置数据: $key"
+            log "✗ 创建失败: $output_file"
+            ((fail_count++))
         fi
     done
 
@@ -132,12 +128,12 @@ split_json_file() {
 find_latest_data_date() {
     local latest_date=""
 
-    for type in "${DATA_FILES[@]}"; do
-        # 找到最新的文件
-        latest_file=$(ls -t "$DATA_DIR"/${type}-*.json 2>/dev/null | head -1)
-        if [ -n "$latest_file" ] && [ -f "$latest_file" ]; then
-            # 提取日期码 (如 20260414)
-            date_code=$(basename "$latest_file" | sed "s/${type}-\([0-9]*\)\.json/\1/")
+    # 查找所有数据文件，获取最新日期
+    for file in "$DATA_DIR"/*-*.json; do
+        if [ -f "$file" ]; then
+            # 提取日期码 (如 20260414 或 260414)
+            local filename=$(basename "$file")
+            local date_code=$(echo "$filename" | sed 's/.*-\([0-9]*\)\.json/\1/')
 
             # 8位格式: 20260414 -> 2026-04-14
             if [ ${#date_code} -eq 8 ]; then
@@ -171,14 +167,13 @@ generate_latest_json() {
     # 转换为8位日期码 (YYYYMMDD), 如 2026-04-13 -> 20260413
     local date_code=$(date -d "$latest_date" +%Y%m%d)
 
-    # 获取文件列表信息
+    # 获取文件列表信息 - 获取所有8位日期码的数据文件
     local files_json="["
     local first=true
-    for type in "${DATA_FILES[@]}"; do
-        latest_file=$(ls -t "$DATA_DIR"/${type}-*.json 2>/dev/null | head -1)
-        if [ -n "$latest_file" ] && [ -f "$latest_file" ]; then
-            size=$(stat -c%s "$latest_file" 2>/dev/null || echo 0)
-            name=$(basename "$latest_file")
+    for file in "$DATA_DIR"/*-${date_code}.json; do
+        if [ -f "$file" ]; then
+            size=$(stat -c%s "$file" 2>/dev/null || echo 0)
+            name=$(basename "$file")
 
             if [ "$first" = true ]; then
                 first=false
