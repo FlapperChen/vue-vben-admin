@@ -232,6 +232,24 @@ const menuItems = [
     bgGradient: 'linear-gradient(135deg, #e6a23c 0%, #f56c6c 100%)',
   },
   {
+    key: 'anythingllm',
+    title: 'AnythingLLM',
+    desc: '文档处理和嵌入统计',
+    icon: '📄',
+    path: '/data-display/anythingllm-stats',
+    color: '#9c27b0',
+    bgGradient: 'linear-gradient(135deg, #9c27b0 0%, #673ab7 100%)',
+  },
+  {
+    key: 'gerrit',
+    title: 'Gerrit 统计',
+    desc: 'Code Review AI 指标监控',
+    icon: '🔍',
+    path: '/data-display/gerrit-stats',
+    color: '#00bcd4',
+    bgGradient: 'linear-gradient(135deg, #00bcd4 0%, #009688 100%)',
+  },
+  {
     key: 'users',
     title: 'API 用户',
     desc: 'OpenAPI用户数据管理',
@@ -309,7 +327,7 @@ onMounted(async () => {
 
     <!-- Navigation Cards with gradient backgrounds -->
     <Row :gutter="[16, 16]">
-      <Col v-for="item in menuItems" :key="item.key" :span="12">
+      <Col v-for="item in menuItems" :key="item.key" :span="8">
         <Card
           hoverable
           class="menu-card cursor-pointer hover:shadow-xl transition-all duration-300"

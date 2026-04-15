@@ -1,7 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-import { $t } from '#/locales';
-
 const routes: RouteRecordRaw[] = [
   {
     meta: {
@@ -61,6 +59,27 @@ const routes: RouteRecordRaw[] = [
         name: 'ApiUsers',
         path: '/data-display/api-users',
         component: () => import('#/views/data-display/api-users/index.vue'),
+      },
+      // AnythingLLM Stats
+      {
+        meta: {
+          icon: 'mdi:file-document',
+          title: 'AnythingLLM',
+        },
+        name: 'AnythingllmStats',
+        path: '/data-display/anythingllm-stats',
+        component: () =>
+          import('#/views/data-display/anythingllm-stats/index.vue'),
+      },
+      // Gerrit Stats
+      {
+        meta: {
+          icon: 'mdi:source-pull',
+          title: 'Gerrit 统计',
+        },
+        name: 'GerritStats',
+        path: '/data-display/gerrit-stats',
+        component: () => import('#/views/data-display/gerrit-stats/index.vue'),
       },
     ],
   },
