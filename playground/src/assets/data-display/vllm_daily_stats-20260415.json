@@ -957,6 +957,26 @@
     "avg_prefix_cache_hit_rate": 77.8,
     "sample_count": 46,
     "created_at": "2026-04-14T01:33:37.342645",
-    "updated_at": "2026-04-14T01:36:54.676388"
+    "updated_at": "2026-04-15T01:33:34.378101"
+  },
+  {
+    "id": 218,
+    "date": "2026-04-15",
+    "model_name": "vllm_minimax_m2_5",
+    "engine": 0,
+    "avg_prompt_tpu": 9560.72,
+    "max_prompt_tpu": 43358.9,
+    "avg_generation_tpu": 51.91,
+    "max_generation_tpu": 141.4,
+    "avg_running_reqs": 1.08,
+    "max_running_reqs": 3,
+    "avg_waitting_reqs": 0.01,
+    "max_waitting_reqs": 1,
+    "avg_gpu_kv_cache": 6.08,
+    "max_gpu_kv_cache": 30.3,
+    "avg_prefix_cache_hit_rate": 88.92,
+    "sample_count": 173,
+    "created_at": "2026-04-15T01:33:34.132589",
+    "updated_at": "2026-04-15T16:03:36.136544"
   }
 ]

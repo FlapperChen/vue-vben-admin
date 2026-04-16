@@ -15,33 +15,70 @@ log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"
 }
 
-# 备份现有数据文件
-backup_files() {
-    local backup_dir="$BACKUP_DIR/$(date +%Y%m%d_%H%M%S)"
-    mkdir -p "$backup_dir"
+# 清理过期数据文件（保留昨天和今天的数据）
+# 参数1: 保留的最新数据日期码（8位，如20260415）
+cleanup_old_files() {
+    local keep_date=$1
+    local keep_date_formatted="${keep_date:0:4}-${keep_date:4:2}-${keep_date:6:2}"
 
-    for type in "${DATA_FILES[@]}"; do
-        # 找到最新的文件
-        latest_file=$(ls -t "$DATA_DIR"/${type}-*.json 2>/dev/null | head -1)
-        if [ -n "$latest_file" ] && [ -f "$latest_file" ]; then
-            cp "$latest_file" "$backup_dir/"
-            log "已备份: $(basename $latest_file) -> $backup_dir/"
+    log "开始清理过期数据文件..."
+
+    # 转换为时间戳进行比较
+    local keep_timestamp=$(date -d "$keep_date_formatted" +%s)
+    local deleted_count=0
+
+    # 遍历数据目录中的所有带日期的json文件（包括merged文件和普通数据文件）
+    for file in "$DATA_DIR"/*-2026*.json "$DATA_DIR"/merged-*.json; do
+        if [ -f "$file" ]; then
+            filename=$(basename "$file")
+
+            # 处理8位日期码的数据文件（如 gpu_daily_stats-20260415.json）
+            if [[ "$filename" =~ -([0-9]{8})\.json$ ]]; then
+                date_code="${BASH_REMATCH[1]}"
+                file_date="${date_code:0:4}-${date_code:4:2}-${date_code:6:2}"
+                file_timestamp=$(date -d "$file_date" +%s 2>/dev/null)
+
+                if [ -n "$file_timestamp" ] && [ "$file_timestamp" -lt "$keep_timestamp" ]; then
+                    rm -f "$file"
+                    log "已清理过期文件: $filename"
+                    ((deleted_count++))
+                fi
+            fi
+
+            # 处理6位日期码的merged文件（如 merged-260413.json）
+            if [[ "$filename" =~ ^merged-([0-9]{6})\.json$ ]]; then
+                date_code_6="${BASH_REMATCH[1]}"
+                # 转换6位日期码为标准日期 (260413 -> 2026-04-13)
+                file_date="20${date_code_6:0:2}-${date_code_6:2:2}-${date_code_6:4:2}"
+                file_timestamp=$(date -d "$file_date" +%s 2>/dev/null)
+
+                if [ -n "$file_timestamp" ] && [ "$file_timestamp" -lt "$keep_timestamp" ]; then
+                    rm -f "$file"
+                    log "已清理过期文件: $filename"
+                    ((deleted_count++))
+                fi
+            fi
         fi
     done
 
-    # 清理超过7天的备份
-    find "$BACKUP_DIR" -type d -mtime +$BACKUP_DAYS -exec rm -rf {} \; 2>/dev/null
+    log "清理完成: 已删除 $deleted_count 个过期文件"
 }
 
 # 下载并分割合并的JSON文件
+# 参数1: 下载的merged文件日期码 (6位，如260416)
+# 参数2: 输出的数据文件日期码 (8位，如20260415)
 download_and_split() {
-    local date_code=$1
-    local merged_file="merged-${date_code}.json"
+    local download_code=$1
+    local output_code=$2
+    local merged_file="merged-${download_code}.json"
     local url="$ARTIFACTORY_URL/$merged_file"
     local temp_output="$DATA_DIR/${merged_file}.tmp"
 
     log "开始下载: $merged_file"
     log "URL: $url"
+
+    # 清理可能存在的残留临时文件
+    rm -f "$temp_output" "$DATA_DIR/$merged_file"
 
     # 下载合并文件
     if curl -s -o "$temp_output" -u "${AUTH_USER}:${AUTH_PASS}" "$url" 2>&1; then
@@ -52,8 +89,8 @@ download_and_split() {
                 mv "$temp_output" "$DATA_DIR/$merged_file"
                 log "✓ 下载成功: $merged_file"
 
-                # 分割JSON文件
-                split_json_file "$DATA_DIR/$merged_file" "$date_code"
+                # 分割JSON文件，使用输出日期码
+                split_json_file "$DATA_DIR/$merged_file" "$output_code"
                 return $?
             else
                 log "✗ JSON 格式无效: $merged_file"
@@ -73,20 +110,17 @@ download_and_split() {
 }
 
 # 分割JSON文件（按顶层键）
-# 注意: 输入是6位日期码 (260413)，输出使用8位日期码 (20260413)
+# 参数1: 输入文件路径
+# 参数2: 输出的8位日期码 (如 20260415)
 split_json_file() {
     local input_file=$1
-    local date_code_6digit=$2
-    local date_code_8digit=$(convert_to_8digit "$date_code_6digit")
-    local temp_dir="/tmp/split_json_${date_code_6digit}"
+    local date_code_8digit=$2
+    local temp_dir="/tmp/split_json_${date_code_8digit}"
 
     log "开始分割JSON文件..."
 
     # 创建临时目录
     mkdir -p "$temp_dir"
-
-    # 备份旧文件
-    backup_files
 
     # 获取所有顶层键 - 自动识别所有数据文件
     local keys=$(jq -r 'keys[]' "$input_file")
@@ -153,19 +187,25 @@ find_latest_data_date() {
 }
 
 # 生成 latest.json 元数据
+# 参数1: 可选的日期码（8位，如20260415），如果不提供则从文件扫描
 generate_latest_json() {
-    local latest_date=$(find_latest_data_date)
+    local provided_date_code=$1
 
-    if [[ -z "$latest_date" ]]; then
-        log "警告: 无法找到最新数据日期"
-        return 1
+    # 如果提供了日期码，直接使用；否则从文件扫描
+    if [[ -n "$provided_date_code" ]]; then
+        local date_code=$provided_date_code
+        local latest_date="${date_code:0:4}-${date_code:4:2}-${date_code:6:2}"
+    else
+        local latest_date=$(find_latest_data_date)
+        if [[ -z "$latest_date" ]]; then
+            log "警告: 无法找到最新数据日期"
+            return 1
+        fi
+        local date_code=$(date -d "$latest_date" +%Y%m%d)
     fi
 
     # 计算90天前的日期
     local earliest_date=$(date -d "$latest_date - $DATE_RANGE_DAYS days" +%Y-%m-%d)
-
-    # 转换为8位日期码 (YYYYMMDD), 如 2026-04-13 -> 20260413
-    local date_code=$(date -d "$latest_date" +%Y%m%d)
 
     # 获取文件列表信息 - 获取所有8位日期码的数据文件
     local files_json="["
@@ -208,20 +248,24 @@ EOF
 
 log "========== 开始数据同步 =========="
 
-# 获取日期码（优先昨天，如果没有则今天）
-DATE_CODE=$(get_yesterday_date_code)
-TODAY_CODE=$(get_today_date_code)
+# 获取日期码
+TODAY_CODE=$(get_today_date_code)      # 今天日期码 (260416)
+YESTERDAY_CODE_6=$(get_yesterday_date_code)  # 昨天日期码6位 (260415)
+YESTERDAY_CODE_8=$(date -d "yesterday" +%Y%m%d)  # 昨天日期码8位 (20260415)
 
-# 首先尝试昨天的合并文件
-log "尝试下载昨天的数据 (日期码: $DATE_CODE)"
-if download_and_split "$DATE_CODE"; then
-    log "昨天数据下载成功"
+# 优先下载今天的合并文件（包含昨天的完整数据）
+log "尝试下载今天的最新数据 (日期码: $TODAY_CODE)"
+if download_and_split "$TODAY_CODE" "$YESTERDAY_CODE_8"; then
+    DATE_CODE=$YESTERDAY_CODE_8
+    log "今天数据下载成功"
 else
-    # 如果昨天的文件下载失败，尝试今天的文件
-    log "昨天的文件下载失败，尝试今天的文件 (日期码: $TODAY_CODE)"
-    if download_and_split "$TODAY_CODE"; then
-        DATE_CODE=$TODAY_CODE
-        log "今天数据下载成功"
+    # 如果今天的文件下载失败，尝试昨天的合并文件
+    log "今天的文件下载失败，尝试昨天的数据 (日期码: $YESTERDAY_CODE_6)"
+    # 昨天合并文件对应的输出日期也是昨天
+    YESTERDAY_CODE_8_FALLBACK=$(date -d "yesterday" +%Y%m%d)
+    if download_and_split "$YESTERDAY_CODE_6" "$YESTERDAY_CODE_8_FALLBACK"; then
+        DATE_CODE=$YESTERDAY_CODE_8_FALLBACK
+        log "昨天数据下载成功"
     else
         log "========== 数据下载失败 =========="
         exit 1
@@ -229,7 +273,10 @@ else
 fi
 
 # 生成元数据
-generate_latest_json
+generate_latest_json "$DATE_CODE"
+
+# 清理过期数据文件（保留昨天和今天的数据）
+cleanup_old_files "$DATE_CODE"
 
 log "========== 数据同步完成 =========="
 

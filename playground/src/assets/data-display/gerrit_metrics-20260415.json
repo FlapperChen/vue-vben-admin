@@ -157,15 +157,28 @@
   },
   {
     "date": "2026-04-14",
-    "total_gerrit_comments": 4528,
-    "total_ai_comments": 514,
+    "total_gerrit_comments": 4647,
+    "total_ai_comments": 630,
     "total_ai_accept_comments": 10,
-    "total_ai_comments_rate": 11.35,
-    "total_ai_accept_rate": 1.95,
-    "daily_gerrit_comments": 0,
-    "daily_ai_comments": 0,
-    "daily_ai_comments_rate": 0.0,
+    "total_ai_comments_rate": 13.56,
+    "total_ai_accept_rate": 1.59,
+    "daily_gerrit_comments": 119,
+    "daily_ai_comments": 116,
+    "daily_ai_comments_rate": 97.48,
     "daily_ai_accept_comments": 0,
     "daily_ai_accept_rate": 0.0
+  },
+  {
+    "date": "2026-04-15",
+    "total_gerrit_comments": 4814,
+    "total_ai_comments": 783,
+    "total_ai_accept_comments": 13,
+    "total_ai_comments_rate": 16.27,
+    "total_ai_accept_rate": 1.66,
+    "daily_gerrit_comments": 167,
+    "daily_ai_comments": 153,
+    "daily_ai_comments_rate": 91.62,
+    "daily_ai_accept_comments": 3,
+    "daily_ai_accept_rate": 1.96
   }
 ]

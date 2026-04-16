@@ -90,10 +90,14 @@ const summaryStats = computed(() => {
       totalWps: 0,
       totalUploads: 0,
       avgEmbedRate: 0,
+      recordCount: 0,
     };
   }
-  const totalWps = data.reduce((sum, d) => sum + (d.wps_total || 0), 0);
-  const totalUploads = data.reduce((sum, d) => sum + (d.upload_num || 0), 0);
+
+  // 计算记录数
+  const recordCount = data.length;
+
+  // 计算平均嵌入率
   const embedRatios = data
     .filter((d) => d.embed_ratio > 0)
     .map((d) => d.embed_ratio);
@@ -102,11 +106,36 @@ const summaryStats = computed(() => {
       ? embedRatios.reduce((sum, r) => sum + r, 0) / embedRatios.length
       : 0;
 
+  // 获取最新日期的所有记录（汇总所有文件类型）
+  const latestDate = data[data.length - 1]?.date;
+  if (!latestDate) {
+    return {
+      totalDocs: 0,
+      totalWps: 0,
+      totalUploads: 0,
+      avgEmbedRate,
+      recordCount,
+    };
+  }
+
+  const latestRecords = data.filter((d) => d.date === latestDate);
+
+  // 汇总最新日期所有文件类型的值
+  const totalWps = latestRecords.reduce(
+    (sum, d) => sum + (d.wps_total || 0),
+    0,
+  );
+  const totalUploads = latestRecords.reduce(
+    (sum, d) => sum + (d.upload_num || 0),
+    0,
+  );
+
   return {
-    totalDocs: data.length,
+    totalDocs: totalUploads,
     totalWps,
     totalUploads,
     avgEmbedRate,
+    recordCount,
   };
 });
 

@@ -1109,5 +1109,159 @@
     "upload_num": 887,
     "db_type_num": 865,
     "embed_ratio": 97.5
+  },
+  {
+    "id": 9820,
+    "date": "2026-04-15",
+    "created_at": "2026-04-15T01:35:47.497786",
+    "updated_at": "2026-04-15T01:35:47.497786",
+    "file_type": "csv",
+    "wps_total": 10,
+    "upload_num": 0,
+    "db_type_num": 0,
+    "embed_ratio": 0.0
+  },
+  {
+    "id": 9639,
+    "date": "2026-04-15",
+    "created_at": "2026-04-15T01:35:33.898689",
+    "updated_at": "2026-04-15T01:35:33.898689",
+    "file_type": "doc",
+    "wps_total": 54,
+    "upload_num": 54,
+    "db_type_num": 54,
+    "embed_ratio": 100.0
+  },
+  {
+    "id": 9636,
+    "date": "2026-04-15",
+    "created_at": "2026-04-15T01:35:33.662912",
+    "updated_at": "2026-04-15T01:35:33.662912",
+    "file_type": "docx",
+    "wps_total": 1408,
+    "upload_num": 1408,
+    "db_type_num": 1336,
+    "embed_ratio": 94.9
+  },
+  {
+    "id": 9635,
+    "date": "2026-04-15",
+    "created_at": "2026-04-15T01:35:33.598344",
+    "updated_at": "2026-04-15T01:35:33.598344",
+    "file_type": "pdf",
+    "wps_total": 2547,
+    "upload_num": 2547,
+    "db_type_num": 2529,
+    "embed_ratio": 99.3
+  },
+  {
+    "id": 9638,
+    "date": "2026-04-15",
+    "created_at": "2026-04-15T01:35:33.819231",
+    "updated_at": "2026-04-15T01:35:33.819231",
+    "file_type": "pptx",
+    "wps_total": 154,
+    "upload_num": 154,
+    "db_type_num": 145,
+    "embed_ratio": 94.2
+  },
+  {
+    "id": 9640,
+    "date": "2026-04-15",
+    "created_at": "2026-04-15T01:35:33.961273",
+    "updated_at": "2026-04-15T01:35:33.961273",
+    "file_type": "xls",
+    "wps_total": 68,
+    "upload_num": 68,
+    "db_type_num": 46,
+    "embed_ratio": 67.6
+  },
+  {
+    "id": 9637,
+    "date": "2026-04-15",
+    "created_at": "2026-04-15T01:35:33.743605",
+    "updated_at": "2026-04-15T01:35:33.743605",
+    "file_type": "xlsx",
+    "wps_total": 887,
+    "upload_num": 887,
+    "db_type_num": 865,
+    "embed_ratio": 97.5
+  },
+  {
+    "id": 9913,
+    "date": "2026-04-16",
+    "created_at": "2026-04-15T16:05:42.575970",
+    "updated_at": "2026-04-15T16:05:42.575970",
+    "file_type": "csv",
+    "wps_total": 10,
+    "upload_num": 0,
+    "db_type_num": 0,
+    "embed_ratio": 0.0
+  },
+  {
+    "id": 9853,
+    "date": "2026-04-16",
+    "created_at": "2026-04-15T16:05:38.761053",
+    "updated_at": "2026-04-15T16:05:38.761053",
+    "file_type": "doc",
+    "wps_total": 54,
+    "upload_num": 54,
+    "db_type_num": 54,
+    "embed_ratio": 100.0
+  },
+  {
+    "id": 9850,
+    "date": "2026-04-16",
+    "created_at": "2026-04-15T16:05:38.570868",
+    "updated_at": "2026-04-15T16:05:38.570868",
+    "file_type": "docx",
+    "wps_total": 1409,
+    "upload_num": 1409,
+    "db_type_num": 1336,
+    "embed_ratio": 94.8
+  },
+  {
+    "id": 9849,
+    "date": "2026-04-16",
+    "created_at": "2026-04-15T16:05:38.505729",
+    "updated_at": "2026-04-15T16:05:38.505729",
+    "file_type": "pdf",
+    "wps_total": 2551,
+    "upload_num": 2551,
+    "db_type_num": 2533,
+    "embed_ratio": 99.3
+  },
+  {
+    "id": 9852,
+    "date": "2026-04-16",
+    "created_at": "2026-04-15T16:05:38.697595",
+    "updated_at": "2026-04-15T16:05:38.697595",
+    "file_type": "pptx",
+    "wps_total": 154,
+    "upload_num": 154,
+    "db_type_num": 144,
+    "embed_ratio": 93.5
+  },
+  {
+    "id": 9854,
+    "date": "2026-04-16",
+    "created_at": "2026-04-15T16:05:38.825052",
+    "updated_at": "2026-04-15T16:05:38.825052",
+    "file_type": "xls",
+    "wps_total": 68,
+    "upload_num": 68,
+    "db_type_num": 46,
+    "embed_ratio": 67.6
+  },
+  {
+    "id": 9851,
+    "date": "2026-04-16",
+    "created_at": "2026-04-15T16:05:38.633945",
+    "updated_at": "2026-04-15T16:05:38.633945",
+    "file_type": "xlsx",
+    "wps_total": 887,
+    "upload_num": 887,
+    "db_type_num": 865,
+    "embed_ratio": 97.5
   }
 ]
