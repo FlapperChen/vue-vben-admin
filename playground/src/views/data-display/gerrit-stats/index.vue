@@ -123,7 +123,7 @@ const overviewItems = computed(() => [
     title: 'AI评论占比',
     value: summaryStats.value.aiCommentRate,
     subtitle: 'AI评论百分比',
-    icon: 'mdi:percentage',
+    icon: 'mdi:chart-pie',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     textColor: '#f5576c',
     format: 'percent',
