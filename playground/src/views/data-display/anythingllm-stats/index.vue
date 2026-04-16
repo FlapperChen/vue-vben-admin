@@ -246,35 +246,70 @@ const fileTypeData = computed(() => {
     .toSorted((a, b) => b.value - a.value);
 });
 
-// Chart options - File Type Distribution
+// Chart options - File Type Distribution (Rose/Nightingale Chart)
 const fileTypeChartOption = computed(() => {
+  // 南丁格尔玫瑰图配色方案
+  const colors = [
+    '#5470c6',
+    '#91cc75',
+    '#fac858',
+    '#ee6666',
+    '#73c0de',
+    '#3ba272',
+    '#fc8452',
+    '#9a60b4',
+    '#ea7ccc',
+    '#ff5722',
+  ];
+
   return {
     title: { text: '文件类型分布', left: 'center' },
-    tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
-    legend: { bottom: 10, type: 'scroll' },
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b}: {c} 个 ({d}%)',
+    },
+    legend: {
+      bottom: 10,
+      type: 'scroll',
+      orient: 'horizontal',
+    },
     series: [
       {
         type: 'pie',
-        radius: ['40%', '70%'],
-        avoidLabelOverlap: false,
+        radius: ['20%', '65%'], // 南丁格尔玫瑰图半径范围
+        center: ['50%', '50%'],
+        roseType: 'radius', // 关键：南丁格尔玫瑰图
         itemStyle: {
-          borderRadius: 10,
+          borderRadius: 5,
           borderColor: '#fff',
           borderWidth: 2,
         },
         label: {
-          show: false,
-          position: 'center',
+          show: true,
+          position: 'outside',
+          formatter: '{b}\n{d}%',
+          fontSize: 11,
+          color: '#666',
         },
         emphasis: {
           label: {
             show: true,
-            fontSize: 16,
+            fontSize: 14,
             fontWeight: 'bold',
           },
+          itemStyle: {
+            shadowBlur: 20,
+            shadowColor: 'rgba(0, 0, 0, 0.5)',
+          },
         },
-        labelLine: { show: false },
+        labelLine: {
+          show: true,
+          length: 10,
+          length2: 15,
+          smooth: true,
+        },
         data: fileTypeData.value,
+        color: colors,
       },
     ],
     grid: { bottom: 80 },
