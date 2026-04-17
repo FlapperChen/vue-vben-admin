@@ -64,26 +64,6 @@ const formatDate = (date: Date) => {
   return `${y}-${m}-${d}`;
 };
 
-// Filter out invalid users (no Chinese name, deleted, system users)
-const excludedUsernames = [
-  'deleted',
-  'code_review',
-  'bmc',
-  'root',
-  'share',
-  'test',
-  'admin',
-  'guest',
-];
-const isValidUser = (username: string) => {
-  if (!username) return false;
-  const lower = username.toLowerCase();
-  // Exclude system users
-  if (excludedUsernames.some((u) => lower.includes(u))) return false;
-  // Must have Chinese characters or be a valid user
-  return /[\u4E00-\u9FA5]/.test(username) || !lower.includes('deleted');
-};
-
 // Get all available dates from both datasets
 const availableDates = computed(() => {
   const gpuDates = allGpuData.value.map((d) => d.date);
@@ -143,10 +123,10 @@ const filterDataByDateRange = () => {
   const uniqueGpus = [...new Set(filteredGpu.map((d) => d.gpu_id))];
   summaryData.value.gpuCount = uniqueGpus.length;
 
-  // Filter Usage data and exclude invalid users
-  const filteredUsage = allUsageData.value
-    .filter((d) => d.date >= startStr && d.date <= endStr)
-    .filter((d) => isValidUser(d.username));
+  // Filter Usage data (no user filtering)
+  const filteredUsage = allUsageData.value.filter(
+    (d) => d.date >= startStr && d.date <= endStr,
+  );
 
   summaryData.value.userCount = new Set(
     filteredUsage.map((d) => d.userid),

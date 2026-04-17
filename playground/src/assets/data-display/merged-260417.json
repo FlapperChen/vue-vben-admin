@@ -1112,10 +1112,10 @@
       "embed_ratio": 97.5
     },
     {
-      "id": 9606,
+      "id": 9820,
       "date": "2026-04-15",
-      "created_at": "2026-04-14T16:05:41.573533",
-      "updated_at": "2026-04-14T16:05:41.573533",
+      "created_at": "2026-04-15T01:35:47.497786",
+      "updated_at": "2026-04-15T01:35:47.497786",
       "file_type": "csv",
       "wps_total": 10,
       "upload_num": 0,
@@ -1123,10 +1123,10 @@
       "embed_ratio": 0.0
     },
     {
-      "id": 9425,
+      "id": 9639,
       "date": "2026-04-15",
-      "created_at": "2026-04-14T16:05:29.955355",
-      "updated_at": "2026-04-14T16:05:29.955355",
+      "created_at": "2026-04-15T01:35:33.898689",
+      "updated_at": "2026-04-15T01:35:33.898689",
       "file_type": "doc",
       "wps_total": 54,
       "upload_num": 54,
@@ -1134,10 +1134,10 @@
       "embed_ratio": 100.0
     },
     {
-      "id": 9422,
+      "id": 9636,
       "date": "2026-04-15",
-      "created_at": "2026-04-14T16:05:29.764059",
-      "updated_at": "2026-04-14T16:05:29.764059",
+      "created_at": "2026-04-15T01:35:33.662912",
+      "updated_at": "2026-04-15T01:35:33.662912",
       "file_type": "docx",
       "wps_total": 1408,
       "upload_num": 1408,
@@ -1145,10 +1145,10 @@
       "embed_ratio": 94.9
     },
     {
-      "id": 9421,
+      "id": 9635,
       "date": "2026-04-15",
-      "created_at": "2026-04-14T16:05:29.699344",
-      "updated_at": "2026-04-14T16:05:29.699344",
+      "created_at": "2026-04-15T01:35:33.598344",
+      "updated_at": "2026-04-15T01:35:33.598344",
       "file_type": "pdf",
       "wps_total": 2547,
       "upload_num": 2547,
@@ -1156,10 +1156,10 @@
       "embed_ratio": 99.3
     },
     {
-      "id": 9424,
+      "id": 9638,
       "date": "2026-04-15",
-      "created_at": "2026-04-14T16:05:29.891850",
-      "updated_at": "2026-04-14T16:05:29.891850",
+      "created_at": "2026-04-15T01:35:33.819231",
+      "updated_at": "2026-04-15T01:35:33.819231",
       "file_type": "pptx",
       "wps_total": 154,
       "upload_num": 154,
@@ -1167,10 +1167,10 @@
       "embed_ratio": 94.2
     },
     {
-      "id": 9426,
+      "id": 9640,
       "date": "2026-04-15",
-      "created_at": "2026-04-14T16:05:30.019896",
-      "updated_at": "2026-04-14T16:05:30.019896",
+      "created_at": "2026-04-15T01:35:33.961273",
+      "updated_at": "2026-04-15T01:35:33.961273",
       "file_type": "xls",
       "wps_total": 68,
       "upload_num": 68,
@@ -1178,10 +1178,164 @@
       "embed_ratio": 67.6
     },
     {
-      "id": 9423,
+      "id": 9637,
       "date": "2026-04-15",
-      "created_at": "2026-04-14T16:05:29.827297",
-      "updated_at": "2026-04-14T16:05:29.827297",
+      "created_at": "2026-04-15T01:35:33.743605",
+      "updated_at": "2026-04-15T01:35:33.743605",
+      "file_type": "xlsx",
+      "wps_total": 887,
+      "upload_num": 887,
+      "db_type_num": 865,
+      "embed_ratio": 97.5
+    },
+    {
+      "id": 11313,
+      "date": "2026-04-16",
+      "created_at": "2026-04-16T12:58:22.684462",
+      "updated_at": "2026-04-16T12:58:22.684462",
+      "file_type": "csv",
+      "wps_total": 10,
+      "upload_num": 0,
+      "db_type_num": 0,
+      "embed_ratio": 0.0
+    },
+    {
+      "id": 11137,
+      "date": "2026-04-16",
+      "created_at": "2026-04-16T12:58:12.266201",
+      "updated_at": "2026-04-16T12:58:12.266201",
+      "file_type": "doc",
+      "wps_total": 54,
+      "upload_num": 54,
+      "db_type_num": 54,
+      "embed_ratio": 100.0
+    },
+    {
+      "id": 11134,
+      "date": "2026-04-16",
+      "created_at": "2026-04-16T12:58:12.091150",
+      "updated_at": "2026-04-16T12:58:12.091150",
+      "file_type": "docx",
+      "wps_total": 1416,
+      "upload_num": 1416,
+      "db_type_num": 1336,
+      "embed_ratio": 94.4
+    },
+    {
+      "id": 11133,
+      "date": "2026-04-16",
+      "created_at": "2026-04-16T12:58:12.032586",
+      "updated_at": "2026-04-16T12:58:12.032586",
+      "file_type": "pdf",
+      "wps_total": 2555,
+      "upload_num": 2555,
+      "db_type_num": 2535,
+      "embed_ratio": 99.2
+    },
+    {
+      "id": 11136,
+      "date": "2026-04-16",
+      "created_at": "2026-04-16T12:58:12.207505",
+      "updated_at": "2026-04-16T12:58:12.207505",
+      "file_type": "pptx",
+      "wps_total": 154,
+      "upload_num": 154,
+      "db_type_num": 144,
+      "embed_ratio": 93.5
+    },
+    {
+      "id": 11138,
+      "date": "2026-04-16",
+      "created_at": "2026-04-16T12:58:12.324621",
+      "updated_at": "2026-04-16T12:58:12.324621",
+      "file_type": "xls",
+      "wps_total": 68,
+      "upload_num": 68,
+      "db_type_num": 46,
+      "embed_ratio": 67.6
+    },
+    {
+      "id": 11135,
+      "date": "2026-04-16",
+      "created_at": "2026-04-16T12:58:12.149472",
+      "updated_at": "2026-04-16T12:58:12.149472",
+      "file_type": "xlsx",
+      "wps_total": 887,
+      "upload_num": 887,
+      "db_type_num": 865,
+      "embed_ratio": 97.5
+    },
+    {
+      "id": 11527,
+      "date": "2026-04-17",
+      "created_at": "2026-04-16T23:05:50.716693",
+      "updated_at": "2026-04-16T23:05:50.716693",
+      "file_type": "csv",
+      "wps_total": 10,
+      "upload_num": 0,
+      "db_type_num": 0,
+      "embed_ratio": 0.0
+    },
+    {
+      "id": 11351,
+      "date": "2026-04-17",
+      "created_at": "2026-04-16T23:05:37.516642",
+      "updated_at": "2026-04-16T23:05:37.516642",
+      "file_type": "doc",
+      "wps_total": 54,
+      "upload_num": 54,
+      "db_type_num": 54,
+      "embed_ratio": 100.0
+    },
+    {
+      "id": 11348,
+      "date": "2026-04-17",
+      "created_at": "2026-04-16T23:05:37.295116",
+      "updated_at": "2026-04-16T23:05:37.295116",
+      "file_type": "docx",
+      "wps_total": 1416,
+      "upload_num": 1416,
+      "db_type_num": 1336,
+      "embed_ratio": 94.4
+    },
+    {
+      "id": 11347,
+      "date": "2026-04-17",
+      "created_at": "2026-04-16T23:05:37.217823",
+      "updated_at": "2026-04-16T23:05:37.217823",
+      "file_type": "pdf",
+      "wps_total": 2555,
+      "upload_num": 2555,
+      "db_type_num": 2535,
+      "embed_ratio": 99.2
+    },
+    {
+      "id": 11350,
+      "date": "2026-04-17",
+      "created_at": "2026-04-16T23:05:37.438028",
+      "updated_at": "2026-04-16T23:05:37.438028",
+      "file_type": "pptx",
+      "wps_total": 154,
+      "upload_num": 154,
+      "db_type_num": 144,
+      "embed_ratio": 93.5
+    },
+    {
+      "id": 11352,
+      "date": "2026-04-17",
+      "created_at": "2026-04-16T23:05:37.594487",
+      "updated_at": "2026-04-16T23:05:37.594487",
+      "file_type": "xls",
+      "wps_total": 68,
+      "upload_num": 68,
+      "db_type_num": 46,
+      "embed_ratio": 67.6
+    },
+    {
+      "id": 11349,
+      "date": "2026-04-17",
+      "created_at": "2026-04-16T23:05:37.373970",
+      "updated_at": "2026-04-16T23:05:37.373970",
       "file_type": "xlsx",
       "wps_total": 887,
       "upload_num": 887,
@@ -1201,7 +1355,10 @@
       "daily_ai_comments": 0,
       "daily_ai_comments_rate": 0.0,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 389,
+      "ai_covered_project_branch_count": 0,
+      "total_ai_codereview_cover_rate": 0.0
     },
     {
       "date": "2026-03-31",
@@ -1214,7 +1371,10 @@
       "daily_ai_comments": 8,
       "daily_ai_comments_rate": 47.06,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 390,
+      "ai_covered_project_branch_count": 1,
+      "total_ai_codereview_cover_rate": 0.26
     },
     {
       "date": "2026-04-01",
@@ -1227,7 +1387,10 @@
       "daily_ai_comments": 1,
       "daily_ai_comments_rate": 20.0,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 390,
+      "ai_covered_project_branch_count": 2,
+      "total_ai_codereview_cover_rate": 0.51
     },
     {
       "date": "2026-04-02",
@@ -1240,7 +1403,10 @@
       "daily_ai_comments": 7,
       "daily_ai_comments_rate": 3.55,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 391,
+      "ai_covered_project_branch_count": 3,
+      "total_ai_codereview_cover_rate": 0.77
     },
     {
       "date": "2026-04-03",
@@ -1253,7 +1419,10 @@
       "daily_ai_comments": 30,
       "daily_ai_comments_rate": 68.18,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 391,
+      "ai_covered_project_branch_count": 7,
+      "total_ai_codereview_cover_rate": 1.79
     },
     {
       "date": "2026-04-04",
@@ -1266,98 +1435,154 @@
       "daily_ai_comments": 8,
       "daily_ai_comments_rate": 88.89,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 391,
+      "ai_covered_project_branch_count": 8,
+      "total_ai_codereview_cover_rate": 2.05
     },
     {
       "date": "2026-04-07",
-      "total_gerrit_comments": 4060,
-      "total_ai_comments": 136,
+      "total_gerrit_comments": 4049,
+      "total_ai_comments": 125,
       "total_ai_accept_comments": 2,
-      "total_ai_comments_rate": 3.35,
-      "total_ai_accept_rate": 1.47,
-      "daily_gerrit_comments": 86,
-      "daily_ai_comments": 82,
-      "daily_ai_comments_rate": 95.35,
+      "total_ai_comments_rate": 3.09,
+      "total_ai_accept_rate": 1.6,
+      "daily_gerrit_comments": 75,
+      "daily_ai_comments": 71,
+      "daily_ai_comments_rate": 94.67,
       "daily_ai_accept_comments": 2,
-      "daily_ai_accept_rate": 2.44
+      "daily_ai_accept_rate": 2.82,
+      "total_project_branch_count": 393,
+      "ai_covered_project_branch_count": 13,
+      "total_ai_codereview_cover_rate": 3.31
     },
     {
       "date": "2026-04-08",
-      "total_gerrit_comments": 4176,
-      "total_ai_comments": 250,
+      "total_gerrit_comments": 4165,
+      "total_ai_comments": 239,
       "total_ai_accept_comments": 2,
-      "total_ai_comments_rate": 5.99,
-      "total_ai_accept_rate": 0.8,
+      "total_ai_comments_rate": 5.74,
+      "total_ai_accept_rate": 0.84,
       "daily_gerrit_comments": 116,
       "daily_ai_comments": 114,
       "daily_ai_comments_rate": 98.28,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 393,
+      "ai_covered_project_branch_count": 25,
+      "total_ai_codereview_cover_rate": 6.36
     },
     {
       "date": "2026-04-09",
-      "total_gerrit_comments": 4293,
-      "total_ai_comments": 308,
+      "total_gerrit_comments": 4282,
+      "total_ai_comments": 297,
       "total_ai_accept_comments": 2,
-      "total_ai_comments_rate": 7.17,
-      "total_ai_accept_rate": 0.65,
+      "total_ai_comments_rate": 6.94,
+      "total_ai_accept_rate": 0.67,
       "daily_gerrit_comments": 117,
       "daily_ai_comments": 58,
       "daily_ai_comments_rate": 49.57,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 396,
+      "ai_covered_project_branch_count": 28,
+      "total_ai_codereview_cover_rate": 7.07
     },
     {
       "date": "2026-04-10",
-      "total_gerrit_comments": 4354,
-      "total_ai_comments": 363,
+      "total_gerrit_comments": 4343,
+      "total_ai_comments": 352,
       "total_ai_accept_comments": 2,
-      "total_ai_comments_rate": 8.34,
-      "total_ai_accept_rate": 0.55,
+      "total_ai_comments_rate": 8.1,
+      "total_ai_accept_rate": 0.57,
       "daily_gerrit_comments": 61,
       "daily_ai_comments": 55,
       "daily_ai_comments_rate": 90.16,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 398,
+      "ai_covered_project_branch_count": 31,
+      "total_ai_codereview_cover_rate": 7.79
     },
     {
       "date": "2026-04-11",
-      "total_gerrit_comments": 4456,
-      "total_ai_comments": 451,
+      "total_gerrit_comments": 4445,
+      "total_ai_comments": 440,
       "total_ai_accept_comments": 8,
-      "total_ai_comments_rate": 10.12,
-      "total_ai_accept_rate": 1.77,
+      "total_ai_comments_rate": 9.9,
+      "total_ai_accept_rate": 1.82,
       "daily_gerrit_comments": 102,
       "daily_ai_comments": 88,
       "daily_ai_comments_rate": 86.27,
       "daily_ai_accept_comments": 6,
-      "daily_ai_accept_rate": 6.82
+      "daily_ai_accept_rate": 6.82,
+      "total_project_branch_count": 399,
+      "ai_covered_project_branch_count": 33,
+      "total_ai_codereview_cover_rate": 8.27
     },
     {
       "date": "2026-04-13",
-      "total_gerrit_comments": 4528,
-      "total_ai_comments": 514,
+      "total_gerrit_comments": 4517,
+      "total_ai_comments": 503,
       "total_ai_accept_comments": 10,
-      "total_ai_comments_rate": 11.35,
-      "total_ai_accept_rate": 1.95,
+      "total_ai_comments_rate": 11.14,
+      "total_ai_accept_rate": 1.99,
       "daily_gerrit_comments": 72,
       "daily_ai_comments": 63,
       "daily_ai_comments_rate": 87.5,
       "daily_ai_accept_comments": 2,
-      "daily_ai_accept_rate": 3.17
+      "daily_ai_accept_rate": 3.17,
+      "total_project_branch_count": 399,
+      "ai_covered_project_branch_count": 36,
+      "total_ai_codereview_cover_rate": 9.02
     },
     {
       "date": "2026-04-14",
-      "total_gerrit_comments": 4647,
-      "total_ai_comments": 630,
+      "total_gerrit_comments": 4648,
+      "total_ai_comments": 622,
       "total_ai_accept_comments": 10,
-      "total_ai_comments_rate": 13.56,
-      "total_ai_accept_rate": 1.59,
-      "daily_gerrit_comments": 119,
-      "daily_ai_comments": 116,
-      "daily_ai_comments_rate": 97.48,
+      "total_ai_comments_rate": 13.38,
+      "total_ai_accept_rate": 1.61,
+      "daily_gerrit_comments": 131,
+      "daily_ai_comments": 119,
+      "daily_ai_comments_rate": 90.84,
       "daily_ai_accept_comments": 0,
-      "daily_ai_accept_rate": 0.0
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 400,
+      "ai_covered_project_branch_count": 38,
+      "total_ai_codereview_cover_rate": 9.5
+    },
+    {
+      "date": "2026-04-15",
+      "total_gerrit_comments": 4815,
+      "total_ai_comments": 775,
+      "total_ai_accept_comments": 13,
+      "total_ai_comments_rate": 16.1,
+      "total_ai_accept_rate": 1.68,
+      "daily_gerrit_comments": 167,
+      "daily_ai_comments": 153,
+      "daily_ai_comments_rate": 91.62,
+      "daily_ai_accept_comments": 3,
+      "daily_ai_accept_rate": 1.96,
+      "total_project_branch_count": 400,
+      "ai_covered_project_branch_count": 41,
+      "total_ai_codereview_cover_rate": 10.25
+    },
+    {
+      "date": "2026-04-16",
+      "total_gerrit_comments": 4864,
+      "total_ai_comments": 824,
+      "total_ai_accept_comments": 13,
+      "total_ai_comments_rate": 16.94,
+      "total_ai_accept_rate": 1.58,
+      "daily_gerrit_comments": 49,
+      "daily_ai_comments": 49,
+      "daily_ai_comments_rate": 100.0,
+      "daily_ai_accept_comments": 0,
+      "daily_ai_accept_rate": 0.0,
+      "total_project_branch_count": 400,
+      "ai_covered_project_branch_count": 43,
+      "total_ai_codereview_cover_rate": 10.75
     }
   ],
   "gpu_daily_stats": [
@@ -2046,7 +2271,55 @@
       "max_power_draw": 487.27,
       "sample_count": 47,
       "created_at": "2026-04-14T01:33:19.284189",
-      "updated_at": "2026-04-14T16:03:10.844872",
+      "updated_at": "2026-04-15T01:33:14.005133",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 913,
+      "gpu_id": 0,
+      "date": "2026-04-15",
+      "avg_usage_rate": 43.36,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 30.32,
+      "max_temperature": 46.0,
+      "avg_power_draw": 119.36,
+      "max_power_draw": 313.86,
+      "sample_count": 47,
+      "created_at": "2026-04-15T01:33:15.277586",
+      "updated_at": "2026-04-16T01:33:11.820739",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 937,
+      "gpu_id": 0,
+      "date": "2026-04-16",
+      "avg_usage_rate": 48.98,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 30.89,
+      "max_temperature": 54.0,
+      "avg_power_draw": 131.93,
+      "max_power_draw": 523.41,
+      "sample_count": 46,
+      "created_at": "2026-04-16T01:33:12.454728",
+      "updated_at": "2026-04-16T23:03:16.670217",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 969,
+      "gpu_id": 0,
+      "date": "2026-04-17",
+      "avg_usage_rate": 0.0,
+      "max_usage_rate": 0.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 25.86,
+      "max_temperature": 27.0,
+      "avg_power_draw": 62.78,
+      "max_power_draw": 65.92,
+      "sample_count": 14,
+      "created_at": "2026-04-16T23:03:17.233049",
+      "updated_at": "2026-04-16T23:03:17.233049",
       "host_ip": "10.18.103.60"
     },
     {
@@ -2734,7 +3007,55 @@
       "max_power_draw": 486.99,
       "sample_count": 47,
       "created_at": "2026-04-14T01:33:19.366521",
-      "updated_at": "2026-04-14T16:03:11.004493",
+      "updated_at": "2026-04-15T01:33:14.294685",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 914,
+      "gpu_id": 1,
+      "date": "2026-04-15",
+      "avg_usage_rate": 43.38,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 30.0,
+      "max_temperature": 43.0,
+      "avg_power_draw": 122.85,
+      "max_power_draw": 241.82,
+      "sample_count": 47,
+      "created_at": "2026-04-15T01:33:15.405273",
+      "updated_at": "2026-04-16T01:33:11.997064",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 938,
+      "gpu_id": 1,
+      "date": "2026-04-16",
+      "avg_usage_rate": 49.02,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 30.41,
+      "max_temperature": 50.0,
+      "avg_power_draw": 130.76,
+      "max_power_draw": 466.49,
+      "sample_count": 46,
+      "created_at": "2026-04-16T01:33:12.546508",
+      "updated_at": "2026-04-16T23:03:16.826967",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 970,
+      "gpu_id": 1,
+      "date": "2026-04-17",
+      "avg_usage_rate": 0.0,
+      "max_usage_rate": 0.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 25.57,
+      "max_temperature": 26.0,
+      "avg_power_draw": 71.81,
+      "max_power_draw": 76.41,
+      "sample_count": 14,
+      "created_at": "2026-04-16T23:03:17.317395",
+      "updated_at": "2026-04-16T23:03:17.317395",
       "host_ip": "10.18.103.60"
     },
     {
@@ -3422,7 +3743,55 @@
       "max_power_draw": 530.46,
       "sample_count": 47,
       "created_at": "2026-04-14T01:33:19.424938",
-      "updated_at": "2026-04-14T16:03:11.069355",
+      "updated_at": "2026-04-15T01:33:14.407296",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 915,
+      "gpu_id": 2,
+      "date": "2026-04-15",
+      "avg_usage_rate": 43.47,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 31.77,
+      "max_temperature": 46.0,
+      "avg_power_draw": 128.22,
+      "max_power_draw": 277.69,
+      "sample_count": 47,
+      "created_at": "2026-04-15T01:33:15.516768",
+      "updated_at": "2026-04-16T01:33:12.061180",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 939,
+      "gpu_id": 2,
+      "date": "2026-04-16",
+      "avg_usage_rate": 48.91,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 32.15,
+      "max_temperature": 54.0,
+      "avg_power_draw": 140.54,
+      "max_power_draw": 475.86,
+      "sample_count": 46,
+      "created_at": "2026-04-16T01:33:12.611869",
+      "updated_at": "2026-04-16T23:03:16.884878",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 971,
+      "gpu_id": 2,
+      "date": "2026-04-17",
+      "avg_usage_rate": 0.0,
+      "max_usage_rate": 0.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 27.07,
+      "max_temperature": 28.0,
+      "avg_power_draw": 76.28,
+      "max_power_draw": 80.23,
+      "sample_count": 14,
+      "created_at": "2026-04-16T23:03:17.376150",
+      "updated_at": "2026-04-16T23:03:17.376150",
       "host_ip": "10.18.103.60"
     },
     {
@@ -4110,7 +4479,55 @@
       "max_power_draw": 477.66,
       "sample_count": 47,
       "created_at": "2026-04-14T01:33:19.483300",
-      "updated_at": "2026-04-14T16:03:11.132033",
+      "updated_at": "2026-04-15T01:33:14.736966",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 916,
+      "gpu_id": 3,
+      "date": "2026-04-15",
+      "avg_usage_rate": 43.38,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 30.38,
+      "max_temperature": 44.0,
+      "avg_power_draw": 127.11,
+      "max_power_draw": 256.97,
+      "sample_count": 47,
+      "created_at": "2026-04-15T01:33:15.640093",
+      "updated_at": "2026-04-16T01:33:12.126292",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 940,
+      "gpu_id": 3,
+      "date": "2026-04-16",
+      "avg_usage_rate": 48.72,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 30.93,
+      "max_temperature": 51.0,
+      "avg_power_draw": 137.19,
+      "max_power_draw": 535.67,
+      "sample_count": 46,
+      "created_at": "2026-04-16T01:33:12.677534",
+      "updated_at": "2026-04-16T23:03:16.942765",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 972,
+      "gpu_id": 3,
+      "date": "2026-04-17",
+      "avg_usage_rate": 0.0,
+      "max_usage_rate": 0.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 26.07,
+      "max_temperature": 27.0,
+      "avg_power_draw": 76.53,
+      "max_power_draw": 79.29,
+      "sample_count": 14,
+      "created_at": "2026-04-16T23:03:17.433738",
+      "updated_at": "2026-04-16T23:03:17.433738",
       "host_ip": "10.18.103.60"
     },
     {
@@ -4798,7 +5215,55 @@
       "max_power_draw": 512.87,
       "sample_count": 47,
       "created_at": "2026-04-14T01:33:19.543014",
-      "updated_at": "2026-04-14T16:03:11.195112",
+      "updated_at": "2026-04-15T01:33:14.840449",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 917,
+      "gpu_id": 4,
+      "date": "2026-04-15",
+      "avg_usage_rate": 43.4,
+      "max_usage_rate": 97.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 28.91,
+      "max_temperature": 40.0,
+      "avg_power_draw": 125.74,
+      "max_power_draw": 267.69,
+      "sample_count": 47,
+      "created_at": "2026-04-15T01:33:15.752642",
+      "updated_at": "2026-04-16T01:33:12.191171",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 941,
+      "gpu_id": 4,
+      "date": "2026-04-16",
+      "avg_usage_rate": 48.43,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 29.43,
+      "max_temperature": 48.0,
+      "avg_power_draw": 132.95,
+      "max_power_draw": 380.78,
+      "sample_count": 46,
+      "created_at": "2026-04-16T01:33:12.742304",
+      "updated_at": "2026-04-16T23:03:17.000821",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 973,
+      "gpu_id": 4,
+      "date": "2026-04-17",
+      "avg_usage_rate": 0.0,
+      "max_usage_rate": 0.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 25.64,
+      "max_temperature": 26.0,
+      "avg_power_draw": 77.61,
+      "max_power_draw": 79.62,
+      "sample_count": 14,
+      "created_at": "2026-04-16T23:03:17.491742",
+      "updated_at": "2026-04-16T23:03:17.491742",
       "host_ip": "10.18.103.60"
     },
     {
@@ -5486,7 +5951,55 @@
       "max_power_draw": 525.27,
       "sample_count": 47,
       "created_at": "2026-04-14T01:33:19.600294",
-      "updated_at": "2026-04-14T16:03:11.258065",
+      "updated_at": "2026-04-15T01:33:14.965260",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 918,
+      "gpu_id": 5,
+      "date": "2026-04-15",
+      "avg_usage_rate": 43.36,
+      "max_usage_rate": 97.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 30.74,
+      "max_temperature": 45.0,
+      "avg_power_draw": 125.16,
+      "max_power_draw": 254.79,
+      "sample_count": 47,
+      "created_at": "2026-04-15T01:33:15.873553",
+      "updated_at": "2026-04-16T01:33:12.255178",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 942,
+      "gpu_id": 5,
+      "date": "2026-04-16",
+      "avg_usage_rate": 48.3,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 31.43,
+      "max_temperature": 54.0,
+      "avg_power_draw": 135.65,
+      "max_power_draw": 510.91,
+      "sample_count": 46,
+      "created_at": "2026-04-16T01:33:12.806978",
+      "updated_at": "2026-04-16T23:03:17.057843",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 974,
+      "gpu_id": 5,
+      "date": "2026-04-17",
+      "avg_usage_rate": 0.0,
+      "max_usage_rate": 0.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 26.07,
+      "max_temperature": 27.0,
+      "avg_power_draw": 77.59,
+      "max_power_draw": 78.62,
+      "sample_count": 14,
+      "created_at": "2026-04-16T23:03:17.550101",
+      "updated_at": "2026-04-16T23:03:17.550101",
       "host_ip": "10.18.103.60"
     },
     {
@@ -6174,7 +6687,55 @@
       "max_power_draw": 470.17,
       "sample_count": 47,
       "created_at": "2026-04-14T01:33:19.657937",
-      "updated_at": "2026-04-14T16:03:11.320865",
+      "updated_at": "2026-04-15T01:33:15.067701",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 919,
+      "gpu_id": 6,
+      "date": "2026-04-15",
+      "avg_usage_rate": 43.26,
+      "max_usage_rate": 97.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 31.66,
+      "max_temperature": 46.0,
+      "avg_power_draw": 130.03,
+      "max_power_draw": 277.1,
+      "sample_count": 47,
+      "created_at": "2026-04-15T01:33:16.001760",
+      "updated_at": "2026-04-16T01:33:12.322449",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 943,
+      "gpu_id": 6,
+      "date": "2026-04-16",
+      "avg_usage_rate": 48.26,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 32.17,
+      "max_temperature": 55.0,
+      "avg_power_draw": 143.42,
+      "max_power_draw": 534.31,
+      "sample_count": 46,
+      "created_at": "2026-04-16T01:33:12.872907",
+      "updated_at": "2026-04-16T23:03:17.117654",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 975,
+      "gpu_id": 6,
+      "date": "2026-04-17",
+      "avg_usage_rate": 0.0,
+      "max_usage_rate": 0.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 27.0,
+      "max_temperature": 28.0,
+      "avg_power_draw": 81.25,
+      "max_power_draw": 81.76,
+      "sample_count": 14,
+      "created_at": "2026-04-16T23:03:17.608564",
+      "updated_at": "2026-04-16T23:03:17.608564",
       "host_ip": "10.18.103.60"
     },
     {
@@ -6862,7 +7423,55 @@
       "max_power_draw": 487.84,
       "sample_count": 47,
       "created_at": "2026-04-14T01:33:19.717143",
-      "updated_at": "2026-04-14T16:03:11.385335",
+      "updated_at": "2026-04-15T01:33:15.161013",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 920,
+      "gpu_id": 7,
+      "date": "2026-04-15",
+      "avg_usage_rate": 43.17,
+      "max_usage_rate": 98.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 31.04,
+      "max_temperature": 44.0,
+      "avg_power_draw": 128.59,
+      "max_power_draw": 280.19,
+      "sample_count": 47,
+      "created_at": "2026-04-15T01:33:16.129574",
+      "updated_at": "2026-04-16T01:33:12.388890",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 944,
+      "gpu_id": 7,
+      "date": "2026-04-16",
+      "avg_usage_rate": 48.09,
+      "max_usage_rate": 100.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 31.59,
+      "max_temperature": 51.0,
+      "avg_power_draw": 136.05,
+      "max_power_draw": 468.26,
+      "sample_count": 46,
+      "created_at": "2026-04-16T01:33:12.938475",
+      "updated_at": "2026-04-16T23:03:17.175649",
+      "host_ip": "10.18.103.60"
+    },
+    {
+      "id": 976,
+      "gpu_id": 7,
+      "date": "2026-04-17",
+      "avg_usage_rate": 0.0,
+      "max_usage_rate": 0.0,
+      "min_usage_rate": 0.0,
+      "avg_temperature": 26.86,
+      "max_temperature": 28.0,
+      "avg_power_draw": 80.89,
+      "max_power_draw": 81.34,
+      "sample_count": 14,
+      "created_at": "2026-04-16T23:03:17.666077",
+      "updated_at": "2026-04-16T23:03:17.666077",
       "host_ip": "10.18.103.60"
     }
   ],
@@ -6873,16 +7482,16 @@
       "request_total": 4,
       "token_used_total": 457800,
       "created_at": "2026-03-03T06:38:56.394405",
-      "updated_at": "2026-04-14T16:02:58.813603",
+      "updated_at": "2026-04-16T23:03:01.973703",
       "displayname": null
     },
     {
       "userid": 2,
       "username": "flapper_chen",
-      "request_total": 2126,
-      "token_used_total": 174056622,
+      "request_total": 2127,
+      "token_used_total": 174065672,
       "created_at": "2026-03-03T06:38:56.536373",
-      "updated_at": "2026-04-14T16:02:58.954263",
+      "updated_at": "2026-04-16T23:03:02.117039",
       "displayname": "陈重羽"
     },
     {
@@ -6891,7 +7500,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:38:56.603076",
-      "updated_at": "2026-04-14T16:02:59.019600",
+      "updated_at": "2026-04-16T23:03:02.195066",
       "displayname": null
     },
     {
@@ -6900,34 +7509,34 @@
       "request_total": 5,
       "token_used_total": 1136525,
       "created_at": "2026-03-03T06:38:56.670245",
-      "updated_at": "2026-04-14T16:02:59.083530",
+      "updated_at": "2026-04-16T23:03:02.274073",
       "displayname": null
     },
     {
       "userid": 5,
       "username": "avery_li",
-      "request_total": 5032,
-      "token_used_total": 242015533,
+      "request_total": 5135,
+      "token_used_total": 246428363,
       "created_at": "2026-03-03T06:38:56.737188",
-      "updated_at": "2026-04-14T16:02:59.148552",
+      "updated_at": "2026-04-16T23:03:02.337409",
       "displayname": "李佳耕"
     },
     {
       "userid": 6,
       "username": "luca_jiang",
-      "request_total": 4527,
-      "token_used_total": 40016827,
+      "request_total": 4915,
+      "token_used_total": 50432789,
       "created_at": "2026-03-03T06:38:56.803379",
-      "updated_at": "2026-04-14T16:02:59.212091",
+      "updated_at": "2026-04-16T23:03:02.417167",
       "displayname": "姜友鹏"
     },
     {
       "userid": 7,
       "username": "alex_yao",
-      "request_total": 3844,
-      "token_used_total": 244428040,
+      "request_total": 3989,
+      "token_used_total": 257146834,
       "created_at": "2026-03-03T06:38:56.870515",
-      "updated_at": "2026-04-14T16:02:59.275136",
+      "updated_at": "2026-04-16T23:03:02.494987",
       "displayname": "姚涵毅"
     },
     {
@@ -6936,7 +7545,7 @@
       "request_total": 455,
       "token_used_total": 23115391,
       "created_at": "2026-03-03T06:38:56.937959",
-      "updated_at": "2026-04-14T16:02:59.339728",
+      "updated_at": "2026-04-16T23:03:02.573442",
       "displayname": "黄洪"
     },
     {
@@ -6945,7 +7554,7 @@
       "request_total": 272,
       "token_used_total": 12978546,
       "created_at": "2026-03-03T06:38:57.003455",
-      "updated_at": "2026-04-14T16:02:59.404443",
+      "updated_at": "2026-04-16T23:03:02.636967",
       "displayname": "罗青松"
     },
     {
@@ -6954,16 +7563,16 @@
       "request_total": 2,
       "token_used_total": 443520,
       "created_at": "2026-03-03T06:38:57.071228",
-      "updated_at": "2026-04-14T16:02:59.469518",
+      "updated_at": "2026-04-16T23:03:02.716024",
       "displayname": null
     },
     {
       "userid": 11,
       "username": "ryan_hong",
-      "request_total": 29721,
-      "token_used_total": 1993055741,
+      "request_total": 29918,
+      "token_used_total": 2008103538,
       "created_at": "2026-03-03T06:38:57.138301",
-      "updated_at": "2026-04-14T16:02:59.534075",
+      "updated_at": "2026-04-16T23:03:02.795067",
       "displayname": "洪榜"
     },
     {
@@ -6972,16 +7581,16 @@
       "request_total": 29,
       "token_used_total": 1251125,
       "created_at": "2026-03-03T06:38:57.204953",
-      "updated_at": "2026-04-14T16:02:59.598380",
+      "updated_at": "2026-04-16T23:03:02.873260",
       "displayname": "骆文强"
     },
     {
       "userid": 13,
       "username": "nemo.li",
-      "request_total": 106,
-      "token_used_total": 7718771,
+      "request_total": 112,
+      "token_used_total": 7886095,
       "created_at": "2026-03-03T06:38:57.272069",
-      "updated_at": "2026-04-14T16:02:59.661367",
+      "updated_at": "2026-04-16T23:03:02.935980",
       "displayname": "李俊"
     },
     {
@@ -6990,7 +7599,7 @@
       "request_total": 26,
       "token_used_total": 698068,
       "created_at": "2026-03-03T06:38:57.339467",
-      "updated_at": "2026-04-14T16:02:59.724965",
+      "updated_at": "2026-04-16T23:03:03.015905",
       "displayname": "周颖"
     },
     {
@@ -6999,16 +7608,16 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:38:57.405984",
-      "updated_at": "2026-04-14T16:02:59.790244",
+      "updated_at": "2026-04-16T23:03:03.095949",
       "displayname": null
     },
     {
       "userid": 16,
       "username": "helen_hong",
-      "request_total": 1004,
-      "token_used_total": 71287694,
+      "request_total": 1087,
+      "token_used_total": 80231652,
       "created_at": "2026-03-03T06:38:57.472586",
-      "updated_at": "2026-04-14T16:02:59.854315",
+      "updated_at": "2026-04-16T23:03:03.173400",
       "displayname": "洪晓棠"
     },
     {
@@ -7017,7 +7626,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:38:57.538457",
-      "updated_at": "2026-04-14T16:02:59.917674",
+      "updated_at": "2026-04-16T23:03:03.237018",
       "displayname": "洪佳能"
     },
     {
@@ -7026,34 +7635,34 @@
       "request_total": 519,
       "token_used_total": 31925715,
       "created_at": "2026-03-03T06:38:57.605415",
-      "updated_at": "2026-04-14T16:02:59.983311",
+      "updated_at": "2026-04-16T23:03:03.315144",
       "displayname": "刘飞"
     },
     {
       "userid": 22,
       "username": "jack.wang",
-      "request_total": 80,
-      "token_used_total": 4935976,
+      "request_total": 82,
+      "token_used_total": 4991018,
       "created_at": "2026-03-03T06:38:57.671566",
-      "updated_at": "2026-04-14T16:03:00.047208",
+      "updated_at": "2026-04-16T23:03:03.395063",
       "displayname": "王朝锋"
     },
     {
       "userid": 23,
       "username": "lisa.wang",
-      "request_total": 966,
-      "token_used_total": 94800796,
+      "request_total": 1103,
+      "token_used_total": 102264871,
       "created_at": "2026-03-03T06:38:57.737402",
-      "updated_at": "2026-04-14T16:03:00.110390",
+      "updated_at": "2026-04-16T23:03:03.473450",
       "displayname": "王娜"
     },
     {
       "userid": 24,
       "username": "mice.gao",
-      "request_total": 170,
-      "token_used_total": 6791129,
+      "request_total": 176,
+      "token_used_total": 6939864,
       "created_at": "2026-03-03T06:38:57.805450",
-      "updated_at": "2026-04-14T16:03:00.173076",
+      "updated_at": "2026-04-16T23:03:03.536958",
       "displayname": "高丰"
     },
     {
@@ -7062,7 +7671,7 @@
       "request_total": 420,
       "token_used_total": 21217451,
       "created_at": "2026-03-03T06:38:57.871632",
-      "updated_at": "2026-04-14T16:03:00.238256",
+      "updated_at": "2026-04-16T23:03:03.616743",
       "displayname": "刘宗鑫"
     },
     {
@@ -7071,25 +7680,25 @@
       "request_total": 238,
       "token_used_total": 12406123,
       "created_at": "2026-03-03T06:38:57.937998",
-      "updated_at": "2026-04-14T16:03:00.301471",
+      "updated_at": "2026-04-16T23:03:03.694992",
       "displayname": "裴梦迪"
     },
     {
       "userid": 27,
       "username": "bucher_wu",
-      "request_total": 1328,
-      "token_used_total": 89993225,
+      "request_total": 1392,
+      "token_used_total": 92449374,
       "created_at": "2026-03-03T06:38:58.005097",
-      "updated_at": "2026-04-14T16:03:00.365258",
+      "updated_at": "2026-04-16T23:03:03.773768",
       "displayname": "吴昭星"
     },
     {
       "userid": 28,
       "username": "zhangshk1",
-      "request_total": 88,
-      "token_used_total": 3825012,
+      "request_total": 107,
+      "token_used_total": 4877533,
       "created_at": "2026-03-03T06:38:58.072019",
-      "updated_at": "2026-04-14T16:03:00.431389",
+      "updated_at": "2026-04-16T23:03:03.836910",
       "displayname": "张寿奎"
     },
     {
@@ -7098,7 +7707,7 @@
       "request_total": 33,
       "token_used_total": 1496651,
       "created_at": "2026-03-03T06:38:58.137420",
-      "updated_at": "2026-04-14T16:03:00.494408",
+      "updated_at": "2026-04-16T23:03:03.916906",
       "displayname": "汪滔_工程"
     },
     {
@@ -7107,7 +7716,7 @@
       "request_total": 20,
       "token_used_total": 845858,
       "created_at": "2026-03-03T06:38:58.204141",
-      "updated_at": "2026-04-14T16:03:00.560693",
+      "updated_at": "2026-04-16T23:03:03.994860",
       "displayname": "陈立冬"
     },
     {
@@ -7116,7 +7725,7 @@
       "request_total": 24,
       "token_used_total": 400540,
       "created_at": "2026-03-03T06:38:58.273961",
-      "updated_at": "2026-04-14T16:03:00.626006",
+      "updated_at": "2026-04-16T23:03:04.073943",
       "displayname": "周俊成"
     },
     {
@@ -7125,25 +7734,25 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:38:58.340028",
-      "updated_at": "2026-04-14T16:03:00.689323",
+      "updated_at": "2026-04-16T23:03:04.137706",
       "displayname": "倪俊明"
     },
     {
       "userid": 33,
       "username": "lucian_zhang",
-      "request_total": 41,
-      "token_used_total": 1677392,
+      "request_total": 49,
+      "token_used_total": 2001820,
       "created_at": "2026-03-03T06:38:58.408977",
-      "updated_at": "2026-04-14T16:03:00.754443",
+      "updated_at": "2026-04-16T23:03:04.216129",
       "displayname": "张煜辉"
     },
     {
       "userid": 34,
       "username": "tom_sun",
-      "request_total": 294,
-      "token_used_total": 22140866,
+      "request_total": 777,
+      "token_used_total": 61352385,
       "created_at": "2026-03-03T06:38:58.474220",
-      "updated_at": "2026-04-14T16:03:00.817574",
+      "updated_at": "2026-04-16T23:03:04.296002",
       "displayname": "孙诚"
     },
     {
@@ -7152,7 +7761,7 @@
       "request_total": 244,
       "token_used_total": 7833110,
       "created_at": "2026-03-03T06:38:58.542135",
-      "updated_at": "2026-04-14T16:03:00.881231",
+      "updated_at": "2026-04-16T23:03:04.373657",
       "displayname": "朱子健"
     },
     {
@@ -7161,7 +7770,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:38:58.606880",
-      "updated_at": "2026-04-14T16:03:00.945072",
+      "updated_at": "2026-04-16T23:03:04.438863",
       "displayname": "贺卫滨"
     },
     {
@@ -7170,43 +7779,43 @@
       "request_total": 2405,
       "token_used_total": 231933675,
       "created_at": "2026-03-03T06:38:58.675143",
-      "updated_at": "2026-04-14T16:03:01.009334",
+      "updated_at": "2026-04-16T23:03:04.516521",
       "displayname": "王开"
     },
     {
       "userid": 38,
       "username": "zach_zhu",
-      "request_total": 472,
-      "token_used_total": 49626680,
+      "request_total": 562,
+      "token_used_total": 60099160,
       "created_at": "2026-03-03T06:38:58.741672",
-      "updated_at": "2026-04-14T16:03:01.073205",
+      "updated_at": "2026-04-16T23:03:04.595033",
       "displayname": "朱兆成"
     },
     {
       "userid": 39,
       "username": "henry_he",
-      "request_total": 504,
-      "token_used_total": 37498287,
+      "request_total": 565,
+      "token_used_total": 44286106,
       "created_at": "2026-03-03T06:38:58.807430",
-      "updated_at": "2026-04-14T16:03:01.137570",
+      "updated_at": "2026-04-16T23:03:04.673459",
       "displayname": "何思龙"
     },
     {
       "userid": 40,
       "username": "frank_feng",
-      "request_total": 495,
-      "token_used_total": 37598926,
+      "request_total": 581,
+      "token_used_total": 43460018,
       "created_at": "2026-03-03T06:38:59.101056",
-      "updated_at": "2026-04-14T16:03:01.203409",
+      "updated_at": "2026-04-16T23:03:04.738323",
       "displayname": "冯帅锋"
     },
     {
       "userid": 41,
       "username": "rey_zhang",
-      "request_total": 1486,
-      "token_used_total": 139163978,
+      "request_total": 1594,
+      "token_used_total": 148563709,
       "created_at": "2026-03-03T06:38:59.168520",
-      "updated_at": "2026-04-14T16:03:01.266988",
+      "updated_at": "2026-04-16T23:03:04.816097",
       "displayname": "张昱昊"
     },
     {
@@ -7215,7 +7824,7 @@
       "request_total": 179,
       "token_used_total": 5199401,
       "created_at": "2026-03-03T06:38:59.235416",
-      "updated_at": "2026-04-14T16:03:01.331232",
+      "updated_at": "2026-04-16T23:03:04.896041",
       "displayname": "张昊"
     },
     {
@@ -7224,70 +7833,70 @@
       "request_total": 348,
       "token_used_total": 13999284,
       "created_at": "2026-03-03T06:38:59.303822",
-      "updated_at": "2026-04-14T16:03:01.394416",
+      "updated_at": "2026-04-16T23:03:04.974029",
       "displayname": "徐龙飞"
     },
     {
       "userid": 44,
       "username": "Rekkles.qi",
-      "request_total": 1886,
-      "token_used_total": 49357049,
+      "request_total": 2299,
+      "token_used_total": 59871628,
       "created_at": "2026-03-03T06:38:59.370902",
-      "updated_at": "2026-04-14T16:03:01.459010",
+      "updated_at": "2026-04-16T23:03:05.036995",
       "displayname": "戚同杰"
     },
     {
       "userid": 45,
       "username": "barry.zhang",
-      "request_total": 8,
-      "token_used_total": 147523,
+      "request_total": 109,
+      "token_used_total": 2690572,
       "created_at": "2026-03-03T06:38:59.437894",
-      "updated_at": "2026-04-14T16:03:01.522967",
+      "updated_at": "2026-04-16T23:03:05.115949",
       "displayname": "张贝贝"
     },
     {
       "userid": 46,
       "username": "bryce.liu",
-      "request_total": 103,
-      "token_used_total": 5405953,
+      "request_total": 118,
+      "token_used_total": 5473828,
       "created_at": "2026-03-03T06:38:59.504511",
-      "updated_at": "2026-04-14T16:03:01.587578",
+      "updated_at": "2026-04-16T23:03:05.195904",
       "displayname": "刘宝宁"
     },
     {
       "userid": 47,
       "username": "geoff.yang",
-      "request_total": 352,
-      "token_used_total": 10720547,
+      "request_total": 395,
+      "token_used_total": 12168305,
       "created_at": "2026-03-03T06:38:59.571019",
-      "updated_at": "2026-04-14T16:03:01.653404",
+      "updated_at": "2026-04-16T23:03:05.273354",
       "displayname": "杨晓杰"
     },
     {
       "userid": 48,
       "username": "oyang.sun",
-      "request_total": 1495,
-      "token_used_total": 112184762,
+      "request_total": 1909,
+      "token_used_total": 124672882,
       "created_at": "2026-03-03T06:38:59.636700",
-      "updated_at": "2026-04-14T16:03:01.716057",
+      "updated_at": "2026-04-16T23:03:05.337254",
       "displayname": "孙辉"
     },
     {
       "userid": 49,
       "username": "leonardo.xu",
-      "request_total": 2481,
-      "token_used_total": 170491142,
+      "request_total": 2624,
+      "token_used_total": 175436775,
       "created_at": "2026-03-03T06:38:59.702885",
-      "updated_at": "2026-04-14T16:03:01.780453",
+      "updated_at": "2026-04-16T23:03:05.416968",
       "displayname": "徐鹏"
     },
     {
       "userid": 50,
       "username": "ncwave.liu",
-      "request_total": 1541,
-      "token_used_total": 102878139,
+      "request_total": 1703,
+      "token_used_total": 115202793,
       "created_at": "2026-03-03T06:38:59.769993",
-      "updated_at": "2026-04-14T16:03:01.845327",
+      "updated_at": "2026-04-16T23:03:05.494811",
       "displayname": "刘浩波"
     },
     {
@@ -7296,16 +7905,16 @@
       "request_total": 39,
       "token_used_total": 2493315,
       "created_at": "2026-03-03T06:38:59.835542",
-      "updated_at": "2026-04-14T16:03:01.909331",
+      "updated_at": "2026-04-16T23:03:05.574375",
       "displayname": "李言"
     },
     {
       "userid": 52,
       "username": "radish.hu",
-      "request_total": 570,
-      "token_used_total": 54669616,
+      "request_total": 609,
+      "token_used_total": 56983706,
       "created_at": "2026-03-03T06:38:59.903860",
-      "updated_at": "2026-04-14T16:03:01.972430",
+      "updated_at": "2026-04-16T23:03:05.637807",
       "displayname": "胡博"
     },
     {
@@ -7314,7 +7923,7 @@
       "request_total": 36,
       "token_used_total": 1293394,
       "created_at": "2026-03-03T06:38:59.970920",
-      "updated_at": "2026-04-14T16:03:02.036211",
+      "updated_at": "2026-04-16T23:03:05.716045",
       "displayname": "代松"
     },
     {
@@ -7323,7 +7932,7 @@
       "request_total": 378,
       "token_used_total": 13165541,
       "created_at": "2026-03-03T06:39:00.037276",
-      "updated_at": "2026-04-14T16:03:02.099513",
+      "updated_at": "2026-04-16T23:03:05.796057",
       "displayname": "王宪臻"
     },
     {
@@ -7332,16 +7941,16 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:00.104552",
-      "updated_at": "2026-04-14T16:03:02.164059",
+      "updated_at": "2026-04-16T23:03:05.873553",
       "displayname": "展晓杰"
     },
     {
       "userid": 56,
       "username": "elena.guo",
-      "request_total": 86,
-      "token_used_total": 3984888,
+      "request_total": 99,
+      "token_used_total": 4175893,
       "created_at": "2026-03-03T06:39:00.171929",
-      "updated_at": "2026-04-14T16:03:02.229501",
+      "updated_at": "2026-04-16T23:03:05.938254",
       "displayname": "郭玲娜"
     },
     {
@@ -7350,7 +7959,7 @@
       "request_total": 126,
       "token_used_total": 5719122,
       "created_at": "2026-03-03T06:39:00.238481",
-      "updated_at": "2026-04-14T16:03:02.294244",
+      "updated_at": "2026-04-16T23:03:06.017045",
       "displayname": "贾伟山"
     },
     {
@@ -7359,7 +7968,7 @@
       "request_total": 483,
       "token_used_total": 33862385,
       "created_at": "2026-03-03T06:39:00.304867",
-      "updated_at": "2026-04-14T16:03:02.361080",
+      "updated_at": "2026-04-16T23:03:06.094949",
       "displayname": "黄冬冬"
     },
     {
@@ -7368,7 +7977,7 @@
       "request_total": 6,
       "token_used_total": 117816,
       "created_at": "2026-03-03T06:39:00.370234",
-      "updated_at": "2026-04-14T16:03:02.425156",
+      "updated_at": "2026-04-16T23:03:06.173960",
       "displayname": "张国亮"
     },
     {
@@ -7377,16 +7986,16 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:00.438002",
-      "updated_at": "2026-04-14T16:03:02.489373",
+      "updated_at": "2026-04-16T23:03:06.238131",
       "displayname": "杨江波"
     },
     {
       "userid": 61,
       "username": "thomas.liu",
-      "request_total": 337,
-      "token_used_total": 14555756,
+      "request_total": 346,
+      "token_used_total": 14677597,
       "created_at": "2026-03-03T06:39:00.504970",
-      "updated_at": "2026-04-14T16:03:02.553077",
+      "updated_at": "2026-04-16T23:03:06.315954",
       "displayname": "刘延超"
     },
     {
@@ -7395,34 +8004,34 @@
       "request_total": 40,
       "token_used_total": 2983727,
       "created_at": "2026-03-03T06:39:00.571805",
-      "updated_at": "2026-04-14T16:03:02.617054",
+      "updated_at": "2026-04-16T23:03:06.396098",
       "displayname": "左渠"
     },
     {
       "userid": 63,
       "username": "lydon.feng",
-      "request_total": 744,
-      "token_used_total": 43491172,
+      "request_total": 1223,
+      "token_used_total": 62126610,
       "created_at": "2026-03-03T06:39:00.637816",
-      "updated_at": "2026-04-14T16:03:02.681514",
+      "updated_at": "2026-04-16T23:03:06.473768",
       "displayname": "冯学宇"
     },
     {
       "userid": 64,
       "username": "jhinren",
-      "request_total": 393,
-      "token_used_total": 7609349,
+      "request_total": 454,
+      "token_used_total": 8867468,
       "created_at": "2026-03-03T06:39:00.705587",
-      "updated_at": "2026-04-14T16:03:02.745321",
+      "updated_at": "2026-04-16T23:03:06.537939",
       "displayname": "任志远"
     },
     {
       "userid": 65,
       "username": "Lightzhu",
-      "request_total": 1989,
-      "token_used_total": 271502817,
+      "request_total": 2015,
+      "token_used_total": 271994757,
       "created_at": "2026-03-03T06:39:00.771904",
-      "updated_at": "2026-04-14T16:03:02.811297",
+      "updated_at": "2026-04-16T23:03:06.615786",
       "displayname": "朱辉"
     },
     {
@@ -7431,25 +8040,25 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:00.839875",
-      "updated_at": "2026-04-14T16:03:02.874131",
+      "updated_at": "2026-04-16T23:03:06.694858",
       "displayname": "王牧野"
     },
     {
       "userid": 67,
       "username": "django_wang",
-      "request_total": 1744,
-      "token_used_total": 106564302,
+      "request_total": 2384,
+      "token_used_total": 127364345,
       "created_at": "2026-03-03T06:39:00.906256",
-      "updated_at": "2026-04-14T16:03:02.940076",
+      "updated_at": "2026-04-16T23:03:06.773591",
       "displayname": "王波"
     },
     {
       "userid": 68,
       "username": "lucas_chen",
-      "request_total": 1007,
-      "token_used_total": 62708755,
+      "request_total": 1054,
+      "token_used_total": 65834725,
       "created_at": "2026-03-03T06:39:00.974245",
-      "updated_at": "2026-04-14T16:03:03.003620",
+      "updated_at": "2026-04-16T23:03:06.837497",
       "displayname": "陈桂亮"
     },
     {
@@ -7458,16 +8067,16 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:01.041654",
-      "updated_at": "2026-04-14T16:03:03.067390",
+      "updated_at": "2026-04-16T23:03:06.917156",
       "displayname": "汪子晗"
     },
     {
       "userid": 70,
       "username": "oliver_xie",
-      "request_total": 0,
-      "token_used_total": 0,
+      "request_total": 16,
+      "token_used_total": 221586,
       "created_at": "2026-03-03T06:39:01.108451",
-      "updated_at": "2026-04-14T16:03:03.131067",
+      "updated_at": "2026-04-16T23:03:06.994841",
       "displayname": "解廷福"
     },
     {
@@ -7476,79 +8085,79 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:01.174159",
-      "updated_at": "2026-04-14T16:03:03.194283",
+      "updated_at": "2026-04-16T23:03:07.073597",
       "displayname": "刘帅"
     },
     {
       "userid": 72,
       "username": "dale_di",
-      "request_total": 198,
-      "token_used_total": 7912052,
+      "request_total": 213,
+      "token_used_total": 8320587,
       "created_at": "2026-03-03T06:39:01.240964",
-      "updated_at": "2026-04-14T16:03:03.258274",
+      "updated_at": "2026-04-16T23:03:07.138338",
       "displayname": "邸兴娟"
     },
     {
       "userid": 73,
       "username": "demi_zhang",
-      "request_total": 1864,
-      "token_used_total": 123477144,
+      "request_total": 2027,
+      "token_used_total": 131191728,
       "created_at": "2026-03-03T06:39:01.307003",
-      "updated_at": "2026-04-14T16:03:03.323536",
+      "updated_at": "2026-04-16T23:03:07.215674",
       "displayname": "张浩"
     },
     {
       "userid": 74,
       "username": "ethan_liang",
-      "request_total": 1677,
-      "token_used_total": 107497830,
+      "request_total": 1686,
+      "token_used_total": 107955677,
       "created_at": "2026-03-03T06:39:01.373186",
-      "updated_at": "2026-04-14T16:03:03.387425",
+      "updated_at": "2026-04-16T23:03:07.294897",
       "displayname": "梁帅博"
     },
     {
       "userid": 75,
       "username": "cool_niu",
-      "request_total": 691,
-      "token_used_total": 22799899,
+      "request_total": 925,
+      "token_used_total": 28855349,
       "created_at": "2026-03-03T06:39:01.439564",
-      "updated_at": "2026-04-14T16:03:03.450373",
+      "updated_at": "2026-04-16T23:03:07.374449",
       "displayname": "牛爽"
     },
     {
       "userid": 76,
       "username": "peter_zhang",
-      "request_total": 735,
-      "token_used_total": 55599731,
+      "request_total": 790,
+      "token_used_total": 60988586,
       "created_at": "2026-03-03T06:39:01.507531",
-      "updated_at": "2026-04-14T16:03:03.514354",
+      "updated_at": "2026-04-16T23:03:07.437815",
       "displayname": "张金龙"
     },
     {
       "userid": 77,
       "username": "carina_li",
-      "request_total": 1258,
-      "token_used_total": 95961514,
+      "request_total": 1290,
+      "token_used_total": 97103088,
       "created_at": "2026-03-03T06:39:01.574661",
-      "updated_at": "2026-04-14T16:03:03.578393",
+      "updated_at": "2026-04-16T23:03:07.515992",
       "displayname": "李雨笑"
     },
     {
       "userid": 78,
       "username": "hurrk_li",
-      "request_total": 462,
-      "token_used_total": 37648414,
+      "request_total": 484,
+      "token_used_total": 38740735,
       "created_at": "2026-03-03T06:39:01.640232",
-      "updated_at": "2026-04-14T16:03:03.642536",
+      "updated_at": "2026-04-16T23:03:07.595034",
       "displayname": "李明昊"
     },
     {
       "userid": 79,
       "username": "morning_wang",
-      "request_total": 1567,
-      "token_used_total": 107302629,
+      "request_total": 1672,
+      "token_used_total": 113744298,
       "created_at": "2026-03-03T06:39:01.707186",
-      "updated_at": "2026-04-14T16:03:03.705176",
+      "updated_at": "2026-04-16T23:03:07.673573",
       "displayname": "王天明"
     },
     {
@@ -7557,7 +8166,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:01.773903",
-      "updated_at": "2026-04-14T16:03:03.768787",
+      "updated_at": "2026-04-16T23:03:07.739127",
       "displayname": "马守恒"
     },
     {
@@ -7566,34 +8175,34 @@
       "request_total": 282,
       "token_used_total": 15108983,
       "created_at": "2026-03-03T06:39:01.841739",
-      "updated_at": "2026-04-14T16:03:03.832067",
+      "updated_at": "2026-04-16T23:03:07.817015",
       "displayname": "段成江"
     },
     {
       "userid": 84,
       "username": "plus.xie",
-      "request_total": 67,
-      "token_used_total": 1595519,
+      "request_total": 73,
+      "token_used_total": 2111279,
       "created_at": "2026-03-03T06:39:01.909262",
-      "updated_at": "2026-04-14T16:03:03.895604",
+      "updated_at": "2026-04-16T23:03:07.894930",
       "displayname": "谢佳豪"
     },
     {
       "userid": 85,
       "username": "parker.wu",
-      "request_total": 784,
-      "token_used_total": 43943431,
+      "request_total": 799,
+      "token_used_total": 44525030,
       "created_at": "2026-03-03T06:39:01.976928",
-      "updated_at": "2026-04-14T16:03:03.958556",
+      "updated_at": "2026-04-16T23:03:07.973964",
       "displayname": "吴桂鹏"
     },
     {
       "userid": 86,
       "username": "carl_zhang",
-      "request_total": 201,
-      "token_used_total": 14499816,
+      "request_total": 239,
+      "token_used_total": 18351578,
       "created_at": "2026-03-03T06:39:02.043946",
-      "updated_at": "2026-04-14T16:03:04.022577",
+      "updated_at": "2026-04-16T23:03:08.036939",
       "displayname": "张忠道"
     },
     {
@@ -7602,7 +8211,7 @@
       "request_total": 18,
       "token_used_total": 696055,
       "created_at": "2026-03-03T06:39:02.111609",
-      "updated_at": "2026-04-14T16:03:04.086304",
+      "updated_at": "2026-04-16T23:03:08.115828",
       "displayname": "信仕尧"
     },
     {
@@ -7611,25 +8220,25 @@
       "request_total": 568,
       "token_used_total": 23830901,
       "created_at": "2026-03-03T06:39:02.178943",
-      "updated_at": "2026-04-14T16:03:04.151292",
+      "updated_at": "2026-04-16T23:03:08.194972",
       "displayname": "樊柳"
     },
     {
       "userid": 90,
       "username": "cary_lin",
-      "request_total": 686,
-      "token_used_total": 52229316,
+      "request_total": 1029,
+      "token_used_total": 88344530,
       "created_at": "2026-03-03T06:39:02.246074",
-      "updated_at": "2026-04-14T16:03:04.214046",
+      "updated_at": "2026-04-16T23:03:08.273754",
       "displayname": "林树华"
     },
     {
       "userid": 91,
       "username": "yvonne_kong",
-      "request_total": 291,
-      "token_used_total": 15695320,
+      "request_total": 302,
+      "token_used_total": 16334671,
       "created_at": "2026-03-03T06:39:02.310831",
-      "updated_at": "2026-04-14T16:03:04.277815",
+      "updated_at": "2026-04-16T23:03:08.337805",
       "displayname": "孔宪媛"
     },
     {
@@ -7638,7 +8247,7 @@
       "request_total": 406,
       "token_used_total": 7169742,
       "created_at": "2026-03-03T06:39:02.378164",
-      "updated_at": "2026-04-14T16:03:04.342242",
+      "updated_at": "2026-04-16T23:03:08.415972",
       "displayname": "黄仿贺"
     },
     {
@@ -7647,7 +8256,7 @@
       "request_total": 2,
       "token_used_total": 23258,
       "created_at": "2026-03-03T06:39:02.444550",
-      "updated_at": "2026-04-14T16:03:04.404833",
+      "updated_at": "2026-04-16T23:03:08.495037",
       "displayname": "罗婷婷"
     },
     {
@@ -7656,7 +8265,7 @@
       "request_total": 7,
       "token_used_total": 168077,
       "created_at": "2026-03-03T06:39:02.510424",
-      "updated_at": "2026-04-14T16:03:04.469325",
+      "updated_at": "2026-04-16T23:03:08.573568",
       "displayname": "严汝宁"
     },
     {
@@ -7665,7 +8274,7 @@
       "request_total": 3,
       "token_used_total": 35017,
       "created_at": "2026-03-03T06:39:02.577594",
-      "updated_at": "2026-04-14T16:03:04.533320",
+      "updated_at": "2026-04-16T23:03:08.638041",
       "displayname": "杨谦"
     },
     {
@@ -7674,7 +8283,7 @@
       "request_total": 452,
       "token_used_total": 43816752,
       "created_at": "2026-03-03T06:39:02.643982",
-      "updated_at": "2026-04-14T16:03:04.596621",
+      "updated_at": "2026-04-16T23:03:08.716111",
       "displayname": "周振飞"
     },
     {
@@ -7683,7 +8292,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:02.710641",
-      "updated_at": "2026-04-14T16:03:04.660262",
+      "updated_at": "2026-04-16T23:03:08.795152",
       "displayname": "徐天乐"
     },
     {
@@ -7692,7 +8301,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:02.776990",
-      "updated_at": "2026-04-14T16:03:04.723761",
+      "updated_at": "2026-04-16T23:03:08.873541",
       "displayname": "王晨钰"
     },
     {
@@ -7701,7 +8310,7 @@
       "request_total": 125,
       "token_used_total": 3268803,
       "created_at": "2026-03-03T06:39:02.843981",
-      "updated_at": "2026-04-14T16:03:04.787991",
+      "updated_at": "2026-04-16T23:03:08.938146",
       "displayname": "代炎"
     },
     {
@@ -7710,16 +8319,16 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:02.911073",
-      "updated_at": "2026-04-14T16:03:04.851718",
+      "updated_at": "2026-04-16T23:03:09.017136",
       "displayname": "朱春"
     },
     {
       "userid": 102,
       "username": "groanchen",
-      "request_total": 183,
-      "token_used_total": 12877974,
+      "request_total": 203,
+      "token_used_total": 13420588,
       "created_at": "2026-03-03T06:39:02.979134",
-      "updated_at": "2026-04-14T16:03:04.914920",
+      "updated_at": "2026-04-16T23:03:09.095173",
       "displayname": "陈旭涛"
     },
     {
@@ -7728,7 +8337,7 @@
       "request_total": 4,
       "token_used_total": 65038,
       "created_at": "2026-03-03T06:39:03.045721",
-      "updated_at": "2026-04-14T16:03:04.978354",
+      "updated_at": "2026-04-16T23:03:09.173253",
       "displayname": "洪宣宣"
     },
     {
@@ -7737,7 +8346,7 @@
       "request_total": 542,
       "token_used_total": 49937365,
       "created_at": "2026-03-03T06:39:03.112013",
-      "updated_at": "2026-04-14T16:03:05.043278",
+      "updated_at": "2026-04-16T23:03:09.237074",
       "displayname": "刘晓尚"
     },
     {
@@ -7746,7 +8355,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:03.177320",
-      "updated_at": "2026-04-14T16:03:05.106774",
+      "updated_at": "2026-04-16T23:03:09.316974",
       "displayname": "陈明"
     },
     {
@@ -7755,7 +8364,7 @@
       "request_total": 535,
       "token_used_total": 35967385,
       "created_at": "2026-03-03T06:39:03.244132",
-      "updated_at": "2026-04-14T16:03:05.171134",
+      "updated_at": "2026-04-16T23:03:09.395020",
       "displayname": "梅飞"
     },
     {
@@ -7764,25 +8373,25 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:03.311039",
-      "updated_at": "2026-04-14T16:03:05.235014",
+      "updated_at": "2026-04-16T23:03:09.473885",
       "displayname": "陈经前"
     },
     {
       "userid": 109,
       "username": "walter_chen",
-      "request_total": 312,
-      "token_used_total": 18791868,
+      "request_total": 316,
+      "token_used_total": 18876621,
       "created_at": "2026-03-03T06:39:03.377692",
-      "updated_at": "2026-04-14T16:03:05.298058",
+      "updated_at": "2026-04-16T23:03:09.537043",
       "displayname": "陈水滨"
     },
     {
       "userid": 110,
       "username": "dream_shi",
-      "request_total": 191,
-      "token_used_total": 14028983,
+      "request_total": 200,
+      "token_used_total": 14294800,
       "created_at": "2026-03-03T06:39:03.443975",
-      "updated_at": "2026-04-14T16:03:05.362951",
+      "updated_at": "2026-04-16T23:03:09.617138",
       "displayname": "时慧君"
     },
     {
@@ -7791,16 +8400,16 @@
       "request_total": 531,
       "token_used_total": 35187860,
       "created_at": "2026-03-03T06:39:03.512056",
-      "updated_at": "2026-04-14T16:03:05.426478",
+      "updated_at": "2026-04-16T23:03:09.695181",
       "displayname": "陈志文"
     },
     {
       "userid": 112,
       "username": "miracle_wang",
-      "request_total": 110,
-      "token_used_total": 8647167,
+      "request_total": 185,
+      "token_used_total": 16261076,
       "created_at": "2026-03-03T06:39:03.578364",
-      "updated_at": "2026-04-14T16:03:05.490386",
+      "updated_at": "2026-04-16T23:03:09.773669",
       "displayname": "王立"
     },
     {
@@ -7809,7 +8418,7 @@
       "request_total": 323,
       "token_used_total": 12041589,
       "created_at": "2026-03-03T06:39:03.646536",
-      "updated_at": "2026-04-14T16:03:05.554522",
+      "updated_at": "2026-04-16T23:03:09.839000",
       "displayname": "刘晓东"
     },
     {
@@ -7818,16 +8427,16 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:03.715744",
-      "updated_at": "2026-04-14T16:03:05.617758",
+      "updated_at": "2026-04-16T23:03:09.915820",
       "displayname": "营方全"
     },
     {
       "userid": 116,
       "username": "zero_hu",
-      "request_total": 523,
-      "token_used_total": 30907647,
+      "request_total": 547,
+      "token_used_total": 31537040,
       "created_at": "2026-03-03T06:39:03.781989",
-      "updated_at": "2026-04-14T16:03:05.681080",
+      "updated_at": "2026-04-16T23:03:09.995776",
       "displayname": "胡章飞"
     },
     {
@@ -7836,7 +8445,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:03.847927",
-      "updated_at": "2026-04-14T16:03:05.745133",
+      "updated_at": "2026-04-16T23:03:10.073806",
       "displayname": "方平"
     },
     {
@@ -7845,25 +8454,25 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:03.915338",
-      "updated_at": "2026-04-14T16:03:05.809301",
+      "updated_at": "2026-04-16T23:03:10.136968",
       "displayname": "杜鹏"
     },
     {
       "userid": 121,
       "username": "van_gao",
-      "request_total": 39,
-      "token_used_total": 1693602,
+      "request_total": 65,
+      "token_used_total": 3847249,
       "created_at": "2026-03-03T06:39:03.981760",
-      "updated_at": "2026-04-14T16:03:05.873864",
+      "updated_at": "2026-04-16T23:03:10.217094",
       "displayname": "高凡"
     },
     {
       "userid": 122,
       "username": "shane_xue",
-      "request_total": 338,
-      "token_used_total": 20137703,
+      "request_total": 347,
+      "token_used_total": 20889955,
       "created_at": "2026-03-03T06:39:04.048178",
-      "updated_at": "2026-04-14T16:03:05.940018",
+      "updated_at": "2026-04-16T23:03:10.294887",
       "displayname": "薛烽"
     },
     {
@@ -7872,7 +8481,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:04.114153",
-      "updated_at": "2026-04-14T16:03:06.003316",
+      "updated_at": "2026-04-16T23:03:10.373600",
       "displayname": "张巍丰"
     },
     {
@@ -7881,16 +8490,16 @@
       "request_total": 356,
       "token_used_total": 21017676,
       "created_at": "2026-03-03T06:39:04.181726",
-      "updated_at": "2026-04-14T16:03:06.066974",
+      "updated_at": "2026-04-16T23:03:10.438869",
       "displayname": "张达"
     },
     {
       "userid": 126,
       "username": "cole_li",
-      "request_total": 3528,
-      "token_used_total": 231927072,
+      "request_total": 3931,
+      "token_used_total": 256774957,
       "created_at": "2026-03-03T06:39:04.247336",
-      "updated_at": "2026-04-14T16:03:06.131388",
+      "updated_at": "2026-04-16T23:03:10.516939",
       "displayname": "李铮"
     },
     {
@@ -7899,25 +8508,25 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:04.313343",
-      "updated_at": "2026-04-14T16:03:06.195005",
+      "updated_at": "2026-04-16T23:03:10.594979",
       "displayname": "张龙飞"
     },
     {
       "userid": 128,
       "username": "eason_huang",
-      "request_total": 7,
-      "token_used_total": 706372,
+      "request_total": 8,
+      "token_used_total": 872878,
       "created_at": "2026-03-03T06:39:04.382283",
-      "updated_at": "2026-04-14T16:03:06.259450",
+      "updated_at": "2026-04-16T23:03:10.673579",
       "displayname": "黄微卫"
     },
     {
       "userid": 129,
       "username": "simon_liao",
-      "request_total": 365,
-      "token_used_total": 28648542,
+      "request_total": 376,
+      "token_used_total": 29188656,
       "created_at": "2026-03-03T06:39:04.448649",
-      "updated_at": "2026-04-14T16:03:06.322526",
+      "updated_at": "2026-04-16T23:03:10.737008",
       "displayname": "廖祥熠"
     },
     {
@@ -7926,7 +8535,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:04.514857",
-      "updated_at": "2026-04-14T16:03:06.385610",
+      "updated_at": "2026-04-16T23:03:10.815970",
       "displayname": "修梦思"
     },
     {
@@ -7935,7 +8544,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:04.582939",
-      "updated_at": "2026-04-14T16:03:06.450225",
+      "updated_at": "2026-04-16T23:03:10.894845",
       "displayname": "酆顺文"
     },
     {
@@ -7944,7 +8553,7 @@
       "request_total": 0,
       "token_used_total": 0,
       "created_at": "2026-03-03T06:39:04.650026",
-      "updated_at": "2026-04-14T16:03:06.514106",
+      "updated_at": "2026-04-16T23:03:10.973973",
       "displayname": "卢阳"
     },
     {
@@ -7953,25 +8562,25 @@
       "request_total": 154,
       "token_used_total": 9644045,
       "created_at": "2026-03-03T06:39:04.716864",
-      "updated_at": "2026-04-14T16:03:06.578110",
+      "updated_at": "2026-04-16T23:03:11.036989",
       "displayname": "戚子渊"
     },
     {
       "userid": 134,
       "username": "chane_liu",
-      "request_total": 1963,
-      "token_used_total": 167987336,
+      "request_total": 2246,
+      "token_used_total": 194735275,
       "created_at": "2026-03-03T06:39:04.784324",
-      "updated_at": "2026-04-14T16:03:06.643131",
+      "updated_at": "2026-04-16T23:03:11.115718",
       "displayname": "刘畅"
     },
     {
       "userid": 135,
       "username": "code_review",
-      "request_total": 16182,
-      "token_used_total": 370365149,
+      "request_total": 17526,
+      "token_used_total": 393364505,
       "created_at": "2026-03-25T08:30:34.622441",
-      "updated_at": "2026-04-14T16:03:06.708180",
+      "updated_at": "2026-04-16T23:03:11.194967",
       "displayname": null
     }
   ],
@@ -25131,7 +25740,7 @@
       "request_count": 23,
       "token_used": 474737,
       "created_at": "2026-04-14T01:33:13.922024",
-      "updated_at": "2026-04-14T16:03:08.213678",
+      "updated_at": "2026-04-15T01:33:11.275881",
       "userid": 68,
       "average_elapsed_time": 12101,
       "model_name": "MiniMax-M2.1"
@@ -25143,7 +25752,7 @@
       "request_count": 90,
       "token_used": 5001038,
       "created_at": "2026-04-14T01:33:14.287214",
-      "updated_at": "2026-04-14T16:03:08.126349",
+      "updated_at": "2026-04-15T01:33:11.190916",
       "userid": 79,
       "average_elapsed_time": 12926,
       "model_name": "MiniMax-M2.1"
@@ -25155,7 +25764,7 @@
       "request_count": 314,
       "token_used": 15506365,
       "created_at": "2026-04-14T01:33:14.366763",
-      "updated_at": "2026-04-14T16:03:07.785910",
+      "updated_at": "2026-04-15T01:33:10.845045",
       "userid": 49,
       "average_elapsed_time": 8813,
       "model_name": "MiniMax-M2.1"
@@ -25167,7 +25776,7 @@
       "request_count": 734,
       "token_used": 11846762,
       "created_at": "2026-04-14T01:33:14.444183",
-      "updated_at": "2026-04-14T16:03:08.473143",
+      "updated_at": "2026-04-15T01:33:11.533528",
       "userid": 135,
       "average_elapsed_time": 11485,
       "model_name": "MiniMax-M2.1"
@@ -25179,7 +25788,7 @@
       "request_count": 361,
       "token_used": 28591227,
       "created_at": "2026-04-14T01:33:14.521259",
-      "updated_at": "2026-04-14T16:03:07.531314",
+      "updated_at": "2026-04-15T01:33:10.588395",
       "userid": 11,
       "average_elapsed_time": 5637,
       "model_name": "MiniMax-M2.1"
@@ -25191,7 +25800,7 @@
       "request_count": 108,
       "token_used": 8018680,
       "created_at": "2026-04-14T16:03:06.771083",
-      "updated_at": "2026-04-14T16:03:06.771083",
+      "updated_at": "2026-04-15T01:33:10.153544",
       "userid": 40,
       "average_elapsed_time": 8427,
       "model_name": "MiniMax-M2.1"
@@ -25203,7 +25812,7 @@
       "request_count": 2,
       "token_used": 6959,
       "created_at": "2026-04-14T16:03:07.184477",
-      "updated_at": "2026-04-14T16:03:07.184477",
+      "updated_at": "2026-04-15T01:33:10.241902",
       "userid": 42,
       "average_elapsed_time": 3240,
       "model_name": "MiniMax-M2.1"
@@ -25215,7 +25824,7 @@
       "request_count": 26,
       "token_used": 654222,
       "created_at": "2026-04-14T16:03:07.270991",
-      "updated_at": "2026-04-14T16:03:07.270991",
+      "updated_at": "2026-04-15T01:33:10.328758",
       "userid": 75,
       "average_elapsed_time": 89779,
       "model_name": "MiniMax-M2.1"
@@ -25227,7 +25836,7 @@
       "request_count": 5,
       "token_used": 309916,
       "created_at": "2026-04-14T16:03:07.361313",
-      "updated_at": "2026-04-14T16:03:07.361313",
+      "updated_at": "2026-04-15T01:33:10.414500",
       "userid": 29,
       "average_elapsed_time": 13420,
       "model_name": "MiniMax-M2.1"
@@ -25239,7 +25848,7 @@
       "request_count": 115,
       "token_used": 3844148,
       "created_at": "2026-04-14T16:03:07.445505",
-      "updated_at": "2026-04-14T16:03:07.445505",
+      "updated_at": "2026-04-15T01:33:10.501247",
       "userid": 67,
       "average_elapsed_time": 7183,
       "model_name": "MiniMax-M2.1"
@@ -25251,7 +25860,7 @@
       "request_count": 39,
       "token_used": 1965589,
       "created_at": "2026-04-14T16:03:07.616589",
-      "updated_at": "2026-04-14T16:03:07.616589",
+      "updated_at": "2026-04-15T01:33:10.673036",
       "userid": 63,
       "average_elapsed_time": 406104,
       "model_name": "MiniMax-M2.1"
@@ -25263,7 +25872,7 @@
       "request_count": 162,
       "token_used": 14931521,
       "created_at": "2026-04-14T16:03:07.700788",
-      "updated_at": "2026-04-14T16:03:07.700788",
+      "updated_at": "2026-04-15T01:33:10.758075",
       "userid": 134,
       "average_elapsed_time": 18744,
       "model_name": "MiniMax-M2.1"
@@ -25275,7 +25884,7 @@
       "request_count": 18,
       "token_used": 1414100,
       "created_at": "2026-04-14T16:03:07.871488",
-      "updated_at": "2026-04-14T16:03:07.871488",
+      "updated_at": "2026-04-15T01:33:10.930645",
       "userid": 77,
       "average_elapsed_time": 38105,
       "model_name": "MiniMax-M2.1"
@@ -25287,7 +25896,7 @@
       "request_count": 93,
       "token_used": 7673544,
       "created_at": "2026-04-14T16:03:07.956219",
-      "updated_at": "2026-04-14T16:03:07.956219",
+      "updated_at": "2026-04-15T01:33:11.018538",
       "userid": 112,
       "average_elapsed_time": 8873,
       "model_name": "MiniMax-M2.1"
@@ -25299,7 +25908,7 @@
       "request_count": 67,
       "token_used": 7981960,
       "created_at": "2026-04-14T16:03:08.040602",
-      "updated_at": "2026-04-14T16:03:08.040602",
+      "updated_at": "2026-04-15T01:33:11.103360",
       "userid": 38,
       "average_elapsed_time": 20871,
       "model_name": "MiniMax-M2.1"
@@ -25311,7 +25920,7 @@
       "request_count": 11,
       "token_used": 1238391,
       "created_at": "2026-04-14T16:03:08.299516",
-      "updated_at": "2026-04-14T16:03:08.299516",
+      "updated_at": "2026-04-15T01:33:11.361329",
       "userid": 41,
       "average_elapsed_time": 11726,
       "model_name": "MiniMax-M2.1"
@@ -25323,7 +25932,7 @@
       "request_count": 26,
       "token_used": 1661845,
       "created_at": "2026-04-14T16:03:08.386450",
-      "updated_at": "2026-04-14T16:03:08.386450",
+      "updated_at": "2026-04-15T01:33:11.447585",
       "userid": 110,
       "average_elapsed_time": 13343,
       "model_name": "MiniMax-M2.1"
@@ -25335,7 +25944,7 @@
       "request_count": 411,
       "token_used": 10362535,
       "created_at": "2026-04-14T16:03:08.558576",
-      "updated_at": "2026-04-14T16:03:08.558576",
+      "updated_at": "2026-04-15T01:33:11.620424",
       "userid": 44,
       "average_elapsed_time": 5814,
       "model_name": "MiniMax-M2.1"
@@ -25347,7 +25956,7 @@
       "request_count": 17,
       "token_used": 2070535,
       "created_at": "2026-04-14T16:03:08.645090",
-      "updated_at": "2026-04-14T16:03:08.645090",
+      "updated_at": "2026-04-15T01:33:11.705931",
       "userid": 74,
       "average_elapsed_time": 17819,
       "model_name": "MiniMax-M2.1"
@@ -25359,7 +25968,7 @@
       "request_count": 81,
       "token_used": 7830579,
       "created_at": "2026-04-14T16:03:08.730938",
-      "updated_at": "2026-04-14T16:03:08.730938",
+      "updated_at": "2026-04-15T01:33:11.792203",
       "userid": 126,
       "average_elapsed_time": 17995,
       "model_name": "MiniMax-M2.1"
@@ -25371,7 +25980,7 @@
       "request_count": 75,
       "token_used": 1222096,
       "created_at": "2026-04-14T16:03:08.819438",
-      "updated_at": "2026-04-14T16:03:08.819438",
+      "updated_at": "2026-04-15T01:33:11.877256",
       "userid": 7,
       "average_elapsed_time": 17287,
       "model_name": "MiniMax-M2.1"
@@ -25383,7 +25992,7 @@
       "request_count": 52,
       "token_used": 4377282,
       "created_at": "2026-04-14T16:03:08.906557",
-      "updated_at": "2026-04-14T16:03:08.906557",
+      "updated_at": "2026-04-15T01:33:11.961091",
       "userid": 13,
       "average_elapsed_time": 14042,
       "model_name": "MiniMax-M2.1"
@@ -25395,7 +26004,7 @@
       "request_count": 4,
       "token_used": 164142,
       "created_at": "2026-04-14T16:03:08.993097",
-      "updated_at": "2026-04-14T16:03:08.993097",
+      "updated_at": "2026-04-15T01:33:12.046341",
       "userid": 76,
       "average_elapsed_time": 8498,
       "model_name": "MiniMax-M2.1"
@@ -25407,7 +26016,7 @@
       "request_count": 34,
       "token_used": 2338249,
       "created_at": "2026-04-14T16:03:09.077370",
-      "updated_at": "2026-04-14T16:03:09.077370",
+      "updated_at": "2026-04-15T01:33:12.131541",
       "userid": 129,
       "average_elapsed_time": 17650,
       "model_name": "MiniMax-M2.1"
@@ -25419,7 +26028,7 @@
       "request_count": 7,
       "token_used": 249043,
       "created_at": "2026-04-14T16:03:09.163311",
-      "updated_at": "2026-04-14T16:03:09.163311",
+      "updated_at": "2026-04-15T01:33:12.216722",
       "userid": 43,
       "average_elapsed_time": 12815,
       "model_name": "MiniMax-M2.1"
@@ -25431,7 +26040,7 @@
       "request_count": 19,
       "token_used": 1271776,
       "created_at": "2026-04-14T16:03:09.249129",
-      "updated_at": "2026-04-14T16:03:09.249129",
+      "updated_at": "2026-04-15T01:33:12.303745",
       "userid": 116,
       "average_elapsed_time": 20372,
       "model_name": "MiniMax-M2.1"
@@ -25443,7 +26052,7 @@
       "request_count": 41,
       "token_used": 2364975,
       "created_at": "2026-04-14T16:03:09.334788",
-      "updated_at": "2026-04-14T16:03:09.334788",
+      "updated_at": "2026-04-15T01:33:12.388802",
       "userid": 73,
       "average_elapsed_time": 5118,
       "model_name": "MiniMax-M2.1"
@@ -25455,7 +26064,7 @@
       "request_count": 7,
       "token_used": 109187,
       "created_at": "2026-04-14T16:03:09.422324",
-      "updated_at": "2026-04-14T16:03:09.422324",
+      "updated_at": "2026-04-15T01:33:12.475382",
       "userid": 47,
       "average_elapsed_time": 9844,
       "model_name": "MiniMax-M2.1"
@@ -25467,7 +26076,7 @@
       "request_count": 68,
       "token_used": 5406509,
       "created_at": "2026-04-14T16:03:09.508901",
-      "updated_at": "2026-04-14T16:03:09.508901",
+      "updated_at": "2026-04-15T01:33:12.561812",
       "userid": 23,
       "average_elapsed_time": 5983,
       "model_name": "MiniMax-M2.1"
@@ -25479,7 +26088,7 @@
       "request_count": 32,
       "token_used": 2247116,
       "created_at": "2026-04-14T16:03:09.594442",
-      "updated_at": "2026-04-14T16:03:09.594442",
+      "updated_at": "2026-04-15T01:33:12.647773",
       "userid": 34,
       "average_elapsed_time": 10573,
       "model_name": "MiniMax-M2.1"
@@ -25491,7 +26100,7 @@
       "request_count": 16,
       "token_used": 1578363,
       "created_at": "2026-04-14T16:03:09.678655",
-      "updated_at": "2026-04-14T16:03:09.678655",
+      "updated_at": "2026-04-15T01:33:12.732637",
       "userid": 86,
       "average_elapsed_time": 27528,
       "model_name": "MiniMax-M2.1"
@@ -25503,7 +26112,7 @@
       "request_count": 6,
       "token_used": 376722,
       "created_at": "2026-04-14T16:03:09.765369",
-      "updated_at": "2026-04-14T16:03:09.765369",
+      "updated_at": "2026-04-15T01:33:12.817462",
       "userid": 82,
       "average_elapsed_time": 23983,
       "model_name": "MiniMax-M2.1"
@@ -25515,7 +26124,7 @@
       "request_count": 11,
       "token_used": 411171,
       "created_at": "2026-04-14T16:03:09.853007",
-      "updated_at": "2026-04-14T16:03:09.853007",
+      "updated_at": "2026-04-15T01:33:12.901946",
       "userid": 65,
       "average_elapsed_time": 12192,
       "model_name": "MiniMax-M2.1"
@@ -25527,7 +26136,7 @@
       "request_count": 4,
       "token_used": 344462,
       "created_at": "2026-04-14T16:03:09.937866",
-      "updated_at": "2026-04-14T16:03:09.937866",
+      "updated_at": "2026-04-15T01:33:12.987866",
       "userid": 39,
       "average_elapsed_time": 25726,
       "model_name": "MiniMax-M2.1"
@@ -25539,7 +26148,7 @@
       "request_count": 4,
       "token_used": 31552,
       "created_at": "2026-04-14T16:03:10.024128",
-      "updated_at": "2026-04-14T16:03:10.024128",
+      "updated_at": "2026-04-15T01:33:13.073383",
       "userid": 8,
       "average_elapsed_time": 8325,
       "model_name": "MiniMax-M2.1"
@@ -25551,7 +26160,7 @@
       "request_count": 33,
       "token_used": 3150296,
       "created_at": "2026-04-14T16:03:10.108985",
-      "updated_at": "2026-04-14T16:03:10.108985",
+      "updated_at": "2026-04-15T01:33:13.157657",
       "userid": 27,
       "average_elapsed_time": 18223,
       "model_name": "MiniMax-M2.1"
@@ -25563,7 +26172,7 @@
       "request_count": 46,
       "token_used": 5758837,
       "created_at": "2026-04-14T16:03:10.195158",
-      "updated_at": "2026-04-14T16:03:10.195158",
+      "updated_at": "2026-04-15T01:33:13.246794",
       "userid": 90,
       "average_elapsed_time": 5722,
       "model_name": "MiniMax-M2.1"
@@ -25575,7 +26184,7 @@
       "request_count": 4,
       "token_used": 94147,
       "created_at": "2026-04-14T16:03:10.282411",
-      "updated_at": "2026-04-14T16:03:10.282411",
+      "updated_at": "2026-04-15T01:33:13.333396",
       "userid": 89,
       "average_elapsed_time": 14338,
       "model_name": "MiniMax-M2.1"
@@ -25587,9 +26196,1101 @@
       "request_count": 6,
       "token_used": 213633,
       "created_at": "2026-04-14T16:03:10.367142",
-      "updated_at": "2026-04-14T16:03:10.367142",
+      "updated_at": "2026-04-15T01:33:13.421392",
       "userid": 84,
       "average_elapsed_time": 78356,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4220,
+      "date": "2026-04-15",
+      "username": "lydon.feng",
+      "request_count": 144,
+      "token_used": 3643251,
+      "created_at": "2026-04-15T01:33:09.024517",
+      "updated_at": "2026-04-16T01:33:08.441824",
+      "userid": 63,
+      "average_elapsed_time": 13449,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4221,
+      "date": "2026-04-15",
+      "username": "ethan_liang",
+      "request_count": 9,
+      "token_used": 457847,
+      "created_at": "2026-04-15T01:33:09.550591",
+      "updated_at": "2026-04-16T01:33:11.200762",
+      "userid": 74,
+      "average_elapsed_time": 11854,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4222,
+      "date": "2026-04-15",
+      "username": "demi_zhang",
+      "request_count": 14,
+      "token_used": 474253,
+      "created_at": "2026-04-15T01:33:09.635625",
+      "updated_at": "2026-04-16T01:33:10.560060",
+      "userid": 73,
+      "average_elapsed_time": 8786,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4223,
+      "date": "2026-04-15",
+      "username": "ryan_hong",
+      "request_count": 197,
+      "token_used": 15047797,
+      "created_at": "2026-04-15T01:33:09.722660",
+      "updated_at": "2026-04-16T01:33:09.020469",
+      "userid": 11,
+      "average_elapsed_time": 5574,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4224,
+      "date": "2026-04-15",
+      "username": "cool_niu",
+      "request_count": 234,
+      "token_used": 6055450,
+      "created_at": "2026-04-15T01:33:09.813840",
+      "updated_at": "2026-04-16T01:33:08.354831",
+      "userid": 75,
+      "average_elapsed_time": 6234,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4225,
+      "date": "2026-04-15",
+      "username": "cole_li",
+      "request_count": 110,
+      "token_used": 6933264,
+      "created_at": "2026-04-15T01:33:09.898313",
+      "updated_at": "2026-04-16T01:33:09.521089",
+      "userid": 126,
+      "average_elapsed_time": 7988,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4226,
+      "date": "2026-04-15",
+      "username": "alex_yao",
+      "request_count": 99,
+      "token_used": 9016987,
+      "created_at": "2026-04-15T01:33:09.984171",
+      "updated_at": "2026-04-16T01:33:07.847133",
+      "userid": 7,
+      "average_elapsed_time": 178217,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4227,
+      "date": "2026-04-15",
+      "username": "chane_liu",
+      "request_count": 140,
+      "token_used": 12457001,
+      "created_at": "2026-04-15T01:33:10.069572",
+      "updated_at": "2026-04-16T01:33:08.525511",
+      "userid": 134,
+      "average_elapsed_time": 54759,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4228,
+      "date": "2026-04-15",
+      "username": "code_review",
+      "request_count": 505,
+      "token_used": 7825576,
+      "created_at": "2026-04-15T16:03:13.841602",
+      "updated_at": "2026-04-16T01:33:07.935310",
+      "userid": 135,
+      "average_elapsed_time": 12260,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4229,
+      "date": "2026-04-15",
+      "username": "rey_zhang",
+      "request_count": 55,
+      "token_used": 4546931,
+      "created_at": "2026-04-15T16:03:13.927719",
+      "updated_at": "2026-04-16T01:33:08.011531",
+      "userid": 41,
+      "average_elapsed_time": 5976,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4230,
+      "date": "2026-04-15",
+      "username": "carl_zhang",
+      "request_count": 34,
+      "token_used": 3501192,
+      "created_at": "2026-04-15T16:03:14.012819",
+      "updated_at": "2026-04-16T01:33:08.101457",
+      "userid": 86,
+      "average_elapsed_time": 11313,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4231,
+      "date": "2026-04-15",
+      "username": "helen_hong",
+      "request_count": 42,
+      "token_used": 4263644,
+      "created_at": "2026-04-15T16:03:14.098770",
+      "updated_at": "2026-04-16T01:33:08.183734",
+      "userid": 16,
+      "average_elapsed_time": 22491,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4232,
+      "date": "2026-04-15",
+      "username": "django_wang",
+      "request_count": 253,
+      "token_used": 5303905,
+      "created_at": "2026-04-15T16:03:14.185374",
+      "updated_at": "2026-04-16T01:33:08.264430",
+      "userid": 67,
+      "average_elapsed_time": 5693,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4233,
+      "date": "2026-04-15",
+      "username": "zach_zhu",
+      "request_count": 70,
+      "token_used": 7845281,
+      "created_at": "2026-04-15T16:03:14.525753",
+      "updated_at": "2026-04-16T01:33:08.609692",
+      "userid": 38,
+      "average_elapsed_time": 9220,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4234,
+      "date": "2026-04-15",
+      "username": "Rekkles.qi",
+      "request_count": 265,
+      "token_used": 4124385,
+      "created_at": "2026-04-15T16:03:14.610282",
+      "updated_at": "2026-04-16T01:33:08.695704",
+      "userid": 44,
+      "average_elapsed_time": 5879,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4235,
+      "date": "2026-04-15",
+      "username": "bucher_wu",
+      "request_count": 9,
+      "token_used": 178285,
+      "created_at": "2026-04-15T16:03:14.694953",
+      "updated_at": "2026-04-16T01:33:08.781931",
+      "userid": 27,
+      "average_elapsed_time": 15257,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4236,
+      "date": "2026-04-15",
+      "username": "peter_zhang",
+      "request_count": 55,
+      "token_used": 5388855,
+      "created_at": "2026-04-15T16:03:14.781359",
+      "updated_at": "2026-04-16T01:33:08.859723",
+      "userid": 76,
+      "average_elapsed_time": 7558,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4237,
+      "date": "2026-04-15",
+      "username": "morning_wang",
+      "request_count": 30,
+      "token_used": 1381622,
+      "created_at": "2026-04-15T16:03:14.865127",
+      "updated_at": "2026-04-16T01:33:08.942514",
+      "userid": 79,
+      "average_elapsed_time": 16462,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4238,
+      "date": "2026-04-15",
+      "username": "parker.wu",
+      "request_count": 4,
+      "token_used": 138036,
+      "created_at": "2026-04-15T16:03:15.036409",
+      "updated_at": "2026-04-16T01:33:09.103797",
+      "userid": 85,
+      "average_elapsed_time": 10006,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4239,
+      "date": "2026-04-15",
+      "username": "elena.guo",
+      "request_count": 5,
+      "token_used": 66683,
+      "created_at": "2026-04-15T16:03:15.121919",
+      "updated_at": "2026-04-16T01:33:09.183394",
+      "userid": 56,
+      "average_elapsed_time": 5956,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4240,
+      "date": "2026-04-15",
+      "username": "ncwave.liu",
+      "request_count": 11,
+      "token_used": 40549,
+      "created_at": "2026-04-15T16:03:15.207689",
+      "updated_at": "2026-04-16T01:33:09.270787",
+      "userid": 50,
+      "average_elapsed_time": 5748,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4241,
+      "date": "2026-04-15",
+      "username": "frank_feng",
+      "request_count": 24,
+      "token_used": 2089104,
+      "created_at": "2026-04-15T16:03:15.292655",
+      "updated_at": "2026-04-16T01:33:09.354275",
+      "userid": 40,
+      "average_elapsed_time": 12414,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4242,
+      "date": "2026-04-15",
+      "username": "cary_lin",
+      "request_count": 275,
+      "token_used": 30866606,
+      "created_at": "2026-04-15T16:03:15.377468",
+      "updated_at": "2026-04-16T01:33:09.431709",
+      "userid": 90,
+      "average_elapsed_time": 14271,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4243,
+      "date": "2026-04-15",
+      "username": "shane_xue",
+      "request_count": 4,
+      "token_used": 196349,
+      "created_at": "2026-04-15T16:03:15.548612",
+      "updated_at": "2026-04-16T01:33:09.602231",
+      "userid": 122,
+      "average_elapsed_time": 12953,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4244,
+      "date": "2026-04-15",
+      "username": "carina_li",
+      "request_count": 32,
+      "token_used": 1141574,
+      "created_at": "2026-04-15T16:03:15.633152",
+      "updated_at": "2026-04-16T01:33:09.691194",
+      "userid": 77,
+      "average_elapsed_time": 18456,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4245,
+      "date": "2026-04-15",
+      "username": "tom_sun",
+      "request_count": 298,
+      "token_used": 25879491,
+      "created_at": "2026-04-15T16:03:15.720884",
+      "updated_at": "2026-04-16T01:33:09.779570",
+      "userid": 34,
+      "average_elapsed_time": 4778,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4246,
+      "date": "2026-04-15",
+      "username": "nemo.li",
+      "request_count": 6,
+      "token_used": 167324,
+      "created_at": "2026-04-15T16:03:15.805356",
+      "updated_at": "2026-04-16T01:33:09.862661",
+      "userid": 13,
+      "average_elapsed_time": 12996,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4247,
+      "date": "2026-04-15",
+      "username": "oyang.sun",
+      "request_count": 15,
+      "token_used": 251505,
+      "created_at": "2026-04-15T16:03:15.895270",
+      "updated_at": "2026-04-16T01:33:09.940483",
+      "userid": 48,
+      "average_elapsed_time": 4231,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4248,
+      "date": "2026-04-15",
+      "username": "leonardo.xu",
+      "request_count": 34,
+      "token_used": 452881,
+      "created_at": "2026-04-15T16:03:15.982468",
+      "updated_at": "2026-04-16T01:33:10.016709",
+      "userid": 49,
+      "average_elapsed_time": 3499,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4249,
+      "date": "2026-04-15",
+      "username": "zhangshk1",
+      "request_count": 19,
+      "token_used": 1052521,
+      "created_at": "2026-04-15T16:03:16.067582",
+      "updated_at": "2026-04-16T01:33:10.093659",
+      "userid": 28,
+      "average_elapsed_time": 9061,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4250,
+      "date": "2026-04-15",
+      "username": "thomas.liu",
+      "request_count": 9,
+      "token_used": 121841,
+      "created_at": "2026-04-15T16:03:16.151674",
+      "updated_at": "2026-04-16T01:33:10.170562",
+      "userid": 61,
+      "average_elapsed_time": 15097,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4251,
+      "date": "2026-04-15",
+      "username": "barry.zhang",
+      "request_count": 55,
+      "token_used": 1884554,
+      "created_at": "2026-04-15T16:03:16.235500",
+      "updated_at": "2026-04-16T01:33:10.247545",
+      "userid": 45,
+      "average_elapsed_time": 57716,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4252,
+      "date": "2026-04-15",
+      "username": "lisa.wang",
+      "request_count": 63,
+      "token_used": 3346787,
+      "created_at": "2026-04-15T16:03:16.322613",
+      "updated_at": "2026-04-16T01:33:10.326503",
+      "userid": 23,
+      "average_elapsed_time": 7517,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4253,
+      "date": "2026-04-15",
+      "username": "van_gao",
+      "request_count": 9,
+      "token_used": 504194,
+      "created_at": "2026-04-15T16:03:16.407602",
+      "updated_at": "2026-04-16T01:33:10.403905",
+      "userid": 121,
+      "average_elapsed_time": 8907,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4254,
+      "date": "2026-04-15",
+      "username": "lucas_chen",
+      "request_count": 8,
+      "token_used": 298394,
+      "created_at": "2026-04-15T16:03:16.491562",
+      "updated_at": "2026-04-16T01:33:10.482549",
+      "userid": 68,
+      "average_elapsed_time": 8951,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4255,
+      "date": "2026-04-15",
+      "username": "hurrk_li",
+      "request_count": 7,
+      "token_used": 237925,
+      "created_at": "2026-04-15T16:03:16.663366",
+      "updated_at": "2026-04-16T01:33:10.638886",
+      "userid": 78,
+      "average_elapsed_time": 7394,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4256,
+      "date": "2026-04-15",
+      "username": "luca_jiang",
+      "request_count": 5,
+      "token_used": 61322,
+      "created_at": "2026-04-15T16:03:16.749512",
+      "updated_at": "2026-04-16T01:33:10.716368",
+      "userid": 6,
+      "average_elapsed_time": 4850,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4257,
+      "date": "2026-04-15",
+      "username": "bryce.liu",
+      "request_count": 15,
+      "token_used": 67875,
+      "created_at": "2026-04-15T16:03:16.834234",
+      "updated_at": "2026-04-16T01:33:10.796126",
+      "userid": 46,
+      "average_elapsed_time": 3353,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4258,
+      "date": "2026-04-15",
+      "username": "walter_chen",
+      "request_count": 4,
+      "token_used": 84753,
+      "created_at": "2026-04-15T16:03:16.921458",
+      "updated_at": "2026-04-16T01:33:10.875258",
+      "userid": 109,
+      "average_elapsed_time": 6737,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4259,
+      "date": "2026-04-15",
+      "username": "dream_shi",
+      "request_count": 9,
+      "token_used": 265817,
+      "created_at": "2026-04-15T16:03:17.005926",
+      "updated_at": "2026-04-16T01:33:10.953643",
+      "userid": 110,
+      "average_elapsed_time": 16169,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4260,
+      "date": "2026-04-15",
+      "username": "plus.xie",
+      "request_count": 6,
+      "token_used": 515760,
+      "created_at": "2026-04-15T16:03:17.091534",
+      "updated_at": "2026-04-16T01:33:11.036850",
+      "userid": 84,
+      "average_elapsed_time": 69506,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4261,
+      "date": "2026-04-15",
+      "username": "miracle_wang",
+      "request_count": 14,
+      "token_used": 1247199,
+      "created_at": "2026-04-15T16:03:17.178265",
+      "updated_at": "2026-04-16T01:33:11.115571",
+      "userid": 112,
+      "average_elapsed_time": 6050,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4262,
+      "date": "2026-04-15",
+      "username": "yvonne_kong",
+      "request_count": 5,
+      "token_used": 511994,
+      "created_at": "2026-04-15T16:03:17.350724",
+      "updated_at": "2026-04-16T01:33:11.277757",
+      "userid": 91,
+      "average_elapsed_time": 9326,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4263,
+      "date": "2026-04-15",
+      "username": "dale_di",
+      "request_count": 7,
+      "token_used": 192320,
+      "created_at": "2026-04-15T16:03:17.436031",
+      "updated_at": "2026-04-16T01:33:11.356723",
+      "userid": 72,
+      "average_elapsed_time": 5329,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4264,
+      "date": "2026-04-16",
+      "username": "demi_zhang",
+      "request_count": 149,
+      "token_used": 7240331,
+      "created_at": "2026-04-16T01:33:06.750587",
+      "updated_at": "2026-04-16T23:03:13.395151",
+      "userid": 73,
+      "average_elapsed_time": 7459,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4265,
+      "date": "2026-04-16",
+      "username": "code_review",
+      "request_count": 839,
+      "token_used": 15173780,
+      "created_at": "2026-04-16T01:33:07.174193",
+      "updated_at": "2026-04-16T23:03:11.794845",
+      "userid": 135,
+      "average_elapsed_time": 10315,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4266,
+      "date": "2026-04-16",
+      "username": "chane_liu",
+      "request_count": 143,
+      "token_used": 14290938,
+      "created_at": "2026-04-16T01:33:07.251350",
+      "updated_at": "2026-04-16T23:03:12.094569",
+      "userid": 134,
+      "average_elapsed_time": 14999,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4267,
+      "date": "2026-04-16",
+      "username": "jhinren",
+      "request_count": 61,
+      "token_used": 1258119,
+      "created_at": "2026-04-16T01:33:07.333058",
+      "updated_at": "2026-04-16T23:03:15.894194",
+      "userid": 64,
+      "average_elapsed_time": 6908,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4268,
+      "date": "2026-04-16",
+      "username": "carl_zhang",
+      "request_count": 4,
+      "token_used": 350570,
+      "created_at": "2026-04-16T01:33:07.418854",
+      "updated_at": "2026-04-16T23:03:15.793979",
+      "userid": 86,
+      "average_elapsed_time": 13513,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4269,
+      "date": "2026-04-16",
+      "username": "jack.wang",
+      "request_count": 2,
+      "token_used": 55042,
+      "created_at": "2026-04-16T01:33:07.510798",
+      "updated_at": "2026-04-16T23:03:16.193748",
+      "userid": 22,
+      "average_elapsed_time": 15384,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4270,
+      "date": "2026-04-16",
+      "username": "hurrk_li",
+      "request_count": 15,
+      "token_used": 854396,
+      "created_at": "2026-04-16T01:33:07.598590",
+      "updated_at": "2026-04-16T23:03:12.595064",
+      "userid": 78,
+      "average_elapsed_time": 13087,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4271,
+      "date": "2026-04-16",
+      "username": "tom_sun",
+      "request_count": 185,
+      "token_used": 13332028,
+      "created_at": "2026-04-16T01:33:07.683679",
+      "updated_at": "2026-04-16T23:03:15.595170",
+      "userid": 34,
+      "average_elapsed_time": 5986,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4272,
+      "date": "2026-04-16",
+      "username": "helen_hong",
+      "request_count": 41,
+      "token_used": 4680314,
+      "created_at": "2026-04-16T01:33:07.760580",
+      "updated_at": "2026-04-16T23:03:14.895058",
+      "userid": 16,
+      "average_elapsed_time": 20160,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4273,
+      "date": "2026-04-16",
+      "username": "zero_hu",
+      "request_count": 24,
+      "token_used": 629393,
+      "created_at": "2026-04-16T02:52:56.010395",
+      "updated_at": "2026-04-16T23:03:15.994945",
+      "userid": 116,
+      "average_elapsed_time": 6755,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4274,
+      "date": "2026-04-16",
+      "username": "lydon.feng",
+      "request_count": 335,
+      "token_used": 14992187,
+      "created_at": "2026-04-16T02:52:56.096357",
+      "updated_at": "2026-04-16T23:03:11.895171",
+      "userid": 63,
+      "average_elapsed_time": 12531,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4275,
+      "date": "2026-04-16",
+      "username": "cole_li",
+      "request_count": 293,
+      "token_used": 17914621,
+      "created_at": "2026-04-16T02:52:56.180265",
+      "updated_at": "2026-04-16T23:03:12.694985",
+      "userid": 126,
+      "average_elapsed_time": 8205,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4276,
+      "date": "2026-04-16",
+      "username": "django_wang",
+      "request_count": 387,
+      "token_used": 15496138,
+      "created_at": "2026-04-16T02:52:56.350680",
+      "updated_at": "2026-04-16T23:03:12.795109",
+      "userid": 67,
+      "average_elapsed_time": 6914,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4277,
+      "date": "2026-04-16",
+      "username": "simon_liao",
+      "request_count": 11,
+      "token_used": 540114,
+      "created_at": "2026-04-16T02:52:56.435082",
+      "updated_at": "2026-04-16T23:03:15.694976",
+      "userid": 129,
+      "average_elapsed_time": 6390,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4278,
+      "date": "2026-04-16",
+      "username": "morning_wang",
+      "request_count": 75,
+      "token_used": 5060047,
+      "created_at": "2026-04-16T02:52:56.519027",
+      "updated_at": "2026-04-16T23:03:13.195093",
+      "userid": 79,
+      "average_elapsed_time": 13758,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4279,
+      "date": "2026-04-16",
+      "username": "lucas_chen",
+      "request_count": 39,
+      "token_used": 2827576,
+      "created_at": "2026-04-16T02:52:56.605464",
+      "updated_at": "2026-04-16T23:03:13.795127",
+      "userid": 68,
+      "average_elapsed_time": 11509,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4280,
+      "date": "2026-04-16",
+      "username": "radish.hu",
+      "request_count": 39,
+      "token_used": 2314090,
+      "created_at": "2026-04-16T02:52:56.859708",
+      "updated_at": "2026-04-16T23:03:15.094679",
+      "userid": 52,
+      "average_elapsed_time": 10344,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4281,
+      "date": "2026-04-16",
+      "username": "zach_zhu",
+      "request_count": 20,
+      "token_used": 2627199,
+      "created_at": "2026-04-16T02:52:56.953220",
+      "updated_at": "2026-04-16T23:03:14.994617",
+      "userid": 38,
+      "average_elapsed_time": 18021,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4282,
+      "date": "2026-04-16",
+      "username": "rey_zhang",
+      "request_count": 53,
+      "token_used": 4852800,
+      "created_at": "2026-04-16T02:52:57.136715",
+      "updated_at": "2026-04-16T23:03:14.593777",
+      "userid": 41,
+      "average_elapsed_time": 6627,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4283,
+      "date": "2026-04-16",
+      "username": "Rekkles.qi",
+      "request_count": 148,
+      "token_used": 6390194,
+      "created_at": "2026-04-16T02:52:57.221413",
+      "updated_at": "2026-04-16T23:03:13.494633",
+      "userid": 44,
+      "average_elapsed_time": 6576,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4284,
+      "date": "2026-04-16",
+      "username": "luca_jiang",
+      "request_count": 383,
+      "token_used": 10354640,
+      "created_at": "2026-04-16T02:52:57.307829",
+      "updated_at": "2026-04-16T23:03:11.273344",
+      "userid": 6,
+      "average_elapsed_time": 8074,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4285,
+      "date": "2026-04-16",
+      "username": "ncwave.liu",
+      "request_count": 151,
+      "token_used": 12284105,
+      "created_at": "2026-04-16T09:33:06.983690",
+      "updated_at": "2026-04-16T23:03:12.195096",
+      "userid": 50,
+      "average_elapsed_time": 11400,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4286,
+      "date": "2026-04-16",
+      "username": "oyang.sun",
+      "request_count": 399,
+      "token_used": 12236615,
+      "created_at": "2026-04-16T09:33:07.441573",
+      "updated_at": "2026-04-16T23:03:11.995025",
+      "userid": 48,
+      "average_elapsed_time": 6296,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4287,
+      "date": "2026-04-16",
+      "username": "bucher_wu",
+      "request_count": 55,
+      "token_used": 2277864,
+      "created_at": "2026-04-16T09:33:07.841428",
+      "updated_at": "2026-04-16T23:03:13.595165",
+      "userid": 27,
+      "average_elapsed_time": 20521,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4288,
+      "date": "2026-04-16",
+      "username": "cary_lin",
+      "request_count": 68,
+      "token_used": 5248608,
+      "created_at": "2026-04-16T09:33:07.941754",
+      "updated_at": "2026-04-16T23:03:13.094986",
+      "userid": 90,
+      "average_elapsed_time": 146484,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4289,
+      "date": "2026-04-16",
+      "username": "henry_he",
+      "request_count": 61,
+      "token_used": 6787819,
+      "created_at": "2026-04-16T09:33:08.141486",
+      "updated_at": "2026-04-16T23:03:14.194464",
+      "userid": 39,
+      "average_elapsed_time": 13002,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4290,
+      "date": "2026-04-16",
+      "username": "alex_yao",
+      "request_count": 46,
+      "token_used": 3701807,
+      "created_at": "2026-04-16T09:33:08.341734",
+      "updated_at": "2026-04-16T23:03:13.894963",
+      "userid": 7,
+      "average_elapsed_time": 38669,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4291,
+      "date": "2026-04-16",
+      "username": "frank_feng",
+      "request_count": 62,
+      "token_used": 3771988,
+      "created_at": "2026-04-16T09:33:08.542061",
+      "updated_at": "2026-04-16T23:03:14.093997",
+      "userid": 40,
+      "average_elapsed_time": 12735,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4292,
+      "date": "2026-04-16",
+      "username": "eason_huang",
+      "request_count": 1,
+      "token_used": 166506,
+      "created_at": "2026-04-16T09:33:08.741943",
+      "updated_at": "2026-04-16T23:03:14.394709",
+      "userid": 128,
+      "average_elapsed_time": 3489423,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4293,
+      "date": "2026-04-16",
+      "username": "groanchen",
+      "request_count": 20,
+      "token_used": 542614,
+      "created_at": "2026-04-16T09:33:08.941915",
+      "updated_at": "2026-04-16T23:03:14.294772",
+      "userid": 102,
+      "average_elapsed_time": 12708,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4294,
+      "date": "2026-04-16",
+      "username": "leonardo.xu",
+      "request_count": 109,
+      "token_used": 4492752,
+      "created_at": "2026-04-16T09:33:09.041828",
+      "updated_at": "2026-04-16T23:03:13.995060",
+      "userid": 49,
+      "average_elapsed_time": 7220,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4295,
+      "date": "2026-04-16",
+      "username": "Lightzhu",
+      "request_count": 26,
+      "token_used": 491940,
+      "created_at": "2026-04-16T09:33:09.141413",
+      "updated_at": "2026-04-16T23:03:14.495178",
+      "userid": 65,
+      "average_elapsed_time": 6557,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4296,
+      "date": "2026-04-16",
+      "username": "lisa.wang",
+      "request_count": 74,
+      "token_used": 4117288,
+      "created_at": "2026-04-16T09:33:09.541370",
+      "updated_at": "2026-04-16T23:03:14.694386",
+      "userid": 23,
+      "average_elapsed_time": 7162,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4297,
+      "date": "2026-04-16",
+      "username": "barry.zhang",
+      "request_count": 46,
+      "token_used": 658495,
+      "created_at": "2026-04-16T09:33:09.641861",
+      "updated_at": "2026-04-16T23:03:14.794977",
+      "userid": 45,
+      "average_elapsed_time": 3945,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4298,
+      "date": "2026-04-16",
+      "username": "avery_li",
+      "request_count": 103,
+      "token_used": 4412830,
+      "created_at": "2026-04-16T09:33:10.041433",
+      "updated_at": "2026-04-16T23:03:12.395106",
+      "userid": 5,
+      "average_elapsed_time": 10603,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4299,
+      "date": "2026-04-16",
+      "username": "miracle_wang",
+      "request_count": 61,
+      "token_used": 6366710,
+      "created_at": "2026-04-16T09:33:10.141634",
+      "updated_at": "2026-04-16T23:03:15.195103",
+      "userid": 112,
+      "average_elapsed_time": 6427,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4300,
+      "date": "2026-04-16",
+      "username": "oliver_xie",
+      "request_count": 16,
+      "token_used": 221586,
+      "created_at": "2026-04-16T09:33:10.244884",
+      "updated_at": "2026-04-16T23:03:13.295054",
+      "userid": 70,
+      "average_elapsed_time": 3804,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4301,
+      "date": "2026-04-16",
+      "username": "dale_di",
+      "request_count": 8,
+      "token_used": 216215,
+      "created_at": "2026-04-16T09:33:10.342235",
+      "updated_at": "2026-04-16T23:03:15.293964",
+      "userid": 72,
+      "average_elapsed_time": 12497,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4302,
+      "date": "2026-04-16",
+      "username": "yvonne_kong",
+      "request_count": 6,
+      "token_used": 127357,
+      "created_at": "2026-04-16T09:33:10.442117",
+      "updated_at": "2026-04-16T23:03:15.394750",
+      "userid": 91,
+      "average_elapsed_time": 16613,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4303,
+      "date": "2026-04-16",
+      "username": "lucian_zhang",
+      "request_count": 8,
+      "token_used": 324428,
+      "created_at": "2026-04-16T09:33:10.542004",
+      "updated_at": "2026-04-16T23:03:15.495081",
+      "userid": 33,
+      "average_elapsed_time": 5449,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4304,
+      "date": "2026-04-16",
+      "username": "van_gao",
+      "request_count": 17,
+      "token_used": 1649453,
+      "created_at": "2026-04-16T09:33:10.841492",
+      "updated_at": "2026-04-16T23:03:12.894685",
+      "userid": 121,
+      "average_elapsed_time": 6361,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4305,
+      "date": "2026-04-16",
+      "username": "elena.guo",
+      "request_count": 8,
+      "token_used": 124322,
+      "created_at": "2026-04-16T09:33:11.342250",
+      "updated_at": "2026-04-16T23:03:16.094968",
+      "userid": 56,
+      "average_elapsed_time": 4510,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4306,
+      "date": "2026-04-16",
+      "username": "flapper_chen",
+      "request_count": 1,
+      "token_used": 9050,
+      "created_at": "2026-04-16T23:03:11.695063",
+      "updated_at": "2026-04-16T23:03:11.695063",
+      "userid": 2,
+      "average_elapsed_time": 5248,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4307,
+      "date": "2026-04-16",
+      "username": "shane_xue",
+      "request_count": 5,
+      "token_used": 555903,
+      "created_at": "2026-04-16T23:03:12.295076",
+      "updated_at": "2026-04-16T23:03:12.295076",
+      "userid": 122,
+      "average_elapsed_time": 9733,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4308,
+      "date": "2026-04-16",
+      "username": "mice.gao",
+      "request_count": 6,
+      "token_used": 148735,
+      "created_at": "2026-04-16T23:03:12.494827",
+      "updated_at": "2026-04-16T23:03:12.494827",
+      "userid": 24,
+      "average_elapsed_time": 7695,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4309,
+      "date": "2026-04-16",
+      "username": "geoff.yang",
+      "request_count": 43,
+      "token_used": 1447758,
+      "created_at": "2026-04-16T23:03:12.995070",
+      "updated_at": "2026-04-16T23:03:12.995070",
+      "userid": 47,
+      "average_elapsed_time": 8614,
+      "model_name": "MiniMax-M2.1"
+    },
+    {
+      "id": 4310,
+      "date": "2026-04-16",
+      "username": "parker.wu",
+      "request_count": 11,
+      "token_used": 443563,
+      "created_at": "2026-04-16T23:03:13.693961",
+      "updated_at": "2026-04-16T23:03:13.693961",
+      "userid": 85,
+      "average_elapsed_time": 10299,
       "model_name": "MiniMax-M2.1"
     }
   ],
@@ -26552,7 +28253,47 @@
       "avg_prefix_cache_hit_rate": 77.8,
       "sample_count": 46,
       "created_at": "2026-04-14T01:33:37.342645",
-      "updated_at": "2026-04-14T16:03:28.897152"
+      "updated_at": "2026-04-15T01:33:34.378101"
+    },
+    {
+      "id": 218,
+      "date": "2026-04-15",
+      "model_name": "vllm_minimax_m2_5",
+      "engine": 0,
+      "avg_prompt_tpu": 9560.72,
+      "max_prompt_tpu": 43358.9,
+      "avg_generation_tpu": 51.91,
+      "max_generation_tpu": 141.4,
+      "avg_running_reqs": 1.08,
+      "max_running_reqs": 3,
+      "avg_waitting_reqs": 0.01,
+      "max_waitting_reqs": 1,
+      "avg_gpu_kv_cache": 6.08,
+      "max_gpu_kv_cache": 30.3,
+      "avg_prefix_cache_hit_rate": 88.92,
+      "sample_count": 173,
+      "created_at": "2026-04-15T01:33:34.132589",
+      "updated_at": "2026-04-16T01:33:33.002022"
+    },
+    {
+      "id": 221,
+      "date": "2026-04-16",
+      "model_name": "vllm_minimax_m2_5",
+      "engine": 0,
+      "avg_prompt_tpu": 6268.96,
+      "max_prompt_tpu": 30719.4,
+      "avg_generation_tpu": 35.89,
+      "max_generation_tpu": 111.9,
+      "avg_running_reqs": 0.66,
+      "max_running_reqs": 3,
+      "avg_waitting_reqs": 0.0,
+      "max_waitting_reqs": 0,
+      "avg_gpu_kv_cache": 1.99,
+      "max_gpu_kv_cache": 16.6,
+      "avg_prefix_cache_hit_rate": 90.56,
+      "sample_count": 133,
+      "created_at": "2026-04-16T01:33:32.790082",
+      "updated_at": "2026-04-16T23:03:35.962121"
     }
   ]
 }

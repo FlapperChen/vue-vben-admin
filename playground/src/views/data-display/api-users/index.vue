@@ -89,17 +89,19 @@ const filteredData = computed(() => {
 
 // Summary stats
 const summaryData = computed(() => {
-  const totalUsers = usersData.value.length;
-  const totalRequests = usersData.value.reduce(
+  // Use filtered data (with user filter applied)
+  const data = filteredData.value;
+  const totalUsers = data.length;
+  const totalRequests = data.reduce(
     (sum, u) => sum + (u.request_total || 0),
     0,
   );
-  const totalTokens = usersData.value.reduce(
+  const totalTokens = data.reduce(
     (sum, u) => sum + (u.token_used_total || 0),
     0,
   );
   const avgTokensPerUser = totalUsers > 0 ? totalTokens / totalUsers : 0;
-  const topUser = [...usersData.value].toSorted(
+  const topUser = [...data].toSorted(
     (a, b) => (b.token_used_total || 0) - (a.token_used_total || 0),
   )[0];
 
