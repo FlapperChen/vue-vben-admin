@@ -118,9 +118,9 @@ const loadData = async () => {
 
     allGpuData.value = data;
 
-    // Sort by date
+    // Sort by date (descending - newest first)
     allGpuData.value.sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
 
     // Get unique GPU IDs
@@ -157,12 +157,21 @@ const filterDataByDateRange = () => {
     );
 };
 
-// Get chart data
+// Get chart data (ascending - for charts)
 const getGpuDataById = (gpuId: number) => {
   return gpuData.value
     .filter((d) => d.gpu_id === gpuId)
     .toSorted(
       (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+    );
+};
+
+// Get table data (descending - for table)
+const getGpuDataByIdDesc = (gpuId: number) => {
+  return gpuData.value
+    .filter((d) => d.gpu_id === gpuId)
+    .toSorted(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
 };
 
@@ -521,7 +530,7 @@ onMounted(async () => {
       <Card title="详细数据">
         <Table
           :columns="columns"
-          :data-source="getGpuDataById(selectedGpu)"
+          :data-source="getGpuDataByIdDesc(selectedGpu)"
           :pagination="tablePagination"
           row-key="id"
           size="small"

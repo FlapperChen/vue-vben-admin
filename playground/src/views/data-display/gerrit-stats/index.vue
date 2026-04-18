@@ -89,15 +89,22 @@ const summaryStats = computed(() => {
       totalAiComments: 0,
       aiCommentRate: 0,
       aiAcceptRate: 0,
+      totalProjectBranchCount: 0,
+      aiCoveredProjectBranchCount: 0,
+      aiCodeReviewCoverRate: 0,
     };
   }
-  // Use the last record (cumulative stats)
-  const latestRecord = data[data.length - 1];
+  // Use the first record (cumulative stats - newest first after sort)
+  const latestRecord = data[0];
   return {
     totalGerritComments: latestRecord.total_gerrit_comments || 0,
     totalAiComments: latestRecord.total_ai_comments || 0,
     aiCommentRate: latestRecord.total_ai_comments_rate || 0,
     aiAcceptRate: latestRecord.total_ai_accept_rate || 0,
+    totalProjectBranchCount: latestRecord.total_project_branch_count || 0,
+    aiCoveredProjectBranchCount:
+      latestRecord.ai_covered_project_branch_count || 0,
+    aiCodeReviewCoverRate: latestRecord.total_ai_codereview_cover_rate || 0,
   };
 });
 
@@ -137,9 +144,34 @@ const overviewItems = computed(() => [
     textColor: '#4facfe',
     format: 'percent',
   },
+  {
+    title: '总项目分支数',
+    value: summaryStats.value.totalProjectBranchCount,
+    subtitle: '项目分支总数',
+    icon: 'mdi:source-branch',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    textColor: '#667eea',
+  },
+  {
+    title: 'AI覆盖分支数',
+    value: summaryStats.value.aiCoveredProjectBranchCount,
+    subtitle: 'AI覆盖项目分支',
+    icon: 'mdi:robot',
+    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+    textColor: '#11998e',
+  },
+  {
+    title: 'AI代码审查覆盖率',
+    value: summaryStats.value.aiCodeReviewCoverRate,
+    subtitle: 'AI代码审查覆盖率',
+    icon: 'mdi:chart-line',
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    textColor: '#f5576c',
+    format: 'percent',
+  },
 ]);
 
-// Filtered data
+// Filtered data (descending - for table and stats)
 const filteredData = computed(() => {
   let data = [...allGerritData.value];
 
@@ -149,6 +181,11 @@ const filteredData = computed(() => {
   data = data.filter((d) => d.date >= startStr && d.date <= endStr);
 
   return data;
+});
+
+// Chart data (ascending - for charts)
+const chartData = computed(() => {
+  return [...filteredData.value].toReversed();
 });
 
 // Load data using fetch
@@ -169,9 +206,9 @@ const loadData = async () => {
 
     allGerritData.value = data;
 
-    // Sort by date
+    // Sort by date (descending - newest first)
     allGerritData.value.sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
   } catch (error) {
     console.error('Error loading Gerrit data:', error);
@@ -182,7 +219,7 @@ const loadData = async () => {
 
 // Chart options - Daily Comments Trend
 const commentsChartOption = computed(() => {
-  const data = filteredData.value;
+  const data = chartData.value;
   return {
     title: { text: '每日评论趋势', left: 'center' },
     tooltip: { trigger: 'axis' },
@@ -224,7 +261,7 @@ const commentsChartOption = computed(() => {
 
 // Chart options - AI Rate Trend
 const aiRateChartOption = computed(() => {
-  const data = filteredData.value;
+  const data = chartData.value;
   return {
     title: { text: 'AI评论占比与接受率', left: 'center' },
     tooltip: { trigger: 'axis' },
@@ -297,6 +334,22 @@ const tableColumns = [
     title: 'AI接受率(%)',
     dataIndex: 'daily_ai_accept_rate',
     key: 'daily_ai_accept_rate',
+    width: 120,
+  },
+  {
+    title: '总分支数',
+    dataIndex: 'total_project_branch_count',
+    key: 'total_project_branch_count',
+  },
+  {
+    title: 'AI覆盖分支',
+    dataIndex: 'ai_covered_project_branch_count',
+    key: 'ai_covered_project_branch_count',
+  },
+  {
+    title: 'AI覆盖率(%)',
+    dataIndex: 'total_ai_codereview_cover_rate',
+    key: 'total_ai_codereview_cover_rate',
     width: 120,
   },
 ];
@@ -451,6 +504,25 @@ onMounted(async () => {
                 "
               >
                 {{ record.daily_ai_accept_rate?.toFixed(1) }}%
+              </Tag>
+            </template>
+            <template v-if="column.key === 'total_project_branch_count'">
+              {{ record.total_project_branch_count?.toLocaleString() }}
+            </template>
+            <template v-if="column.key === 'ai_covered_project_branch_count'">
+              {{ record.ai_covered_project_branch_count?.toLocaleString() }}
+            </template>
+            <template v-if="column.key === 'total_ai_codereview_cover_rate'">
+              <Tag
+                :color="
+                  record.total_ai_codereview_cover_rate > 50
+                    ? 'success'
+                    : record.total_ai_codereview_cover_rate > 0
+                      ? 'warning'
+                      : 'default'
+                "
+              >
+                {{ record.total_ai_codereview_cover_rate?.toFixed(2) }}%
               </Tag>
             </template>
           </template>

@@ -44,6 +44,7 @@ use([
 
 // Data
 const allAnythingllmData = ref<any[]>([]);
+const allAnythingllmDocsData = ref<any[]>([]);
 const loading = ref(false);
 
 // Date range
@@ -106,8 +107,8 @@ const summaryStats = computed(() => {
       ? embedRatios.reduce((sum, r) => sum + r, 0) / embedRatios.length
       : 0;
 
-  // 获取最新日期的所有记录（汇总所有文件类型）
-  const latestDate = data[data.length - 1]?.date;
+  // 获取最新日期的所有记录（汇总所有文件类型）- 降序后第一个就是最新的
+  const latestDate = data[0]?.date;
   if (!latestDate) {
     return {
       totalDocs: 0,
@@ -175,6 +176,30 @@ const overviewItems = computed(() => [
     textColor: '#4facfe',
     format: 'percent',
   },
+  {
+    title: '文档总数',
+    value: docsSummaryStats.value.totalFileNum,
+    subtitle: '知识库文档总数',
+    icon: 'mdi:file-multiple',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    textColor: '#667eea',
+  },
+  {
+    title: '今日上传',
+    value: docsSummaryStats.value.totalDailyUpload,
+    subtitle: '今日上传文档数',
+    icon: 'mdi:file-upload',
+    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+    textColor: '#11998e',
+  },
+  {
+    title: '今日更新',
+    value: docsSummaryStats.value.totalDailyUpdate,
+    subtitle: '今日更新文档数',
+    icon: 'mdi:file-sync',
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    textColor: '#f5576c',
+  },
 ]);
 
 // Format wps value
@@ -188,7 +213,7 @@ const formatWpsValue = (value: number) => {
   return value.toLocaleString();
 };
 
-// Filtered data
+// Filtered data (descending - for table and stats)
 const filteredData = computed(() => {
   let data = [...allAnythingllmData.value];
 
@@ -200,6 +225,43 @@ const filteredData = computed(() => {
   return data;
 });
 
+// Chart data (ascending - for charts)
+const chartData = computed(() => {
+  return [...filteredData.value].toReversed();
+});
+
+// Filtered documents data
+const filteredDocsData = computed(() => {
+  let data = [...allAnythingllmDocsData.value];
+
+  // Filter by date range
+  const startStr = dateRange.value[0].format('YYYY-MM-DD');
+  const endStr = dateRange.value[1].format('YYYY-MM-DD');
+  data = data.filter((d) => d.date >= startStr && d.date <= endStr);
+
+  return data;
+});
+
+// Documents summary stats
+const docsSummaryStats = computed(() => {
+  const data = filteredDocsData.value;
+  if (data.length === 0) {
+    return {
+      totalFileNum: 0,
+      totalDailyUpload: 0,
+      totalDailyUpdate: 0,
+    };
+  }
+
+  // Get latest record (first after descending sort)
+  const latestRecord = data[0];
+  return {
+    totalFileNum: latestRecord.total_file_num || 0,
+    totalDailyUpload: latestRecord.daily_upload_num || 0,
+    totalDailyUpdate: latestRecord.daily_update_num || 0,
+  };
+});
+
 // Load data using fetch
 const loadData = async () => {
   loading.value = true;
@@ -207,6 +269,7 @@ const loadData = async () => {
   const dataDate = dataVersion.value?.dataDate || '20260413';
 
   try {
+    // Load daily stats
     const response = await fetch(
       `/src/assets/data-display/anythingllm_daily_stats-${dataDate}.json`,
     );
@@ -218,10 +281,24 @@ const loadData = async () => {
 
     allAnythingllmData.value = data;
 
-    // Sort by date
+    // Sort by date (descending - newest first)
     allAnythingllmData.value.sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
+
+    // Load documents stats
+    const docsResponse = await fetch(
+      `/src/assets/data-display/anythingllm_documents_stats-${dataDate}.json`,
+    );
+    const docsData = await docsResponse.json();
+
+    if (docsData && docsData.length > 0) {
+      allAnythingllmDocsData.value = docsData;
+      // Sort by date (descending - newest first)
+      allAnythingllmDocsData.value.sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+      );
+    }
   } catch (error) {
     console.error('Error loading AnythingLLM data:', error);
   } finally {
@@ -233,7 +310,7 @@ const loadData = async () => {
 const fileTypeData = computed(() => {
   const typeMap = new Map<string, { count: number; wps: number }>();
 
-  filteredData.value.forEach((item) => {
+  chartData.value.forEach((item) => {
     const type = item.file_type || 'unknown';
     const existing = typeMap.get(type) || { count: 0, wps: 0 };
     existing.count += 1;
@@ -323,7 +400,7 @@ const getDailyEmbedData = () => {
     { embedRatios: number[]; uploadNums: number[] }
   >();
 
-  filteredData.value.forEach((item) => {
+  chartData.value.forEach((item) => {
     const date = item.date;
     if (!dailyMap.has(date)) {
       dailyMap.set(date, { embedRatios: [], uploadNums: [] });
@@ -427,6 +504,41 @@ const tablePagination = ref({
 const handleTableChange = (pagination: any) => {
   tablePagination.value.current = pagination.current;
   tablePagination.value.pageSize = pagination.pageSize;
+};
+
+// Docs table columns
+const docsTableColumns = [
+  { title: '日期', dataIndex: 'date', key: 'date', width: 110 },
+  {
+    title: '上传数',
+    dataIndex: 'daily_upload_num',
+    key: 'daily_upload_num',
+  },
+  {
+    title: '更新数',
+    dataIndex: 'daily_update_num',
+    key: 'daily_update_num',
+  },
+  {
+    title: '文档总数',
+    dataIndex: 'total_file_num',
+    key: 'total_file_num',
+  },
+];
+
+// Docs table pagination state
+const docsTablePagination = ref({
+  current: 1,
+  pageSize: 10,
+  showSizeChanger: true,
+  pageSizeOptions: ['10', '20', '50', '100'],
+  showTotal: (total: number) => `共 ${total} 条`,
+});
+
+// Handle docs table change
+const handleDocsTableChange = (pagination: any) => {
+  docsTablePagination.value.current = pagination.current;
+  docsTablePagination.value.pageSize = pagination.pageSize;
 };
 
 onMounted(async () => {
@@ -548,6 +660,32 @@ onMounted(async () => {
                 "
               >
                 {{ record.embed_ratio?.toFixed(1) }}%
+              </Tag>
+            </template>
+          </template>
+        </Table>
+      </Card>
+
+      <!-- Documents Stats Table -->
+      <Card title="文档统计" class="mt-4">
+        <Table
+          :columns="docsTableColumns"
+          :data-source="filteredDocsData"
+          :pagination="docsTablePagination"
+          row-key="id"
+          size="small"
+          @change="handleDocsTableChange"
+        >
+          <template #bodyCell="{ column, record }">
+            <template v-if="column.key === 'daily_upload_num'">
+              {{ record.daily_upload_num?.toLocaleString() }}
+            </template>
+            <template v-if="column.key === 'daily_update_num'">
+              {{ record.daily_update_num?.toLocaleString() }}
+            </template>
+            <template v-if="column.key === 'total_file_num'">
+              <Tag color="blue">
+                {{ record.total_file_num?.toLocaleString() }}
               </Tag>
             </template>
           </template>

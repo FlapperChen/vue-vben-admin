@@ -124,7 +124,7 @@ const availableModels = computed(() => {
 
 // Summary stats
 const summaryStats = computed(() => {
-  const data = filteredData.value;
+  const data = chartData.value;
   if (data.length === 0) {
     return {
       avgPromptTpu: 0,
@@ -226,6 +226,11 @@ const filteredData = computed(() => {
   return data;
 });
 
+// Chart data (ascending - for charts)
+const chartData = computed(() => {
+  return [...filteredData.value].toReversed();
+});
+
 // Filtered data for queue chart (with data filter applied)
 const _filteredQueueData = computed(() => {
   let data = [...allVllmData.value];
@@ -268,9 +273,9 @@ const loadData = async () => {
 
     allVllmData.value = data;
 
-    // Sort by date
+    // Sort by date (descending - newest first)
     allVllmData.value.sort(
-      (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
     );
 
     // Get unique models
@@ -298,7 +303,7 @@ const loadData = async () => {
 
 // Chart options - TPU Usage
 const tpuChartOption = computed(() => {
-  const data = filteredData.value;
+  const data = chartData.value;
   return {
     title: { text: 'TPU使用量变化', left: 'center' },
     tooltip: { trigger: 'axis' },
@@ -345,7 +350,7 @@ const tpuChartOption = computed(() => {
 
 // Chart options - Cache Hit Rate
 const cacheChartOption = computed(() => {
-  const data = filteredData.value;
+  const data = chartData.value;
   return {
     title: { text: '缓存命中率变化 (%)', left: 'center' },
     tooltip: { trigger: 'axis' },
@@ -390,7 +395,7 @@ const getFilteredValue = (value: number, date: string, field: string) => {
 
 // Chart options - Request Queue (use filtered data with value filtering)
 const queueChartOption = computed(() => {
-  const data = filteredData.value;
+  const data = chartData.value;
   return {
     title: { text: '请求队列变化', left: 'center' },
     tooltip: { trigger: 'axis' },
