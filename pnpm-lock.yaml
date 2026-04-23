@@ -2067,6 +2067,9 @@ importers:
       json-bigint:
         specifier: 'catalog:'
         version: 1.0.0
+      marked:
+        specifier: ^18.0.2
+        version: 18.0.2
       pinia:
         specifier: ^3.0.4
         version: 3.0.4(typescript@6.0.2)(vue@3.5.32(typescript@6.0.2))
@@ -2086,6 +2089,9 @@ importers:
       '@types/json-bigint':
         specifier: 'catalog:'
         version: 1.0.4
+      '@types/marked':
+        specifier: ^6.0.0
+        version: 6.0.0
 
   scripts/turbo-run:
     dependencies:
@@ -5509,6 +5515,10 @@ packages:
   '@types/markdown-it@14.1.2':
     resolution: {integrity: sha512-promo4eFwuiW+TfGxhi+0x3czqTYJkG8qB17ZUJiVF10Xm7NLVRSLUsfRTU/6h1e24VvRnXCx+hG7li58lkzog==}
 
+  '@types/marked@6.0.0':
+    resolution: {integrity: sha512-jmjpa4BwUsmhxcfsgUit/7A9KbrC48Q0q8KvnY107ogcjGgTFDlIL3RpihNpx2Mu1hM4mdFQjoVc4O6JoGKHsA==}
+    deprecated: This is a stub types definition. marked provides its own type definitions, so you do not need this installed.
+
   '@types/mdast@4.0.4':
     resolution: {integrity: sha512-kGaNbPh1k7AFzgpud/gMdvIm5xuECykRR+JnWKQno9TAXVa6WIVCGTPvYGekIDL4uwCZQSYbUxNBSb1aUo79oA==}
 
@@ -8497,6 +8507,11 @@ packages:
     cpu: [x64]
     os: [linux]
 
+  lefthook-linux-x64@2.1.5:
+    resolution: {integrity: sha512-bqK3LrAB5l5YaCaoHk6qRWlITrGWzP4FbwRxA31elbxjd0wgNWZ2Sn3zEfSEcxz442g7/PPkEwqqsTx0kSFzpg==}
+    cpu: [x64]
+    os: [linux]
+
   lefthook-openbsd-arm64@2.1.5:
     resolution: {integrity: sha512-5aSwK7vV3A6t0w9PnxCMiVjQlcvopBP50BtmnnLnNJyAYHnFbZ0Baq5M0WkE9IsUkWSux0fe6fd0jDkuG711MA==}
     cpu: [arm64]
@@ -8777,6 +8792,11 @@ packages:
 
   markdown-it@14.1.1:
     resolution: {integrity: sha512-BuU2qnTti9YKgK5N+IeMubp14ZUKUUw7yeJbkjtosvHiP0AZ5c8IAgEMk79D0eC8F23r4Ac/q8cAIFdm2FtyoA==}
+    hasBin: true
+
+  marked@18.0.2:
+    resolution: {integrity: sha512-NsmlUYBS/Zg57rgDWMYdnre6OTj4e+qq/JS2ot3KrYLSoHLw+sDu0Nm1ZGpRgYAq6c+b1ekaY5NzVchMCQnzcg==}
+    engines: {node: '>= 20'}
     hasBin: true
 
   math-intrinsics@1.1.0:
@@ -14723,6 +14743,10 @@ snapshots:
       '@types/linkify-it': 5.0.0
       '@types/mdurl': 2.0.0
 
+  '@types/marked@6.0.0':
+    dependencies:
+      marked: 18.0.2
+
   '@types/mdast@4.0.4':
     dependencies:
       '@types/unist': 3.0.3
@@ -18123,6 +18147,9 @@ snapshots:
 
   lefthook-linux-x64@2.1.4: {}
 
+  lefthook-linux-x64@2.1.5:
+    optional: true
+
   lefthook-openbsd-arm64@2.1.5:
     optional: true
 
@@ -18142,6 +18169,7 @@ snapshots:
       lefthook-freebsd-arm64: 2.1.5
       lefthook-freebsd-x64: 2.1.5
       lefthook-linux-arm64: 2.1.5
+      lefthook-linux-x64: 2.1.5
       lefthook-openbsd-arm64: 2.1.5
       lefthook-openbsd-x64: 2.1.5
       lefthook-windows-arm64: 2.1.5
@@ -18395,6 +18423,8 @@ snapshots:
       mdurl: 2.0.0
       punycode.js: 2.3.1
       uc.micro: 2.1.0
+
+  marked@18.0.2: {}
 
   math-intrinsics@1.1.0: {}
 

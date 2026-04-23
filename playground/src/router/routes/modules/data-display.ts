@@ -83,6 +83,50 @@ const routes: RouteRecordRaw[] = [
       },
     ],
   },
+  // AI 故障分析
+  {
+    meta: {
+      icon: 'mdi:alert-box-outline',
+      order: 901,
+      title: 'AI 故障分析',
+    },
+    name: 'AiFaultAnalysis',
+    path: '/ai-fault-analysis',
+    children: [
+      // AI 故障分析首页
+      {
+        meta: {
+          icon: 'mdi:home',
+          title: '故障分析首页',
+        },
+        name: 'AiFaultAnalysisHome',
+        path: '/ai-fault-analysis',
+        component: () => import('#/views/ai-fault-analysis/index.vue'),
+      },
+      // AI Coredump 分析
+      {
+        meta: {
+          icon: 'mdi:bomb',
+          title: 'Coredump 分析',
+        },
+        name: 'AiCoredump',
+        path: '/ai-fault-analysis/ai-coredump',
+        component: () =>
+          import('#/views/ai-fault-analysis/ai-coredump/index.vue'),
+      },
+      // AI 黑盒日志分析
+      {
+        meta: {
+          icon: 'mdi:file-document-outline',
+          title: '黑盒日志分析',
+        },
+        name: 'AiBlackbox',
+        path: '/ai-fault-analysis/ai-blackbox',
+        component: () =>
+          import('#/views/ai-fault-analysis/ai-blackbox/index.vue'),
+      },
+    ],
+  },
 ];
 
 export default routes;

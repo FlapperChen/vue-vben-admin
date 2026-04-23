@@ -111,14 +111,6 @@ const summaryStats = computed(() => {
 // Overview items for stats cards - 优化版
 const overviewItems = computed(() => [
   {
-    title: '累计Gerrit评论',
-    value: summaryStats.value.totalGerritComments,
-    subtitle: '总评论数',
-    icon: 'mdi:source-pull',
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    textColor: '#667eea',
-  },
-  {
     title: '累计AI评论',
     value: summaryStats.value.totalAiComments,
     subtitle: 'AI生成评论',
@@ -127,10 +119,18 @@ const overviewItems = computed(() => [
     textColor: '#11998e',
   },
   {
-    title: 'AI评论占比',
-    value: summaryStats.value.aiCommentRate,
-    subtitle: 'AI评论百分比',
-    icon: 'mdi:chart-pie',
+    title: 'AI覆盖分支数',
+    value: summaryStats.value.aiCoveredProjectBranchCount,
+    subtitle: 'AI覆盖项目分支',
+    icon: 'mdi:source-branch',
+    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    textColor: '#667eea',
+  },
+  {
+    title: 'AI代码审查覆盖率',
+    value: summaryStats.value.aiCodeReviewCoverRate,
+    subtitle: 'AI代码审查覆盖率',
+    icon: 'mdi:chart-line',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     textColor: '#f5576c',
     format: 'percent',
@@ -142,31 +142,6 @@ const overviewItems = computed(() => [
     icon: 'mdi:check-decagram',
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     textColor: '#4facfe',
-    format: 'percent',
-  },
-  {
-    title: '总项目分支数',
-    value: summaryStats.value.totalProjectBranchCount,
-    subtitle: '项目分支总数',
-    icon: 'mdi:source-branch',
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    textColor: '#667eea',
-  },
-  {
-    title: 'AI覆盖分支数',
-    value: summaryStats.value.aiCoveredProjectBranchCount,
-    subtitle: 'AI覆盖项目分支',
-    icon: 'mdi:robot',
-    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-    textColor: '#11998e',
-  },
-  {
-    title: 'AI代码审查覆盖率',
-    value: summaryStats.value.aiCodeReviewCoverRate,
-    subtitle: 'AI代码审查覆盖率',
-    icon: 'mdi:chart-line',
-    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    textColor: '#f5576c',
     format: 'percent',
   },
 ]);
@@ -263,9 +238,12 @@ const commentsChartOption = computed(() => {
 const aiRateChartOption = computed(() => {
   const data = chartData.value;
   return {
-    title: { text: 'AI评论占比与接受率', left: 'center' },
+    title: { text: 'AI评论占比、接受率与覆盖率', left: 'center' },
     tooltip: { trigger: 'axis' },
-    legend: { bottom: 10, data: ['AI评论占比', 'AI接受率'] },
+    legend: {
+      bottom: 10,
+      data: ['AI评论占比', 'AI接受率', 'AI代码审查覆盖率'],
+    },
     dataZoom: [
       { type: 'inside', start: 0, end: 100 },
       { type: 'slider', start: 0, end: 100 },
@@ -298,6 +276,15 @@ const aiRateChartOption = computed(() => {
         areaStyle: { opacity: 0.3 },
         lineStyle: { width: 3 },
         itemStyle: { color: '#f56c6c' },
+      },
+      {
+        name: 'AI代码审查覆盖率',
+        type: 'line',
+        data: data.map((d) => d.total_ai_codereview_cover_rate || 0),
+        smooth: true,
+        areaStyle: { opacity: 0.3 },
+        lineStyle: { width: 3 },
+        itemStyle: { color: '#409eff' },
       },
     ],
     grid: { bottom: 100 },

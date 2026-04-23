@@ -219,12 +219,72 @@
     "id": 109,
     "date": "2026-04-17",
     "created_at": "2026-04-17T06:44:49.450295",
-    "updated_at": "2026-04-17T13:33:32.924958",
+    "updated_at": "2026-04-18T09:03:42.262277",
     "daily_upload_num": 84,
     "daily_update_num": 6,
     "total_file_num": 5275,
     "daily_delete_num": 0,
     "vector_count": 1098199,
+    "embedding_chunk_max": 800
+  },
+  {
+    "id": 129,
+    "date": "2026-04-18",
+    "created_at": "2026-04-18T09:03:42.372222",
+    "updated_at": "2026-04-19T09:03:13.765968",
+    "daily_upload_num": 0,
+    "daily_update_num": 2,
+    "total_file_num": 5275,
+    "daily_delete_num": 0,
+    "vector_count": 1098199,
+    "embedding_chunk_max": 800
+  },
+  {
+    "id": 136,
+    "date": "2026-04-19",
+    "created_at": "2026-04-19T09:03:13.876495",
+    "updated_at": "2026-04-19T13:33:18.773553",
+    "daily_upload_num": 0,
+    "daily_update_num": 0,
+    "total_file_num": 5275,
+    "daily_delete_num": 0,
+    "vector_count": 1098199,
+    "embedding_chunk_max": 800
+  },
+  {
+    "id": 140,
+    "date": "2026-04-20",
+    "created_at": "2026-04-20T03:08:26.635492",
+    "updated_at": "2026-04-21T09:09:15.132065",
+    "daily_upload_num": 19,
+    "daily_update_num": 3,
+    "total_file_num": 5293,
+    "daily_delete_num": 1,
+    "vector_count": 1118461,
+    "embedding_chunk_max": 800
+  },
+  {
+    "id": 155,
+    "date": "2026-04-21",
+    "created_at": "2026-04-21T09:09:15.255666",
+    "updated_at": "2026-04-22T09:03:30.708528",
+    "daily_upload_num": 0,
+    "daily_update_num": 6,
+    "total_file_num": 5293,
+    "daily_delete_num": 0,
+    "vector_count": 1118461,
+    "embedding_chunk_max": 800
+  },
+  {
+    "id": 160,
+    "date": "2026-04-22",
+    "created_at": "2026-04-22T09:03:30.840499",
+    "updated_at": "2026-04-22T13:33:24.945164",
+    "daily_upload_num": 16,
+    "daily_update_num": 4,
+    "total_file_num": 5309,
+    "daily_delete_num": 0,
+    "vector_count": 1122357,
     "embedding_chunk_max": 800
   }
 ]

@@ -52,6 +52,7 @@
     "dayjs": "catalog:",
     "echarts": "catalog:",
     "json-bigint": "catalog:",
+    "marked": "^18.0.2",
     "pinia": "catalog:",
     "vue": "catalog:",
     "vue-echarts": "^8.0.1",
@@ -59,6 +60,7 @@
   },
   "devDependencies": {
     "@playwright/test": "catalog:",
-    "@types/json-bigint": "catalog:"
+    "@types/json-bigint": "catalog:",
+    "@types/marked": "^6.0.0"
   }
 }

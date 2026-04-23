@@ -65,7 +65,7 @@ use([
 // Tab options
 const tabOptions = [
   { label: 'TPU 使用', value: 'tpu' },
-  { label: '缓存命中率', value: 'cache' },
+  { label: 'KV Cache', value: 'cache' },
   { label: '请求队列', value: 'queue' },
 ];
 const activeTab = ref('tpu');
@@ -74,7 +74,7 @@ const activeTab = ref('tpu');
 const _vllmData = ref<any[]>([]);
 const allVllmData = ref<any[]>([]);
 const loading = ref(false);
-const selectedModel = ref<string>('');
+const selectedModel = ref<string>('all');
 
 // Date range
 const dateRange = ref<[dayjs.Dayjs, dayjs.Dayjs]>([
@@ -327,13 +327,17 @@ const tpuChartOption = computed(() => {
         data: data.map((d) => d.avg_prompt_tpu),
         smooth: true,
         lineStyle: { width: 3 },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#5470c6' },
       },
       {
         name: '最大Prompt TPU',
         type: 'line',
         data: data.map((d) => d.max_prompt_tpu || 0),
         smooth: true,
-        lineStyle: { width: 2, type: 'dashed' },
+        lineStyle: { width: 2 },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#ee6666' },
       },
       {
         name: '平均Generation TPU',
@@ -341,6 +345,8 @@ const tpuChartOption = computed(() => {
         data: data.map((d) => d.avg_generation_tpu),
         smooth: true,
         lineStyle: { width: 2 },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#73c0de' },
       },
     ],
     legend: { bottom: 55 },
@@ -348,11 +354,11 @@ const tpuChartOption = computed(() => {
   };
 });
 
-// Chart options - Cache Hit Rate
-const cacheChartOption = computed(() => {
+// Chart options - KV Cache (大图用)
+const kvCacheChartOption = computed(() => {
   const data = chartData.value;
   return {
-    title: { text: '缓存命中率变化 (%)', left: 'center' },
+    title: { text: 'GPU KV Cache 变化', left: 'center' },
     tooltip: { trigger: 'axis' },
     dataZoom: [
       { type: 'inside', start: 0, end: 100 },
@@ -365,17 +371,26 @@ const cacheChartOption = computed(() => {
     },
     yAxis: {
       type: 'value',
-      name: '命中率 (%)',
-      min: 0,
+      name: 'Cache',
     },
     series: [
       {
-        name: 'Prefix Cache Hit Rate',
+        name: '平均',
         type: 'line',
-        data: data.map((d) => d.avg_prefix_cache_hit_rate),
+        data: data.map((d) => d.avg_gpu_kv_cache || 0),
         smooth: true,
-        areaStyle: { opacity: 0.3 },
         lineStyle: { width: 3 },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#5470c6' },
+      },
+      {
+        name: '最大',
+        type: 'line',
+        data: data.map((d) => d.max_gpu_kv_cache || 0),
+        smooth: true,
+        lineStyle: { width: 2 },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#91cc75' },
       },
     ],
     legend: { bottom: 55 },
@@ -420,6 +435,7 @@ const queueChartOption = computed(() => {
         smooth: true,
         areaStyle: { opacity: 0.3 },
         connectNulls: true,
+        itemStyle: { color: '#5470c6' },
       },
       {
         name: '最大运行请求',
@@ -428,8 +444,10 @@ const queueChartOption = computed(() => {
           getFilteredValue(d.max_running_reqs || 0, d.date, 'max_running_reqs'),
         ),
         smooth: true,
-        lineStyle: { type: 'dashed' },
+        lineStyle: { width: 2 },
+        areaStyle: { opacity: 0.3 },
         connectNulls: true,
+        itemStyle: { color: '#9a60b4' },
       },
       {
         name: '平均等待请求',
@@ -437,6 +455,7 @@ const queueChartOption = computed(() => {
         data: data.map((d) => d.avg_waitting_reqs || 0),
         smooth: true,
         connectNulls: true,
+        itemStyle: { color: '#73c0de' },
       },
     ],
     legend: { bottom: 55 },
@@ -448,7 +467,7 @@ const queueChartOption = computed(() => {
 const currentChartOption = computed(() => {
   switch (activeTab.value) {
     case 'cache': {
-      return cacheChartOption.value;
+      return kvCacheChartOption.value;
     }
     case 'queue': {
       return queueChartOption.value;
@@ -635,30 +654,26 @@ onMounted(async () => {
       </Card>
 
       <!-- Additional Charts -->
-      <Row v-if="filteredData.length > 0" :gutter="[16, 16]" class="mb-4">
+      <Row v-if="chartData.length > 0" :gutter="[16, 16]" class="mb-4">
         <Col :span="12">
-          <Card title="KV Cache 使用">
+          <Card title="缓存命中率">
             <VChart
               :option="{
-                title: { text: 'GPU KV Cache 变化', left: 'center' },
+                title: { text: '缓存命中率变化 (%)', left: 'center' },
                 tooltip: { trigger: 'axis' },
                 xAxis: {
                   type: 'category',
-                  data: filteredData.map((d) => d.date),
+                  data: chartData.map((d) => d.date),
                 },
-                yAxis: { type: 'value', name: 'Cache' },
+                yAxis: { type: 'value', name: '命中率 (%)', min: 0 },
                 series: [
                   {
-                    name: '平均',
+                    name: 'Prefix Cache Hit Rate',
                     type: 'line',
-                    data: filteredData.map((d) => d.avg_gpu_kv_cache || 0),
+                    data: chartData.map((d) => d.avg_prefix_cache_hit_rate),
                     smooth: true,
-                  },
-                  {
-                    name: '最大',
-                    type: 'line',
-                    data: filteredData.map((d) => d.max_gpu_kv_cache || 0),
-                    smooth: true,
+                    areaStyle: { opacity: 0.3 },
+                    lineStyle: { width: 3 },
                   },
                 ],
                 grid: { bottom: 40 },
@@ -676,19 +691,19 @@ onMounted(async () => {
                 tooltip: { trigger: 'axis' },
                 xAxis: {
                   type: 'category',
-                  data: filteredData.map((d) => d.date),
+                  data: chartData.map((d) => d.date),
                 },
                 yAxis: { type: 'value', name: '请求数' },
                 series: [
                   {
                     name: '运行中',
                     type: 'bar',
-                    data: filteredData.map((d) => d.avg_running_reqs),
+                    data: chartData.map((d) => d.avg_running_reqs),
                   },
                   {
                     name: '等待中',
                     type: 'bar',
-                    data: filteredData.map((d) => d.avg_waitting_reqs || 0),
+                    data: chartData.map((d) => d.avg_waitting_reqs || 0),
                   },
                 ],
                 grid: { bottom: 40 },
