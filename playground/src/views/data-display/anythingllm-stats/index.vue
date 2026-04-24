@@ -842,7 +842,7 @@ onMounted(async () => {
           <Card>
             <VChart
               :option="fileTypeChartOption"
-              style="height: 350px"
+              style="height: 400px"
               autoresize
             />
           </Card>
