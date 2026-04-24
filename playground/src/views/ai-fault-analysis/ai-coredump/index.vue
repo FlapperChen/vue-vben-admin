@@ -20,6 +20,7 @@ import {
   Tag,
   Upload,
 } from 'ant-design-vue';
+import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 
 // 配置 marked
@@ -49,6 +50,7 @@ interface AnalysisRecord {
   project: string;
   report: string;
   success: boolean;
+  summary: string;
 }
 
 // localStorage 持久化
@@ -110,12 +112,61 @@ const completedCount = computed(() => {
   return uploadFileList.value.filter((f) => f.progress >= 100).length;
 });
 
+// 统计数据
+const stats = computed(() => {
+  const today = new Date().toDateString();
+  return {
+    totalFiles: uploadedFiles.value.length,
+    successCount: analysisRecords.value.filter((r) => r.success).length,
+    failCount: analysisRecords.value.filter((r) => !r.success).length,
+    todayCount: analysisRecords.value.filter((r) => {
+      return new Date(r.analyzed_at).toDateString() === today;
+    }).length,
+  };
+});
+
+// 统计卡片配置
+const overviewItems = computed(() => [
+  {
+    title: '上传文件数',
+    value: stats.value.totalFiles,
+    subtitle: '已上传文件',
+    icon: 'mdi:file-multiple',
+    gradient: 'linear-gradient(135deg, #409eff 0%, #67c23a 100%)',
+    textColor: '#409eff',
+  },
+  {
+    title: '分析成功',
+    value: stats.value.successCount,
+    subtitle: '成功分析',
+    icon: 'mdi:check-circle',
+    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+    textColor: '#11998e',
+  },
+  {
+    title: '分析失败',
+    value: stats.value.failCount,
+    subtitle: '失败分析',
+    icon: 'mdi:close-circle',
+    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+    textColor: '#f5576c',
+  },
+  {
+    title: '今日分析',
+    value: stats.value.todayCount,
+    subtitle: '今日统计',
+    icon: 'mdi:calendar-today',
+    gradient: 'linear-gradient(135deg, #e6a23c 0%, #f56c6c 100%)',
+    textColor: '#e6a23c',
+  },
+]);
+
 // 搜索和筛选状态
 const fileSearchQuery = ref('');
 const recordSearchQuery = ref('');
-const fileProjectFilter = ref<null | string>(null);
-const recordProjectFilter = ref<null | string>(null);
-const recordBranchFilter = ref<null | string>(null);
+const fileProjectFilter = ref<string | undefined>(undefined);
+const recordProjectFilter = ref<string | undefined>(undefined);
+const recordBranchFilter = ref<string | undefined>(undefined);
 
 // 分析表单
 const analysisForm = ref({
@@ -174,16 +225,32 @@ const allBranches = computed(() => {
   return [...branches].toSorted();
 });
 
-// 渲染 Markdown 为 HTML
+// 渲染 Markdown 为 HTML（使用 DOMPurify 防止 XSS）
 const renderedReport = computed(() => {
   if (!currentReport.value) return '';
-  return marked(currentReport.value);
+  return DOMPurify.sanitize(marked(currentReport.value));
 });
 
 // 从路径提取项目名
 const extractProjectFromPath = (path: string): string => {
   const parts = path.split('/');
-  return parts.length > 1 ? parts[parts.length - 2] : 'unknown';
+  return parts.length > 1 ? parts[parts.length - 2] || 'unknown' : 'unknown';
+};
+
+// 从报告提取摘要（第一条根因）
+const extractSummary = (report: string): string => {
+  // 匹配 "1. **xxx**" 格式的根因
+  const rootCauseMatch = report.match(/\d+\.\s+\*\*(.+?)\*\*/);
+  if (rootCauseMatch) {
+    return rootCauseMatch[1] || '点击查看详情';
+  }
+  // 如果没有根因，返回信号信息
+  const signalMatch = report.match(/信号\s+\|\s+(\S+)/);
+  if (signalMatch) {
+    return `信号: ${signalMatch[1] || '未知'}`;
+  }
+  // 默认返回"查看详情"
+  return '点击查看详情';
 };
 
 // 文件上传
@@ -200,10 +267,13 @@ const handleUpload = async (file: File) => {
     if (idx === -1) {
       clearInterval(progressInterval);
     } else {
-      uploadFileList.value[idx].progress += Math.random() * 20;
-      if (uploadFileList.value[idx].progress >= 90) {
-        uploadFileList.value[idx].progress = 90;
-        clearInterval(progressInterval);
+      const currentFile = uploadFileList.value[idx];
+      if (currentFile) {
+        currentFile.progress += Math.random() * 20;
+        if (currentFile.progress >= 90) {
+          currentFile.progress = 90;
+          clearInterval(progressInterval);
+        }
       }
     }
   }, 200);
@@ -220,7 +290,8 @@ const handleUpload = async (file: File) => {
     clearInterval(progressInterval);
     const idx = uploadFileList.value.findIndex((f) => f.id === fileId);
     if (idx !== -1) {
-      uploadFileList.value[idx].progress = 100;
+      const currentFile = uploadFileList.value[idx];
+      if (currentFile) currentFile.progress = 100;
     }
 
     if (response.ok) {
@@ -260,7 +331,8 @@ const handleUpload = async (file: File) => {
     clearInterval(progressInterval);
     const idx = uploadFileList.value.findIndex((f) => f.id === fileId);
     if (idx !== -1) {
-      uploadFileList.value[idx].progress = 100;
+      const currentFile = uploadFileList.value[idx];
+      if (currentFile) currentFile.progress = 100;
     }
     // 模拟上传成功（开发环境）
     await new Promise((resolve) => setTimeout(resolve, 500));
@@ -335,6 +407,7 @@ const analyzeSelected = async () => {
 
 // 处理分析结果
 const handleAnalysisResult = (file: UploadedFile, result: any) => {
+  const report = result.report || result.error || '分析失败';
   const record: AnalysisRecord = {
     id: `record_${Date.now()}`,
     filename: file.name,
@@ -343,7 +416,8 @@ const handleAnalysisResult = (file: UploadedFile, result: any) => {
     branch: analysisForm.value.branch,
     gerritId: analysisForm.value.gerritId,
     success: result.success,
-    report: result.report || result.error || '分析失败',
+    report,
+    summary: extractSummary(report),
     analyzed_at: new Date().toISOString(),
   };
 
@@ -459,7 +533,10 @@ const onDrop = (e: DragEvent) => {
   isDragging.value = false;
   const files = e.dataTransfer?.files;
   if (files && files.length > 0) {
-    handleUpload(files[0]);
+    // 支持多文件上传
+    for (const file of files) {
+      if (file) handleUpload(file);
+    }
   }
 };
 
@@ -480,6 +557,36 @@ onMounted(() => {
     title="AI Coredump 分析"
   >
     <Spin :spinning="loading" tip="加载数据中...">
+      <!-- 统计卡片 -->
+      <Row :gutter="[16, 16]" class="mb-5">
+        <Col :span="6" v-for="item in overviewItems" :key="item.title">
+          <Card hoverable class="stat-card">
+            <div class="flex items-center justify-between">
+              <div>
+                <div class="text-gray-500 text-sm font-medium">
+                  {{ item.title }}
+                </div>
+                <div
+                  class="text-3xl font-extrabold tracking-tight"
+                  :style="{ color: item.textColor }"
+                >
+                  {{ item.value }}
+                </div>
+                <div class="text-gray-400 text-xs mt-1">
+                  {{ item.subtitle }}
+                </div>
+              </div>
+              <div
+                class="w-14 h-14 rounded-2xl flex items-center justify-center"
+                :style="{ background: item.gradient }"
+              >
+                <VbenIcon :icon="item.icon" class="text-2xl text-white" />
+              </div>
+            </div>
+          </Card>
+        </Col>
+      </Row>
+
       <!-- 上传区 -->
       <Card class="mb-4">
         <Upload
@@ -675,10 +782,15 @@ onMounted(() => {
                 }"
               >
                 <div class="record-item-content" @click="viewReport(record)">
-                  <div class="flex items-center gap-2">
-                    <span class="text-sm font-medium truncate max-w-[120px]">
+                  <div class="flex items-center gap-3">
+                    <span class="text-sm font-medium record-filename">
                       {{ record.filename }}
                     </span>
+                    <div class="record-item-right">
+                      <Tag color="warning" class="record-summary-tag">
+                        {{ record.summary || '分析完成' }}
+                      </Tag>
+                    </div>
                   </div>
                   <div class="text-xs text-gray-500 mt-1">
                     <span v-if="record.project">{{ record.project }}</span>
@@ -795,6 +907,28 @@ onMounted(() => {
   padding: 0;
 }
 
+.mb-5 {
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
 .upload-area {
   box-sizing: border-box;
   display: flex;
@@ -814,7 +948,6 @@ onMounted(() => {
   transition: all 0.3s ease;
 }
 
-/* 覆盖 ant-design-upload 的默认样式 */
 :deep(.ant-upload-drag) {
   width: 100% !important;
   padding: 0 !important;
@@ -1052,7 +1185,26 @@ onMounted(() => {
 
 .record-item-content {
   flex: 1;
+  min-width: 0;
   cursor: pointer;
+}
+
+.record-item-right {
+  flex-shrink: 0;
+}
+
+.record-filename {
+  word-break: break-all;
+  white-space: normal;
+}
+
+.record-summary {
+  font-weight: 500;
+}
+
+.record-summary-tag {
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .record-item-actions {
@@ -1159,8 +1311,8 @@ onMounted(() => {
 .selected-info {
   display: flex;
   align-items: center;
-  padding: 8px 12px;
-  margin: 12px 16px 0;
+  padding: 6px 12px;
+  margin: 8px 16px;
   font-size: 13px;
   color: #3b82f6;
   background-color: #eff6ff;
@@ -1175,7 +1327,6 @@ onMounted(() => {
   min-height: 350px;
 }
 
-/* Markdown 样式 */
 :deep(.prose) {
   font-size: 14px;
   line-height: 1.6;

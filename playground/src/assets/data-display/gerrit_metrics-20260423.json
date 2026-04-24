@@ -382,5 +382,21 @@
     "total_project_branch_count": 403,
     "ai_covered_project_branch_count": 58,
     "total_ai_codereview_cover_rate": 14.39
+  },
+  {
+    "date": "2026-04-23",
+    "total_gerrit_comments": 2037,
+    "total_ai_comments": 1668,
+    "total_ai_accept_comments": 18,
+    "total_ai_comments_rate": 81.89,
+    "total_ai_accept_rate": 1.08,
+    "daily_gerrit_comments": 72,
+    "daily_ai_comments": 71,
+    "daily_ai_comments_rate": 98.61,
+    "daily_ai_accept_comments": 1,
+    "daily_ai_accept_rate": 1.41,
+    "total_project_branch_count": 403,
+    "ai_covered_project_branch_count": 59,
+    "total_ai_codereview_cover_rate": 14.64
   }
 ]

@@ -9,13 +9,18 @@ import {
   Button,
   Card,
   Col,
+  Input,
+  InputSearch,
   message,
+  Progress,
   Row,
+  Select,
   Space,
   Spin,
   Tag,
   Upload,
 } from 'ant-design-vue';
+import DOMPurify from 'dompurify';
 import { marked } from 'marked';
 
 marked.setOptions({
@@ -24,20 +29,24 @@ marked.setOptions({
 });
 
 interface UploadedFile {
+  environment: string;
   id: string;
   name: string;
   path: string;
   project: string;
+  service: string;
   size: number;
   uploadedAt: string;
 }
 
 interface AnalysisRecord {
   analyzed_at: string;
+  environment: string;
   filename: string;
   filepath: string;
   id: string;
   report: string;
+  service: string;
   stats?: {
     debug_count: number;
     error_count: number;
@@ -46,16 +55,41 @@ interface AnalysisRecord {
     warning_count: number;
   };
   success: boolean;
+  summary: string;
 }
 
 // 状态
 const loading = ref(false);
 const analyzing = ref(false);
+const uploading = ref(false);
+const uploadFileList = ref<
+  Array<{ id: string; name: string; progress: number }>
+>([]);
 const uploadedFiles = ref<UploadedFile[]>([]);
 const analysisRecords = ref<AnalysisRecord[]>([]);
 const selectedFileId = ref<null | string>(null);
 const currentReport = ref('');
 const isDragging = ref(false);
+
+// 搜索和筛选状态
+const fileSearchQuery = ref('');
+const recordSearchQuery = ref('');
+const fileServiceFilter = ref<string | undefined>(undefined);
+const recordServiceFilter = ref<string | undefined>(undefined);
+const recordEnvironmentFilter = ref<string | undefined>(undefined);
+
+// 分析参数表单
+const analysisForm = ref({
+  service: '',
+  environment: 'production',
+});
+
+// 环境选项
+const environmentOptions = [
+  { label: '生产环境', value: 'production' },
+  { label: '预发环境', value: 'staging' },
+  { label: '测试环境', value: 'development' },
+];
 
 // 统计数据
 const stats = computed(() => {
@@ -115,76 +149,174 @@ const overviewItems = computed(() => [
   },
 ]);
 
-// 渲染 Markdown 为 HTML
+// 渲染 Markdown 为 HTML（使用 DOMPurify 防止 XSS）
 const renderedReport = computed(() => {
   if (!currentReport.value) return '';
-  return marked(currentReport.value);
+  return DOMPurify.sanitize(marked(currentReport.value));
 });
 
-const loadData = async () => {
-  loading.value = true;
-  try {
-    // 加载分析记录
-    const recordsRes = await fetch(
-      '/assets/data-display/blackbox_analysis_records.json',
-    );
-    const records = await recordsRes.json();
-    analysisRecords.value = records;
+// 计算总进度
+const totalProgress = computed(() => {
+  if (uploadFileList.value.length === 0) return 0;
+  const total = uploadFileList.value.reduce((sum, f) => sum + f.progress, 0);
+  return Math.round(total / uploadFileList.value.length);
+});
 
-    // 从 analysisRecords 重建 uploadedFiles
-    const filesMap = new Map<string, UploadedFile>();
-    for (const record of records) {
-      if (!filesMap.has(record.filename)) {
-        filesMap.set(record.filename, {
-          id: record.filename,
-          name: record.filename,
-          path: record.filepath,
-          project: extractProjectFromPath(record.filepath),
-          uploadedAt: record.analyzed_at,
-          size: 0,
-        });
-      }
+// 计算已完成数量
+const completedCount = computed(() => {
+  return uploadFileList.value.filter((f) => f.progress >= 100).length;
+});
+
+// 筛选后的文件列表
+const filteredFiles = computed(() => {
+  return uploadedFiles.value.filter((f) => {
+    const matchSearch =
+      !fileSearchQuery.value ||
+      f.name.toLowerCase().includes(fileSearchQuery.value.toLowerCase()) ||
+      f.service.toLowerCase().includes(fileSearchQuery.value.toLowerCase());
+    const matchService =
+      !fileServiceFilter.value || f.service === fileServiceFilter.value;
+    return matchSearch && matchService;
+  });
+});
+
+// 筛选后的历史记录
+const filteredRecords = computed(() => {
+  return analysisRecords.value.filter((r) => {
+    const matchSearch =
+      !recordSearchQuery.value ||
+      r.filename
+        .toLowerCase()
+        .includes(recordSearchQuery.value.toLowerCase()) ||
+      r.service.toLowerCase().includes(recordSearchQuery.value.toLowerCase()) ||
+      r.summary.toLowerCase().includes(recordSearchQuery.value.toLowerCase());
+    const matchService =
+      !recordServiceFilter.value || r.service === recordServiceFilter.value;
+    const matchEnvironment =
+      !recordEnvironmentFilter.value ||
+      r.environment === recordEnvironmentFilter.value;
+    return matchSearch && matchService && matchEnvironment;
+  });
+});
+
+// 获取所有服务列表
+const allServices = computed(() => {
+  const services = new Set<string>();
+  analysisRecords.value.forEach((r) => {
+    if (r.service) services.add(r.service);
+  });
+  return [...services].toSorted();
+});
+
+// 获取所有环境列表
+const allEnvironments = computed(() => {
+  const envs = new Set<string>();
+  analysisRecords.value.forEach((r) => {
+    if (r.environment) envs.add(r.environment);
+  });
+  return [...envs].toSorted();
+});
+
+// 获取选中文件信息
+const selectedFileInfo = computed(() => {
+  if (!selectedFileId.value) return null;
+  return uploadedFiles.value.find((f) => f.id === selectedFileId.value);
+});
+
+// localStorage 持久化
+const STORAGE_KEY = 'blackbox_analysis_data';
+
+const saveToStorage = () => {
+  const data = {
+    files: uploadedFiles.value,
+    records: analysisRecords.value,
+    currentReport: currentReport.value,
+    selectedFileId: selectedFileId.value,
+    analysisForm: analysisForm.value,
+  };
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+};
+
+const loadFromStorage = () => {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const data = JSON.parse(saved);
+      uploadedFiles.value = data.files || [];
+      analysisRecords.value = data.records || [];
+      currentReport.value = data.currentReport || '';
+      selectedFileId.value = data.selectedFileId || null;
+      analysisForm.value = data.analysisForm || {
+        service: '',
+        environment: 'production',
+      };
     }
-    uploadedFiles.value = [...filesMap.values()];
   } catch {
-    console.warn('无法加载数据');
-  } finally {
-    loading.value = false;
+    console.warn('加载本地存储失败');
   }
 };
 
 // 从路径提取项目名
 const extractProjectFromPath = (path: string): string => {
   const parts = path.split('/');
-  return parts.length > 1 ? parts[parts.length - 2] : 'unknown';
+  return parts.length > 1 ? parts[parts.length - 2] || 'unknown' : 'unknown';
 };
 
-// 保存分析记录
-const saveRecords = async () => {
-  try {
-    const response = await fetch(
-      '/assets/data-display/blackbox_analysis_records.json',
-      {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(analysisRecords.value),
-      },
-    );
-    if (!response.ok) {
-      throw new Error('保存失败');
-    }
-  } catch {
-    message.error('保存记录失败');
+// 从报告提取摘要
+const extractSummary = (report: string): string => {
+  const rootCauseMatch = report.match(/\d+\.\s+\*\*(.+?)\*\*/);
+  if (rootCauseMatch) {
+    return rootCauseMatch[1] || '点击查看详情';
   }
+  const errorMatch = report.match(/错误类型\s+\|\s+(\S+)/);
+  if (errorMatch) {
+    return `错误: ${errorMatch[1] || '未知'}`;
+  }
+  return '点击查看详情';
 };
 
-// 文件上传
+// 文件上传（带进度）
 const handleUpload = async (file: File) => {
+  const fileId = `${file.name}_${Date.now()}`;
+  const fileInfo = { name: file.name, progress: 0, id: fileId };
+
+  uploading.value = true;
+  uploadFileList.value.push(fileInfo);
+
+  // 模拟上传进度
+  const progressInterval = setInterval(() => {
+    const idx = uploadFileList.value.findIndex((f) => f.id === fileId);
+    if (idx === -1) {
+      clearInterval(progressInterval);
+    } else {
+      const currentFile = uploadFileList.value[idx];
+      if (currentFile) {
+        currentFile.progress += Math.random() * 20;
+        if (currentFile.progress >= 90) {
+          currentFile.progress = 90;
+          clearInterval(progressInterval);
+        }
+      }
+    }
+  }, 200);
+
+  const formData = new FormData();
+  formData.append('file', file);
+
   try {
     const response = await fetch('/api/upload/blackbox', {
       method: 'POST',
-      body: file,
+      body: formData,
     });
+
+    clearInterval(progressInterval);
+    const idx = uploadFileList.value.findIndex((f) => f.id === fileId);
+    if (idx !== -1) {
+      const currentFile = uploadFileList.value[idx];
+      if (currentFile) {
+        currentFile.progress = 100;
+      }
+    }
 
     if (response.ok) {
       const result = await response.json();
@@ -193,38 +325,67 @@ const handleUpload = async (file: File) => {
         name: result.filename,
         path: result.path,
         project: extractProjectFromPath(result.path),
+        service: analysisForm.value.service,
+        environment: analysisForm.value.environment,
         uploadedAt: new Date().toISOString(),
         size: file.size,
       };
       uploadedFiles.value.push(uploadedFile);
       message.success(`文件 ${file.name} 上传成功`);
+      saveToStorage();
     } else {
       // 模拟上传成功（开发环境）
+      await new Promise((resolve) => setTimeout(resolve, 500));
       const filename = file.name.replaceAll(/[^a-zA-Z0-9.-]/g, '_');
       const uploadedFile: UploadedFile = {
         id: filename,
         name: filename,
         path: `/assets/data-display/blackbox/${filename}`,
         project: 'demo-project',
+        service: analysisForm.value.service,
+        environment: analysisForm.value.environment,
         uploadedAt: new Date().toISOString(),
         size: file.size,
       };
       uploadedFiles.value.push(uploadedFile);
-      message.warning(`文件 ${file.name} 上传成功（模拟模式）`);
+      message.success(`文件 ${file.name} 上传成功（模拟）`);
+      saveToStorage();
     }
   } catch {
-    // 模拟上传成功
+    clearInterval(progressInterval);
+    const idx = uploadFileList.value.findIndex((f) => f.id === fileId);
+    if (idx !== -1) {
+      const currentFile = uploadFileList.value[idx];
+      if (currentFile) {
+        currentFile.progress = 100;
+      }
+    }
+    // 模拟上传成功（开发环境）
+    await new Promise((resolve) => setTimeout(resolve, 500));
     const filename = file.name.replaceAll(/[^a-zA-Z0-9.-]/g, '_');
     const uploadedFile: UploadedFile = {
       id: filename,
       name: filename,
       path: `/assets/data-display/blackbox/${filename}`,
       project: 'demo-project',
+      service: analysisForm.value.service,
+      environment: analysisForm.value.environment,
       uploadedAt: new Date().toISOString(),
       size: file.size,
     };
     uploadedFiles.value.push(uploadedFile);
     message.warning(`文件 ${file.name} 上传成功（模拟模式）`);
+    saveToStorage();
+  } finally {
+    // 延迟移除已完成文件，保持进度显示
+    setTimeout(() => {
+      uploadFileList.value = uploadFileList.value.filter(
+        (f) => f.id !== fileId,
+      );
+      if (uploadFileList.value.length === 0) {
+        uploading.value = false;
+      }
+    }, 500);
   }
 
   return false;
@@ -275,21 +436,38 @@ const analyzeSelected = async () => {
 
 // 处理分析结果
 const handleAnalysisResult = (file: UploadedFile, result: any) => {
+  const report = result.report || result.error || '分析失败';
   const record: AnalysisRecord = {
     id: `record_${Date.now()}`,
     filename: file.name,
     filepath: file.path,
+    service: analysisForm.value.service,
+    environment: analysisForm.value.environment,
     success: result.success,
-    report: result.report || result.error || '分析失败',
+    report,
+    summary: extractSummary(report),
     stats: result.stats,
     analyzed_at: new Date().toISOString(),
   };
 
+  // 更新文件的元数据
+  file.service = analysisForm.value.service;
+  file.environment = analysisForm.value.environment;
+
   analysisRecords.value.unshift(record);
   currentReport.value = record.report;
 
-  saveRecords();
+  saveToStorage();
   message.success('分析完成');
+};
+
+// 重置表单
+const resetForm = () => {
+  analysisForm.value = {
+    service: '',
+    environment: 'production',
+  };
+  selectedFileId.value = null;
 };
 
 // 生成模拟报告
@@ -372,12 +550,22 @@ const removeFile = (id: string) => {
   if (selectedFileId.value === id) {
     selectedFileId.value = null;
   }
+  saveToStorage();
+};
+
+// 删除历史记录
+const removeRecord = (id: string) => {
+  analysisRecords.value = analysisRecords.value.filter((r) => r.id !== id);
+  saveToStorage();
 };
 
 // 选择文件查看报告
 const viewReport = (record: AnalysisRecord) => {
   currentReport.value = record.report;
   selectedFileId.value = record.filename;
+  // 填充表单
+  analysisForm.value.service = record.service;
+  analysisForm.value.environment = record.environment;
 };
 
 // 拖拽相关
@@ -393,12 +581,17 @@ const onDrop = (e: DragEvent) => {
   isDragging.value = false;
   const files = e.dataTransfer?.files;
   if (files && files.length > 0) {
-    handleUpload(files[0]);
+    // 支持多文件上传
+    for (const file of files) {
+      if (file) {
+        handleUpload(file);
+      }
+    }
   }
 };
 
 onMounted(() => {
-  loadData();
+  loadFromStorage();
 });
 </script>
 
@@ -438,141 +631,224 @@ onMounted(() => {
         </Col>
       </Row>
 
-      <!-- 上传和文件列表 -->
-      <Row :gutter="[16, 16]" class="mb-4">
-        <!-- 上传区 -->
-        <Col :span="8">
-          <Card title="上传日志文件">
-            <Upload.Dragger
-              :before-upload="handleUpload"
-              :show-upload-list="false"
-              accept=".log,.txt,.json"
-              multiple
-            >
-              <div
-                class="p-8 border-2 border-dashed rounded-lg transition-colors"
-                :class="
-                  isDragging ? 'border-blue-500 bg-blue-50' : 'border-gray-300'
-                "
-                @dragenter="onDragEnter"
-                @dragleave="onDragLeave"
-                @drop.prevent="onDrop"
-              >
-                <div class="text-center">
+      <!-- 上传区域 -->
+      <Card class="mb-4">
+        <Upload
+          :before-upload="handleUpload"
+          :show-upload-list="false"
+          multiple
+          drag
+        >
+          <div
+            class="upload-area"
+            :class="{ 'upload-area-active': isDragging }"
+            @dragenter="onDragEnter"
+            @dragleave="onDragLeave"
+            @drop.prevent="onDrop"
+          >
+            <!-- 上传中状态 -->
+            <template v-if="uploading">
+              <div class="upload-progress-wrapper">
+                <div class="upload-progress-header">
                   <VbenIcon
                     icon="mdi:cloud-upload"
-                    class="text-4xl text-gray-400 mb-3"
+                    class="upload-icon uploading-icon"
                   />
-                  <p class="text-gray-600 mb-2">拖拽日志文件到此处</p>
-                  <p class="text-gray-400 text-sm">
-                    或点击选择文件（支持 .log, .txt, .json）
-                  </p>
+                  <span class="upload-progress-title">
+                    正在上传 {{ completedCount }}/{{ uploadFileList.length }}
+                    个文件
+                  </span>
                 </div>
+                <div class="upload-progress-list">
+                  <div
+                    v-for="file in uploadFileList"
+                    :key="file.id"
+                    class="upload-progress-item"
+                  >
+                    <span class="upload-progress-filename">{{
+                      file.name
+                    }}</span>
+                    <Progress
+                      :percent="Math.round(file.progress)"
+                      size="small"
+                      :status="file.progress >= 100 ? 'success' : 'active'"
+                    />
+                  </div>
+                </div>
+                <Progress
+                  :percent="totalProgress"
+                  :status="totalProgress >= 100 ? 'success' : 'active'"
+                  class="upload-progress-total"
+                />
               </div>
-            </Upload.Dragger>
-          </Card>
-        </Col>
+            </template>
+            <!-- 默认状态 -->
+            <template v-else>
+              <div class="upload-content">
+                <VbenIcon
+                  icon="mdi:cloud-upload"
+                  class="upload-icon upload-icon-large"
+                />
+                <p class="upload-text-primary mb-1">
+                  拖拽日志文件到此处，或<span class="upload-text-link">点击选择</span>
+                </p>
+                <p class="upload-text-secondary">支持 .log, .txt, .json 格式</p>
+              </div>
+            </template>
+          </div>
+        </Upload>
+      </Card>
 
-        <!-- 文件列表 -->
-        <Col :span="16">
-          <Card title="已上传文件">
-            <Space direction="vertical" style="width: 100%">
+      <!-- 文件列表和历史记录 -->
+      <Row :gutter="16" class="mb-4">
+        <!-- 左侧: 已上传文件 -->
+        <Col :span="12">
+          <Card>
+            <template #title>
+              <div class="flex items-center gap-2">
+                <VbenIcon icon="mdi:file-multiple" class="text-lg" />
+                <span>已上传文件</span>
+                <Tag color="blue">{{ filteredFiles.length }}</Tag>
+              </div>
+            </template>
+            <template #extra>
+              <Space>
+                <InputSearch
+                  v-model:value="fileSearchQuery"
+                  class="search-input"
+                  placeholder="搜索文件名..."
+                />
+                <Select
+                  v-model:value="fileServiceFilter"
+                  :options="allServices.map((s) => ({ label: s, value: s }))"
+                  allow-clear
+                  class="filter-select"
+                  placeholder="按服务筛选"
+                />
+              </Space>
+            </template>
+            <div class="file-list">
               <div
-                v-if="uploadedFiles.length === 0"
+                v-if="filteredFiles.length === 0"
                 class="text-center text-gray-400 py-8"
               >
                 暂无上传文件
               </div>
               <div
-                v-for="file in uploadedFiles"
+                v-for="file in filteredFiles"
                 :key="file.id"
-                class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition-colors"
-                :class="
-                  selectedFileId === file.id
-                    ? 'bg-blue-50 border border-blue-200'
-                    : 'border border-transparent'
-                "
+                class="file-item"
+                :class="{
+                  'file-item-selected': selectedFileId === file.id,
+                }"
               >
-                <div class="flex items-center gap-3">
-                  <input
-                    :id="file.id"
-                    v-model="selectedFileId"
-                    type="radio"
-                    :value="file.id"
-                  />
-                  <label
-                    :for="file.id"
-                    class="cursor-pointer flex items-center gap-2"
-                  >
-                    <VbenIcon icon="mdi:file-document" class="text-gray-400" />
+                <input
+                  :id="file.id"
+                  v-model="selectedFileId"
+                  type="radio"
+                  :value="file.id"
+                />
+                <label :for="file.id" class="file-label">
+                  <div class="flex items-center gap-2">
+                    <VbenIcon icon="mdi:file" class="text-gray-400" />
                     <div>
-                      <div class="font-medium">{{ file.name }}</div>
+                      <div class="font-medium text-sm">{{ file.name }}</div>
                       <div class="text-xs text-gray-400">
-                        {{ file.project }} ·
-                        {{ new Date(file.uploadedAt).toLocaleString() }}
+                        <span v-if="file.service">{{ file.service }}</span>
+                        <span v-if="file.environment">
+                          / {{ file.environment }}</span>
+                        <span v-if="!file.service && !file.environment">
+                          {{ new Date(file.uploadedAt).toLocaleString() }}
+                        </span>
                       </div>
                     </div>
-                  </label>
-                </div>
-                <Space>
-                  <Button size="small" type="link" @click="removeFile(file.id)">
-                    删除
-                  </Button>
-                </Space>
+                  </div>
+                </label>
+                <Button
+                  class="delete-btn"
+                  size="small"
+                  type="text"
+                  @click.stop="removeFile(file.id)"
+                >
+                  <VbenIcon icon="mdi:delete" class="delete-icon" />
+                </Button>
               </div>
-            </Space>
-            <div class="mt-4">
-              <Button
-                :loading="analyzing"
-                :disabled="!selectedFileId"
-                type="primary"
-                @click="analyzeSelected"
-              >
-                {{ analyzing ? '分析中...' : '分析选中的文件' }}
-              </Button>
-            </div>
-          </Card>
-        </Col>
-      </Row>
-
-      <!-- 分析报告 -->
-      <Row :gutter="[16, 16]">
-        <!-- 报告内容 -->
-        <Col :span="16">
-          <Card title="分析报告">
-            <div
-              v-if="currentReport"
-              class="prose max-w-none p-4 bg-gray-50 rounded-lg overflow-auto max-h-[600px]"
-              v-html="renderedReport"
-            ></div>
-            <div v-else class="text-center text-gray-400 py-12">
-              <VbenIcon
-                icon="mdi:file-document-outline"
-                class="text-4xl mb-3"
-              />
-              <p>请选择文件并点击分析按钮生成报告</p>
             </div>
           </Card>
         </Col>
 
-        <!-- 历史记录 -->
-        <Col :span="8">
-          <Card title="历史记录">
-            <div
-              v-if="analysisRecords.length === 0"
-              class="text-center text-gray-400 py-8"
-            >
-              暂无分析记录
-            </div>
-            <div v-else class="space-y-2 max-h-[500px] overflow-auto">
+        <!-- 右侧: 历史记录 -->
+        <Col :span="12">
+          <Card>
+            <template #title>
+              <div class="flex items-center gap-2">
+                <VbenIcon icon="mdi:history" class="text-lg" />
+                <span>历史记录</span>
+                <Tag color="green">{{ filteredRecords.length }}</Tag>
+              </div>
+            </template>
+            <template #extra>
+              <Space wrap>
+                <InputSearch
+                  v-model:value="recordSearchQuery"
+                  class="search-input"
+                  placeholder="搜索..."
+                />
+                <Select
+                  v-model:value="recordServiceFilter"
+                  :options="allServices.map((s) => ({ label: s, value: s }))"
+                  allow-clear
+                  class="filter-select"
+                  placeholder="按服务"
+                />
+                <Select
+                  v-model:value="recordEnvironmentFilter"
+                  :options="
+                    allEnvironments.map((e) => ({ label: e, value: e }))
+                  "
+                  allow-clear
+                  class="filter-select"
+                  placeholder="按环境"
+                />
+              </Space>
+            </template>
+            <div class="record-list">
               <div
-                v-for="record in analysisRecords.slice(0, 20)"
-                :key="record.id"
-                class="p-3 rounded-lg hover:bg-gray-50 cursor-pointer transition-colors"
-                @click="viewReport(record)"
+                v-if="filteredRecords.length === 0"
+                class="text-center text-gray-400 py-8"
               >
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2">
+                暂无分析记录
+              </div>
+              <div
+                v-for="record in filteredRecords"
+                :key="record.id"
+                class="record-item"
+                :class="{
+                  'record-item-selected': selectedFileId === record.filename,
+                }"
+              >
+                <div class="record-item-content" @click="viewReport(record)">
+                  <div class="flex items-center gap-3">
+                    <span class="text-sm font-medium record-filename">
+                      {{ record.filename }}
+                    </span>
+                    <div class="record-item-right">
+                      <Tag color="warning" class="record-summary-tag">
+                        {{ record.summary || '分析完成' }}
+                      </Tag>
+                    </div>
+                  </div>
+                  <div class="text-xs text-gray-500 mt-1">
+                    <span v-if="record.service">{{ record.service }}</span>
+                    <span v-if="record.environment">
+                      / {{ record.environment }}</span>
+                  </div>
+                  <div class="text-xs text-gray-400">
+                    {{ new Date(record.analyzed_at).toLocaleString() }}
+                  </div>
+                </div>
+                <div class="record-item-actions">
+                  <div class="record-status-icon">
                     <VbenIcon
                       :icon="
                         record.success ? 'mdi:check-circle' : 'mdi:close-circle'
@@ -581,23 +857,81 @@ onMounted(() => {
                         record.success ? 'text-green-500' : 'text-red-500'
                       "
                     />
-                    <span class="text-sm font-medium truncate max-w-[150px]">
-                      {{ record.filename }}
-                    </span>
+                    <Tag
+                      :color="record.success ? 'success' : 'error'"
+                      class="ml-1"
+                    >
+                      {{ record.success ? '成功' : '失败' }}
+                    </Tag>
                   </div>
-                  <Tag :color="record.success ? 'success' : 'error'">
-                    {{ record.success ? '成功' : '失败' }}
-                  </Tag>
-                </div>
-                <div v-if="record.stats" class="text-xs text-gray-400 mt-1">
-                  错误: {{ record.stats.error_count }} | 警告:
-                  {{ record.stats.warning_count }}
+                  <Button
+                    class="delete-btn"
+                    size="small"
+                    type="text"
+                    @click.stop="removeRecord(record.id)"
+                  >
+                    <VbenIcon icon="mdi:delete" class="delete-icon" />
+                  </Button>
                 </div>
               </div>
             </div>
           </Card>
         </Col>
       </Row>
+
+      <!-- 分析参数表单 -->
+      <Card class="mb-4">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">服务名称</label>
+            <Input
+              v-model:value="analysisForm.service"
+              placeholder="请输入服务名称"
+              class="form-input"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">环境</label>
+            <Select
+              v-model:value="analysisForm.environment"
+              :options="environmentOptions"
+              class="form-input"
+            />
+          </div>
+          <div class="form-actions">
+            <Button
+              :disabled="!selectedFileId"
+              :loading="analyzing"
+              type="primary"
+              class="analyze-btn"
+              @click="analyzeSelected"
+            >
+              {{ analyzing ? '分析中...' : '分析文件' }}
+            </Button>
+            <Button class="reset-btn" @click="resetForm">重置</Button>
+          </div>
+        </div>
+        <div v-if="selectedFileInfo" class="selected-info">
+          <VbenIcon icon="mdi:file-check" class="text-blue-500" />
+          <span class="ml-2">已选择: {{ selectedFileInfo.name }}</span>
+        </div>
+      </Card>
+
+      <!-- 分析报告 -->
+      <Card title="分析报告" class="report-card">
+        <div
+          v-if="currentReport"
+          class="prose max-w-none p-4 bg-gray-50 rounded-lg overflow-auto"
+          v-html="renderedReport"
+        ></div>
+        <div v-else class="text-center text-gray-400 py-12">
+          <VbenIcon
+            icon="mdi:file-document-outline"
+            class="text-5xl mb-3 text-gray-300"
+          />
+          <p>请选择文件并点击分析按钮生成报告</p>
+        </div>
+      </Card>
     </Spin>
   </Page>
 </template>
@@ -605,6 +939,10 @@ onMounted(() => {
 <style scoped>
 .mb-4 {
   margin-bottom: 16px;
+}
+
+.mb-4 :deep(.ant-card-body) {
+  padding: 0;
 }
 
 .mb-5 {
@@ -629,7 +967,394 @@ onMounted(() => {
   letter-spacing: -0.025em;
 }
 
-/* Markdown 样式 */
+.upload-area {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 180px;
+  padding: 48px 24px;
+  text-align: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border: none;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 10%),
+    0 2px 4px -2px rgb(0 0 0 / 10%);
+  transition: all 0.3s ease;
+}
+
+:deep(.ant-upload-drag) {
+  width: 100% !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+}
+
+:deep(.ant-upload-drag-container) {
+  display: block !important;
+  width: 100% !important;
+}
+
+:deep(.ant-upload) {
+  width: 100% !important;
+}
+
+:deep(.ant-upload-select) {
+  width: 100% !important;
+}
+
+:deep(.ant-upload-drag-icon) {
+  display: none !important;
+}
+
+:deep(.ant-upload-text) {
+  display: none !important;
+}
+
+:deep(.ant-upload-hint) {
+  display: none !important;
+}
+
+.upload-area:hover {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -4px rgb(0 0 0 / 10%);
+  transform: translateY(-2px);
+}
+
+.upload-area-active {
+  background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+  box-shadow:
+    0 15px 20px -5px rgb(59 130 246 / 30%),
+    0 8px 10px -6px rgb(59 130 246 / 20%);
+  transform: scale(1.02);
+}
+
+.upload-icon {
+  color: #60a5fa;
+  transition: transform 0.3s ease;
+}
+
+.upload-icon-large {
+  margin-bottom: 12px;
+  font-size: 48px;
+}
+
+.upload-text-primary {
+  font-size: 16px;
+  color: #4b5563;
+}
+
+.upload-text-secondary {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.upload-text-link {
+  color: #3b82f6;
+  cursor: pointer;
+}
+
+.upload-text-link:hover {
+  text-decoration: underline;
+}
+
+.upload-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-area:hover .upload-icon {
+  transform: translateY(-4px);
+}
+
+.uploading-icon {
+  color: #3b82f6;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+.upload-progress,
+.upload-progress-total {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.upload-progress :deep(.ant-progress-text),
+.upload-progress-total :deep(.ant-progress-text) {
+  font-weight: 500;
+  color: #3b82f6;
+}
+
+.upload-progress-wrapper {
+  width: 100%;
+  max-width: 500px;
+}
+
+.upload-progress-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.upload-progress-header .upload-icon {
+  margin-bottom: 0;
+  font-size: 32px;
+}
+
+.upload-progress-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #3b82f6;
+}
+
+.upload-progress-list {
+  max-height: 150px;
+  padding: 0 20px;
+  margin-bottom: 16px;
+  overflow-y: auto;
+}
+
+.upload-progress-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 4px 0;
+}
+
+.upload-progress-filename {
+  flex: 0 0 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 13px;
+  color: #4b5563;
+  white-space: nowrap;
+}
+
+.upload-progress-item :deep(.ant-progress) {
+  flex: 1;
+}
+
+.search-input {
+  width: 150px;
+}
+
+.filter-select {
+  width: 120px;
+}
+
+.file-list,
+.record-list {
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.file-list::-webkit-scrollbar,
+.record-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.file-list::-webkit-scrollbar-thumb,
+.record-list::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.file-item:hover {
+  background-color: #f9fafb;
+}
+
+.file-item:hover .delete-btn {
+  opacity: 1;
+}
+
+.file-item-selected {
+  background-color: #eff6ff;
+  border: 1px solid #3b82f6;
+}
+
+.file-label {
+  flex: 1;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.record-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+  margin-bottom: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.record-item-content {
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.record-item-right {
+  flex-shrink: 0;
+}
+
+.record-filename {
+  word-break: break-all;
+  white-space: normal;
+}
+
+.record-summary {
+  font-weight: 500;
+}
+
+.record-summary-tag {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.record-item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.record-status-icon {
+  display: flex;
+  align-items: center;
+}
+
+.record-item:hover {
+  background-color: #f9fafb;
+}
+
+.record-item:hover .delete-btn {
+  opacity: 1;
+}
+
+.record-item-selected {
+  background-color: #eff6ff;
+  border: 1px solid #3b82f6;
+}
+
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 4px;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  opacity: 1;
+}
+
+.delete-btn:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 1px;
+}
+
+.delete-icon {
+  font-size: 18px;
+  line-height: 1;
+  color: #9ca3af;
+  transition: color 0.2s;
+}
+
+.delete-btn:hover .delete-icon,
+.delete-btn:focus .delete-icon {
+  color: #ef4444;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  padding: 12px 16px;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 150px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.form-input {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.analyze-btn,
+.reset-btn {
+  min-width: 80px;
+  height: 32px;
+}
+
+.selected-info {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  margin: 8px 16px;
+  font-size: 13px;
+  color: #3b82f6;
+  background-color: #eff6ff;
+  border-radius: 4px;
+}
+
+.report-card {
+  min-height: 400px;
+}
+
+.report-card :deep(.ant-card-body) {
+  min-height: 350px;
+}
+
 :deep(.prose) {
   font-size: 14px;
   line-height: 1.6;

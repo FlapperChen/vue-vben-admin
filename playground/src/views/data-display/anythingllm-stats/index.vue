@@ -12,6 +12,7 @@ import {
   Col,
   DatePicker,
   message,
+  Radio,
   Row,
   Space,
   Spin,
@@ -19,7 +20,7 @@ import {
   Tag,
 } from 'ant-design-vue';
 import dayjs from 'dayjs';
-import { LineChart, PieChart } from 'echarts/charts';
+import { BarChart, LineChart, PieChart } from 'echarts/charts';
 import {
   DataZoomComponent,
   GridComponent,
@@ -35,6 +36,7 @@ use([
   CanvasRenderer,
   PieChart,
   LineChart,
+  BarChart,
   TitleComponent,
   TooltipComponent,
   LegendComponent,
@@ -46,6 +48,14 @@ use([
 const allAnythingllmData = ref<any[]>([]);
 const allAnythingllmDocsData = ref<any[]>([]);
 const loading = ref(false);
+
+// Tab options for chart switching
+const tabOptions = [
+  { label: '嵌入成功率', value: 'embed' },
+  { label: '上传更新趋势', value: 'daily' },
+  { label: '累计上传更新', value: 'cumulative' },
+];
+const activeTab = ref('embed');
 
 // Date range
 const dateRange = ref<[dayjs.Dayjs, dayjs.Dayjs]>([
@@ -143,27 +153,26 @@ const summaryStats = computed(() => {
 // Overview items for stats cards - 优化版
 const overviewItems = computed(() => [
   {
-    title: '总文档数',
-    value: summaryStats.value.totalDocs,
-    subtitle: '文档总数',
-    icon: 'mdi:file-document',
+    title: '文档总数',
+    value: docsSummaryStats.value.totalFileNum,
+    subtitle: '知识库文档总数',
+    icon: 'mdi:file-multiple',
     gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     textColor: '#667eea',
   },
   {
-    title: '总字数',
-    value: summaryStats.value.totalWps,
-    subtitle: '总Word数',
-    icon: 'mdi:text-box',
+    title: '上传总数',
+    value: docsSummaryStats.value.totalDailyUpload,
+    subtitle: '今日上传文档数',
+    icon: 'mdi:file-upload',
     gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
     textColor: '#11998e',
-    format: 'wps',
   },
   {
-    title: '上传数',
-    value: summaryStats.value.totalUploads,
-    subtitle: '上传文档数',
-    icon: 'mdi:upload',
+    title: '更新总数',
+    value: docsSummaryStats.value.totalDailyUpdate,
+    subtitle: '今日更新文档数',
+    icon: 'mdi:file-sync',
     gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
     textColor: '#f5576c',
   },
@@ -175,30 +184,6 @@ const overviewItems = computed(() => [
     gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     textColor: '#4facfe',
     format: 'percent',
-  },
-  {
-    title: '文档总数',
-    value: docsSummaryStats.value.totalFileNum,
-    subtitle: '知识库文档总数',
-    icon: 'mdi:file-multiple',
-    gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    textColor: '#667eea',
-  },
-  {
-    title: '今日上传',
-    value: docsSummaryStats.value.totalDailyUpload,
-    subtitle: '今日上传文档数',
-    icon: 'mdi:file-upload',
-    gradient: 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
-    textColor: '#11998e',
-  },
-  {
-    title: '今日更新',
-    value: docsSummaryStats.value.totalDailyUpdate,
-    subtitle: '今日更新文档数',
-    icon: 'mdi:file-sync',
-    gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    textColor: '#f5576c',
   },
 ]);
 
@@ -255,10 +240,21 @@ const docsSummaryStats = computed(() => {
 
   // Get latest record (first after descending sort)
   const latestRecord = data[0];
+
+  // Calculate cumulative upload/update from all dates
+  const totalUpload = data.reduce(
+    (sum, d) => sum + (d.daily_upload_num || 0),
+    0,
+  );
+  const totalUpdate = data.reduce(
+    (sum, d) => sum + (d.daily_update_num || 0),
+    0,
+  );
+
   return {
     totalFileNum: latestRecord.total_file_num || 0,
-    totalDailyUpload: latestRecord.daily_upload_num || 0,
-    totalDailyUpdate: latestRecord.daily_update_num || 0,
+    totalDailyUpload: totalUpload,
+    totalDailyUpdate: totalUpdate,
   };
 });
 
@@ -313,7 +309,7 @@ const fileTypeData = computed(() => {
   chartData.value.forEach((item) => {
     const type = item.file_type || 'unknown';
     const existing = typeMap.get(type) || { count: 0, wps: 0 };
-    existing.count += 1;
+    existing.count += item.upload_num || 0; // 使用upload_num作为文件数量
     existing.wps += item.wps_total || 0;
     typeMap.set(type, existing);
   });
@@ -395,26 +391,38 @@ const fileTypeChartOption = computed(() => {
 
 // Get daily embed rate data
 const getDailyEmbedData = () => {
+  // 使用 documents stats 数据，直接获取每天的上传和更新数量
   const dailyMap = new Map<
     string,
-    { embedRatios: number[]; uploadNums: number[] }
+    { embedRatios: number[]; updateNum: number; uploadNum: number }
   >();
 
+  // 从 chartData 获取嵌入率数据（按日期分组）
   chartData.value.forEach((item) => {
     const date = item.date;
     if (!dailyMap.has(date)) {
-      dailyMap.set(date, { embedRatios: [], uploadNums: [] });
+      dailyMap.set(date, { embedRatios: [], uploadNum: 0, updateNum: 0 });
     }
     const day = dailyMap.get(date);
     if (day && item.embed_ratio > 0) {
       day.embedRatios.push(item.embed_ratio);
     }
-    if (day && item.upload_num > 0) {
-      day.uploadNums.push(item.upload_num);
+  });
+
+  // 从 filteredDocsData 获取每天的上传和更新数量
+  filteredDocsData.value.forEach((item) => {
+    const date = item.date;
+    if (!dailyMap.has(date)) {
+      dailyMap.set(date, { embedRatios: [], uploadNum: 0, updateNum: 0 });
+    }
+    const day = dailyMap.get(date);
+    if (day) {
+      day.uploadNum += item.daily_upload_num || 0;
+      day.updateNum += item.daily_update_num || 0;
     }
   });
 
-  return [...dailyMap.entries()]
+  const sortedData = [...dailyMap.entries()]
     .map(([date, data]) => ({
       date,
       avgEmbedRate:
@@ -422,18 +430,46 @@ const getDailyEmbedData = () => {
           ? data.embedRatios.reduce((a, b) => a + b, 0) /
             data.embedRatios.length
           : 0,
-      totalUploads: data.uploadNums.reduce((a, b) => a + b, 0),
+      totalUploads: data.uploadNum,
+      totalUpdates: data.updateNum,
+      cumUploads: 0,
+      cumUpdates: 0,
     }))
     .toSorted(
       (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
     );
+
+  // 计算累计值
+  let cumUpload = 0;
+  let cumUpdate = 0;
+  sortedData.forEach((d) => {
+    cumUpload += d.totalUploads;
+    cumUpdate += d.totalUpdates;
+    d.cumUploads = cumUpload;
+    d.cumUpdates = cumUpdate;
+  });
+
+  return sortedData;
 };
 
-// Chart options - Embed Success Trend
-const embedTrendChartOption = computed(() => {
+// Chart options - Embed Success Rate
+const embedChartOption = computed(() => {
   const dailyData = getDailyEmbedData();
+
+  if (!dailyData || dailyData.length === 0) {
+    return {
+      title: { text: '嵌入成功率变化', left: 'center' },
+      xAxis: { type: 'category', data: [] },
+      yAxis: [
+        { type: 'value', max: 100 },
+        { type: 'value', show: false },
+      ],
+      series: [],
+    };
+  }
+
   return {
-    title: { text: '嵌入成功率趋势', left: 'center' },
+    title: { text: '嵌入成功率变化', left: 'center' },
     tooltip: { trigger: 'axis' },
     dataZoom: [
       { type: 'inside', start: 0, end: 100 },
@@ -444,25 +480,205 @@ const embedTrendChartOption = computed(() => {
       data: dailyData.map((d) => d.date),
       name: '日期',
     },
-    yAxis: {
-      type: 'value',
-      name: '嵌入率 (%)',
-      max: 100,
-    },
+    yAxis: [
+      {
+        type: 'value',
+        name: '嵌入率 (%)',
+        max: 100,
+      },
+      {
+        type: 'value',
+        show: false,
+      },
+    ],
     series: [
       {
         name: '平均嵌入率',
         type: 'line',
         data: dailyData.map((d) => d.avgEmbedRate),
         smooth: true,
-        areaStyle: { opacity: 0.3 },
         lineStyle: { width: 3 },
-        itemStyle: { color: '#67c23a' },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#5470c6' },
+        connectNulls: true,
       },
     ],
     legend: { bottom: 55 },
     grid: { bottom: 100 },
   };
+});
+
+// Chart options - Daily Upload & Update Trend
+const dailyTrendChartOption = computed(() => {
+  const dailyData = getDailyEmbedData();
+
+  // Calculate max value for dynamic scale
+  let maxValue = 100;
+  if (dailyData && dailyData.length > 0) {
+    const uploadMax = Math.max(...dailyData.map((d) => d.totalUploads));
+    const updateMax = Math.max(...dailyData.map((d) => d.totalUpdates));
+    maxValue = Math.max(uploadMax, updateMax) * 1.2;
+    maxValue = Math.ceil(maxValue / 10) * 10; // Round up to nearest 10
+  }
+
+  if (!dailyData || dailyData.length === 0) {
+    return {
+      title: { text: '上传更新趋势', left: 'center' },
+      xAxis: { type: 'category', data: [] },
+      yAxis: [
+        { type: 'value', name: '每日数量' },
+        { type: 'value', show: false },
+      ],
+      series: [],
+    };
+  }
+
+  return {
+    title: { text: '上传更新趋势', left: 'center' },
+    tooltip: { trigger: 'axis' },
+    dataZoom: [
+      { type: 'inside', start: 0, end: 100 },
+      { type: 'slider', start: 0, end: 100 },
+    ],
+    xAxis: {
+      type: 'category',
+      data: dailyData.map((d) => d.date),
+      name: '日期',
+    },
+    yAxis: [
+      {
+        type: 'value',
+        name: '每日数量',
+        max: maxValue,
+      },
+      {
+        type: 'value',
+        show: false,
+      },
+    ],
+    series: [
+      {
+        name: '每日上传',
+        type: 'line',
+        data: dailyData.map((d) => d.totalUploads),
+        smooth: true,
+        lineStyle: { width: 3 },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#5470c6' },
+      },
+      {
+        name: '每日更新',
+        type: 'line',
+        data: dailyData.map((d) => d.totalUpdates),
+        smooth: true,
+        lineStyle: { width: 3 },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#ee6666' },
+      },
+    ],
+    legend: { bottom: 55 },
+    grid: { bottom: 100 },
+  };
+});
+
+// Chart options - Cumulative Upload & Update Trend
+const cumulativeTrendChartOption = computed(() => {
+  const dailyData = getDailyEmbedData();
+
+  // Calculate max value for dynamic scale
+  let maxValue = 100;
+  if (dailyData && dailyData.length > 0) {
+    const uploadMax = Math.max(...dailyData.map((d) => d.cumUploads));
+    const updateMax = Math.max(...dailyData.map((d) => d.cumUpdates));
+    maxValue = Math.max(uploadMax, updateMax) * 1.2;
+    // Round up to nice number
+    if (maxValue > 10_000) {
+      maxValue = Math.ceil(maxValue / 1000) * 1000;
+    } else if (maxValue > 1000) {
+      maxValue = Math.ceil(maxValue / 100) * 100;
+    } else {
+      maxValue = Math.ceil(maxValue / 10) * 10;
+    }
+  }
+
+  if (!dailyData || dailyData.length === 0) {
+    return {
+      title: { text: '累计上传更新趋势', left: 'center' },
+      xAxis: { type: 'category', data: [] },
+      yAxis: [
+        { type: 'value', name: '累计数量' },
+        { type: 'value', show: false },
+      ],
+      series: [],
+    };
+  }
+
+  return {
+    title: { text: '累计上传更新趋势', left: 'center' },
+    tooltip: { trigger: 'axis' },
+    dataZoom: [
+      { type: 'inside', start: 0, end: 100 },
+      { type: 'slider', start: 0, end: 100 },
+    ],
+    xAxis: {
+      type: 'category',
+      data: dailyData.map((d) => d.date),
+      name: '日期',
+    },
+    yAxis: [
+      {
+        type: 'value',
+        name: '累计数量',
+        max: maxValue,
+      },
+      {
+        type: 'value',
+        show: false,
+      },
+    ],
+    series: [
+      {
+        name: '累计上传',
+        type: 'line',
+        data: dailyData.map((d) => d.cumUploads),
+        smooth: true,
+        lineStyle: { width: 3 },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#91cc75' },
+        connectNulls: true,
+      },
+      {
+        name: '累计更新',
+        type: 'line',
+        data: dailyData.map((d) => d.cumUpdates),
+        smooth: true,
+        lineStyle: { width: 3 },
+        areaStyle: { opacity: 0.3 },
+        itemStyle: { color: '#fac858' },
+        connectNulls: true,
+      },
+    ],
+    legend: { bottom: 55 },
+    grid: { bottom: 100 },
+  };
+});
+
+// Get current chart option based on active tab
+const currentChartOption = computed(() => {
+  switch (activeTab.value) {
+    case 'cumulative': {
+      return cumulativeTrendChartOption.value;
+    }
+    case 'daily': {
+      return dailyTrendChartOption.value;
+    }
+    case 'embed': {
+      return embedChartOption.value;
+    }
+    default: {
+      return embedChartOption.value;
+    }
+  }
 });
 
 // Disabled dates
@@ -604,11 +820,24 @@ onMounted(async () => {
           </div>
 
           <Button type="primary" @click="onRefresh">刷新数据</Button>
+
+          <div class="flex items-center gap-2 ml-4">
+            <span>指标切换：</span>
+            <Radio.Group v-model:value="activeTab" button-style="solid">
+              <Radio.Button
+                v-for="tab in tabOptions"
+                :key="tab.value"
+                :value="tab.value"
+              >
+                {{ tab.label }}
+              </Radio.Button>
+            </Radio.Group>
+          </div>
         </Space>
       </Card>
 
       <!-- Charts -->
-      <Row :gutter="[16, 16]" class="mb-4">
+      <Row v-if="chartData.length > 0" :gutter="[16, 16]" class="mb-4">
         <Col :span="12">
           <Card>
             <VChart
@@ -621,8 +850,8 @@ onMounted(async () => {
         <Col :span="12">
           <Card>
             <VChart
-              :option="embedTrendChartOption"
-              style="height: 350px"
+              :option="currentChartOption"
+              style="height: 400px"
               autoresize
             />
           </Card>
@@ -698,6 +927,10 @@ onMounted(async () => {
 <style scoped>
 .mb-4 {
   margin-bottom: 16px;
+}
+
+.ml-4 {
+  margin-left: 16px;
 }
 
 .mb-5 {

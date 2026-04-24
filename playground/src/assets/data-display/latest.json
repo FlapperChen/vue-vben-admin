@@ -1,9 +1,9 @@
 {
-  "updateTime": "2026-04-23 08:30:02",
-  "dataDate": "20260422",
+  "updateTime": "2026-04-24 08:30:02",
+  "dataDate": "20260423",
   "dateRange": {
-    "latest": "2026-04-22",
-    "earliest": "2026-01-22"
+    "latest": "2026-04-23",
+    "earliest": "2026-01-23"
   },
-  "files": [{"name":"anythingllm_daily_stats-20260422.json","size":41339},{"name":"anythingllm_documents_stats-20260422.json","size":7430},{"name":"gerrit_metrics-20260422.json","size":11912},{"name":"gpu_daily_stats-20260422.json","size":171321},{"name":"openapi_users-20260422.json","size":29833},{"name":"usagerate-20260422.json","size":552854},{"name":"vllm_daily_stats-20260422.json","size":32486}]
+  "files": [{"name":"anythingllm_daily_stats-20260423.json","size":43192},{"name":"anythingllm_documents_stats-20260423.json","size":7745},{"name":"gerrit_metrics-20260423.json","size":12414},{"name":"gpu_daily_stats-20260423.json","size":174687},{"name":"openapi_users-20260423.json","size":30065},{"name":"usagerate-20260423.json","size":566053},{"name":"vllm_daily_stats-20260423.json","size":33062}]
 }
