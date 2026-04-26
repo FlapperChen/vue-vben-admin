@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* eslint-disable vue/no-v-html */
 import { computed, onMounted, ref } from 'vue';
 
 import { Page } from '@vben/common-ui';
@@ -1010,7 +1011,7 @@ onMounted(() => {
               class="form-input"
               allow-clear
               :filter-option="
-                (input, option) =>
+                (input: string, option: { label?: string }) =>
                   (option?.label ?? '')
                     .toLowerCase()
                     .includes(input.toLowerCase())
@@ -1027,7 +1028,7 @@ onMounted(() => {
               class="form-input"
               allow-clear
               :filter-option="
-                (input, option) =>
+                (input: string, option: { label?: string }) =>
                   (option?.label ?? '')
                     .toLowerCase()
                     .includes(input.toLowerCase())
@@ -1043,7 +1044,7 @@ onMounted(() => {
               class="form-input"
               allow-clear
               :filter-option="
-                (input, option) =>
+                (input: string, option: { label?: string }) =>
                   (option?.label ?? '')
                     .toLowerCase()
                     .includes(input.toLowerCase())

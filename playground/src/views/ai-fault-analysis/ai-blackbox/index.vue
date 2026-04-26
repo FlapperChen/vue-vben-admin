@@ -1,4 +1,5 @@
 <script setup lang="ts">
+/* eslint-disable vue/no-v-html */
 import { computed, onMounted, ref } from 'vue';
 
 import { Page } from '@vben/common-ui';
@@ -6,12 +7,14 @@ import { Page } from '@vben/common-ui';
 import { VbenIcon } from '@vben-core/shadcn-ui';
 
 import {
+  AutoComplete,
   Button,
   Card,
   Col,
   Input,
   InputSearch,
   message,
+  Modal,
   Progress,
   Row,
   Select,
@@ -29,24 +32,29 @@ marked.setOptions({
 });
 
 interface UploadedFile {
+  branch: string;
+  customBranch: string;
   environment: string;
+  gerritId: string;
   id: string;
   name: string;
   path: string;
   project: string;
-  service: string;
   size: number;
   uploadedAt: string;
 }
 
 interface AnalysisRecord {
   analyzed_at: string;
+  branch: string;
+  customBranch: string;
   environment: string;
   filename: string;
   filepath: string;
+  gerritId: string;
   id: string;
+  project: string;
   report: string;
-  service: string;
   stats?: {
     debug_count: number;
     error_count: number;
@@ -56,6 +64,12 @@ interface AnalysisRecord {
   };
   success: boolean;
   summary: string;
+}
+
+// 项目配置
+interface Project {
+  branches: string[];
+  name: string;
 }
 
 // 状态
@@ -74,22 +88,139 @@ const isDragging = ref(false);
 // 搜索和筛选状态
 const fileSearchQuery = ref('');
 const recordSearchQuery = ref('');
-const fileServiceFilter = ref<string | undefined>(undefined);
-const recordServiceFilter = ref<string | undefined>(undefined);
-const recordEnvironmentFilter = ref<string | undefined>(undefined);
+const fileProjectFilter = ref<string | undefined>(undefined);
+const recordProjectFilter = ref<string | undefined>(undefined);
+const recordBranchFilter = ref<string | undefined>(undefined);
 
 // 分析参数表单
 const analysisForm = ref({
-  service: '',
-  environment: 'production',
+  project: '',
+  branch: '',
+  customBranch: '',
+  gerritId: '',
 });
 
-// 环境选项
-const environmentOptions = [
-  { label: '生产环境', value: 'production' },
-  { label: '预发环境', value: 'staging' },
-  { label: '测试环境', value: 'development' },
+// 项目配置
+const projectsConfig = ref<Project[]>([]);
+
+// 项目选项
+const projectOptions = computed(() =>
+  projectsConfig.value.map((p) => ({ label: p.name, value: p.name })),
+);
+
+// 根据选中项目获取分支选项
+const branchOptions = computed(() => {
+  const project = projectsConfig.value.find(
+    (p) => p.name === analysisForm.value.project,
+  );
+  if (!project) return [];
+  return project.branches.map((b) => ({ label: b, value: b }));
+});
+
+// 定制分支选项
+const customBranchList = [
+  '通用',
+  '字节',
+  '快手',
+  '小红书',
+  '拼多多',
+  '百度',
+  '腾讯',
+  '汽车之家',
 ];
+const customBranchOptions = computed(() =>
+  customBranchList.map((b) => ({ label: b, value: b })),
+);
+
+// 判断是否为自定义输入
+const isCustomProject = computed(() => {
+  return (
+    analysisForm.value.project &&
+    !projectsConfig.value.some((p) => p.name === analysisForm.value.project)
+  );
+});
+
+const isCustomBranch = computed(() => {
+  const project = projectsConfig.value.find(
+    (p) => p.name === analysisForm.value.project,
+  );
+  if (!project || !analysisForm.value.branch) return false;
+  return !project.branches.includes(analysisForm.value.branch);
+});
+
+const isCustomCustomBranch = computed(() => {
+  return (
+    analysisForm.value.customBranch &&
+    !customBranchList.includes(analysisForm.value.customBranch)
+  );
+});
+
+// 加载项目配置
+const loadProjectsConfig = async () => {
+  try {
+    const res = await fetch('/assets/data-display/projects_config.json');
+    const data = await res.json();
+    projectsConfig.value = data.projects || [];
+  } catch {
+    projectsConfig.value = [];
+  }
+};
+
+// 确认自定义分析
+const confirmCustomAnalysis = async (): Promise<boolean> => {
+  const warnings: string[] = [];
+  if (isCustomProject.value) {
+    warnings.push(`项目「${analysisForm.value.project}」不在配置列表中`);
+  }
+  if (isCustomBranch.value) {
+    warnings.push(`项目分支「${analysisForm.value.branch}」不在配置列表中`);
+  }
+  if (isCustomCustomBranch.value) {
+    warnings.push(
+      `定制分支「${analysisForm.value.customBranch}」不在配置列表中`,
+    );
+  }
+
+  if (warnings.length === 0) return true;
+
+  if (suppressWarning.value) return true;
+
+  confirmWarnings.value = warnings;
+  return showConfirmModal();
+};
+
+const handleConfirmOk = () => {
+  if (suppressWarning.value) {
+    localStorage.setItem(SUPPRESS_KEY, 'true');
+  }
+  confirmModalVisible.value = false;
+  if (confirmPromiseResolve.value) {
+    confirmPromiseResolve.value(true);
+    confirmPromiseResolve.value = null;
+  }
+};
+
+const handleConfirmCancel = () => {
+  confirmModalVisible.value = false;
+  if (confirmPromiseResolve.value) {
+    confirmPromiseResolve.value(false);
+    confirmPromiseResolve.value = null;
+  }
+};
+
+// 不再提示偏好
+const SUPPRESS_KEY = 'blackbox_suppress_custom_warning';
+const suppressWarning = ref(localStorage.getItem(SUPPRESS_KEY) === 'true');
+const confirmModalVisible = ref(false);
+const confirmWarnings = ref<string[]>([]);
+const confirmPromiseResolve = ref<((value: boolean) => void) | null>(null);
+
+const showConfirmModal = () => {
+  confirmModalVisible.value = true;
+  return new Promise<boolean>((resolve) => {
+    confirmPromiseResolve.value = resolve;
+  });
+};
 
 // 统计数据
 const stats = computed(() => {
@@ -152,7 +283,7 @@ const overviewItems = computed(() => [
 // 渲染 Markdown 为 HTML（使用 DOMPurify 防止 XSS）
 const renderedReport = computed(() => {
   if (!currentReport.value) return '';
-  return DOMPurify.sanitize(marked(currentReport.value));
+  return DOMPurify.sanitize(marked.parse(currentReport.value) as string);
 });
 
 // 计算总进度
@@ -173,10 +304,10 @@ const filteredFiles = computed(() => {
     const matchSearch =
       !fileSearchQuery.value ||
       f.name.toLowerCase().includes(fileSearchQuery.value.toLowerCase()) ||
-      f.service.toLowerCase().includes(fileSearchQuery.value.toLowerCase());
-    const matchService =
-      !fileServiceFilter.value || f.service === fileServiceFilter.value;
-    return matchSearch && matchService;
+      f.project.toLowerCase().includes(fileSearchQuery.value.toLowerCase());
+    const matchProject =
+      !fileProjectFilter.value || f.project === fileProjectFilter.value;
+    return matchSearch && matchProject;
   });
 });
 
@@ -188,33 +319,33 @@ const filteredRecords = computed(() => {
       r.filename
         .toLowerCase()
         .includes(recordSearchQuery.value.toLowerCase()) ||
-      r.service.toLowerCase().includes(recordSearchQuery.value.toLowerCase()) ||
-      r.summary.toLowerCase().includes(recordSearchQuery.value.toLowerCase());
-    const matchService =
-      !recordServiceFilter.value || r.service === recordServiceFilter.value;
-    const matchEnvironment =
-      !recordEnvironmentFilter.value ||
-      r.environment === recordEnvironmentFilter.value;
-    return matchSearch && matchService && matchEnvironment;
+      r.project.toLowerCase().includes(recordSearchQuery.value.toLowerCase()) ||
+      r.branch.toLowerCase().includes(recordSearchQuery.value.toLowerCase()) ||
+      r.gerritId.toLowerCase().includes(recordSearchQuery.value.toLowerCase());
+    const matchProject =
+      !recordProjectFilter.value || r.project === recordProjectFilter.value;
+    const matchBranch =
+      !recordBranchFilter.value || r.branch === recordBranchFilter.value;
+    return matchSearch && matchProject && matchBranch;
   });
 });
 
-// 获取所有服务列表
-const allServices = computed(() => {
-  const services = new Set<string>();
+// 获取所有项目列表（用于下拉筛选）
+const allProjects = computed(() => {
+  const projects = new Set<string>();
   analysisRecords.value.forEach((r) => {
-    if (r.service) services.add(r.service);
+    if (r.project) projects.add(r.project);
   });
-  return [...services].toSorted();
+  return [...projects].toSorted();
 });
 
-// 获取所有环境列表
-const allEnvironments = computed(() => {
-  const envs = new Set<string>();
+// 获取所有分支列表（用于下拉筛选）
+const allBranches = computed(() => {
+  const branches = new Set<string>();
   analysisRecords.value.forEach((r) => {
-    if (r.environment) envs.add(r.environment);
+    if (r.branch) branches.add(r.branch);
   });
-  return [...envs].toSorted();
+  return [...branches].toSorted();
 });
 
 // 获取选中文件信息
@@ -247,8 +378,10 @@ const loadFromStorage = () => {
       currentReport.value = data.currentReport || '';
       selectedFileId.value = data.selectedFileId || null;
       analysisForm.value = data.analysisForm || {
-        service: '',
-        environment: 'production',
+        project: '',
+        branch: '',
+        customBranch: '',
+        gerritId: '',
       };
     }
   } catch {
@@ -325,8 +458,10 @@ const handleUpload = async (file: File) => {
         name: result.filename,
         path: result.path,
         project: extractProjectFromPath(result.path),
-        service: analysisForm.value.service,
-        environment: analysisForm.value.environment,
+        branch: '',
+        customBranch: '',
+        gerritId: '',
+        environment: '',
         uploadedAt: new Date().toISOString(),
         size: file.size,
       };
@@ -342,8 +477,10 @@ const handleUpload = async (file: File) => {
         name: filename,
         path: `/assets/data-display/blackbox/${filename}`,
         project: 'demo-project',
-        service: analysisForm.value.service,
-        environment: analysisForm.value.environment,
+        branch: '',
+        customBranch: '',
+        gerritId: '',
+        environment: '',
         uploadedAt: new Date().toISOString(),
         size: file.size,
       };
@@ -368,8 +505,10 @@ const handleUpload = async (file: File) => {
       name: filename,
       path: `/assets/data-display/blackbox/${filename}`,
       project: 'demo-project',
-      service: analysisForm.value.service,
-      environment: analysisForm.value.environment,
+      branch: '',
+      customBranch: '',
+      gerritId: '',
+      environment: '',
       uploadedAt: new Date().toISOString(),
       size: file.size,
     };
@@ -403,6 +542,10 @@ const analyzeSelected = async () => {
     message.error('文件不存在');
     return;
   }
+
+  // 检查自定义输入
+  const confirmed = await confirmCustomAnalysis();
+  if (!confirmed) return;
 
   analyzing.value = true;
 
@@ -441,8 +584,11 @@ const handleAnalysisResult = (file: UploadedFile, result: any) => {
     id: `record_${Date.now()}`,
     filename: file.name,
     filepath: file.path,
-    service: analysisForm.value.service,
-    environment: analysisForm.value.environment,
+    project: analysisForm.value.project,
+    branch: analysisForm.value.branch,
+    customBranch: analysisForm.value.customBranch,
+    gerritId: analysisForm.value.gerritId,
+    environment: '',
     success: result.success,
     report,
     summary: extractSummary(report),
@@ -451,8 +597,10 @@ const handleAnalysisResult = (file: UploadedFile, result: any) => {
   };
 
   // 更新文件的元数据
-  file.service = analysisForm.value.service;
-  file.environment = analysisForm.value.environment;
+  file.project = analysisForm.value.project;
+  file.branch = analysisForm.value.branch;
+  file.customBranch = analysisForm.value.customBranch;
+  file.gerritId = analysisForm.value.gerritId;
 
   analysisRecords.value.unshift(record);
   currentReport.value = record.report;
@@ -464,10 +612,14 @@ const handleAnalysisResult = (file: UploadedFile, result: any) => {
 // 重置表单
 const resetForm = () => {
   analysisForm.value = {
-    service: '',
-    environment: 'production',
+    project: '',
+    branch: '',
+    customBranch: '',
+    gerritId: '',
   };
   selectedFileId.value = null;
+  suppressWarning.value = false;
+  localStorage.removeItem(SUPPRESS_KEY);
 };
 
 // 生成模拟报告
@@ -489,8 +641,11 @@ const generateMockReport = (filename: string, filepath: string) => {
 ## 文件信息
 - **文件名**: ${filename}
 - **路径**: ${filepath}
-- **文件大小**: 128 KB
 - **分析时间**: ${now}
+- **项目**: ${analysisForm.value.project || '未知'}
+- **项目分支**: ${analysisForm.value.branch || '未知'}
+- **定制分支**: ${analysisForm.value.customBranch || '无'}
+- **Gerrit/Commit ID**: ${analysisForm.value.gerritId || '未知'}
 
 ## 统计分析
 
@@ -564,8 +719,10 @@ const viewReport = (record: AnalysisRecord) => {
   currentReport.value = record.report;
   selectedFileId.value = record.filename;
   // 填充表单
-  analysisForm.value.service = record.service;
-  analysisForm.value.environment = record.environment;
+  analysisForm.value.project = record.project || '';
+  analysisForm.value.branch = record.branch || '';
+  analysisForm.value.customBranch = record.customBranch || '';
+  analysisForm.value.gerritId = record.gerritId || '';
 };
 
 // 拖拽相关
@@ -592,6 +749,7 @@ const onDrop = (e: DragEvent) => {
 
 onMounted(() => {
   loadFromStorage();
+  loadProjectsConfig();
 });
 </script>
 
@@ -719,11 +877,11 @@ onMounted(() => {
                   placeholder="搜索文件名..."
                 />
                 <Select
-                  v-model:value="fileServiceFilter"
-                  :options="allServices.map((s) => ({ label: s, value: s }))"
+                  v-model:value="fileProjectFilter"
+                  :options="allProjects.map((p) => ({ label: p, value: p }))"
                   allow-clear
                   class="filter-select"
-                  placeholder="按服务筛选"
+                  placeholder="按项目筛选"
                 />
               </Space>
             </template>
@@ -754,10 +912,19 @@ onMounted(() => {
                     <div>
                       <div class="font-medium text-sm">{{ file.name }}</div>
                       <div class="text-xs text-gray-400">
-                        <span v-if="file.service">{{ file.service }}</span>
-                        <span v-if="file.environment">
-                          / {{ file.environment }}</span>
-                        <span v-if="!file.service && !file.environment">
+                        <span v-if="file.project">{{ file.project }}</span>
+                        <span v-if="file.branch"> / {{ file.branch }}</span>
+                        <span v-if="file.customBranch">
+                          / {{ file.customBranch }}</span>
+                        <span v-if="file.gerritId"> / {{ file.gerritId }}</span>
+                        <span
+                          v-if="
+                            !file.project &&
+                            !file.branch &&
+                            !file.customBranch &&
+                            !file.gerritId
+                          "
+                        >
                           {{ new Date(file.uploadedAt).toLocaleString() }}
                         </span>
                       </div>
@@ -795,20 +962,18 @@ onMounted(() => {
                   placeholder="搜索..."
                 />
                 <Select
-                  v-model:value="recordServiceFilter"
-                  :options="allServices.map((s) => ({ label: s, value: s }))"
+                  v-model:value="recordProjectFilter"
+                  :options="allProjects.map((p) => ({ label: p, value: p }))"
                   allow-clear
                   class="filter-select"
-                  placeholder="按服务"
+                  placeholder="按项目"
                 />
                 <Select
-                  v-model:value="recordEnvironmentFilter"
-                  :options="
-                    allEnvironments.map((e) => ({ label: e, value: e }))
-                  "
+                  v-model:value="recordBranchFilter"
+                  :options="allBranches.map((b) => ({ label: b, value: b }))"
                   allow-clear
                   class="filter-select"
-                  placeholder="按环境"
+                  placeholder="按分支"
                 />
               </Space>
             </template>
@@ -839,9 +1004,11 @@ onMounted(() => {
                     </div>
                   </div>
                   <div class="text-xs text-gray-500 mt-1">
-                    <span v-if="record.service">{{ record.service }}</span>
-                    <span v-if="record.environment">
-                      / {{ record.environment }}</span>
+                    <span v-if="record.project">{{ record.project }}</span>
+                    <span v-if="record.branch"> / {{ record.branch }}</span>
+                    <span v-if="record.customBranch">
+                      / {{ record.customBranch }}</span>
+                    <span v-if="record.gerritId"> / {{ record.gerritId }}</span>
                   </div>
                   <div class="text-xs text-gray-400">
                     {{ new Date(record.analyzed_at).toLocaleString() }}
@@ -883,19 +1050,61 @@ onMounted(() => {
       <Card class="mb-4">
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">服务名称</label>
-            <Input
-              v-model:value="analysisForm.service"
-              placeholder="请输入服务名称"
+            <label class="form-label">项目名称</label>
+            <AutoComplete
+              v-model:value="analysisForm.project"
+              :options="projectOptions"
+              placeholder="请优先选择已有项目"
               class="form-input"
+              allow-clear
+              :filter-option="
+                (input: string, option: { label?: string }) =>
+                  (option?.label ?? '')
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+              "
             />
           </div>
           <div class="form-group">
-            <label class="form-label">环境</label>
-            <Select
-              v-model:value="analysisForm.environment"
-              :options="environmentOptions"
+            <label class="form-label">项目分支</label>
+            <AutoComplete
+              v-model:value="analysisForm.branch"
+              :options="branchOptions"
+              :disabled="!analysisForm.project"
+              placeholder="请优先选择已有分支"
               class="form-input"
+              allow-clear
+              :filter-option="
+                (input: string, option: { label?: string }) =>
+                  (option?.label ?? '')
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+              "
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">定制分支</label>
+            <AutoComplete
+              v-model:value="analysisForm.customBranch"
+              :options="customBranchOptions"
+              placeholder="优先选择已有分支"
+              class="form-input"
+              allow-clear
+              :filter-option="
+                (input: string, option: { label?: string }) =>
+                  (option?.label ?? '')
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+              "
+            />
+          </div>
+          <div class="form-group form-group-wide">
+            <label class="form-label">Gerrit ID / Commit ID</label>
+            <Input
+              v-model:value="analysisForm.gerritId"
+              placeholder="不填写默认最新"
+              class="form-input"
+              allow-clear
             />
           </div>
           <div class="form-actions">
@@ -933,6 +1142,36 @@ onMounted(() => {
         </div>
       </Card>
     </Spin>
+
+    <!-- 自定义确认弹窗 -->
+    <Modal
+      v-model:open="confirmModalVisible"
+      title="确认分析"
+      ok-text="继续分析"
+      cancel-text="取消"
+      :footer="null"
+      :width="420"
+    >
+      <div class="confirm-modal-content">
+        <p class="confirm-warning-text">以下内容不在配置列表中：</p>
+        <ul class="confirm-warning-list">
+          <li v-for="(w, i) in confirmWarnings" :key="i">{{ w }}</li>
+        </ul>
+        <p class="confirm-tip-text">
+          请优先选择已有项目和分支，自定义请确保名称正确，否则可能导致失败
+        </p>
+        <div class="confirm-footer">
+          <label class="confirm-checkbox">
+            <input type="checkbox" v-model="suppressWarning" />
+            <span>不再提示</span>
+          </label>
+        </div>
+      </div>
+      <div class="confirm-actions">
+        <Button @click="handleConfirmCancel">取消</Button>
+        <Button type="primary" @click="handleConfirmOk">继续分析</Button>
+      </div>
+    </Modal>
   </Page>
 </template>
 
@@ -1428,5 +1667,61 @@ onMounted(() => {
 
 :deep(.prose li) {
   margin: 0.25rem 0;
+}
+
+.confirm-modal-content {
+  padding: 8px 0;
+}
+
+.confirm-warning-text {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.confirm-warning-list {
+  padding-left: 20px;
+  margin: 0;
+  font-size: 13px;
+  color: #f56c6c;
+}
+
+.confirm-warning-list li {
+  margin-bottom: 4px;
+}
+
+.confirm-tip-text {
+  padding: 8px 10px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #ad6800;
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+  border-radius: 4px;
+}
+
+.confirm-footer {
+  padding-top: 12px;
+  margin-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.confirm-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.confirm-checkbox input {
+  margin-right: 6px;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 </style>
