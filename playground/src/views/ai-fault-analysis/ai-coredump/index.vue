@@ -6,12 +6,14 @@ import { Page } from '@vben/common-ui';
 import { VbenIcon } from '@vben-core/shadcn-ui';
 
 import {
+  AutoComplete,
   Button,
   Card,
   Col,
   Input,
   InputSearch,
   message,
+  Modal,
   Progress,
   Row,
   Select,
@@ -31,6 +33,7 @@ marked.setOptions({
 
 interface UploadedFile {
   branch: string;
+  customBranch: string;
   gerritId: string;
   id: string;
   name: string;
@@ -43,6 +46,7 @@ interface UploadedFile {
 interface AnalysisRecord {
   analyzed_at: string;
   branch: string;
+  customBranch: string;
   filename: string;
   filepath: string;
   gerritId: string;
@@ -51,6 +55,12 @@ interface AnalysisRecord {
   report: string;
   success: boolean;
   summary: string;
+}
+
+// 项目配置
+interface Project {
+  branches: string[];
+  name: string;
 }
 
 // localStorage 持久化
@@ -78,12 +88,125 @@ const loadFromStorage = () => {
       selectedFileId.value = data.selectedFileId || null;
       analysisForm.value = data.analysisForm || {
         project: '',
+        customBranch: '',
         branch: '',
         gerritId: '',
       };
     }
   } catch {
     console.warn('加载本地存储失败');
+  }
+};
+
+// 项目配置
+const projectsConfig = ref<Project[]>([]);
+
+// 项目选项
+const projectOptions = computed(() =>
+  projectsConfig.value.map((p) => ({
+    label: p.name,
+    value: p.name,
+  })),
+);
+
+// 根据选中项目获取分支选项
+const branchOptions = computed(() => {
+  const project = projectsConfig.value.find(
+    (p) => p.name === analysisForm.value.project,
+  );
+  if (!project) return [];
+  return project.branches.map((b) => ({ label: b, value: b }));
+});
+
+// 定制分支选项
+const customBranchList = [
+  '通用',
+  '字节',
+  '快手',
+  '小红书',
+  '拼多多',
+  '百度',
+  '腾讯',
+  '汽车之家',
+];
+const customBranchOptions = computed(() =>
+  customBranchList.map((b) => ({ label: b, value: b })),
+);
+
+// 判断是否为自定义输入
+const isCustomProject = computed(() => {
+  return (
+    analysisForm.value.project &&
+    !projectsConfig.value.some((p) => p.name === analysisForm.value.project)
+  );
+});
+
+const isCustomBranch = computed(() => {
+  const project = projectsConfig.value.find(
+    (p) => p.name === analysisForm.value.project,
+  );
+  if (!project || !analysisForm.value.branch) return false;
+  return !project.branches.includes(analysisForm.value.branch);
+});
+
+const isCustomCustomBranch = computed(() => {
+  return (
+    analysisForm.value.customBranch &&
+    !customBranchList.includes(analysisForm.value.customBranch)
+  );
+});
+
+// 加载项目配置
+const loadProjectsConfig = async () => {
+  try {
+    const res = await fetch('/assets/data-display/projects_config.json');
+    const data = await res.json();
+    projectsConfig.value = data.projects || [];
+  } catch {
+    projectsConfig.value = [];
+  }
+};
+
+// 确认自定义分析
+const confirmCustomAnalysis = async (): Promise<boolean> => {
+  const warnings: string[] = [];
+  if (isCustomProject.value) {
+    warnings.push(`项目「${analysisForm.value.project}」不在配置列表中`);
+  }
+  if (isCustomBranch.value) {
+    warnings.push(`项目分支「${analysisForm.value.branch}」不在配置列表中`);
+  }
+  if (isCustomCustomBranch.value) {
+    warnings.push(
+      `定制分支「${analysisForm.value.customBranch}」不在配置列表中`,
+    );
+  }
+
+  if (warnings.length === 0) return true;
+
+  // 如果已勾选不再提示，直接返回true
+  if (suppressWarning.value) return true;
+
+  confirmWarnings.value = warnings;
+  return showConfirmModal();
+};
+
+const handleConfirmOk = () => {
+  if (suppressWarning.value) {
+    localStorage.setItem(SUPPRESS_KEY, 'true');
+  }
+  confirmModalVisible.value = false;
+  if (confirmPromiseResolve.value) {
+    confirmPromiseResolve.value(true);
+    confirmPromiseResolve.value = null;
+  }
+};
+
+const handleConfirmCancel = () => {
+  confirmModalVisible.value = false;
+  if (confirmPromiseResolve.value) {
+    confirmPromiseResolve.value(false);
+    confirmPromiseResolve.value = null;
   }
 };
 
@@ -99,6 +222,20 @@ const analysisRecords = ref<AnalysisRecord[]>([]);
 const selectedFileId = ref<null | string>(null);
 const currentReport = ref('');
 const isDragging = ref(false);
+
+// 不再提示偏好
+const SUPPRESS_KEY = 'coredump_suppress_custom_warning';
+const suppressWarning = ref(localStorage.getItem(SUPPRESS_KEY) === 'true');
+const confirmModalVisible = ref(false);
+const confirmWarnings = ref<string[]>([]);
+const confirmPromiseResolve = ref<((value: boolean) => void) | null>(null);
+
+const showConfirmModal = () => {
+  confirmModalVisible.value = true;
+  return new Promise<boolean>((resolve) => {
+    confirmPromiseResolve.value = resolve;
+  });
+};
 
 // 计算总进度
 const totalProgress = computed(() => {
@@ -171,8 +308,9 @@ const recordBranchFilter = ref<string | undefined>(undefined);
 // 分析表单
 const analysisForm = ref({
   project: '',
-  branch: '',
   gerritId: '',
+  customBranch: '',
+  branch: '',
 });
 
 // 筛选后的文件列表
@@ -228,7 +366,7 @@ const allBranches = computed(() => {
 // 渲染 Markdown 为 HTML（使用 DOMPurify 防止 XSS）
 const renderedReport = computed(() => {
   if (!currentReport.value) return '';
-  return DOMPurify.sanitize(marked(currentReport.value));
+  return DOMPurify.sanitize(marked.parse(currentReport.value) as string);
 });
 
 // 从路径提取项目名
@@ -302,6 +440,7 @@ const handleUpload = async (file: File) => {
         path: result.path,
         project: extractProjectFromPath(result.path),
         branch: '',
+        customBranch: '',
         gerritId: '',
         uploadedAt: new Date().toISOString(),
         size: file.size,
@@ -319,6 +458,7 @@ const handleUpload = async (file: File) => {
         path: `/assets/data-display/coredump/${filename}`,
         project: 'demo-project',
         branch: '',
+        customBranch: '',
         gerritId: '',
         uploadedAt: new Date().toISOString(),
         size: file.size,
@@ -343,6 +483,7 @@ const handleUpload = async (file: File) => {
       path: `/assets/data-display/coredump/${filename}`,
       project: 'demo-project',
       branch: '',
+      customBranch: '',
       gerritId: '',
       uploadedAt: new Date().toISOString(),
       size: file.size,
@@ -377,6 +518,10 @@ const analyzeSelected = async () => {
     message.error('文件不存在');
     return;
   }
+
+  // 检查自定义输入
+  const confirmed = await confirmCustomAnalysis();
+  if (!confirmed) return;
 
   analyzing.value = true;
 
@@ -414,6 +559,7 @@ const handleAnalysisResult = (file: UploadedFile, result: any) => {
     filepath: file.path,
     project: analysisForm.value.project,
     branch: analysisForm.value.branch,
+    customBranch: analysisForm.value.customBranch,
     gerritId: analysisForm.value.gerritId,
     success: result.success,
     report,
@@ -424,6 +570,7 @@ const handleAnalysisResult = (file: UploadedFile, result: any) => {
   // 更新文件的元数据
   file.project = analysisForm.value.project;
   file.branch = analysisForm.value.branch;
+  file.customBranch = analysisForm.value.customBranch;
   file.gerritId = analysisForm.value.gerritId;
 
   analysisRecords.value.unshift(record);
@@ -447,7 +594,8 @@ const generateMockReport = (filename: string, filepath: string) => {
 - **路径**: ${filepath}
 - **分析时间**: ${now}
 - **项目**: ${analysisForm.value.project || '未知'}
-- **分支**: ${analysisForm.value.branch || '未知'}
+- **项目分支**: ${analysisForm.value.branch || '未知'}
+- **定制分支**: ${analysisForm.value.customBranch || '无'}
 - **Gerrit/Commit ID**: ${analysisForm.value.gerritId || '未知'}
 
 ## 分析结果
@@ -505,6 +653,7 @@ const viewReport = (record: AnalysisRecord) => {
   // 填充表单
   analysisForm.value.project = record.project;
   analysisForm.value.branch = record.branch;
+  analysisForm.value.customBranch = record.customBranch || '';
   analysisForm.value.gerritId = record.gerritId;
   saveToStorage();
 };
@@ -513,10 +662,14 @@ const viewReport = (record: AnalysisRecord) => {
 const resetForm = () => {
   analysisForm.value = {
     project: '',
-    branch: '',
     gerritId: '',
+    customBranch: '',
+    branch: '',
   };
   selectedFileId.value = null;
+  // 重置不再提示选项
+  suppressWarning.value = false;
+  localStorage.removeItem(SUPPRESS_KEY);
   saveToStorage();
 };
 
@@ -548,6 +701,7 @@ const selectedFileInfo = computed(() => {
 
 onMounted(() => {
   loadFromStorage();
+  loadProjectsConfig();
 });
 </script>
 
@@ -712,8 +866,17 @@ onMounted(() => {
                       <div class="text-xs text-gray-400">
                         <span v-if="file.project">{{ file.project }}</span>
                         <span v-if="file.branch"> / {{ file.branch }}</span>
+                        <span v-if="file.customBranch">
+                          / {{ file.customBranch }}</span>
                         <span v-if="file.gerritId"> / {{ file.gerritId }}</span>
-                        <span v-if="!file.project && !file.branch">
+                        <span
+                          v-if="
+                            !file.project &&
+                            !file.branch &&
+                            !file.customBranch &&
+                            !file.gerritId
+                          "
+                        >
                           {{ new Date(file.uploadedAt).toLocaleString() }}
                         </span>
                       </div>
@@ -795,6 +958,8 @@ onMounted(() => {
                   <div class="text-xs text-gray-500 mt-1">
                     <span v-if="record.project">{{ record.project }}</span>
                     <span v-if="record.branch"> / {{ record.branch }}</span>
+                    <span v-if="record.customBranch">
+                      / {{ record.customBranch }}</span>
                     <span v-if="record.gerritId"> / {{ record.gerritId }}</span>
                   </div>
                   <div class="text-xs text-gray-400">
@@ -838,26 +1003,60 @@ onMounted(() => {
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">项目名称</label>
-            <Input
+            <AutoComplete
               v-model:value="analysisForm.project"
-              placeholder="请输入项目名称"
+              :options="projectOptions"
+              placeholder="请优先选择已有项目"
               class="form-input"
+              allow-clear
+              :filter-option="
+                (input, option) =>
+                  (option?.label ?? '')
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+              "
             />
           </div>
           <div class="form-group">
-            <label class="form-label">分支名称</label>
-            <Input
+            <label class="form-label">项目分支</label>
+            <AutoComplete
               v-model:value="analysisForm.branch"
-              placeholder="请输入分支名称"
+              :options="branchOptions"
+              :disabled="!analysisForm.project"
+              placeholder="请优先选择已有分支"
               class="form-input"
+              allow-clear
+              :filter-option="
+                (input, option) =>
+                  (option?.label ?? '')
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+              "
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">定制分支</label>
+            <AutoComplete
+              v-model:value="analysisForm.customBranch"
+              :options="customBranchOptions"
+              placeholder="优先选择已有分支"
+              class="form-input"
+              allow-clear
+              :filter-option="
+                (input, option) =>
+                  (option?.label ?? '')
+                    .toLowerCase()
+                    .includes(input.toLowerCase())
+              "
             />
           </div>
           <div class="form-group form-group-wide">
             <label class="form-label">Gerrit ID / Commit ID</label>
             <Input
               v-model:value="analysisForm.gerritId"
-              placeholder="请输入 Gerrit ID 或 Commit ID"
+              placeholder="不填写默认最新"
               class="form-input"
+              allow-clear
             />
           </div>
           <div class="form-actions">
@@ -895,6 +1094,36 @@ onMounted(() => {
         </div>
       </Card>
     </Spin>
+
+    <!-- 自定义确认弹窗 -->
+    <Modal
+      v-model:open="confirmModalVisible"
+      title="确认分析"
+      ok-text="继续分析"
+      cancel-text="取消"
+      :footer="null"
+      :width="420"
+    >
+      <div class="confirm-modal-content">
+        <p class="confirm-warning-text">以下内容不在配置列表中：</p>
+        <ul class="confirm-warning-list">
+          <li v-for="(w, i) in confirmWarnings" :key="i">{{ w }}</li>
+        </ul>
+        <p class="confirm-tip-text">
+          请优先选择已有项目和分支，自定义请确保名称正确，否则可能导致失败
+        </p>
+        <div class="confirm-footer">
+          <label class="confirm-checkbox">
+            <input type="checkbox" v-model="suppressWarning" />
+            <span>不再提示</span>
+          </label>
+        </div>
+      </div>
+      <div class="confirm-actions">
+        <Button @click="handleConfirmCancel">取消</Button>
+        <Button type="primary" @click="handleConfirmOk">继续分析</Button>
+      </div>
+    </Modal>
   </Page>
 </template>
 
@@ -1400,5 +1629,61 @@ onMounted(() => {
 
 :deep(.prose li) {
   margin: 0.25rem 0;
+}
+
+.confirm-modal-content {
+  padding: 8px 0;
+}
+
+.confirm-warning-text {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.confirm-warning-list {
+  padding-left: 20px;
+  margin: 0;
+  font-size: 13px;
+  color: #f56c6c;
+}
+
+.confirm-warning-list li {
+  margin-bottom: 4px;
+}
+
+.confirm-tip-text {
+  padding: 8px 10px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: #ad6800;
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+  border-radius: 4px;
+}
+
+.confirm-footer {
+  padding-top: 12px;
+  margin-top: 16px;
+  border-top: 1px solid #eee;
+}
+
+.confirm-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.confirm-checkbox input {
+  margin-right: 6px;
+}
+
+.confirm-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 </style>

@@ -29,6 +29,10 @@ const excludedUsernames = [
   'test',
   'admin',
   'guest',
+  'afa',
+  'anythingllm',
+  '修梦思',
+  '倪俊明',
 ];
 const isValidUser = (username: string, displayname: null | string) => {
   if (!username) return false;

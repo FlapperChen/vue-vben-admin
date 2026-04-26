@@ -5,7 +5,7 @@
     "request_total": 4,
     "token_used_total": 457800,
     "created_at": "2026-03-03T06:38:56.394405",
-    "updated_at": "2026-04-23T13:33:02.420128",
+    "updated_at": "2026-04-25T13:33:00.360357",
     "displayname": null
   },
   {
@@ -14,7 +14,7 @@
     "request_total": 2144,
     "token_used_total": 174744131,
     "created_at": "2026-03-03T06:38:56.536373",
-    "updated_at": "2026-04-23T13:33:02.549346",
+    "updated_at": "2026-04-25T13:33:00.510018",
     "displayname": "陈重羽"
   },
   {
@@ -23,7 +23,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:38:56.603076",
-    "updated_at": "2026-04-23T13:33:02.608720",
+    "updated_at": "2026-04-25T13:33:00.588627",
     "displayname": null
   },
   {
@@ -32,34 +32,34 @@
     "request_total": 5,
     "token_used_total": 1136525,
     "created_at": "2026-03-03T06:38:56.670245",
-    "updated_at": "2026-04-23T13:33:02.669786",
+    "updated_at": "2026-04-25T13:33:00.651370",
     "displayname": null
   },
   {
     "userid": 5,
     "username": "avery_li",
-    "request_total": 5525,
-    "token_used_total": 274781857,
+    "request_total": 5620,
+    "token_used_total": 276501856,
     "created_at": "2026-03-03T06:38:56.737188",
-    "updated_at": "2026-04-23T13:33:02.729976",
+    "updated_at": "2026-04-25T13:33:00.729898",
     "displayname": "李佳耕"
   },
   {
     "userid": 6,
     "username": "luca_jiang",
-    "request_total": 9000,
-    "token_used_total": 93835648,
+    "request_total": 9111,
+    "token_used_total": 94250010,
     "created_at": "2026-03-03T06:38:56.803379",
-    "updated_at": "2026-04-23T13:33:02.789760",
+    "updated_at": "2026-04-25T13:33:00.809085",
     "displayname": "姜友鹏"
   },
   {
     "userid": 7,
     "username": "alex_yao",
-    "request_total": 4291,
-    "token_used_total": 281708871,
+    "request_total": 4418,
+    "token_used_total": 290010393,
     "created_at": "2026-03-03T06:38:56.870515",
-    "updated_at": "2026-04-23T13:33:02.850710",
+    "updated_at": "2026-04-25T13:33:00.888654",
     "displayname": "姚涵毅"
   },
   {
@@ -68,7 +68,7 @@
     "request_total": 471,
     "token_used_total": 23503091,
     "created_at": "2026-03-03T06:38:56.937959",
-    "updated_at": "2026-04-23T13:33:02.912069",
+    "updated_at": "2026-04-25T13:33:00.950930",
     "displayname": "黄洪"
   },
   {
@@ -77,7 +77,7 @@
     "request_total": 272,
     "token_used_total": 12978546,
     "created_at": "2026-03-03T06:38:57.003455",
-    "updated_at": "2026-04-23T13:33:02.972982",
+    "updated_at": "2026-04-25T13:33:01.031469",
     "displayname": "罗青松"
   },
   {
@@ -86,16 +86,16 @@
     "request_total": 2,
     "token_used_total": 443520,
     "created_at": "2026-03-03T06:38:57.071228",
-    "updated_at": "2026-04-23T13:33:03.035766",
+    "updated_at": "2026-04-25T13:33:01.109415",
     "displayname": null
   },
   {
     "userid": 11,
     "username": "ryan_hong",
-    "request_total": 32370,
-    "token_used_total": 2178486455,
+    "request_total": 32378,
+    "token_used_total": 2178589312,
     "created_at": "2026-03-03T06:38:57.138301",
-    "updated_at": "2026-04-23T13:33:03.098038",
+    "updated_at": "2026-04-25T13:33:01.188496",
     "displayname": "洪榜"
   },
   {
@@ -104,16 +104,16 @@
     "request_total": 131,
     "token_used_total": 3361955,
     "created_at": "2026-03-03T06:38:57.204953",
-    "updated_at": "2026-04-23T13:33:03.158921",
+    "updated_at": "2026-04-25T13:33:01.251197",
     "displayname": "骆文强"
   },
   {
     "userid": 13,
     "username": "nemo.li",
-    "request_total": 162,
-    "token_used_total": 11157530,
+    "request_total": 277,
+    "token_used_total": 15606739,
     "created_at": "2026-03-03T06:38:57.272069",
-    "updated_at": "2026-04-23T13:33:03.218382",
+    "updated_at": "2026-04-25T13:33:01.330471",
     "displayname": "李俊"
   },
   {
@@ -122,7 +122,7 @@
     "request_total": 26,
     "token_used_total": 698068,
     "created_at": "2026-03-03T06:38:57.339467",
-    "updated_at": "2026-04-23T13:33:03.279508",
+    "updated_at": "2026-04-25T13:33:01.409670",
     "displayname": "周颖"
   },
   {
@@ -131,16 +131,16 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:38:57.405984",
-    "updated_at": "2026-04-23T13:33:03.341837",
+    "updated_at": "2026-04-25T13:33:01.488529",
     "displayname": null
   },
   {
     "userid": 16,
     "username": "helen_hong",
-    "request_total": 1119,
-    "token_used_total": 83045860,
+    "request_total": 1123,
+    "token_used_total": 83258007,
     "created_at": "2026-03-03T06:38:57.472586",
-    "updated_at": "2026-04-23T13:33:03.401532",
+    "updated_at": "2026-04-25T13:33:01.552192",
     "displayname": "洪晓棠"
   },
   {
@@ -149,25 +149,25 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:38:57.538457",
-    "updated_at": "2026-04-23T13:33:03.462054",
+    "updated_at": "2026-04-25T13:33:01.631082",
     "displayname": "洪佳能"
   },
   {
     "userid": 21,
     "username": "fred.liu",
-    "request_total": 660,
-    "token_used_total": 40729655,
+    "request_total": 699,
+    "token_used_total": 43780230,
     "created_at": "2026-03-03T06:38:57.605415",
-    "updated_at": "2026-04-23T13:33:03.523590",
+    "updated_at": "2026-04-25T13:33:01.709024",
     "displayname": "刘飞"
   },
   {
     "userid": 22,
     "username": "jack.wang",
-    "request_total": 86,
-    "token_used_total": 5124699,
+    "request_total": 90,
+    "token_used_total": 5237865,
     "created_at": "2026-03-03T06:38:57.671566",
-    "updated_at": "2026-04-23T13:33:03.586032",
+    "updated_at": "2026-04-25T13:33:01.788750",
     "displayname": "王朝锋"
   },
   {
@@ -176,25 +176,25 @@
     "request_total": 1289,
     "token_used_total": 116153138,
     "created_at": "2026-03-03T06:38:57.737402",
-    "updated_at": "2026-04-23T13:33:03.645717",
+    "updated_at": "2026-04-25T13:33:01.852180",
     "displayname": "王娜"
   },
   {
     "userid": 24,
     "username": "mice.gao",
-    "request_total": 198,
-    "token_used_total": 8983809,
+    "request_total": 202,
+    "token_used_total": 9461170,
     "created_at": "2026-03-03T06:38:57.805450",
-    "updated_at": "2026-04-23T13:33:03.705670",
+    "updated_at": "2026-04-25T13:33:01.930331",
     "displayname": "高丰"
   },
   {
     "userid": 25,
     "username": "meteor.liu",
-    "request_total": 672,
-    "token_used_total": 28311652,
+    "request_total": 702,
+    "token_used_total": 28540287,
     "created_at": "2026-03-03T06:38:57.871632",
-    "updated_at": "2026-04-23T13:33:03.765795",
+    "updated_at": "2026-04-25T13:33:02.009046",
     "displayname": "刘宗鑫"
   },
   {
@@ -203,16 +203,16 @@
     "request_total": 238,
     "token_used_total": 12406123,
     "created_at": "2026-03-03T06:38:57.937998",
-    "updated_at": "2026-04-23T13:33:03.825573",
+    "updated_at": "2026-04-25T13:33:02.088560",
     "displayname": "裴梦迪"
   },
   {
     "userid": 27,
     "username": "bucher_wu",
-    "request_total": 2306,
-    "token_used_total": 149314971,
+    "request_total": 2469,
+    "token_used_total": 157331151,
     "created_at": "2026-03-03T06:38:58.005097",
-    "updated_at": "2026-04-23T13:33:03.885668",
+    "updated_at": "2026-04-25T13:33:02.152479",
     "displayname": "吴昭星"
   },
   {
@@ -221,7 +221,7 @@
     "request_total": 117,
     "token_used_total": 5614551,
     "created_at": "2026-03-03T06:38:58.072019",
-    "updated_at": "2026-04-23T13:33:03.946819",
+    "updated_at": "2026-04-25T13:33:02.231273",
     "displayname": "张寿奎"
   },
   {
@@ -230,7 +230,7 @@
     "request_total": 33,
     "token_used_total": 1496651,
     "created_at": "2026-03-03T06:38:58.137420",
-    "updated_at": "2026-04-23T13:33:04.007331",
+    "updated_at": "2026-04-25T13:33:02.311056",
     "displayname": "汪滔_工程"
   },
   {
@@ -239,7 +239,7 @@
     "request_total": 20,
     "token_used_total": 845858,
     "created_at": "2026-03-03T06:38:58.204141",
-    "updated_at": "2026-04-23T13:33:04.068929",
+    "updated_at": "2026-04-25T13:33:02.388503",
     "displayname": "陈立冬"
   },
   {
@@ -248,7 +248,7 @@
     "request_total": 24,
     "token_used_total": 400540,
     "created_at": "2026-03-03T06:38:58.273961",
-    "updated_at": "2026-04-23T13:33:04.128977",
+    "updated_at": "2026-04-25T13:33:02.450932",
     "displayname": "周俊成"
   },
   {
@@ -257,7 +257,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:38:58.340028",
-    "updated_at": "2026-04-23T13:33:04.190114",
+    "updated_at": "2026-04-25T13:33:02.530883",
     "displayname": "倪俊明"
   },
   {
@@ -266,7 +266,7 @@
     "request_total": 62,
     "token_used_total": 2650881,
     "created_at": "2026-03-03T06:38:58.408977",
-    "updated_at": "2026-04-23T13:33:04.252602",
+    "updated_at": "2026-04-25T13:33:02.609138",
     "displayname": "张煜辉"
   },
   {
@@ -275,7 +275,7 @@
     "request_total": 877,
     "token_used_total": 70058180,
     "created_at": "2026-03-03T06:38:58.474220",
-    "updated_at": "2026-04-23T13:33:04.314060",
+    "updated_at": "2026-04-25T13:33:02.688559",
     "displayname": "孙诚"
   },
   {
@@ -284,7 +284,7 @@
     "request_total": 244,
     "token_used_total": 7833110,
     "created_at": "2026-03-03T06:38:58.542135",
-    "updated_at": "2026-04-23T13:33:04.373650",
+    "updated_at": "2026-04-25T13:33:02.750856",
     "displayname": "朱子健"
   },
   {
@@ -293,43 +293,43 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:38:58.606880",
-    "updated_at": "2026-04-23T13:33:04.433552",
+    "updated_at": "2026-04-25T13:33:02.830977",
     "displayname": "贺卫滨"
   },
   {
     "userid": 37,
     "username": "cade_wang",
-    "request_total": 2552,
-    "token_used_total": 248842326,
+    "request_total": 2657,
+    "token_used_total": 261860565,
     "created_at": "2026-03-03T06:38:58.675143",
-    "updated_at": "2026-04-23T13:33:04.493251",
+    "updated_at": "2026-04-25T13:33:02.909783",
     "displayname": "王开"
   },
   {
     "userid": 38,
     "username": "zach_zhu",
-    "request_total": 994,
-    "token_used_total": 103659159,
+    "request_total": 1079,
+    "token_used_total": 112498566,
     "created_at": "2026-03-03T06:38:58.741672",
-    "updated_at": "2026-04-23T13:33:04.553347",
+    "updated_at": "2026-04-25T13:33:02.988889",
     "displayname": "朱兆成"
   },
   {
     "userid": 39,
     "username": "henry_he",
-    "request_total": 785,
-    "token_used_total": 66324654,
+    "request_total": 979,
+    "token_used_total": 88034379,
     "created_at": "2026-03-03T06:38:58.807430",
-    "updated_at": "2026-04-23T13:33:04.613237",
+    "updated_at": "2026-04-25T13:33:03.052108",
     "displayname": "何思龙"
   },
   {
     "userid": 40,
     "username": "frank_feng",
-    "request_total": 702,
-    "token_used_total": 54096544,
+    "request_total": 708,
+    "token_used_total": 54221738,
     "created_at": "2026-03-03T06:38:59.101056",
-    "updated_at": "2026-04-23T13:33:04.673569",
+    "updated_at": "2026-04-25T13:33:03.131816",
     "displayname": "冯帅锋"
   },
   {
@@ -338,7 +338,7 @@
     "request_total": 1604,
     "token_used_total": 148757319,
     "created_at": "2026-03-03T06:38:59.168520",
-    "updated_at": "2026-04-23T13:33:04.734532",
+    "updated_at": "2026-04-25T13:33:03.209040",
     "displayname": "张昱昊"
   },
   {
@@ -347,7 +347,7 @@
     "request_total": 181,
     "token_used_total": 5217415,
     "created_at": "2026-03-03T06:38:59.235416",
-    "updated_at": "2026-04-23T13:33:04.795333",
+    "updated_at": "2026-04-25T13:33:03.288431",
     "displayname": "张昊"
   },
   {
@@ -356,16 +356,16 @@
     "request_total": 348,
     "token_used_total": 13999284,
     "created_at": "2026-03-03T06:38:59.303822",
-    "updated_at": "2026-04-23T13:33:04.855545",
+    "updated_at": "2026-04-25T13:33:03.350905",
     "displayname": "徐龙飞"
   },
   {
     "userid": 44,
     "username": "Rekkles.qi",
-    "request_total": 2756,
-    "token_used_total": 74329534,
+    "request_total": 3022,
+    "token_used_total": 80271974,
     "created_at": "2026-03-03T06:38:59.370902",
-    "updated_at": "2026-04-23T13:33:04.915704",
+    "updated_at": "2026-04-25T13:33:03.430639",
     "displayname": "戚同杰"
   },
   {
@@ -374,34 +374,34 @@
     "request_total": 115,
     "token_used_total": 2730489,
     "created_at": "2026-03-03T06:38:59.437894",
-    "updated_at": "2026-04-23T13:33:04.975068",
+    "updated_at": "2026-04-25T13:33:03.509140",
     "displayname": "张贝贝"
   },
   {
     "userid": 46,
     "username": "bryce.liu",
-    "request_total": 118,
-    "token_used_total": 5473828,
+    "request_total": 275,
+    "token_used_total": 14877611,
     "created_at": "2026-03-03T06:38:59.504511",
-    "updated_at": "2026-04-23T13:33:05.034590",
+    "updated_at": "2026-04-25T13:33:03.588397",
     "displayname": "刘宝宁"
   },
   {
     "userid": 47,
     "username": "geoff.yang",
-    "request_total": 465,
-    "token_used_total": 14822124,
+    "request_total": 484,
+    "token_used_total": 15181605,
     "created_at": "2026-03-03T06:38:59.571019",
-    "updated_at": "2026-04-23T13:33:05.094642",
+    "updated_at": "2026-04-25T13:33:03.651216",
     "displayname": "杨晓杰"
   },
   {
     "userid": 48,
     "username": "oyang.sun",
-    "request_total": 1999,
-    "token_used_total": 128624962,
+    "request_total": 2010,
+    "token_used_total": 129534930,
     "created_at": "2026-03-03T06:38:59.636700",
-    "updated_at": "2026-04-23T13:33:05.156172",
+    "updated_at": "2026-04-25T13:33:03.731254",
     "displayname": "孙辉"
   },
   {
@@ -410,16 +410,16 @@
     "request_total": 2963,
     "token_used_total": 197408091,
     "created_at": "2026-03-03T06:38:59.702885",
-    "updated_at": "2026-04-23T13:33:05.216296",
+    "updated_at": "2026-04-25T13:33:03.809253",
     "displayname": "徐鹏"
   },
   {
     "userid": 50,
     "username": "ncwave.liu",
-    "request_total": 2141,
-    "token_used_total": 138690890,
+    "request_total": 2186,
+    "token_used_total": 140937227,
     "created_at": "2026-03-03T06:38:59.769993",
-    "updated_at": "2026-04-23T13:33:05.276609",
+    "updated_at": "2026-04-25T13:33:03.888855",
     "displayname": "刘浩波"
   },
   {
@@ -428,25 +428,25 @@
     "request_total": 39,
     "token_used_total": 2493315,
     "created_at": "2026-03-03T06:38:59.835542",
-    "updated_at": "2026-04-23T13:33:05.336196",
+    "updated_at": "2026-04-25T13:33:03.952434",
     "displayname": "李言"
   },
   {
     "userid": 52,
     "username": "radish.hu",
-    "request_total": 645,
-    "token_used_total": 60613198,
+    "request_total": 667,
+    "token_used_total": 61979768,
     "created_at": "2026-03-03T06:38:59.903860",
-    "updated_at": "2026-04-23T13:33:05.397130",
+    "updated_at": "2026-04-25T13:33:04.029928",
     "displayname": "胡博"
   },
   {
     "userid": 53,
     "username": "soph.dai",
-    "request_total": 1881,
-    "token_used_total": 111066610,
+    "request_total": 2264,
+    "token_used_total": 139121251,
     "created_at": "2026-03-03T06:38:59.970920",
-    "updated_at": "2026-04-23T13:33:05.456647",
+    "updated_at": "2026-04-25T13:33:04.109131",
     "displayname": "代松"
   },
   {
@@ -455,7 +455,7 @@
     "request_total": 378,
     "token_used_total": 13165541,
     "created_at": "2026-03-03T06:39:00.037276",
-    "updated_at": "2026-04-23T13:33:05.517725",
+    "updated_at": "2026-04-25T13:33:04.188859",
     "displayname": "王宪臻"
   },
   {
@@ -464,7 +464,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:00.104552",
-    "updated_at": "2026-04-23T13:33:05.577950",
+    "updated_at": "2026-04-25T13:33:04.253136",
     "displayname": "展晓杰"
   },
   {
@@ -473,7 +473,7 @@
     "request_total": 99,
     "token_used_total": 4175893,
     "created_at": "2026-03-03T06:39:00.171929",
-    "updated_at": "2026-04-23T13:33:05.638291",
+    "updated_at": "2026-04-25T13:33:04.330707",
     "displayname": "郭玲娜"
   },
   {
@@ -482,16 +482,16 @@
     "request_total": 126,
     "token_used_total": 5719122,
     "created_at": "2026-03-03T06:39:00.238481",
-    "updated_at": "2026-04-23T13:33:05.697589",
+    "updated_at": "2026-04-25T13:33:04.410405",
     "displayname": "贾伟山"
   },
   {
     "userid": 58,
     "username": "paul.huang",
-    "request_total": 554,
-    "token_used_total": 38325411,
+    "request_total": 556,
+    "token_used_total": 38586526,
     "created_at": "2026-03-03T06:39:00.304867",
-    "updated_at": "2026-04-23T13:33:05.758061",
+    "updated_at": "2026-04-25T13:33:04.488144",
     "displayname": "黄冬冬"
   },
   {
@@ -500,7 +500,7 @@
     "request_total": 6,
     "token_used_total": 117816,
     "created_at": "2026-03-03T06:39:00.370234",
-    "updated_at": "2026-04-23T13:33:05.818521",
+    "updated_at": "2026-04-25T13:33:04.551191",
     "displayname": "张国亮"
   },
   {
@@ -509,7 +509,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:00.438002",
-    "updated_at": "2026-04-23T13:33:05.878313",
+    "updated_at": "2026-04-25T13:33:04.631051",
     "displayname": "杨江波"
   },
   {
@@ -518,7 +518,7 @@
     "request_total": 434,
     "token_used_total": 20523045,
     "created_at": "2026-03-03T06:39:00.504970",
-    "updated_at": "2026-04-23T13:33:05.938585",
+    "updated_at": "2026-04-25T13:33:04.708976",
     "displayname": "刘延超"
   },
   {
@@ -527,52 +527,52 @@
     "request_total": 40,
     "token_used_total": 2983727,
     "created_at": "2026-03-03T06:39:00.571805",
-    "updated_at": "2026-04-23T13:33:05.998604",
+    "updated_at": "2026-04-25T13:33:04.788385",
     "displayname": "左渠"
   },
   {
     "userid": 63,
     "username": "lydon.feng",
-    "request_total": 1470,
-    "token_used_total": 69703687,
+    "request_total": 1515,
+    "token_used_total": 71312759,
     "created_at": "2026-03-03T06:39:00.637816",
-    "updated_at": "2026-04-23T13:33:06.058781",
+    "updated_at": "2026-04-25T13:33:04.850848",
     "displayname": "冯学宇"
   },
   {
     "userid": 64,
     "username": "jhinren",
-    "request_total": 784,
-    "token_used_total": 15266003,
+    "request_total": 987,
+    "token_used_total": 25134855,
     "created_at": "2026-03-03T06:39:00.705587",
-    "updated_at": "2026-04-23T13:33:06.118224",
+    "updated_at": "2026-04-25T13:33:04.930041",
     "displayname": "任志远"
   },
   {
     "userid": 65,
     "username": "Lightzhu",
-    "request_total": 2110,
-    "token_used_total": 286052011,
+    "request_total": 2112,
+    "token_used_total": 286091240,
     "created_at": "2026-03-03T06:39:00.771904",
-    "updated_at": "2026-04-23T13:33:06.177666",
+    "updated_at": "2026-04-25T13:33:05.010396",
     "displayname": "朱辉"
   },
   {
     "userid": 66,
     "username": "matt_wang",
-    "request_total": 0,
-    "token_used_total": 0,
+    "request_total": 12,
+    "token_used_total": 729901,
     "created_at": "2026-03-03T06:39:00.839875",
-    "updated_at": "2026-04-23T13:33:06.237580",
+    "updated_at": "2026-04-25T13:33:05.088677",
     "displayname": "王牧野"
   },
   {
     "userid": 67,
     "username": "django_wang",
-    "request_total": 3608,
-    "token_used_total": 202787180,
+    "request_total": 4028,
+    "token_used_total": 218868065,
     "created_at": "2026-03-03T06:39:00.906256",
-    "updated_at": "2026-04-23T13:33:06.297889",
+    "updated_at": "2026-04-25T13:33:05.152445",
     "displayname": "王波"
   },
   {
@@ -581,7 +581,7 @@
     "request_total": 1157,
     "token_used_total": 70611369,
     "created_at": "2026-03-03T06:39:00.974245",
-    "updated_at": "2026-04-23T13:33:06.357063",
+    "updated_at": "2026-04-25T13:33:05.231154",
     "displayname": "陈桂亮"
   },
   {
@@ -590,7 +590,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:01.041654",
-    "updated_at": "2026-04-23T13:33:06.417839",
+    "updated_at": "2026-04-25T13:33:05.310256",
     "displayname": "汪子晗"
   },
   {
@@ -599,70 +599,70 @@
     "request_total": 16,
     "token_used_total": 221586,
     "created_at": "2026-03-03T06:39:01.108451",
-    "updated_at": "2026-04-23T13:33:06.477651",
+    "updated_at": "2026-04-25T13:33:05.388567",
     "displayname": "解廷福"
   },
   {
     "userid": 71,
     "username": "leon_liu",
-    "request_total": 542,
-    "token_used_total": 35265386,
+    "request_total": 641,
+    "token_used_total": 39383506,
     "created_at": "2026-03-03T06:39:01.174159",
-    "updated_at": "2026-04-23T13:33:06.537619",
+    "updated_at": "2026-04-25T13:33:05.451225",
     "displayname": "刘帅"
   },
   {
     "userid": 72,
     "username": "dale_di",
-    "request_total": 285,
-    "token_used_total": 12719059,
+    "request_total": 287,
+    "token_used_total": 12744809,
     "created_at": "2026-03-03T06:39:01.240964",
-    "updated_at": "2026-04-23T13:33:06.597521",
+    "updated_at": "2026-04-25T13:33:05.531127",
     "displayname": "邸兴娟"
   },
   {
     "userid": 73,
     "username": "demi_zhang",
-    "request_total": 2386,
-    "token_used_total": 152359205,
+    "request_total": 2480,
+    "token_used_total": 156837318,
     "created_at": "2026-03-03T06:39:01.307003",
-    "updated_at": "2026-04-23T13:33:06.657606",
+    "updated_at": "2026-04-25T13:33:05.609039",
     "displayname": "张浩"
   },
   {
     "userid": 74,
     "username": "ethan_liang",
-    "request_total": 1794,
-    "token_used_total": 118583313,
+    "request_total": 1828,
+    "token_used_total": 119676883,
     "created_at": "2026-03-03T06:39:01.373186",
-    "updated_at": "2026-04-23T13:33:06.718173",
+    "updated_at": "2026-04-25T13:33:05.688583",
     "displayname": "梁帅博"
   },
   {
     "userid": 75,
     "username": "cool_niu",
-    "request_total": 1237,
-    "token_used_total": 41074898,
+    "request_total": 1240,
+    "token_used_total": 41180965,
     "created_at": "2026-03-03T06:39:01.439564",
-    "updated_at": "2026-04-23T13:33:06.777507",
+    "updated_at": "2026-04-25T13:33:05.751180",
     "displayname": "牛爽"
   },
   {
     "userid": 76,
     "username": "peter_zhang",
-    "request_total": 810,
-    "token_used_total": 61369767,
+    "request_total": 812,
+    "token_used_total": 61399154,
     "created_at": "2026-03-03T06:39:01.507531",
-    "updated_at": "2026-04-23T13:33:06.839269",
+    "updated_at": "2026-04-25T13:33:05.829995",
     "displayname": "张金龙"
   },
   {
     "userid": 77,
     "username": "carina_li",
-    "request_total": 1455,
-    "token_used_total": 106203349,
+    "request_total": 1485,
+    "token_used_total": 108699316,
     "created_at": "2026-03-03T06:39:01.574661",
-    "updated_at": "2026-04-23T13:33:06.899966",
+    "updated_at": "2026-04-25T13:33:05.909299",
     "displayname": "李雨笑"
   },
   {
@@ -671,16 +671,16 @@
     "request_total": 486,
     "token_used_total": 38862807,
     "created_at": "2026-03-03T06:39:01.640232",
-    "updated_at": "2026-04-23T13:33:06.959066",
+    "updated_at": "2026-04-25T13:33:05.988107",
     "displayname": "李明昊"
   },
   {
     "userid": 79,
     "username": "morning_wang",
-    "request_total": 2075,
-    "token_used_total": 137655493,
+    "request_total": 2132,
+    "token_used_total": 141372595,
     "created_at": "2026-03-03T06:39:01.707186",
-    "updated_at": "2026-04-23T13:33:07.020026",
+    "updated_at": "2026-04-25T13:33:06.052208",
     "displayname": "王天明"
   },
   {
@@ -689,16 +689,16 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:01.773903",
-    "updated_at": "2026-04-23T13:33:07.079589",
+    "updated_at": "2026-04-25T13:33:06.130059",
     "displayname": "马守恒"
   },
   {
     "userid": 82,
     "username": "gary.duan",
-    "request_total": 300,
-    "token_used_total": 15517634,
+    "request_total": 305,
+    "token_used_total": 15721101,
     "created_at": "2026-03-03T06:39:01.841739",
-    "updated_at": "2026-04-23T13:33:07.140597",
+    "updated_at": "2026-04-25T13:33:06.209059",
     "displayname": "段成江"
   },
   {
@@ -707,7 +707,7 @@
     "request_total": 73,
     "token_used_total": 2111279,
     "created_at": "2026-03-03T06:39:01.909262",
-    "updated_at": "2026-04-23T13:33:07.199726",
+    "updated_at": "2026-04-25T13:33:06.288815",
     "displayname": "谢佳豪"
   },
   {
@@ -716,16 +716,16 @@
     "request_total": 799,
     "token_used_total": 44525030,
     "created_at": "2026-03-03T06:39:01.976928",
-    "updated_at": "2026-04-23T13:33:07.259376",
+    "updated_at": "2026-04-25T13:33:06.352835",
     "displayname": "吴桂鹏"
   },
   {
     "userid": 86,
     "username": "carl_zhang",
-    "request_total": 356,
-    "token_used_total": 26373616,
+    "request_total": 380,
+    "token_used_total": 28876383,
     "created_at": "2026-03-03T06:39:02.043946",
-    "updated_at": "2026-04-23T13:33:07.319642",
+    "updated_at": "2026-04-25T13:33:06.430439",
     "displayname": "张忠道"
   },
   {
@@ -734,34 +734,34 @@
     "request_total": 18,
     "token_used_total": 696055,
     "created_at": "2026-03-03T06:39:02.111609",
-    "updated_at": "2026-04-23T13:33:07.380227",
+    "updated_at": "2026-04-25T13:33:06.510117",
     "displayname": "信仕尧"
   },
   {
     "userid": 89,
     "username": "nico_fan",
-    "request_total": 587,
-    "token_used_total": 24398501,
+    "request_total": 732,
+    "token_used_total": 32710558,
     "created_at": "2026-03-03T06:39:02.178943",
-    "updated_at": "2026-04-23T13:33:07.440512",
+    "updated_at": "2026-04-25T13:33:06.588353",
     "displayname": "樊柳"
   },
   {
     "userid": 90,
     "username": "cary_lin",
-    "request_total": 1629,
-    "token_used_total": 134180839,
+    "request_total": 1650,
+    "token_used_total": 134726124,
     "created_at": "2026-03-03T06:39:02.246074",
-    "updated_at": "2026-04-23T13:33:07.500936",
+    "updated_at": "2026-04-25T13:33:06.651123",
     "displayname": "林树华"
   },
   {
     "userid": 91,
     "username": "yvonne_kong",
-    "request_total": 573,
-    "token_used_total": 26959112,
+    "request_total": 608,
+    "token_used_total": 28156004,
     "created_at": "2026-03-03T06:39:02.310831",
-    "updated_at": "2026-04-23T13:33:07.560685",
+    "updated_at": "2026-04-25T13:33:06.730942",
     "displayname": "孔宪媛"
   },
   {
@@ -770,7 +770,7 @@
     "request_total": 681,
     "token_used_total": 20925443,
     "created_at": "2026-03-03T06:39:02.378164",
-    "updated_at": "2026-04-23T13:33:07.620333",
+    "updated_at": "2026-04-25T13:33:06.808914",
     "displayname": "黄仿贺"
   },
   {
@@ -779,7 +779,7 @@
     "request_total": 2,
     "token_used_total": 23258,
     "created_at": "2026-03-03T06:39:02.444550",
-    "updated_at": "2026-04-23T13:33:07.680440",
+    "updated_at": "2026-04-25T13:33:06.888017",
     "displayname": "罗婷婷"
   },
   {
@@ -788,7 +788,7 @@
     "request_total": 11,
     "token_used_total": 254363,
     "created_at": "2026-03-03T06:39:02.510424",
-    "updated_at": "2026-04-23T13:33:07.741825",
+    "updated_at": "2026-04-25T13:33:06.950970",
     "displayname": "严汝宁"
   },
   {
@@ -797,7 +797,7 @@
     "request_total": 3,
     "token_used_total": 35017,
     "created_at": "2026-03-03T06:39:02.577594",
-    "updated_at": "2026-04-23T13:33:07.802355",
+    "updated_at": "2026-04-25T13:33:07.029877",
     "displayname": "杨谦"
   },
   {
@@ -806,7 +806,7 @@
     "request_total": 452,
     "token_used_total": 43816752,
     "created_at": "2026-03-03T06:39:02.643982",
-    "updated_at": "2026-04-23T13:33:07.863013",
+    "updated_at": "2026-04-25T13:33:07.109700",
     "displayname": "周振飞"
   },
   {
@@ -815,7 +815,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:02.710641",
-    "updated_at": "2026-04-23T13:33:07.923680",
+    "updated_at": "2026-04-25T13:33:07.188317",
     "displayname": "徐天乐"
   },
   {
@@ -824,7 +824,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:02.776990",
-    "updated_at": "2026-04-23T13:33:07.985055",
+    "updated_at": "2026-04-25T13:33:07.250898",
     "displayname": "王晨钰"
   },
   {
@@ -833,7 +833,7 @@
     "request_total": 135,
     "token_used_total": 3700571,
     "created_at": "2026-03-03T06:39:02.843981",
-    "updated_at": "2026-04-23T13:33:08.044237",
+    "updated_at": "2026-04-25T13:33:07.330184",
     "displayname": "代炎"
   },
   {
@@ -842,16 +842,16 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:02.911073",
-    "updated_at": "2026-04-23T13:33:08.103423",
+    "updated_at": "2026-04-25T13:33:07.409902",
     "displayname": "朱春"
   },
   {
     "userid": 102,
     "username": "groanchen",
-    "request_total": 239,
-    "token_used_total": 15112011,
+    "request_total": 253,
+    "token_used_total": 15433850,
     "created_at": "2026-03-03T06:39:02.979134",
-    "updated_at": "2026-04-23T13:33:08.163905",
+    "updated_at": "2026-04-25T13:33:07.488315",
     "displayname": "陈旭涛"
   },
   {
@@ -860,16 +860,16 @@
     "request_total": 4,
     "token_used_total": 65038,
     "created_at": "2026-03-03T06:39:03.045721",
-    "updated_at": "2026-04-23T13:33:08.224643",
+    "updated_at": "2026-04-25T13:33:07.550981",
     "displayname": "洪宣宣"
   },
   {
     "userid": 104,
     "username": "aron_liu",
-    "request_total": 566,
-    "token_used_total": 52562742,
+    "request_total": 582,
+    "token_used_total": 53273534,
     "created_at": "2026-03-03T06:39:03.112013",
-    "updated_at": "2026-04-23T13:33:08.284668",
+    "updated_at": "2026-04-25T13:33:07.630902",
     "displayname": "刘晓尚"
   },
   {
@@ -878,16 +878,16 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:03.177320",
-    "updated_at": "2026-04-23T13:33:08.343497",
+    "updated_at": "2026-04-25T13:33:07.710202",
     "displayname": "陈明"
   },
   {
     "userid": 107,
     "username": "river_mei",
-    "request_total": 553,
-    "token_used_total": 37930898,
+    "request_total": 592,
+    "token_used_total": 40338982,
     "created_at": "2026-03-03T06:39:03.244132",
-    "updated_at": "2026-04-23T13:33:08.403581",
+    "updated_at": "2026-04-25T13:33:07.788437",
     "displayname": "梅飞"
   },
   {
@@ -896,7 +896,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:03.311039",
-    "updated_at": "2026-04-23T13:33:08.464321",
+    "updated_at": "2026-04-25T13:33:07.851006",
     "displayname": "陈经前"
   },
   {
@@ -905,7 +905,7 @@
     "request_total": 333,
     "token_used_total": 19249331,
     "created_at": "2026-03-03T06:39:03.377692",
-    "updated_at": "2026-04-23T13:33:08.524002",
+    "updated_at": "2026-04-25T13:33:07.930234",
     "displayname": "陈水滨"
   },
   {
@@ -914,7 +914,7 @@
     "request_total": 263,
     "token_used_total": 19027699,
     "created_at": "2026-03-03T06:39:03.443975",
-    "updated_at": "2026-04-23T13:33:08.584784",
+    "updated_at": "2026-04-25T13:33:08.009570",
     "displayname": "时慧君"
   },
   {
@@ -923,16 +923,16 @@
     "request_total": 531,
     "token_used_total": 35187860,
     "created_at": "2026-03-03T06:39:03.512056",
-    "updated_at": "2026-04-23T13:33:08.645183",
+    "updated_at": "2026-04-25T13:33:08.088616",
     "displayname": "陈志文"
   },
   {
     "userid": 112,
     "username": "miracle_wang",
-    "request_total": 367,
-    "token_used_total": 34164822,
+    "request_total": 403,
+    "token_used_total": 38002542,
     "created_at": "2026-03-03T06:39:03.578364",
-    "updated_at": "2026-04-23T13:33:08.705702",
+    "updated_at": "2026-04-25T13:33:08.150383",
     "displayname": "王立"
   },
   {
@@ -941,7 +941,7 @@
     "request_total": 323,
     "token_used_total": 12041589,
     "created_at": "2026-03-03T06:39:03.646536",
-    "updated_at": "2026-04-23T13:33:08.767049",
+    "updated_at": "2026-04-25T13:33:08.231179",
     "displayname": "刘晓东"
   },
   {
@@ -950,16 +950,16 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:03.715744",
-    "updated_at": "2026-04-23T13:33:08.827359",
+    "updated_at": "2026-04-25T13:33:08.309994",
     "displayname": "营方全"
   },
   {
     "userid": 116,
     "username": "zero_hu",
-    "request_total": 772,
-    "token_used_total": 49724980,
+    "request_total": 779,
+    "token_used_total": 49951799,
     "created_at": "2026-03-03T06:39:03.781989",
-    "updated_at": "2026-04-23T13:33:08.888195",
+    "updated_at": "2026-04-25T13:33:08.388698",
     "displayname": "胡章飞"
   },
   {
@@ -968,7 +968,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:03.847927",
-    "updated_at": "2026-04-23T13:33:08.947495",
+    "updated_at": "2026-04-25T13:33:08.451023",
     "displayname": "方平"
   },
   {
@@ -977,7 +977,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:03.915338",
-    "updated_at": "2026-04-23T13:33:09.007790",
+    "updated_at": "2026-04-25T13:33:08.529930",
     "displayname": "杜鹏"
   },
   {
@@ -986,16 +986,16 @@
     "request_total": 66,
     "token_used_total": 3919530,
     "created_at": "2026-03-03T06:39:03.981760",
-    "updated_at": "2026-04-23T13:33:09.067493",
+    "updated_at": "2026-04-25T13:33:08.609960",
     "displayname": "高凡"
   },
   {
     "userid": 122,
     "username": "shane_xue",
-    "request_total": 349,
-    "token_used_total": 20929914,
+    "request_total": 353,
+    "token_used_total": 21177507,
     "created_at": "2026-03-03T06:39:04.048178",
-    "updated_at": "2026-04-23T13:33:09.127368",
+    "updated_at": "2026-04-25T13:33:08.688383",
     "displayname": "薛烽"
   },
   {
@@ -1004,7 +1004,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:04.114153",
-    "updated_at": "2026-04-23T13:33:09.188087",
+    "updated_at": "2026-04-25T13:33:08.750764",
     "displayname": "张巍丰"
   },
   {
@@ -1013,16 +1013,16 @@
     "request_total": 356,
     "token_used_total": 21017676,
     "created_at": "2026-03-03T06:39:04.181726",
-    "updated_at": "2026-04-23T13:33:09.249381",
+    "updated_at": "2026-04-25T13:33:08.830064",
     "displayname": "张达"
   },
   {
     "userid": 126,
     "username": "cole_li",
-    "request_total": 4537,
-    "token_used_total": 300532263,
+    "request_total": 4640,
+    "token_used_total": 308404629,
     "created_at": "2026-03-03T06:39:04.247336",
-    "updated_at": "2026-04-23T13:33:09.309821",
+    "updated_at": "2026-04-25T13:33:08.909294",
     "displayname": "李铮"
   },
   {
@@ -1031,7 +1031,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:04.313343",
-    "updated_at": "2026-04-23T13:33:09.369297",
+    "updated_at": "2026-04-25T13:33:08.988318",
     "displayname": "张龙飞"
   },
   {
@@ -1040,16 +1040,16 @@
     "request_total": 14,
     "token_used_total": 1030368,
     "created_at": "2026-03-03T06:39:04.382283",
-    "updated_at": "2026-04-23T13:33:09.429989",
+    "updated_at": "2026-04-25T13:33:09.051151",
     "displayname": "黄微卫"
   },
   {
     "userid": 129,
     "username": "simon_liao",
-    "request_total": 409,
-    "token_used_total": 30293440,
+    "request_total": 420,
+    "token_used_total": 31127326,
     "created_at": "2026-03-03T06:39:04.448649",
-    "updated_at": "2026-04-23T13:33:09.490354",
+    "updated_at": "2026-04-25T13:33:09.129889",
     "displayname": "廖祥熠"
   },
   {
@@ -1058,7 +1058,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:04.514857",
-    "updated_at": "2026-04-23T13:33:09.549220",
+    "updated_at": "2026-04-25T13:33:09.210247",
     "displayname": "修梦思"
   },
   {
@@ -1067,7 +1067,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:04.582939",
-    "updated_at": "2026-04-23T13:33:09.610565",
+    "updated_at": "2026-04-25T13:33:09.288354",
     "displayname": "酆顺文"
   },
   {
@@ -1076,7 +1076,7 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-03-03T06:39:04.650026",
-    "updated_at": "2026-04-23T13:33:09.670130",
+    "updated_at": "2026-04-25T13:33:09.350757",
     "displayname": "卢阳"
   },
   {
@@ -1085,25 +1085,25 @@
     "request_total": 173,
     "token_used_total": 10124277,
     "created_at": "2026-03-03T06:39:04.716864",
-    "updated_at": "2026-04-23T13:33:09.732028",
+    "updated_at": "2026-04-25T13:33:09.431076",
     "displayname": "戚子渊"
   },
   {
     "userid": 134,
     "username": "chane_liu",
-    "request_total": 3450,
-    "token_used_total": 295819654,
+    "request_total": 3629,
+    "token_used_total": 305757669,
     "created_at": "2026-03-03T06:39:04.784324",
-    "updated_at": "2026-04-23T13:33:09.791769",
+    "updated_at": "2026-04-25T13:33:09.509188",
     "displayname": "刘畅"
   },
   {
     "userid": 135,
     "username": "code_review",
-    "request_total": 22214,
-    "token_used_total": 507694362,
+    "request_total": 24003,
+    "token_used_total": 546713652,
     "created_at": "2026-03-25T08:30:34.622441",
-    "updated_at": "2026-04-23T13:33:09.851734",
+    "updated_at": "2026-04-25T13:33:09.589016",
     "displayname": null
   },
   {
@@ -1112,16 +1112,16 @@
     "request_total": 0,
     "token_used_total": 0,
     "created_at": "2026-04-22T09:03:11.218768",
-    "updated_at": "2026-04-23T13:33:09.910966",
+    "updated_at": "2026-04-25T13:33:09.651355",
     "displayname": null
   },
   {
     "userid": 137,
     "username": "AFA",
-    "request_total": 87,
-    "token_used_total": 7825659,
+    "request_total": 1612,
+    "token_used_total": 93295764,
     "created_at": "2026-04-23T09:03:03.824763",
-    "updated_at": "2026-04-23T13:33:09.972097",
+    "updated_at": "2026-04-25T13:33:09.729770",
     "displayname": null
   }
 ]

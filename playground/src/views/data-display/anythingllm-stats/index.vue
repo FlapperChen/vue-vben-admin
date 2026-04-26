@@ -690,10 +690,8 @@ const disabledDate = (current: dayjs.Dayjs) => {
 // Table columns
 const tableColumns = [
   { title: '日期', dataIndex: 'date', key: 'date', width: 110 },
-  { title: '文件类型', dataIndex: 'file_type', key: 'file_type', width: 100 },
-  { title: '总字数', dataIndex: 'wps_total', key: 'wps_total' },
-  { title: '上传数', dataIndex: 'upload_num', key: 'upload_num' },
-  { title: '数据库数', dataIndex: 'db_type_num', key: 'db_type_num' },
+  { title: '文件类型', dataIndex: 'file_type', key: 'file_type', width: 120 },
+  { title: '上传数', dataIndex: 'upload_num', key: 'upload_num', width: 100 },
   {
     title: '嵌入率(%)',
     dataIndex: 'embed_ratio',
@@ -724,21 +722,24 @@ const handleTableChange = (pagination: any) => {
 
 // Docs table columns
 const docsTableColumns = [
-  { title: '日期', dataIndex: 'date', key: 'date', width: 110 },
+  { title: '日期', dataIndex: 'date', key: 'date', width: 120 },
   {
     title: '上传数',
     dataIndex: 'daily_upload_num',
     key: 'daily_upload_num',
+    width: 120,
   },
   {
     title: '更新数',
     dataIndex: 'daily_update_num',
     key: 'daily_update_num',
+    width: 120,
   },
   {
     title: '文档总数',
     dataIndex: 'total_file_num',
     key: 'total_file_num',
+    width: 120,
   },
 ];
 
@@ -869,14 +870,8 @@ onMounted(async () => {
           @change="handleTableChange"
         >
           <template #bodyCell="{ column, record }">
-            <template v-if="column.key === 'wps_total'">
-              {{ record.wps_total?.toLocaleString() }}
-            </template>
             <template v-if="column.key === 'upload_num'">
               {{ record.upload_num?.toLocaleString() }}
-            </template>
-            <template v-if="column.key === 'db_type_num'">
-              {{ record.db_type_num?.toLocaleString() }}
             </template>
             <template v-if="column.key === 'embed_ratio'">
               <Tag

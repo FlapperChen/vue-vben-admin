@@ -198,7 +198,7 @@ const commentsChartOption = computed(() => {
   return {
     title: { text: '每日评论趋势', left: 'center' },
     tooltip: { trigger: 'axis' },
-    legend: { bottom: 10, data: ['Gerrit评论', 'AI评论'] },
+    legend: { bottom: 55, data: ['Gerrit评论', 'AI评论'] },
     dataZoom: [
       { type: 'inside', start: 0, end: 100 },
       { type: 'slider', start: 0, end: 100 },
@@ -241,7 +241,7 @@ const aiRateChartOption = computed(() => {
     title: { text: 'AI评论占比、接受率与覆盖率', left: 'center' },
     tooltip: { trigger: 'axis' },
     legend: {
-      bottom: 10,
+      bottom: 55,
       data: ['AI评论占比', 'AI接受率', 'AI代码审查覆盖率'],
     },
     dataZoom: [

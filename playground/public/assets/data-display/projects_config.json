@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "name": "G60 Codebase",
+      "branches": ["通天河", "大运河", "永定河", "大渡河", "万泉河", "漠河", "扎曲河", "那曲河", "尼罗河"]
+    },
+    {
+      "name": "G70 Codebase",
+      "branches": ["钱塘江"]
+    },
+    {
+      "name": "AMD Codebase",
+      "branches": ["东海/云海", "浏阳河", "爱尔兰海", "塔里木河"]
+    },
+    {
+      "name": "INTEL Codebase",
+      "branches": ["南海", "苏禄海"]
+    }
+  ]
+}

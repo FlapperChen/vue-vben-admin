@@ -1,0 +1,3242 @@
+[
+  {
+    "project": "AMD-AMI_Code",
+    "branch": "AMI_AST2500_RR11_6_PLUS_REDFISH15",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6240AH0",
+    "branch": "buildproject",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6240AH0",
+    "branch": "CMCC_C04_AMD_SG_base_V043",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6240AH0",
+    "branch": "Customize/trunk_KUAISHOU_K02_097",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6240AH0",
+    "branch": "Customize/XWH-AMD-Baidu-202507",
+    "total_comments": 13,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6240AH0",
+    "branch": "Customize/XWH-V650-58TongCheng-202508",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6240AH0",
+    "branch": "Dev/XWH-AMD-202507",
+    "total_comments": 8,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6240AH0-PDD",
+    "branch": "master",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "buildproject",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/AEL-V060-ByteDance-202507",
+    "total_comments": 37,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/AEL-V061-202507",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/AEL-V079-2026325",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/AEL-V5077-Baidu-202511",
+    "total_comments": 19,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/AEL-V5078-YLX-202602",
+    "total_comments": 4,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/DH2-V150-bilibili-202508",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/DH2-V640-sangfor-CKS-202512",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/DH2-V640-UCloud-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/DH2-V807-202601",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/DH-V640-kingsoft-U04-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/DH-V640-kuaiShou-V131-202507",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/KK-LYH-V110-VIPS-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LY1-V010-ByteDance-202509",
+    "total_comments": 54,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LY1-V102-ByteDance-Backup-202601",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V130-bilibili-20260108",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-v160-bilibili-20260205",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V190-Baidu-202506",
+    "total_comments": 4,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V190-DH-V640-202507",
+    "total_comments": 122,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V190-Sina-U05-20251126",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V190-tongcheng-T07-cks-202602",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V191-DH-V651-202509",
+    "total_comments": 23,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V191-DH-V701-KKA-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V305-DH2-V805-202512",
+    "total_comments": 117,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V306-DiDi-20260206",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Customize/LYH-V307-DH2-V806-202601",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/AEL-202604",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/AEL-Bytedance-sync-LY1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/AEL-Bytedance-sync-LY1-NEW",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/AEL-Bytedance-sync-LY1-NEW2",
+    "total_comments": 5,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/AEL-V060-ByteDance-202507-CVE-fix",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/AEL-V060-ByteDance-202507-eason-CVE-fix",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/AEL-V067-NIC-202508",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/DH1-LYH-Costdown-202603",
+    "total_comments": 7,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/dh2-didi-d02-v805-20260328",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/DH2-V642-8501-202507",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/DH-V820-noemmc-202603",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/extlog-data-preserve",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-AEL-sync-code",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-base-debug",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-base-EMMC",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-base-unite",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-NTP-202601",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-ntpdebug",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-Rm-Emmc",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-V004-ByteDance-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-V007-DHCP-ByteDance-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-V007-Static-ByteDance-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LY1-V010-ByteDance-202509-xf-ACdebug",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LYH-V305-DH2-V805-202512-TONGCHENG-U05",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/LYH-V305-DH2-V805-20260410-zhoujc",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/master-log-adapt",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/merge_master_251222",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/merge_to_master_branch_2050723",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Debug/nvme-mi-adapt",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "Dev/AEL-202507",
+    "total_comments": 47,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-AMI_R6250A0",
+    "branch": "master",
+    "total_comments": 299,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "AMD-power-cap",
+    "branch": "dev/25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "Intel-cpusensor",
+    "branch": "dev-carina_li/test",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "Intel-meta-intel",
+    "branch": "cloud-nettrix-bhs-0.31",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "Intel-meta-intel",
+    "branch": "cloud-nettrix-bhs-0.44",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "Kits-AISkills",
+    "branch": "dev",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "Kits-AITool",
+    "branch": "dev",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "Manifest-g60",
+    "branch": "g60-crb-dev",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "ci/test",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "cloud-nettrix-dev",
+    "total_comments": 3,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "cloud-nettrix-g60",
+    "total_comments": 141,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "cloud-nettrix-rasoffload",
+    "total_comments": 9,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-B0J-V129-bilibili-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-C0F-V129-chaoyun-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-Jinshan-202507",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-K02-V128-kuaishou-202509",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-K05-V129-jinshan-202509",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-Kuaishou-202508",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-O01-V129-OPPO-202602",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-O01-V130-OPPO-202602",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-V01-V129-vivo-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-V104-CMCC-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-V107-Jinshan-202505",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-V109-Jinshan-202505",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-V110-Baidu-202505",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-V118-Kuaishou-202507",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-V121-Jinshan-202507",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-V124-Sina-202508",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-X05-V129-xinlang-252509",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-X06-V128-xiecheng-202509",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q1-X06-V129-xiecheng-202509",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 11,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q2-T02-V5219-Tencent-H-C86-4G-202512",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/I-BHS-25Q2-V01-V211-vivo-202602",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "customize/master-feature-ByteDance-202509",
+    "total_comments": 7,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "dev/25Q1",
+    "total_comments": 22,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "dev/26Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "meta-nettrix",
+    "branch": "sync/dev-23.12",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "OpenBMC-25Q1-Downloads",
+    "branch": "master",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "openbmc-build-scripts",
+    "branch": "ci/23Q3",
+    "total_comments": 5,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "openbmc-build-scripts",
+    "branch": "ci/25Q1",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "openbmc-build-scripts",
+    "branch": "cloud-dev-g60",
+    "total_comments": 3,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "openbmc-build-scripts",
+    "branch": "cloud-dev-sonar",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "OpenBMC-Downloads",
+    "branch": "master",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "OpenBMC-openbmc",
+    "branch": "dev/26Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "OpenBMC-phosphor-dbus-interfaces",
+    "branch": "ci/23Q3",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "OpenBMC-phosphor-dbus-interfaces",
+    "branch": "cloud-dev-g60",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk",
+    "branch": "master",
+    "total_comments": 8,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-chip",
+    "branch": "master",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "ci/test",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "customize/I-BHS-25Q1-V104-CMCC-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 7,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 12,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "dev/25Q1",
+    "total_comments": 19,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "master",
+    "total_comments": 49,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 3,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-snk-common",
+    "branch": "sync/dev-23.12",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "ci/test",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "cloud-dev-g60",
+    "total_comments": 5,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "customize/I-BHS-25Q1-V104-CMCC-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 11,
+    "total_ai_comments": 8,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 413,
+    "total_ai_comments": 378,
+    "total_accept_ai_comments": 5,
+    "total_ai_accept_rate": 1.32
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 60,
+    "total_ai_comments": 29,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "dev/25Q1",
+    "total_comments": 89,
+    "total_ai_comments": 48,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "dev/26Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "master",
+    "total_comments": 641,
+    "total_ai_comments": 34,
+    "total_accept_ai_comments": 3,
+    "total_ai_accept_rate": 8.82
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 18,
+    "total_ai_comments": 6,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/meta-upstream-common",
+    "branch": "sync/dev-23.12",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bcm-libscrutiny",
+    "branch": "master",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bcm-libscrutiny",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bcm-libshim",
+    "branch": "master",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bcm-libshim",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bios-enhance",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bios-enhance",
+    "branch": "stable-I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bios-enhance",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bios-enhance",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmc-config-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmc-config-manager",
+    "branch": "master",
+    "total_comments": 39,
+    "total_ai_comments": 15,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmc-config-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmc-config-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmc-dfx",
+    "branch": "dev/25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmc-lldp-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmc-lldp-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmcweb",
+    "branch": "customize/I-BHS-25Q1-V104-CMCC-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmcweb",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmcweb",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 315,
+    "total_ai_comments": 300,
+    "total_accept_ai_comments": 6,
+    "total_ai_accept_rate": 2.0
+  },
+  {
+    "project": "platform/snk-bmcweb",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 66,
+    "total_ai_comments": 31,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmcweb",
+    "branch": "dev/23Q3",
+    "total_comments": 284,
+    "total_ai_comments": 25,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmcweb",
+    "branch": "dev/25Q1",
+    "total_comments": 380,
+    "total_ai_comments": 56,
+    "total_accept_ai_comments": 1,
+    "total_ai_accept_rate": 1.79
+  },
+  {
+    "project": "platform/snk-bmcweb",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 8,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-bmcweb",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cdu-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cdu-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-component-replace-monitor",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-component-replace-monitor",
+    "branch": "master",
+    "total_comments": 3,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-component-replace-monitor",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-component-replace-monitor",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-manager",
+    "branch": "customize/H-C86-4G-25Q2-V204-Tencent-202505",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 44,
+    "total_ai_comments": 44,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-manager",
+    "branch": "master",
+    "total_comments": 27,
+    "total_ai_comments": 3,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-upgrade",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 42,
+    "total_ai_comments": 42,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-upgrade",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-upgrade",
+    "branch": "master",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-cpld-upgrade",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-debug-collector",
+    "branch": "dev/25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-direct-usb",
+    "branch": "master",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-direct-usb",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-disk-location-manager",
+    "branch": "master",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-disk-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-disk-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-disk-manager",
+    "branch": "master",
+    "total_comments": 17,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-disk-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-disk-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-docs",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-eeprom-manager",
+    "branch": "customize/H-C86-4G-25Q2-V204-Tencent-202505",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-eeprom-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 7,
+    "total_ai_comments": 7,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-eeprom-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-eeprom-manager",
+    "branch": "master",
+    "total_comments": 24,
+    "total_ai_comments": 22,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-eeprom-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-emmc-application",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-emmc-application",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fault-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fault-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fault-manager",
+    "branch": "dev/25Q1",
+    "total_comments": 26,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fault-manager",
+    "branch": "master",
+    "total_comments": 25,
+    "total_ai_comments": 8,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fault-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fault-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fsc-manager",
+    "branch": "customize/H-C86-4G-25Q2-V204-Tencent-202505",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fsc-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 9,
+    "total_ai_comments": 9,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fsc-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 21,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fsc-manager",
+    "branch": "dev/23Q3",
+    "total_comments": 9,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fsc-manager",
+    "branch": "dev/25Q1",
+    "total_comments": 4,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fsc-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fsc-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-fsc-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 16,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-gpuboard-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 2,
+    "total_ai_comments": 2,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-gpuboard-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-gpuboard-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-gpu-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-gpu-manager",
+    "branch": "master",
+    "total_comments": 12,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-gpu-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-gpu-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-history-record",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-history-record",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-history-record",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-history-record",
+    "branch": "master",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-history-record",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-history-record",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hmcc-bridged",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 12,
+    "total_ai_comments": 2,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hmcc-bridged",
+    "branch": "dev/25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hsbp-manager",
+    "branch": "customize/H-C86-4G-25Q2-V204-Tencent-202505",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hsbp-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 26,
+    "total_ai_comments": 26,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hsbp-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hsbp-manager",
+    "branch": "master",
+    "total_comments": 70,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hsbp-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hsbp-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hsm-manager",
+    "branch": "master",
+    "total_comments": 4,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hsm-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hygon-apml-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 18,
+    "total_ai_comments": 18,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hygon-apml-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 47,
+    "total_ai_comments": 39,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hygon-apml-manager",
+    "branch": "master",
+    "total_comments": 37,
+    "total_ai_comments": 37,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hygon-power-capping",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-hygon-power-capping",
+    "branch": "master",
+    "total_comments": 6,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-libmctp",
+    "branch": "dev/23Q3",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-libmctp",
+    "branch": "dev/25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-libpldm",
+    "branch": "main",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-mctpd",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-mctpd",
+    "branch": "dev/23Q3",
+    "total_comments": 23,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-mctpd",
+    "branch": "dev/25Q1",
+    "total_comments": 6,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-mctpd",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-mctpwplus",
+    "branch": "dev/25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-pldmd",
+    "branch": "dev/25Q1",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-pldmd",
+    "branch": "main",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-intel-pmci-launcher",
+    "branch": "dev/23Q3",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-ipmi-host",
+    "branch": "dev/25Q1",
+    "total_comments": 141,
+    "total_ai_comments": 98,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-ipmi-oem",
+    "branch": "customize/I-BHS-25Q1-V104-CMCC-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-ipmi-oem",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-ipmi-oem",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 195,
+    "total_ai_comments": 193,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-ipmi-oem",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 16,
+    "total_ai_comments": 6,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-ipmi-oem",
+    "branch": "master",
+    "total_comments": 460,
+    "total_ai_comments": 9,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-ipmi-oem",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 3,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-ipmi-oem",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-joint-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-jviewer",
+    "branch": "master",
+    "total_comments": 2,
+    "total_ai_comments": 1,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-jviewer",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-jviewer",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-kerberos-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libcommon",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libcommon",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libcommon",
+    "branch": "master",
+    "total_comments": 4,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libcommon",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libcommon",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libcxlmi",
+    "branch": "master",
+    "total_comments": 25,
+    "total_ai_comments": 4,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libi2c",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libi2c",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libi2c",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libi3c",
+    "branch": "master",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libmctpplus",
+    "branch": "master",
+    "total_comments": 4,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-liboemencrypt",
+    "branch": "master",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-liboemencrypt",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-liboemencrypt",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libpamradius",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libservicemanager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libsnmp",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libsnmp",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 8,
+    "total_ai_comments": 8,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libsnmp",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 1,
+    "total_ai_comments": 1,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libsnmp",
+    "branch": "master",
+    "total_comments": 153,
+    "total_ai_comments": 1,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libsnmp",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-libsnmp",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-mqtt-nodemanager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-mqtt-nodemanager",
+    "branch": "master",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-netfilter-manager",
+    "branch": "master",
+    "total_comments": 10,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-netfilter-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-network",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-network",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 9,
+    "total_ai_comments": 5,
+    "total_accept_ai_comments": 2,
+    "total_ai_accept_rate": 40.0
+  },
+  {
+    "project": "platform/snk-network",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 7,
+    "total_ai_comments": 6,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-network",
+    "branch": "dev/23Q3",
+    "total_comments": 51,
+    "total_ai_comments": 7,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-network",
+    "branch": "dev/25Q1",
+    "total_comments": 41,
+    "total_ai_comments": 6,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-network",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 5,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-network",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 2,
+    "total_ai_comments": 2,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-network-calibrate",
+    "branch": "dev/25Q1",
+    "total_comments": 8,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nic-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nic-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 8,
+    "total_ai_comments": 8,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nic-manager",
+    "branch": "dev/25Q1",
+    "total_comments": 7,
+    "total_ai_comments": 2,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nic-manager",
+    "branch": "master",
+    "total_comments": 40,
+    "total_ai_comments": 7,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nic-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nic-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nic-upgrade",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nvme-manager",
+    "branch": "ci/test",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nvme-manager",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nvme-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 4,
+    "total_ai_comments": 3,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nvme-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 2,
+    "total_ai_comments": 2,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nvme-manager",
+    "branch": "dev/25Q1",
+    "total_comments": 16,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nvme-manager",
+    "branch": "master",
+    "total_comments": 37,
+    "total_ai_comments": 20,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nvme-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-nvme-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-oauth-manager",
+    "branch": "dev/25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-obmc-ikvm",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-obmc-ikvm",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 12,
+    "total_ai_comments": 12,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-obmc-ikvm",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-obmc-ikvm",
+    "branch": "dev/23Q3",
+    "total_comments": 18,
+    "total_ai_comments": 10,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-obmc-ikvm",
+    "branch": "dev/25Q1",
+    "total_comments": 4,
+    "total_ai_comments": 4,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-obmc-ikvm",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-obmc-ikvm",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-osagent-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-pciesw-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-pciesw-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 5,
+    "total_ai_comments": 5,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-pciesw-manager",
+    "branch": "master",
+    "total_comments": 37,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-pciesw-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-pciesw-upgrade",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-pciesw-upgrade",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-manager",
+    "branch": "customize/H-C86-4G-25Q2-V204-Tencent-202505",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 11,
+    "total_ai_comments": 11,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 3,
+    "total_ai_comments": 3,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-manager",
+    "branch": "dev/25Q1",
+    "total_comments": 3,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-manager",
+    "branch": "master",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-upgrade",
+    "branch": "customize/H-C86-4G-25Q2-V204-Tencent-202505",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-upgrade",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 3,
+    "total_ai_comments": 3,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-psu-upgrade",
+    "branch": "master",
+    "total_comments": 5,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-radius-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-radius-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-retimer-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-riser-manager",
+    "branch": "customize/H-C86-4G-25Q2-V204-Tencent-202505",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-riser-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 4,
+    "total_ai_comments": 4,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-riser-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-riser-manager",
+    "branch": "master",
+    "total_comments": 34,
+    "total_ai_comments": 3,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-riser-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-riser-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-saml-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-saml-manager",
+    "branch": "dev/25Q1",
+    "total_comments": 23,
+    "total_ai_comments": 23,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-security-dashboard",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-security-dashboard",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-sensor-map",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-sensor-map",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-sensor-map",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 3,
+    "total_ai_comments": 3,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-sensor-map",
+    "branch": "master",
+    "total_comments": 42,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-sensor-map",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-sensor-map",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-service-config-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 6,
+    "total_ai_comments": 6,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-service-config-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-service-config-manager",
+    "branch": "master",
+    "total_comments": 39,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-service-config-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-smash-clp",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-smash-clp",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-smash-clp",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 6,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-smash-clp",
+    "branch": "master",
+    "total_comments": 51,
+    "total_ai_comments": 6,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-smash-clp",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-smash-clp",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-smtp-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-smtp-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-software-manager",
+    "branch": "dev/25Q1",
+    "total_comments": 10,
+    "total_ai_comments": 2,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-library",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-library",
+    "branch": "ps3lib_src-2.3.0.17",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-library",
+    "branch": "SAS35_ITStoreLib_Ph27-07.2700.0200.0000-DCSG01477216",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-library",
+    "branch": "SAS35_MRStoreLib_7_24-07.2402.0100.0000-DCSG01332037",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-library",
+    "branch": "SAS35_MRStoreLib_7_30-07.3003.0100.0000-DCSG01727375",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-library",
+    "branch": "SAS4_StoreLib_8_5-08.0508.0000-DCSG01449091",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-manager",
+    "branch": "master",
+    "total_comments": 106,
+    "total_ai_comments": 3,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 4,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-storage-upgrade",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-tfa-manager",
+    "branch": "master",
+    "total_comments": 6,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-tfa-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-tools",
+    "branch": "master",
+    "total_comments": 4,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-uid-manager",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-uid-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-user-manager",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 22,
+    "total_ai_comments": 22,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-user-manager",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 9,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-user-manager",
+    "branch": "dev/23Q3",
+    "total_comments": 54,
+    "total_ai_comments": 19,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-user-manager",
+    "branch": "dev/25Q1",
+    "total_comments": 16,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-user-manager",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 2,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-user-manager",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-virtual-media",
+    "branch": "master",
+    "total_comments": 1,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-vmedia-server",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-vmedia-server",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-vmedia-server",
+    "branch": "master",
+    "total_comments": 4,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-vmedia-server",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-vr-upgrade",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-vr-upgrade",
+    "branch": "master",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-vr-upgrade",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-webui-vue",
+    "branch": "customize/I-BHS-25Q1-V104-CMCC-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-webui-vue",
+    "branch": "customize/I-BHS-25Q1-V112-Baidu-202506",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-webui-vue",
+    "branch": "customize/I-BHS-25Q2-A01-V206-Ali-H-C86-4G-202511",
+    "total_comments": 65,
+    "total_ai_comments": 64,
+    "total_accept_ai_comments": 1,
+    "total_ai_accept_rate": 1.56
+  },
+  {
+    "project": "platform/snk-webui-vue",
+    "branch": "customize/I-BHS-25Q2-T02-V5216-Tencent-H-C86-4G-202510",
+    "total_comments": 17,
+    "total_ai_comments": 17,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-webui-vue",
+    "branch": "dev/23Q3",
+    "total_comments": 3,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-webui-vue",
+    "branch": "dev/25Q1",
+    "total_comments": 40,
+    "total_ai_comments": 26,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-webui-vue",
+    "branch": "stable/I-BHS-25Q1",
+    "total_comments": 7,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  },
+  {
+    "project": "platform/snk-webui-vue",
+    "branch": "stable/I-BHS-25Q2",
+    "total_comments": 0,
+    "total_ai_comments": 0,
+    "total_accept_ai_comments": 0,
+    "total_ai_accept_rate": 0.0
+  }
+]

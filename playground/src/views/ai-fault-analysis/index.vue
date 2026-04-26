@@ -18,22 +18,19 @@ const stats = ref({
   todayCount: 0,
 });
 
-// 加载统计数据
-const loadStats = async () => {
+// 加载统计数据（从 localStorage）
+const loadStats = () => {
   try {
-    // 加载 coredump 统计
-    const coredumpRes = await fetch(
-      '/assets/data-display/coredump_analysis_records.json',
-    );
-    const coredumpData = await coredumpRes.json();
+    const STORAGE_KEY = 'coredump_analysis_data';
+    const saved = localStorage.getItem(STORAGE_KEY);
 
-    // 加载 blackbox 统计
-    const blackboxRes = await fetch(
-      '/assets/data-display/blackbox_analysis_records.json',
-    );
-    const blackboxData = await blackboxRes.json();
+    if (!saved) {
+      return;
+    }
 
-    const allRecords = [...coredumpData, ...blackboxData];
+    const data = JSON.parse(saved);
+    // coredump 页面存储的是对象 { files, records, ... }，需要取 records 数组
+    const allRecords = data.records || [];
 
     stats.value = {
       totalAnalyses: allRecords.length,
@@ -93,7 +90,7 @@ const menuItems = [
     title: 'AI Coredump 分析',
     desc: '上传 coredump 文件，自动分析崩溃原因并生成报告',
     icon: '💥',
-    path: '/data-display/ai-fault-analysis/ai-coredump',
+    path: '/ai-fault-analysis/ai-coredump',
     color: '#f56c6c',
     bgGradient: 'linear-gradient(135deg, #f56c6c 0%, #e6a23c 100%)',
   },
@@ -102,7 +99,7 @@ const menuItems = [
     title: 'AI 黑盒日志分析',
     desc: '上传系统日志，自动分析错误模式和潜在问题',
     icon: '📋',
-    path: '/data-display/ai-fault-analysis/ai-blackbox',
+    path: '/ai-fault-analysis/ai-blackbox',
     color: '#409eff',
     bgGradient: 'linear-gradient(135deg, #409eff 0%, #67c23a 100%)',
   },
